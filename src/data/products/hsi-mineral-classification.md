@@ -65,39 +65,30 @@ metrics:
 stack: [XGBoost, ExtraTrees, scikit-learn, TensorFlow, Keras, FastAPI, Dash, NumPy, SciPy, HDF5, GeoTIFF]
 ---
 
-## Business Impact
+## The Laboratory Bottleneck
 
-This platform automated mineral identification that previously required manual laboratory analysis, compressing turnaround from **days to minutes** for routine characterization. Faster mineralogical feedback enables tighter process control in geometallurgical workflows. Compositional constraints (abundances sum to 100%) ensure results are physically meaningful and directly usable by geologists without manual correction.
+Traditional mineral characterization relies on laboratory analysis — XRD for crystal structure identification, XRF for elemental composition. These methods are accurate but slow: sample preparation, instrument time, and expert interpretation add up to **days of turnaround** per batch. In a mine where ore characteristics change daily, this means process decisions are always based on stale information.
 
-## Strategic Context
+This platform closes that gap. It takes hyperspectral imagery — hundreds of narrow spectral bands captured by VNIR/SWIR cameras — and produces mineral classification maps with abundance estimates in **minutes**, not days. Fast enough for the same shift that extracted the ore.
 
-Laboratory mineral analysis (XRD/XRF) takes days and requires sample preparation; this system provides estimates in minutes directly from spectral data. For geometallurgical applications, faster characterization means tighter feedback loops between ore properties and processing parameters — enabling operators to adapt process settings to changing ore in near real-time rather than reacting to stale lab results.
+## The Compositional Constraint
 
-## The Challenge
+The key technical challenge isn't just classification — it's the physical requirement that **predicted mineral abundances at each pixel must sum to 100%**. Geological samples are mixtures: a pixel might be 40% kaolinite, 30% chlorite, 20% muscovite, and 10% quartz. If your model predicts 45% + 35% + 25% + 15% = 120%, the result is geologically meaningless.
 
-Hyperspectral cameras capture hundreds of narrow spectral bands across the visible, near-infrared, and short-wave infrared ranges. Each pixel encodes a spectral signature that can reveal mineral composition. However, translating raw spectral data into reliable mineral maps requires careful calibration, robust models, and domain-aware constraints — particularly the requirement that **predicted mineral abundances at each pixel must sum to 100%**.
-
-## System Architecture
-
-### 1. Data Ingestion
-Accepts hyperspectral rasters from VNIR/SWIR cameras alongside laboratory reference measurements (XRD for mineral phases, XRF for elemental composition). Regions of interest (ROIs) link spectral patches with ground-truth mineral labels.
-
-### 2. Spectral Patch Database
-ROI-aligned spectral patches extracted and organized into training databases, with augmentation and normalization pipelines to handle varying illumination and sensor conditions.
-
-### 3. Multi-Model Training
-Several architectures trained in parallel — **XGBoost**, **ExtraTrees**, **Ridge regression**, **PLSR** (Partial Least Squares Regression), and **1D/2D CNNs**. An ensemble layer and meta-learning strategies combine predictions across models and datasets.
-
-### 4. Compositional Constraints
-Post-processing layer enforces that predicted mineral abundances satisfy closure and non-negativity:
+The system enforces this through a constrained optimization post-processing step:
 
 `min ‖a - a_pred‖² subject to Σaᵢ = 1 and aᵢ ≥ 0`
 
-Solved via quadratic programming or simplex projection. This is critical — geologists cannot use abundance estimates that don't sum to 100%.
+Solved via quadratic programming or simplex projection, this ensures every pixel's abundance estimate is physically valid without manual correction.
 
-### 5. Output Products
-Mineral classification maps, per-pixel abundance estimates with confidence intervals, and summary statistics for geological interpretation.
+## The Pipeline
 
-## Minerals Handled
+**Data ingestion** accepts hyperspectral rasters alongside laboratory reference measurements (XRD/XRF). Regions of interest link spectral patches with ground-truth mineral labels from verified samples.
 
-The system has been applied to clays (kaolinite, chlorite, smectite, muscovite), sulfates (alunite), iron oxides (limonite), and various phyllosilicates. Model configurations are adapted per mineral system.
+**Multi-model training** runs several architectures in parallel — XGBoost, ExtraTrees, Ridge regression, PLSR (Partial Least Squares Regression), and 1D/2D CNNs. Each model captures different aspects of the spectral-mineralogical relationship. An ensemble layer combines predictions through meta-learning.
+
+**Output products** include mineral classification maps, per-pixel abundance estimates with confidence intervals, and summary statistics. The system handles clays (kaolinite, chlorite, smectite, muscovite), sulfates (alunite), iron oxides (limonite), and phyllosilicates — adapted per mineral system.
+
+## Deployment Contexts
+
+The platform has been deployed in two contexts: **conveyor-mounted sensors** for in-line characterization (hours turnaround, continuous monitoring) and **drone-based hyperspectral flights** for spatial coverage across exploration sites (same-day results, orders of magnitude more spatial coverage than manual sampling campaigns). Both cases deliver the same fundamental value: mineralogical information fast enough to inform process decisions while the ore is still being processed.

@@ -66,44 +66,32 @@ metrics:
 stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4, Vitest, Playwright]
 ---
 
-## Business Context
+## Why This Exists
 
-Mineral tracking systems generate vast amounts of operational data — belt block compositions, stockpile voxel states, quality distributions, temporal evolution. The raw data exists, but operators and process engineers need structured, route-specific views to answer operational questions: *What is the current state of each stockpile? How has the feed quality evolved over the last shift? Where in the circuit are quality deviations occurring?*
+Mineral tracking simulation engines generate massive operational datasets — belt block compositions, stockpile voxel states, quality distributions over time. The data is there, but it's trapped in raw format. Operators need to answer questions in real time: *What's the current state of each stockpile? How has feed quality evolved over the last shift? Where are quality deviations occurring in the circuit?*
 
-Mine Pile Visualizer bridges this gap — a local-first web application that consumes cached simulation outputs and presents them through four dedicated operator workspaces, each designed to answer a specific class of operational question.
+Mine Pile Visualizer was built to bridge that gap. Rather than building a generic dashboard, the approach was to design four dedicated workspaces — each answering a specific class of operational question through purpose-built visualizations.
 
-## Four Operator Workspaces
+## Operator Workspaces
 
-### Circuit Workspace
-Structural reading of the modeled mining area. Interactive 2D/3D circuit topology diagram showing stages, nodes, edges, flow roles, and anchor inventory. Built with `@xyflow/react` and `dagre` for automatic graph layout. Answers: *What is the circuit structure and how are processing stages connected?*
+The **Circuit** workspace provides a structural map of the processing circuit. An interactive 2D/3D topology diagram — built with `@xyflow/react` and automatic `dagre` layout — shows stages, nodes, edges, flow roles, and anchor inventory. Operators can see how the circuit is connected and where each processing stage sits.
 
-### Live Workspace
-Dense current-state inspection. Belt block compositions displayed as color-coded strips; stockpile voxel states rendered in real-time 3D using React Three Fiber with `instancedMesh` for performance. Mass histograms, quality distributions, and per-voxel inspection. Answers: *What is happening right now?*
+The **Live** workspace is the real-time pulse of the operation. Belt block compositions appear as color-coded strips; stockpile voxel states render in 3D using React Three Fiber with `instancedMesh` for performance. Mass histograms, quality distributions, and per-voxel inspection give operators a dense, spatial picture of what is happening *right now*.
 
-### Profiler Workspace
-Historical summarized reading. Snapshot navigation through time, quality time-series charts, delta comparisons between snapshots. Shift-to-shift trend analysis helps identify gradual drift in stockpile composition. Answers: *How has this evolved over the shift/day/week?*
+The **Profiler** workspace handles the historical dimension. Snapshot navigation allows stepping through past states, quality time-series reveal shift-to-shift trends, and delta comparisons between snapshots help identify gradual drift in stockpile composition that operators might not notice day-to-day.
 
-### Simulator Workspace
-Pile-centered discharge reading. Visualizes the central pile structure, discharge routes, and grouped reclaim sequences. Answers: *Where does the material go when we extract?*
+The **Simulator** workspace focuses on discharge. It visualizes the central pile structure, active discharge routes, and grouped reclaim sequences — answering the question operators care about during extraction: *where does the material actually go?*
 
-## Data Contract — Apache Arrow IPC
+## Data Architecture
 
-The system consumes **Apache Arrow IPC** cached outputs from an upstream mineral tracking simulation engine. Two primary data structures:
+The system consumes **Apache Arrow IPC** cached outputs from an upstream mineral tracking engine. Two primary structures carry the data:
 
-- **Pile cells**: `(ix, iy, iz, massTon, timestamps, quality columns)` — voxelized stockpile state with spatial coordinates and multi-quality attributes
-- **Belt blocks**: `(position, massTon, timestampOldest, timestampNewest, qualities)` — conveyor material composition with temporal bounds
+**Pile cells** — `(ix, iy, iz, massTon, timestamps, quality columns)` — represent the voxelized stockpile state. Each cell has spatial coordinates, mass, temporal metadata, and multiple quality attributes.
 
-The dense binary format enables sub-second loading of voxel datasets with thousands of cells. This local-first architecture means the visualizer operates without external services — all data is pre-computed and cached locally.
+**Belt blocks** — `(position, massTon, timestampOldest, timestampNewest, qualities)` — carry conveyor material composition with temporal bounds showing when the material entered and when it was last updated.
 
-## Technical Architecture
+The dense binary Arrow format enables sub-second loading of voxel datasets with thousands of cells. The entire architecture is local-first — no external services, no database, no network dependencies. The visualizer reads pre-computed cache from the local filesystem.
 
-- **Framework**: Next.js 16 (App Router) with React 19 and TypeScript 5
-- **2D Circuit Diagrams**: `@xyflow/react` + `dagre` for automatic graph layout of circuit topology
-- **3D Voxel Rendering**: `@react-three/fiber` + Three.js + `drei` — hardware-accelerated WebGL with instanced mesh for stockpile voxels
-- **Data Format**: Apache Arrow IPC for dense block/cell datasets
-- **Validation**: Zod 4 for runtime contract enforcement
-- **Local-first**: No external services — reads app-ready cache from local filesystem
+## Technical Foundation
 
-## Recent Updates
-
-**v1.00.001 (April 2026)**: Folded the Stockpiles workspace into Live (Piles/VPiles). Resolved 3D voxel rendering issue — moved from fragile instance-color to explicit merged visible-geometry approach.
+The application runs on **Next.js 16** (App Router) with **React 19** and **TypeScript 5**. Circuit diagrams use `@xyflow/react` with `dagre` for automatic graph layout. 3D stockpile rendering uses `@react-three/fiber` with Three.js and `drei`, leveraging WebGL instanced mesh for efficient voxel visualization. **Zod 4** validates data contracts at runtime, catching schema mismatches before they reach the rendering layer.

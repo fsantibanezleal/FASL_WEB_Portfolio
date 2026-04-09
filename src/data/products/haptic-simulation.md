@@ -58,36 +58,18 @@ metrics:
 stack: [Python, FastAPI, Three.js, Octree, SAT, Kelvin-Voigt, OBJ Loader, WebGL]
 ---
 
-## The Challenge
+## The Speed Requirement
 
-Real-time haptic rendering requires collision detection at **>1 kHz update rates** — the human sense of touch perceives delays of just 1 millisecond. Brute-force triangle-triangle testing is O(N²), far too slow for meshes with thousands of triangles. The force feedback must feel natural and physically plausible, not just detect contact.
+The human sense of touch perceives delays of just 1 millisecond. Haptic rendering requires collision detection at **>1 kHz update rates**. For a mesh with thousands of triangles, brute-force O(N²) testing is orders of magnitude too slow. And the force feedback can't just detect contact — it must feel natural and physically plausible.
 
-## Collision Detection Pipeline
+## Two-Phase Collision
 
-### Broad Phase: Octree Spatial Partitioning
-The scene is recursively subdivided into octants, each containing a subset of triangles. For a probe query, only the traversed octant and its neighbors need pairwise testing — reducing complexity from **O(N²) to O(N log N)**. The octree is built once per mesh and supports fast updates for deformable objects.
+The **broad phase** uses octree spatial partitioning — the scene recursively divided into octants, each containing a subset of triangles. A probe query only tests against the traversed octant and its neighbors, reducing complexity to **O(N log N)**.
 
-### Narrow Phase: Separating Axis Theorem (SAT)
-For each candidate triangle pair, SAT tests for intersection along **11 potential separating axes**:
-- **2 triangle face normals** (one per triangle)
-- **9 cross products** of edge pairs (3 edges × 3 edges)
+The **narrow phase** uses the Separating Axis Theorem (SAT): for each candidate triangle pair, test intersection along 11 potential separating axes — 2 face normals plus 9 edge cross-products. If any axis separates the two triangles, they don't intersect. Only when all 11 fail is there a collision. Mathematically complete and exact.
 
-If any axis separates the two triangles, they don't intersect. Only when all 11 axes fail to separate do we have a collision — mathematically complete and exact.
+## Force Feedback
 
-## Force Model: Kelvin-Voigt Spring-Damper
+Contact forces follow the **Kelvin-Voigt** spring-damper model: `F = -k·(p_probe - p_contact) - b·v_probe`. The spring term resists penetration (stiffness); the damping term absorbs energy (stability). Together they produce forces that feel like touching a real surface — not a binary on/off contact, but a continuous resistance that increases with penetration depth.
 
-Contact forces follow the **Kelvin-Voigt** model:
-
-`F = -k · (p_probe - p_contact) - b · v_probe`
-
-Where:
-- **k** = spring stiffness (surface hardness) — how strongly the surface resists penetration
-- **b** = damping coefficient — energy dissipation that provides stability and prevents oscillation
-- **p_probe** and **p_contact** = probe position and nearest contact point on the surface
-- **v_probe** = probe velocity
-
-The spring term resists penetration; the damping term absorbs energy. Together they produce physically plausible haptic feedback that feels like touching a real surface.
-
-## Evolution
-
-Originally developed in **2008 at Universidad de Concepción** using C++/CLI with a physical **PHANToM Omni** haptic device providing 3-DOF force feedback. The modern version recreates the full simulation as a **Python/FastAPI** backend with **Three.js** WebGL rendering in the browser, supporting keyboard-driven probe interaction without requiring physical hardware.
+Originally built in 2008 at Universidad de Concepción using C++/CLI with a physical PHANToM Omni providing 3-DOF force feedback. The modern version recreates the full simulation as a Python/FastAPI + Three.js WebGL application, with keyboard-driven probe interaction that works without physical hardware.

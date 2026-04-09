@@ -59,38 +59,26 @@ metrics:
 stack: [Python, NumPy, SciPy, Information Theory, Geostatistics, Indicator Kriging, LaTeX]
 ---
 
-## The Problem
+## The Question
 
-Given a budget of N measurements, where should they be placed to maximize information gained about an unknown spatial field? This is the **Optimal Sensor Placement (OSP) problem** — fundamental to mineral exploration, environmental monitoring, and any domain where data collection is expensive.
+Given a budget of N measurements, where should you place them to learn as much as possible about an unknown spatial field? This is the Optimal Sensor Placement problem — fundamental to mineral exploration (where to drill next), environmental monitoring (where to install sensors), and any domain where data collection is expensive.
 
-## Theoretical Foundations
+The search space is C(H×W, K) — combinatorially explosive. For a modest 50×50 field with 20 measurements, that's over 10²⁶ possible configurations. Exhaustive search is impossible.
 
-### Information-Theoretic Framework
+## The Information-Theoretic Approach
 
-- **Shannon Entropy**: `H(X) = -Σ p(x) log p(x)` — measures total uncertainty about the unknown field
-- **Conditional Entropy**: `H(X^f | X_f)` — residual uncertainty after observing at locations f
-- **Mutual Information**: `I(X_f; X^f) = H(X^f) - H(X^f | X_f)` — the information gained by measuring at f
+The thesis frames the problem through **Shannon entropy** and **mutual information**:
 
-The goal: choose measurement locations f that maximize mutual information — or equivalently, minimize conditional entropy.
+- `H(X) = -Σ p(x) log p(x)` — total uncertainty about the unknown field
+- `H(X^f | X_f)` — residual uncertainty after observing at locations f
+- `I(X_f; X^f) = H(X^f) - H(X^f | X_f)` — information gained by measuring at f
 
-### The Computational Challenge
+The goal: choose locations that maximize mutual information. The breakthrough: entropy maximization in this setting satisfies **submodularity** — adding a measurement to a small set yields more information gain than adding it to a large set. This mathematical property guarantees that greedy sequential selection achieves at least **(1 - 1/e) ≈ 63.2%** of the global optimum. Not an empirical observation — a provable bound.
 
-For a field of size H×W with K measurement locations, the search space is C(H×W, K) — combinatorially explosive. Exhaustive search is NP-hard.
-
-### The AdSEMES Algorithm
-
-**Adaptive Sequential Empirical Maximum Entropy Sampling** exploits a key mathematical property: entropy maximization in this setting is **submodular** — adding a measurement to a small set yields more information gain than adding it to a large set. This guarantees that greedy sequential selection achieves at least **(1-1/e) ≈ 63.2%** of the global optimum. Not just empirically — this is a provable bound.
-
-## Applications
-
-- **Drill hole placement** for mineral resource estimation — where to drill next for maximum geological information
-- **Ore-waste boundary discrimination** — delineating contacts with minimal samples
-- **Geological facies recovery** — reconstructing subsurface geological images from sparse observations
+The **AdSEMES** (Adaptive Sequential Empirical Maximum Entropy Sampling) algorithm implements this with spatial penalty functions that prevent clustering and three reconstruction methods (nearest neighbor, indicator kriging, entropy-weighted inverse distance) for recovering the full field from sparse observations.
 
 ## Publications
 
 1. "Sampling Strategies for Uncertainty Reduction in Categorical Random Fields" — *Mathematical Geosciences*, 2019
-2. "Optimal Sampling Strategy for Spatial Estimation of Ore-Waste Contacts Using Maximum Entropy" — *Natural Resources Research*, 2020
+2. "Optimal Sampling Strategy for Spatial Estimation of Ore-Waste Contacts" — *Natural Resources Research*, 2020
 3. "Geological Facies Recovery Based on Weighted L1-Regularization" — *Mathematical Geosciences*, 2019
-
-**Thesis repository**: [Universidad de Chile](http://repositorio.uchile.cl/handle/2250/175050)

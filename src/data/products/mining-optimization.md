@@ -65,44 +65,32 @@ metrics:
 stack: [Kedro, Azure Databricks, PySpark, Delta Lake, XGBoost, scikit-learn, MLflow, Docker, Azure Pipelines, Power BI, Streamlit]
 ---
 
-## Business Impact
+## The Scale of Impact
 
-This platform delivered measurable operational gains at industrial scale: throughput uplift exceeding **+100 TPH in SAG milling** — translating to millions in additional annual revenue — alongside measurable copper recovery improvements across flotation circuits. Optimization recommendations run on a 4-hourly production cadence, embedded directly into the operational workflow across multiple mining divisions.
+In large-scale copper mining, the economics are unforgiving. A 1% improvement in copper recovery or a 100 TPH throughput gain in SAG milling translates to **tens of millions of dollars annually**. These aren't theoretical numbers — they're the operating reality that justified building this platform and deploying it across multiple mining divisions.
 
-## Strategic Context
+The platform delivered measurable results: throughput uplift exceeding **+100 TPH** in SAG milling and measurable copper recovery improvements across flotation circuits. Optimization recommendations run on a 4-hourly production cadence, embedded directly into the daily operational workflow.
 
-In large-scale copper mining, a **1% recovery improvement** or a **100 TPH throughput gain** translates to **tens of millions USD annually**. This platform moved operational decisions from experience-based to data-driven, embedding analytics into the daily operational cadence. The multi-division deployment required balancing standardized methodology with division-specific calibration — a technical and organizational challenge that defined the platform's architecture.
+## The Problem
 
-## The Challenge
+SAG mills, flotation banks, and thickeners each have dozens of controllable variables and hundreds of sensor readings. Ore characteristics change continuously — different pits, different benches, different geological zones feed material with varying hardness, mineralogy, and grade. What worked yesterday may not work today.
 
-Large-scale mining operations involve complex, interconnected processes where small improvements in throughput or recovery translate into significant economic impact. SAG mills, flotation banks, and thickeners each have dozens of controllable variables and hundreds of sensor readings, creating a high-dimensional optimization problem that evolves continuously with ore characteristics.
+Operators traditionally adjusted setpoints based on experience and shift-to-shift knowledge transfer. The result: inconsistent decisions, missed optimization opportunities, and no systematic way to capture or scale operational expertise across sites.
 
-## System Architecture
+## Architecture
 
-The platform follows a modular pipeline architecture built on **Kedro** for reproducibility and MLOps best practices:
+The platform is built on **Kedro** pipelines deployed on **Azure Databricks**, designed for reproducibility and MLOps rigor:
 
-### 1. Data Ingestion
-Streaming and batch pipelines pulling from **SCADA systems**, lab analyses, and operational databases via Azure Data Factory. Real-time sensor data from hundreds of instruments across the processing plant.
+**Data ingestion** pulls from SCADA systems, laboratory analyses, and operational databases through Azure Data Factory — both streaming and batch. Hundreds of sensor readings per processing plant feed the system continuously.
 
-### 2. Feature Engineering
-Domain-informed features capturing process dynamics:
-- **Rolling statistics** — mean, variance, percentiles over configurable time windows
-- **Lag variables** — capturing process inertia and response delays
-- **Ore property indicators** — derived from assay data reflecting feed composition
-- **Regime detection** — hidden Markov models and change-point algorithms identifying operational states
+**Feature engineering** transforms raw signals into domain-informed features: rolling statistics over configurable windows (mean, variance, percentiles), lag variables that capture process inertia, ore property indicators derived from assay data, and operational regime detection using hidden Markov models and change-point algorithms. This is where domain expertise becomes computational — each feature encodes something a process engineer knows matters.
 
-### 3. Model Training
-Ensemble of **XGBoost**, gradient-boosted trees, and neural networks trained on historical operational windows. **MLflow** tracks experiments, enabling reproducible model selection across divisions.
+**Model training** uses an ensemble approach — XGBoost, gradient-boosted trees, and neural networks trained on historical operational windows. **MLflow** tracks experiments across divisions, enabling reproducible model selection and comparison.
 
-### 4. Recommendation Engine
-Scenario simulation generating **actionable setpoint recommendations** with confidence intervals. Operators see not just what to change, but how confident the model is and what range of outcomes to expect.
+The **recommendation engine** doesn't just predict — it simulates scenarios. It generates actionable setpoint recommendations with confidence intervals, so operators see not just *what* to change, but *how confident* the model is and *what range of outcomes* to expect.
 
-### 5. Operational Dashboard
-Real-time monitoring of recommendation adherence, KPI tracking, and expert feedback loops. **Power BI** dashboards for management, **Streamlit** prototypes for engineering deep-dives.
+**Operational dashboards** close the feedback loop. Power BI for management visibility, Streamlit prototypes for engineering deep-dives, and adherence tracking to measure whether recommendations are being followed and whether they're delivering value.
 
-## Results
+## Multi-Division Deployment
 
-- Throughput uplift scenarios exceeding **+100 TPH** in SAG milling operations
-- Measurable improvements in **copper recovery** across flotation circuits
-- **Hourly tracking cycles** with 4-hourly optimization recommendations in production
-- Multi-division deployment with division-specific parameter tuning
+The hardest part wasn't the ML — it was the organizational challenge. Each mining division has different ore, different equipment, different operators, and different operational culture. The platform architecture had to balance **standardized methodology** (same pipeline framework, same model types, same recommendation logic) with **division-specific calibration** (local thresholds, site-specific features, equipment-specific constraints). This dual requirement shaped every architectural decision.

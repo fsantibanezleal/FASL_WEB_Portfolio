@@ -58,42 +58,18 @@ metrics:
 stack: [Python, FastAPI, scikit-image, NumPy, HTML5 Canvas, Rosin-Rammler, ISO 13322-1]
 ---
 
-## The Characterization Trio
+## Part of a Trio
 
-GrainSight is the third component of a mineral characterization trio developed at ALGES laboratory:
-1. **HSI Classification** — spectral mineral identification from hyperspectral imagery
-2. **Depth Profiler** — 3D surface reconstruction from RGB-D data
-3. **GrainSight** — particle size distribution from the reconstructed depth data
+GrainSight is the third component of a mineral characterization trio built at ALGES laboratory: HSI Classification identifies the minerals, the Depth Profiler reconstructs the surface in 3D, and GrainSight measures the particles. Together, they provide non-contact characterization from a single RGB-D capture — no sieves, no sample destruction, no laboratory wait time.
 
-Together, these three tools provide a complete non-contact characterization pipeline: identify the minerals, reconstruct the surface, and measure the grains.
+## The Segmentation Challenge
 
-## The Challenge
+Traditional particle size analysis means physical sieve testing — slow, destructive, and impossible to do continuously. Estimating grain sizes from camera data requires segmenting individual particles that are touching, overlapping, and partially occluded. Simple thresholding fails completely in these conditions.
 
-Traditional particle size analysis requires **physical sieve testing** — a slow, destructive process impractical for continuous monitoring. Estimating grain size distributions non-invasively from camera data requires robust segmentation of touching and overlapping particles, where simple thresholding fails completely.
+**Marker-based watershed segmentation** solves this: local minima in the depth field serve as grain center seeds, the algorithm floods outward from each seed, and the ridgelines where floods meet define grain boundaries. Post-processing merges over-segmented fragments.
 
-## Grain Segmentation
+## 18 Properties Per Grain
 
-**Marker-based watershed segmentation** identifies individual grains from the depth map:
-1. Local minima in the depth field serve as seed markers — each minimum represents a grain center
-2. The watershed algorithm floods from these seeds — basins grow outward
-3. Basin boundaries define grain edges — the "ridgelines" between flooding basins
-4. Post-processing merges over-segmented fragments and filters noise
+Each segmented grain is characterized comprehensively: equivalent diameter `d_eq = √(4A/π)`, aspect ratio `AR = d_major/d_minor`, circularity `C = 4πA/P²`, volume from depth integration `V = Σ(zᵢ - z_base)·Δx·Δy`, plus 14 additional shape, texture, and orientation descriptors including convexity, solidity, Feret diameters, and principal axis orientation.
 
-## Per-Grain Measurements — 18 Properties
-
-Each segmented grain is characterized with a comprehensive set of geometric descriptors:
-- `d_eq = √(4A/π)` — equivalent diameter (area-based)
-- `AR = d_major / d_minor` — aspect ratio (elongation)
-- `C = 4πA / P²` — circularity (how round)
-- `V = Σ(zᵢ - z_base) · Δx · Δy` — volume from depth integration
-- Plus 14 additional shape, texture, and orientation descriptors covering convexity, solidity, Feret diameters, and principal axis orientation
-
-## Rosin-Rammler PSD Fitting
-
-The grain size distribution is fitted to the **Rosin-Rammler model** — the standard in mineral processing:
-
-`R(d) = 100 × exp(-(d/d')ⁿ)`
-
-Where `d'` is the characteristic size (63.2% passing) and `n` is the uniformity coefficient describing the spread. **D-values** (D10, D25, D50, D75, D90) are extracted from the cumulative curve with **ISO 565 sieve simulation**.
-
-Compliant with **ISO 13322-1** for particle size analysis from images.
+The grain size distribution is fitted to the **Rosin-Rammler model** — the standard in mineral processing: `R(d) = 100 × exp(-(d/d')ⁿ)`. D-values (D10 through D90) are extracted from the cumulative curve with **ISO 565** sieve simulation. The entire analysis is compliant with **ISO 13322-1** for image-based particle size measurement.

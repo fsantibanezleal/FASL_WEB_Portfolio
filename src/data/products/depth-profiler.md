@@ -58,40 +58,14 @@ metrics:
 stack: [Python, FastAPI, Three.js, NumPy, SciPy, Bilateral Filtering, ISO 4287]
 ---
 
-## The Challenge
+## Non-Contact Surface Analysis
 
-Characterizing mineral sample surface topography traditionally requires expensive laboratory profilometry equipment. RGB-D depth cameras provide an affordable alternative, but raw depth data needs sophisticated processing: noise removal that preserves edges, accurate 3D reconstruction, and standardized roughness metrics that engineers can compare across samples.
+Characterizing mineral sample surfaces traditionally requires expensive contact profilometry — a physical stylus dragged across the sample. RGB-D depth cameras offer an affordable alternative, but raw depth data is noisy, distorted, and meaningless without processing. The value is in the pipeline that transforms those raw pixels into standardized engineering measurements.
 
-## Processing Pipeline
+## The Pipeline
 
-### 1. Input
-Synthetic RGB-D scene generation (5 configurable scene types for validation) or real depth camera data. Supports standard depth formats for practical laboratory use.
+**Bilateral filtering** is the critical first step. Unlike Gaussian blur, it removes depth noise while preserving edges — essential where sharp transitions between mineral grains must survive the preprocessing, not be smoothed away.
 
-### 2. Preprocessing
-**Bilateral filtering** — the critical first step. Unlike Gaussian blur, bilateral filtering removes depth noise **while preserving edges**. This is essential for surface analysis where sharp transitions between mineral grains must be maintained, not smoothed away.
+The **pinhole camera model** transforms depth pixels into 3D point clouds: each `(u, v, d)` maps to `(X, Y, Z)` using camera intrinsic parameters. Differential geometry computed on the reconstructed surface reveals features invisible in raw depth: surface normals `n = (-∂z/∂x, -∂z/∂y, 1) / ‖...‖`, Gaussian curvature `K = (f_xx·f_yy - f_xy²) / (1 + f_x² + f_y²)²`, and mean curvature. Convex grain peaks, concave boundaries, and flat regions become distinguishable.
 
-### 3. 3D Reconstruction
-**Pinhole camera model** transforms depth pixels into 3D point clouds. Each pixel `(u, v, d)` maps to world coordinates `(X, Y, Z)` using camera intrinsic parameters (focal length, principal point). The result is a dense 3D surface mesh.
-
-### 4. Surface Analysis
-Differential geometry computed from the reconstructed surface:
-- **Normal estimation**: `n = (-∂z/∂x, -∂z/∂y, 1) / ‖(-∂z/∂x, -∂z/∂y, 1)‖` — surface orientation at each point
-- **Gaussian curvature**: `K = (f_xx · f_yy - f_xy²) / (1 + f_x² + f_y²)²` — intrinsic surface bending
-- **Mean curvature**: average bending in principal directions
-
-These reveal surface features invisible in the raw depth map — convex grain peaks, concave grain boundaries, and flat regions.
-
-### 5. Profile Extraction
-Extract surface profiles along arbitrary user-defined paths for cross-sectional analysis — equivalent to running a physical stylus across the surface.
-
-### 6. ISO 4287 Roughness Metrics
-Standardized surface roughness parameters:
-- **Ra** — arithmetic mean roughness: `Ra = (1/N) Σ|zᵢ - z̄|`
-- **Rq** — root mean square roughness (more sensitive to peaks/valleys)
-- **Rz** — maximum peak-to-valley height within the evaluation length
-- **Rsk** — skewness (asymmetry of the height distribution)
-- **Rku** — kurtosis (peakedness of the height distribution)
-
-## Export Formats
-
-Full 3D reconstructions export to **PLY**, **PCD**, and **OBJ** formats for use in external analysis tools, CAD software, or further processing pipelines.
+**ISO 4287 roughness metrics** provide the engineering output: Ra (arithmetic mean roughness), Rq (RMS roughness), Rz (maximum peak-to-valley), Rsk (skewness), and Rku (kurtosis). Profile extraction along arbitrary paths produces the equivalent of a physical stylus measurement. Full 3D reconstructions export to PLY, PCD, and OBJ formats.

@@ -55,27 +55,16 @@ metrics:
 stack: [Python, NumPy, SciPy, Dash, Plotly, Lambertian BRDF, SVD]
 ---
 
-## The Idea
+## Seeing from Where You Illuminate
 
-Imagine reversing the roles of a projector and camera. The **transport matrix T** encodes how every projector pixel contributes to every camera pixel through scene geometry and materials. If we measure T by projecting structured patterns and recording what the camera sees, we can reconstruct the projector's view using **Helmholtz reciprocity**: the dual image is simply T transposed applied to a virtual illumination.
+Imagine reversing the roles of projector and camera. A projector sends structured light into a scene; a camera records what bounces back. The **transport matrix T** encodes every interaction — how each projector pixel contributes to each camera pixel through scene geometry, reflectance, and occlusion. If you can measure T, you can reconstruct what the scene looks like *from the projector's perspective* — using Helmholtz reciprocity, the dual image is simply Tᵀ applied to a virtual illumination.
 
-This is dual photography — seeing from where you illuminate.
+This is dual photography: computational reconstruction of a viewpoint you never physically occupied.
 
-## What Makes This Interesting
+## Why It's Interesting
 
-### Light Transport & SVD Analysis
-The decomposition **T = UΣVᵀ** reveals the scene's optical complexity. The singular value spectrum tells us how many independent optical "modes" the scene supports — a flat wall has a simple spectrum with rapid decay; a complex textured scene has many significant singular values. This connects imaging to linear algebra in a beautiful way.
+The SVD decomposition **T = UΣVᵀ** reveals the scene's optical complexity. A flat white wall produces a simple singular value spectrum with rapid decay — one dominant mode. A complex textured scene with occlusions has many significant singular values — rich optical structure. This connects imaging to linear algebra in a way that makes abstract mathematical concepts tangible.
 
-### Compressed Sensing
-With structured illumination patterns (Bernoulli or Hadamard matrices), we can recover the dual image with **far fewer measurements** than the full transport matrix requires. This connects dual photography to compressed sensing theory and enables practical acquisition even for large scenes.
+With structured illumination patterns (Bernoulli or Hadamard matrices), compressed sensing theory applies: the dual image can be recovered with **far fewer measurements** than the full transport matrix requires. And the condition number of T determines reconstruction quality — ill-conditioned matrices from complex scenes need regularization (Tikhonov or truncated SVD) to produce stable results.
 
-### Numerical Stability
-The condition number of the transport matrix determines reconstruction quality. Ill-conditioned matrices (complex scenes with occlusions) require regularization — the project explores Tikhonov regularization and truncated SVD to handle this.
-
-## Features
-
-- **6 scene types** with ray-cast simulation — flat, textured, concave, convex, multi-object, occluding
-- **10 illumination patterns** — point, line, grid, random, Hadamard, and more
-- **SVD decomposition** with interactive singular value exploration
-- **Optional webcam capture mode** for real-world dual photography experiments
-- **Virtual relighting** — apply arbitrary illumination patterns to captured transport matrices
+The application implements 6 ray-cast scene types (flat, textured, concave, convex, multi-object, occluding), 10 illumination patterns, interactive SVD exploration, and an optional webcam capture mode for real-world experiments.

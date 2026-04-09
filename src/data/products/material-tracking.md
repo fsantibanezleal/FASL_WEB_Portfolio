@@ -65,35 +65,18 @@ metrics:
 stack: [Kedro, PySpark, Delta Lake, Databricks, XGBoost, Docker]
 ---
 
-## Business Impact
+## The Information Gap
 
-This system created **real-time visibility into ore flow** that simply did not exist before — closing a critical information gap between mine extraction and plant processing. Blending compliance improved significantly, reducing out-of-spec feed to the processing plant and the associated recovery losses.
+Before this system, blending decisions relied on delayed lab results — hours to days old — and individual operator experience. The mine extracts ore from multiple sources with varying grades and mineralogy. This material flows through conveyors, accumulates in stockpiles, and eventually reaches the processing plant. Without real-time visibility into what's actually in each stockpile and on each belt, blending is educated guesswork.
 
-## Strategic Context
+The gap between extraction and processing meant optimization potential was systematically left on the table.
 
-Without material tracking, blending decisions relied on delayed lab results (hours to days old) and individual operator experience. The gap between extraction and processing meant optimization potential was left untapped — operators were making decisions about current stockpile composition based on yesterday's data.
+## Two Synchronized Layers
 
-## The Problem
+The **physical tracking layer** maintains a time-resolved model of each stockpile's composition. Conveyor sensors, weightometers, and sampling points feed continuous data. The system tracks not just what went into a stockpile, but how it's distributed internally — **segregation modeling** accounts for the fact that stockpiles aren't homogeneous. The material deposited first isn't necessarily what comes out first during reclaim.
 
-Mining operations extract ore from multiple sources with varying compositions — different pits, benches, and geological zones contribute material with different grades and mineralogy. This material flows through conveyors and accumulates in stockpiles before reaching the processing plant. Without real-time visibility into what's in each stockpile and on each belt, blending decisions are educated guesses.
+The **optimization layer** formulates blending as a constrained optimization problem: minimize deviation from target grade specifications, subject to tonnage constraints, equipment availability, and extraction sequence feasibility. The solver simulates multiple scenarios to find the best extraction plan before committing to it.
 
-## How It Works
+Stockpile state updates hourly. Optimization runs every 4 hours. Each mining division has its own parameter configuration but shares the core engine — a design that enabled multi-division deployment without rebuilding the system for each site.
 
-### Physical Layer Tracking
-Conveyor-mounted sensors, weightometers, and sampling points feed continuous data. The system maintains a **time-resolved model** of each stockpile's composition based on accumulation and extraction history. **Segregation modeling** tracks internal composition gradients — because stockpiles aren't homogeneous; the material that went in first isn't necessarily what comes out first.
-
-### Optimization Layer
-Given the current state of all stockpiles and target feed requirements, the system formulates blending as a **constrained optimization problem**: minimize deviation from target grade specifications subject to tonnage constraints, equipment availability, and extraction sequence feasibility. The solver simulates multiple blending scenarios to find the best extraction plan.
-
-## Key Capabilities
-
-- **Stockpile state estimation** from conveyor data, updated hourly
-- **Segregation modeling** — tracking internal composition gradients within each stockpile
-- **Scenario simulation** — evaluating extraction sequences against target requirements before committing
-- **Mineral traceability** — following material from pit face to plant feed
-- **Operational dashboards** for monitoring recommendation adherence
-- **Multi-division deployment** with configurable parameters per mining division sharing a core engine
-
-## Architecture
-
-The system runs on **Kedro pipelines** with **PySpark** for distributed processing and **Delta Lake** for versioned, time-travel-capable data storage on Databricks. Hourly tracking cycles run automatically; 4-hourly optimization jobs generate extraction recommendations. Each mining division has its own parameter configuration but shares the core optimization engine.
+The system runs on **Kedro** pipelines with **PySpark** and **Delta Lake** on Databricks, providing versioned, time-travel-capable data storage that supports both real-time tracking and historical analysis.

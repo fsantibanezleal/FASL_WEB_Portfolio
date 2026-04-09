@@ -43,9 +43,7 @@ const rollings = findAssets(allRollings, slugPatterns);
 const hasGallery = screenshots.length > 0 || rollings.length > 0;
 const hasLinks = d.github || d.video || d.demo || d.publication || d.website;
 
-const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico'];
-if (hasGallery) tabs.push('Galería');
-if (hasLinks) tabs.push('Enlaces');
+const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'];
 ---
 
 <FaslLayout metadata={{ title: d.titleEs, description: d.excerptEs }} locale={locale}>
@@ -172,98 +170,125 @@ if (hasLinks) tabs.push('Enlaces');
         </div>
 
         <!-- ═══════════ GALERÍA ═══════════ -->
-        {hasGallery && (
-          <div data-tab="Galería">
-            {screenshots.length > 0 && (
-              <div class="mb-10">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Aplicación</h2>
-                <div class="space-y-6">
-                  {screenshots.map(({ image }) => (
-                    <div class="rounded-xl border border-gray-200 bg-white p-2 dark:border-gray-700/50 dark:bg-gray-800/30 shadow-lg overflow-hidden">
-                      <Image src={image} alt={`${d.titleEs} — Captura`} class="w-full h-auto rounded-lg" loading="lazy" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+        <div data-tab="Galería">
+          {screenshots.length === 0 && rollings.length === 0 && diagrams.length === 0 && (
+            <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
+              <Icon name="tabler:photo-off" class="h-10 w-10 mx-auto mb-3 text-muted" />
+              <p class="text-muted">Los recursos visuales de este proyecto no están disponibles públicamente.</p>
+            </div>
+          )}
 
-            {rollings.length > 0 && (
-              <div class="mb-10">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Diagramas Técnicos</h2>
-                <div class="grid gap-6 md:grid-cols-2">
-                  {rollings.map(({ image, path }) => {
-                    const fileName = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
-                    return (
-                      <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
-                        <Image src={image} alt={fileName} class="w-full h-auto mb-2" loading="lazy" />
-                        <p class="text-xs text-center text-muted capitalize">{fileName}</p>
-                      </div>
-                    );
-                  })}
-                </div>
+          {screenshots.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Aplicación</h2>
+              <div class="space-y-6">
+                {screenshots.map(({ image }) => (
+                  <div class="rounded-xl border border-gray-200 bg-white p-2 dark:border-gray-700/50 dark:bg-gray-800/30 shadow-lg overflow-hidden">
+                    <Image src={image} alt={`${d.titleEs} — Captura`} class="w-full h-auto rounded-lg" loading="lazy" />
+                  </div>
+                ))}
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+
+          {diagrams.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Diagramas del Sistema</h2>
+              <div class="space-y-6">
+                {diagrams.map(({ image, path }) => {
+                  const fileName = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
+                  return (
+                    <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
+                      <Image src={image} alt={fileName} class="w-full h-auto mb-2" loading="lazy" />
+                      <p class="text-xs text-center text-muted capitalize">{fileName}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {rollings.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Diagramas Técnicos</h2>
+              <div class="grid gap-6 md:grid-cols-2">
+                {rollings.map(({ image, path }) => {
+                  const fileName = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
+                  return (
+                    <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
+                      <Image src={image} alt={fileName} class="w-full h-auto mb-2" loading="lazy" />
+                      <p class="text-xs text-center text-muted capitalize">{fileName}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
 
         <!-- ═══════════ ENLACES ═══════════ -->
-        {hasLinks && (
-          <div data-tab="Enlaces">
-            <div class="space-y-6">
-              {d.github && (
-                <a href={d.github} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-gray-700"><Icon name="tabler:brand-github" class="h-6 w-6" /></div>
-                  <div>
-                    <div class="font-semibold text-gray-900 dark:text-white">Código Fuente</div>
-                    <div class="text-sm text-muted">{d.github}</div>
-                  </div>
-                </a>
-              )}
-              {d.video && (
-                <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700/50 dark:bg-gray-800/50">
-                  <div class="flex items-center gap-3 mb-4">
-                    <Icon name="tabler:brand-youtube" class="h-6 w-6 text-red-600" />
-                    <span class="font-semibold text-gray-900 dark:text-white">Video Demo</span>
-                  </div>
-                  {d.video.includes('youtube.com') || d.video.includes('youtu.be') ? (
-                    <div class="aspect-video rounded-lg overflow-hidden">
-                      <iframe src={`https://www.youtube.com/embed/${d.video.includes('watch?v=') ? d.video.split('watch?v=')[1] : d.video.split('/').pop()}`} class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                  ) : (
-                    <a href={d.video} target="_blank" rel="noopener" class="text-primary hover:underline">{d.video}</a>
-                  )}
-                </div>
-              )}
-              {d.demo && (
-                <a href={d.demo} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:external-link" class="h-6 w-6" /></div>
-                  <div>
-                    <div class="font-semibold text-gray-900 dark:text-white">Demo</div>
-                    <div class="text-sm text-muted">{d.demo}</div>
-                  </div>
-                </a>
-              )}
-              {d.website && (
-                <a href={d.website} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:world" class="h-6 w-6" /></div>
-                  <div>
-                    <div class="font-semibold text-gray-900 dark:text-white">Sitio Web</div>
-                    <div class="text-sm text-muted">{d.website}</div>
-                  </div>
-                </a>
-              )}
-              {d.publication && (
-                <a href={d.publication} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600 text-white"><Icon name="tabler:file-text" class="h-6 w-6" /></div>
-                  <div>
-                    <div class="font-semibold text-gray-900 dark:text-white">Publicación</div>
-                    <div class="text-sm text-muted">{d.publication}</div>
-                  </div>
-                </a>
-              )}
+        <div data-tab="Enlaces">
+          {!d.github && !d.video && !d.demo && !d.website && !d.publication && (
+            <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
+              <Icon name="tabler:lock" class="h-10 w-10 mx-auto mb-3 text-muted" />
+              <p class="text-muted">Este es un proyecto propietario. El código fuente y recursos externos no están disponibles públicamente.</p>
             </div>
+          )}
+
+          <div class="space-y-6">
+            {d.github && (
+              <a href={d.github} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-gray-700"><Icon name="tabler:brand-github" class="h-6 w-6" /></div>
+                <div>
+                  <div class="font-semibold text-gray-900 dark:text-white">Código Fuente</div>
+                  <div class="text-sm text-muted">{d.github}</div>
+                </div>
+              </a>
+            )}
+            {d.video && (
+              <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex items-center gap-3 mb-4">
+                  <Icon name="tabler:brand-youtube" class="h-6 w-6 text-red-600" />
+                  <span class="font-semibold text-gray-900 dark:text-white">Video Demo</span>
+                </div>
+                {d.video.includes('youtube.com') || d.video.includes('youtu.be') ? (
+                  <div class="aspect-video rounded-lg overflow-hidden">
+                    <iframe src={`https://www.youtube.com/embed/${d.video.includes('watch?v=') ? d.video.split('watch?v=')[1] : d.video.split('/').pop()}`} class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                ) : (
+                  <a href={d.video} target="_blank" rel="noopener" class="text-primary hover:underline">{d.video}</a>
+                )}
+              </div>
+            )}
+            {d.demo && (
+              <a href={d.demo} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:external-link" class="h-6 w-6" /></div>
+                <div>
+                  <div class="font-semibold text-gray-900 dark:text-white">Demo</div>
+                  <div class="text-sm text-muted">{d.demo}</div>
+                </div>
+              </a>
+            )}
+            {d.website && (
+              <a href={d.website} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:world" class="h-6 w-6" /></div>
+                <div>
+                  <div class="font-semibold text-gray-900 dark:text-white">Sitio Web</div>
+                  <div class="text-sm text-muted">{d.website}</div>
+                </div>
+              </a>
+            )}
+            {d.publication && (
+              <a href={d.publication} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600 text-white"><Icon name="tabler:file-text" class="h-6 w-6" /></div>
+                <div>
+                  <div class="font-semibold text-gray-900 dark:text-white">Publicación</div>
+                  <div class="text-sm text-muted">{d.publication}</div>
+                </div>
+              </a>
+            )}
           </div>
-        )}
+        </div>
 
       </TabPanel>
 
