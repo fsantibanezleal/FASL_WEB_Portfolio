@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif; }
+      .tagline { font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif; }
+      .monogram { font-family: 'Segoe UI Light', 'Helvetica Neue Thin', 'Inter', sans-serif; }
+    </style>
+    <linearGradient id="accent-d3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4FC3F7"/>
+      <stop offset="50%" stop-color="#29B6F6"/>
+      <stop offset="100%" stop-color="#0288D1"/>
+    </linearGradient>
+    <linearGradient id="fill-d3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4FC3F7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0288D1" stop-opacity="0.03"/>
+    </linearGradient>
+    <!-- Diagonal subtle gradient for monogram letters -->
+    <linearGradient id="letter-d3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8EAED" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8B949E" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="480" height="360" fill="#0D1117"/>
+
+  <!-- Background circuit traces -->
+  <line x1="0" y1="88" x2="158" y2="88" stroke="#1a2332" stroke-width="1"/>
+  <line x1="322" y1="88" x2="480" y2="88" stroke="#1a2332" stroke-width="1"/>
+  <line x1="0" y1="148" x2="138" y2="148" stroke="#1a2332" stroke-width="1"/>
+  <line x1="342" y1="148" x2="480" y2="148" stroke="#1a2332" stroke-width="1"/>
+
+  <!-- Circuit nodes -->
+  <circle cx="60" cy="88" r="2" fill="#1e3a5f"/>
+  <circle cx="420" cy="88" r="2" fill="#1e3a5f"/>
+  <circle cx="40" cy="148" r="2" fill="#1e3a5f"/>
+  <circle cx="440" cy="148" r="2" fill="#1e3a5f"/>
+
+  <!-- === HEXAGON ICON === -->
+
+  <!-- Outer hexagon -->
+  <polygon points="240,38 290,67 290,125 240,154 190,125 190,67"
+           fill="none" stroke="url(#accent-d3)" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Inner hexagon with subtle fill -->
+  <polygon points="240,52 278,74 278,118 240,140 202,118 202,74"
+           fill="url(#fill-d3)" stroke="#29B6F6" stroke-width="0.5" stroke-linejoin="round" opacity="0.5"/>
+
+  <!-- Circuit traces from vertices -->
+  <line x1="240" y1="38" x2="240" y2="18" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="240" cy="16" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <line x1="290" y1="67" x2="308" y2="56" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="310" cy="55" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <line x1="290" y1="125" x2="308" y2="136" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="310" cy="137" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <line x1="240" y1="154" x2="240" y2="170" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="240" cy="172" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <line x1="190" y1="67" x2="172" y2="56" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="170" cy="55" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <line x1="190" y1="125" x2="172" y2="136" stroke="#29B6F6" stroke-width="1" opacity="0.45"/>
+  <circle cx="170" cy="137" r="2.2" fill="#29B6F6" opacity="0.55"/>
+
+  <!-- === ABSTRACT MONOGRAM: F upper-left, dot, W lower-right (diagonal flow) === -->
+
+  <!-- F — small, light, upper-left zone -->
+  <text x="222" y="86" class="monogram" fill="url(#letter-d3)" font-size="22" font-weight="300" text-anchor="middle" opacity="0.7">F</text>
+
+  <!-- Separator dot — center, accent -->
+  <circle cx="240" cy="96" r="1.8" fill="#29B6F6" opacity="0.6"/>
+
+  <!-- W — small, light, lower-right zone -->
+  <text x="258" y="118" class="monogram" fill="url(#letter-d3)" font-size="22" font-weight="300" text-anchor="middle" opacity="0.7">W</text>
+
+  <!-- Subtle diagonal connector line between F and W -->
+  <line x1="228" y1="89" x2="252" y2="107" stroke="#29B6F6" stroke-width="0.4" opacity="0.25"/>
+
+  <!-- === TYPOGRAPHY === -->
+
+  <!-- Brand name — slightly smaller, lighter weight for elegance -->
+  <text x="240" y="216" class="title" fill="#E8EAED" font-size="30" font-weight="600" letter-spacing="5" text-anchor="middle">FASL<tspan fill="#29B6F6">.</tspan>WORK</text>
+
+  <!-- Thin accent line -->
+  <line x1="152" y1="232" x2="328" y2="232" stroke="#29B6F6" stroke-width="0.6" opacity="0.35"/>
+
+  <!-- Tagline -->
+  <text x="240" y="256" class="tagline" fill="#8B949E" font-size="9.5" font-weight="400" letter-spacing="3.5" text-anchor="middle">ENGINEERING &amp; APPLIED TECHNOLOGY</text>
+
+  <!-- Secondary descriptor -->
+  <text x="240" y="274" class="tagline" fill="#484F58" font-size="7.8" font-weight="400" letter-spacing="2.8" text-anchor="middle">RESEARCH  ·  HARDWARE  ·  DIGITAL SOLUTIONS</text>
+</svg>
