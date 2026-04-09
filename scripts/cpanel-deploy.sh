@@ -3,19 +3,14 @@
 #  cPanel Git Deployment — FASL.work portfolio
 #
 #  Called by .cpanel.yml after cPanel pulls the repo.
-#  Copies the pre-built static site (cpanel-dist/) into the
-#  domain-specific subdirectory under public_html.
+#  Copies the pre-built static site into public_html (primary domain).
 #
-#  CRITICAL: This script ONLY touches files inside DEPLOYPATH.
-#  It will NEVER write to public_html root or other site folders.
+#  CRITICAL: public_html also contains addon domain subdirectories
+#  (e.g. micromundo.team/). This script uses a MANIFEST of known
+#  site files to clean only our files, never touching other folders.
 # ------------------------------------------------------------------
 
 set -Eeuo pipefail
-
-# ── Configuration ────────────────────────────────────────────────
-# The subdirectory under public_html where fasl-work.com lives.
-# Change this if cPanel maps the domain to a different folder.
-SITE_DIR="fasl-work.com"
 
 # ── Paths ────────────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -23,7 +18,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
 BUILD_DIR="$REPO_ROOT/dist"
 
-DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html/${SITE_DIR}}"
+DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
 DEPLOYPATH="${DEPLOYPATH%/}"
 
 # ── Logging ──────────────────────────────────────────────────────
@@ -37,32 +32,13 @@ log() {
   printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$msg" >> "$LOG_FILE"
 }
 
-# ── Safety checks ────────────────────────────────────────────────
+# ── Safety ───────────────────────────────────────────────────────
 require_safe_target() {
-  # Must be a subdirectory of public_html — NEVER public_html itself
   case "$DEPLOYPATH" in
-    "$HOME"/public_html/*)
-      ;;
-    "$HOME"/public_html)
-      log "ABORT: DEPLOYPATH is public_html root — this would destroy other sites!"
-      log "       Set SITE_DIR in the script or override DEPLOYPATH."
-      exit 1
+    "$HOME"/public_html|"$HOME"/public_html/*)
       ;;
     *)
       log "ABORT: DEPLOYPATH is outside public_html: $DEPLOYPATH"
-      exit 1
-      ;;
-  esac
-
-  # Extra guard: the target directory name must contain "fasl"
-  local dirname
-  dirname="$(basename "$DEPLOYPATH")"
-  case "$dirname" in
-    *fasl*|*FASL*)
-      ;;
-    *)
-      log "ABORT: target directory '$dirname' doesn't look like a FASL site."
-      log "       This is a safety check to prevent deploying to the wrong folder."
       exit 1
       ;;
   esac
@@ -87,61 +63,36 @@ choose_source() {
   exit 1
 }
 
-# ── Deploy site files ────────────────────────────────────────────
+# ── Deploy ───────────────────────────────────────────────────────
+#  Strategy: use a MANIFEST to track which files/dirs belong to our
+#  site. On redeploy, remove only manifested items, then copy fresh.
+#  This NEVER touches addon domain folders or hosting files.
+MANIFEST_FILE="$DEPLOYPATH/.fasl-deploy-manifest"
+
 do_deploy() {
-  # Since this is a dedicated subdirectory for fasl-work.com ONLY,
-  # we can safely clean everything inside it and replace with fresh files.
-  # We still preserve .htaccess in case cPanel or SSL config put one there.
-
-  if [ -d "$DEPLOYPATH" ]; then
-    find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 \
-      ! -name '.htaccess' \
-      -exec rm -rf {} +
+  # Step 1: Remove previously deployed files (if manifest exists)
+  if [ -f "$MANIFEST_FILE" ]; then
+    log "Cleaning previous deploy using manifest..."
+    local count=0
+    # Remove files/dirs listed in manifest (reverse order for dirs)
+    while IFS= read -r item; do
+      if [ -e "$DEPLOYPATH/$item" ]; then
+        rm -rf "$DEPLOYPATH/$item"
+        count=$((count + 1))
+      fi
+    done < "$MANIFEST_FILE"
+    rm -f "$MANIFEST_FILE"
+    log "Removed $count items from previous deploy."
   fi
 
+  # Step 2: Copy new site files
   cp -R "$SOURCE_DIR"/. "$DEPLOYPATH"/
-}
 
-# ── Install .htaccess rewrite in public_html root ────────────────
-#  This makes the domain serve content from the subdirectory
-#  without showing it in the URL. Only touches the fasl-work.com
-#  block — leaves all other rules untouched.
-HTACCESS_CONF="$REPO_ROOT/scripts/htaccess-root.conf"
-PUBLIC_HTML="$HOME/public_html"
-ROOT_HTACCESS="$PUBLIC_HTML/.htaccess"
-MARKER_BEGIN="# --- BEGIN fasl-work.com rewrite ---"
-MARKER_END="# --- END fasl-work.com rewrite ---"
-
-install_htaccess_rules() {
-  if [ ! -f "$HTACCESS_CONF" ]; then
-    log "WARNING: htaccess-root.conf not found, skipping .htaccess install."
-    return
-  fi
-
-  # If .htaccess doesn't exist, create it with our rules
-  if [ ! -f "$ROOT_HTACCESS" ]; then
-    cp "$HTACCESS_CONF" "$ROOT_HTACCESS"
-    log "Created $ROOT_HTACCESS with fasl-work.com rewrite rules."
-    return
-  fi
-
-  # If our markers already exist, remove the old block first
-  if grep -q "$MARKER_BEGIN" "$ROOT_HTACCESS" 2>/dev/null; then
-    sed -i "/$MARKER_BEGIN/,/$MARKER_END/d" "$ROOT_HTACCESS"
-    log "Removed old fasl-work.com rewrite block."
-  fi
-
-  # PREPEND our rules at the TOP of .htaccess
-  # This is critical: our rules MUST execute before WordPress catch-all rules.
-  # WordPress RewriteRule . /index.php [L] matches everything — if it runs
-  # first, fasl-work.com requests get swallowed by WordPress.
-  local tmp_htaccess
-  tmp_htaccess=$(mktemp)
-  cat "$HTACCESS_CONF" > "$tmp_htaccess"
-  printf '\n' >> "$tmp_htaccess"
-  cat "$ROOT_HTACCESS" >> "$tmp_htaccess"
-  mv "$tmp_htaccess" "$ROOT_HTACCESS"
-  log "Prepended fasl-work.com rewrite rules at TOP of $ROOT_HTACCESS."
+  # Step 3: Generate manifest of what we just deployed
+  # List all top-level items that came from our source
+  ( cd "$SOURCE_DIR" && find . -maxdepth 1 -mindepth 1 -printf '%f\n' ) \
+    | sort > "$MANIFEST_FILE"
+  log "Wrote manifest with $(wc -l < "$MANIFEST_FILE") entries."
 }
 
 # ── Main ─────────────────────────────────────────────────────────
@@ -149,7 +100,6 @@ log "=========================================="
 log "Deploy starting"
 log "  REPO_ROOT:  $REPO_ROOT"
 log "  DEPLOYPATH: $DEPLOYPATH"
-log "  SITE_DIR:   $SITE_DIR"
 log "  HOME:       $HOME"
 
 require_safe_target
@@ -159,7 +109,6 @@ log "  SOURCE_DIR: $SOURCE_DIR"
 
 mkdir -p "$DEPLOYPATH"
 do_deploy
-install_htaccess_rules
 
-log "Deploy finished — $(find "$DEPLOYPATH" -type f | wc -l) files in $DEPLOYPATH"
+log "Deploy finished — $(find "$DEPLOYPATH" -maxdepth 1 -type f | wc -l) files at root of $DEPLOYPATH"
 log "=========================================="

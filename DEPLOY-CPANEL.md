@@ -1,50 +1,48 @@
 # cPanel Git Deployment
 
-Este repositorio está configurado para `Git Version Control` de cPanel.
+## Hosting setup
 
-## Cómo funciona
+- **Primary domain**: fasl-work.com → `$HOME/public_html/` (direct, no rewrite needed)
+- **Addon domain**: micromundo.team → `$HOME/public_html/micromundo.team/`
+- **Server IP**: 92.204.212.218
+- **DNS**: nameservers in GoDaddy pointing to 123-reg (propagation up to 48h)
 
-1. cPanel hace pull del repo desde GitHub.
-2. `.cpanel.yml` ejecuta `scripts/cpanel-deploy.sh`.
-3. El script copia `cpanel-dist/` a `$HOME/public_html/fasl-work.com/`.
-4. Si `cpanel-dist/` no existe y el servidor tiene Node.js, compila con `npm ci && npm run build`.
+## How the deploy works
 
-## Archivos relevantes
+1. cPanel pulls the repo from GitHub.
+2. `.cpanel.yml` executes `scripts/cpanel-deploy.sh`.
+3. The script copies `cpanel-dist/` into `$HOME/public_html/`.
+4. A **manifest** (`.fasl-deploy-manifest`) tracks which files belong to our site.
+5. On redeploy, only manifested files are removed — addon domain folders are never touched.
 
-| Archivo | Propósito |
-|---------|-----------|
-| `.cpanel.yml` | Entry point de cPanel — ejecuta el script de deploy |
-| `scripts/cpanel-deploy.sh` | Copia el sitio a `public_html/fasl-work.com/` e instala rewrite rules |
-| `scripts/htaccess-root.conf` | Reglas de rewrite para servir desde el subdirectorio |
-| `scripts/prepare-cpanel-static.mjs` | Genera `cpanel-dist/` desde `dist/` (se ejecuta en local) |
-| `cpanel-dist/` | Artifact pre-built listo para deploy |
+## Files
 
-## Flujo de trabajo
+| File | Purpose |
+|------|---------|
+| `.cpanel.yml` | cPanel entry point |
+| `scripts/cpanel-deploy.sh` | Manifest-based deploy to public_html |
+| `scripts/prepare-cpanel-static.mjs` | Generates `cpanel-dist/` from `dist/` (local) |
+| `cpanel-dist/` | Pre-built static artifact |
+
+## Workflow
 
 ```bash
-# 1. Build local
+# 1. Build
 npm run build:cpanel
 
-# 2. Revisar cambios
-git status
-
-# 3. Commit y push
-git add cpanel-dist/ .cpanel.yml scripts/
+# 2. Commit and push
+git add cpanel-dist/
 git commit -m "Deploy: update site"
-git push origin main
+git push origin develop
 
-# 4. En cPanel
-#    Git Version Control → Update from Remote → Deploy HEAD Commit
+# 3. Create PR (develop → main), review, merge
+
+# 4. In cPanel: Git Version Control → Update from Remote → Deploy HEAD Commit
 ```
 
-## Seguridad
+## Safety
 
-- El deploy path es `$HOME/public_html/fasl-work.com` (subdirectorio dedicado).
-- **NUNCA** escribe en `public_html/` directamente — protege los otros sitios del hosting.
-- El script tiene doble validación: debe ser subdirectorio de `public_html` Y contener "fasl" en el nombre.
-- Si cPanel mapea el dominio a otra carpeta, editar `SITE_DIR` en `scripts/cpanel-deploy.sh`.
-- Preserva `.htaccess` dentro del subdirectorio destino.
-- Instala automáticamente reglas de rewrite en `public_html/.htaccess` (usando markers, sin tocar reglas de otros sitios).
-- El rewrite solo aplica a requests que llegan vía `fasl-work.com` (condición `%{HTTP_HOST}`).
-- Los logs de deploy se guardan en `$HOME/deploy-logs/fasl-portfolio.log`.
-- cPanel requiere que no haya cambios sin commit en el repo para poder deployar.
+- Uses **manifest-based cleanup**: only removes files that were deployed by us.
+- **Never deletes** addon domain folders (micromundo.team/, etc.) or hosting files.
+- Manifest stored as `.fasl-deploy-manifest` in public_html.
+- Logs in `$HOME/deploy-logs/fasl-portfolio.log`.
