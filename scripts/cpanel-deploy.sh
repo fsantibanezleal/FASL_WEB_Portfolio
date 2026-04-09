@@ -14,7 +14,7 @@ log() {
 
 require_safe_target() {
   case "$DEPLOYPATH" in
-    /home/*/public_html/*) ;;
+    /home/*/public_html|/home/*/public_html/*) ;;
     *)
       log "Refusing to deploy outside public_html: $DEPLOYPATH"
       exit 1
