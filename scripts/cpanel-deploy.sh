@@ -14,9 +14,9 @@ log() {
 
 require_safe_target() {
   case "$DEPLOYPATH" in
-    /home/faslwork/*) ;;
+    /home/*/public_html/*) ;;
     *)
-      log "Refusing to deploy outside /home/faslwork: $DEPLOYPATH"
+      log "Refusing to deploy outside public_html: $DEPLOYPATH"
       exit 1
       ;;
   esac
@@ -74,7 +74,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
 BUILD_DIR="$REPO_ROOT/dist"
-DEPLOYPATH="${DEPLOYPATH:-/home/faslwork/public_html}"
+DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html/fasl.work}"
 DEPLOYPATH="${DEPLOYPATH%/}"
 
 require_safe_target
