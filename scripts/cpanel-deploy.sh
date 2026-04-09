@@ -2,8 +2,14 @@
 
 set -Eeuo pipefail
 
+LOG_ROOT="${HOME:-/home/faslwork}/deploy-logs"
+mkdir -p "$LOG_ROOT"
+LOG_FILE="$LOG_ROOT/fasl-portfolio.log"
+
 log() {
-  printf '[cpanel-deploy] %s\n' "$1"
+  local message="[cpanel-deploy] $1"
+  printf '%s\n' "$message"
+  printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$message" >>"$LOG_FILE"
 }
 
 require_safe_target() {
@@ -72,6 +78,7 @@ DEPLOYPATH="${DEPLOYPATH:-/home/faslwork/public_html}"
 DEPLOYPATH="${DEPLOYPATH%/}"
 
 require_safe_target
+log "Starting deployment from $REPO_ROOT"
 prepare_source_dir
 
 mkdir -p "$DEPLOYPATH"
