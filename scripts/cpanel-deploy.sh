@@ -1,94 +1,102 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------
+#  cPanel Git Deployment — FASL.work portfolio
+#
+#  Called by .cpanel.yml after cPanel pulls the repo.
+#  Copies the pre-built static site (cpanel-dist/) into public_html.
+# ------------------------------------------------------------------
 
 set -Eeuo pipefail
 
-LOG_ROOT="${HOME:-/home/faslwork}/deploy-logs"
-mkdir -p "$LOG_ROOT"
-LOG_FILE="$LOG_ROOT/fasl-portfolio.log"
+# ── Paths ────────────────────────────────────────────────────────
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
+BUILD_DIR="$REPO_ROOT/dist"
+
+# DEPLOYPATH: default to $HOME/public_html (cPanel standard).
+# Override via environment if needed.
+DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
+DEPLOYPATH="${DEPLOYPATH%/}"   # strip trailing slash
+
+# ── Logging ──────────────────────────────────────────────────────
+LOG_DIR="$HOME/deploy-logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/fasl-portfolio.log"
 
 log() {
-  local message="[cpanel-deploy] $1"
-  printf '%s\n' "$message"
-  printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$message" >>"$LOG_FILE"
+  local msg="[cpanel-deploy] $1"
+  printf '%s\n' "$msg"
+  printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$msg" >> "$LOG_FILE"
 }
 
+# ── Safety ───────────────────────────────────────────────────────
 require_safe_target() {
   case "$DEPLOYPATH" in
-    /home/*/public_html|/home/*/public_html/*) ;;
+    "$HOME"/public_html|"$HOME"/public_html/*)
+      ;;
     *)
-      log "Refusing to deploy outside public_html: $DEPLOYPATH"
+      log "ABORT: refusing to deploy outside \$HOME/public_html: $DEPLOYPATH"
       exit 1
       ;;
   esac
 }
 
-has_prebuilt_artifact() {
-  [ -d "$PREBUILT_DIR" ] && find "$PREBUILT_DIR" -mindepth 1 -print -quit | grep -q .
-}
-
-has_node_toolchain() {
-  command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1
-}
-
-prepare_source_dir() {
-  if has_prebuilt_artifact; then
+# ── Source selection ─────────────────────────────────────────────
+choose_source() {
+  # Option A: pre-built artifact committed to repo
+  if [ -d "$PREBUILT_DIR" ] && [ -n "$(ls -A "$PREBUILT_DIR" 2>/dev/null)" ]; then
     SOURCE_DIR="$PREBUILT_DIR"
-    log "Using committed cpanel-dist/ artifact."
+    log "Source: cpanel-dist/ (pre-built artifact)."
     return
   fi
 
-  if has_node_toolchain; then
-    log "cpanel-dist/ not found. Building on the server with npm."
-    (
-      cd "$REPO_ROOT"
-      npm ci
-      npm run build
-    )
+  # Option B: build on server if Node.js available
+  if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
+    log "cpanel-dist/ not found — building with npm on server."
+    ( cd "$REPO_ROOT" && npm ci && npm run build )
     SOURCE_DIR="$BUILD_DIR"
     return
   fi
 
-  log "No cpanel-dist/ artifact found and Node.js is unavailable."
+  log "ABORT: no cpanel-dist/ and no Node.js available."
   exit 1
 }
 
-deploy_with_rsync() {
-  rsync -a --delete \
-    --exclude='.htaccess' \
-    --exclude='.well-known/' \
-    --exclude='cgi-bin/' \
-    "$SOURCE_DIR"/ "$DEPLOYPATH"/
-}
+# ── Deploy ───────────────────────────────────────────────────────
+#  Strategy: delete only OUR files, then copy fresh.
+#  Preserve hosting-managed items that may exist in public_html.
+PRESERVE=(.htaccess .well-known cgi-bin error_log .trash .fantasticodata)
 
-deploy_without_rsync() {
+do_deploy() {
+  # Remove previous site files, but keep preserved items
+  local exclude_args=()
+  for item in "${PRESERVE[@]}"; do
+    exclude_args+=( ! -name "$item" )
+  done
+
   find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 \
-    ! -name '.htaccess' \
-    ! -name '.well-known' \
-    ! -name 'cgi-bin' \
+    "${exclude_args[@]}" \
     -exec rm -rf {} +
 
+  # Copy new site
   cp -R "$SOURCE_DIR"/. "$DEPLOYPATH"/
 }
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
-BUILD_DIR="$REPO_ROOT/dist"
-DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
-DEPLOYPATH="${DEPLOYPATH%/}"
+# ── Main ─────────────────────────────────────────────────────────
+log "=========================================="
+log "Deploy starting"
+log "  REPO_ROOT:  $REPO_ROOT"
+log "  DEPLOYPATH: $DEPLOYPATH"
+log "  HOME:       $HOME"
 
 require_safe_target
-log "Starting deployment from $REPO_ROOT"
-prepare_source_dir
+choose_source
+
+log "  SOURCE_DIR: $SOURCE_DIR"
 
 mkdir -p "$DEPLOYPATH"
+do_deploy
 
-if command -v rsync >/dev/null 2>&1; then
-  log "Deploying with rsync to $DEPLOYPATH/"
-  deploy_with_rsync
-else
-  log "Deploying with cp to $DEPLOYPATH/"
-  deploy_without_rsync
-fi
-
-log "Deployment finished."
+log "Deploy finished — $(find "$DEPLOYPATH" -type f | wc -l) files in $DEPLOYPATH"
+log "=========================================="

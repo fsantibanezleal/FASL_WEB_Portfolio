@@ -1,27 +1,44 @@
 # cPanel Git Deployment
 
-Este repositorio queda configurado para `Git Version Control` de cPanel con dos rutas:
+Este repositorio está configurado para `Git Version Control` de cPanel.
 
-- Opcion A: desplegar el artefacto versionado en `cpanel-dist/`.
-- Opcion B: si `cpanel-dist/` no existe y el servidor tiene `node` + `npm`, compilar en cPanel con `npm ci && npm run build`.
+## Cómo funciona
+
+1. cPanel hace pull del repo desde GitHub.
+2. `.cpanel.yml` ejecuta `scripts/cpanel-deploy.sh`.
+3. El script copia `cpanel-dist/` (artifact pre-built) a `$HOME/public_html/`.
+4. Si `cpanel-dist/` no existe y el servidor tiene Node.js, compila con `npm ci && npm run build`.
 
 ## Archivos relevantes
 
-- `.cpanel.yml`: entrypoint de despliegue para cPanel.
-- `scripts/cpanel-deploy.sh`: copia el sitio al `public_html` de forma segura.
-- `scripts/prepare-cpanel-static.mjs`: genera `cpanel-dist/` desde `dist/`.
+| Archivo | Propósito |
+|---------|-----------|
+| `.cpanel.yml` | Entry point de cPanel — ejecuta el script de deploy |
+| `scripts/cpanel-deploy.sh` | Copia el sitio a `public_html` de forma segura |
+| `scripts/prepare-cpanel-static.mjs` | Genera `cpanel-dist/` desde `dist/` (se ejecuta en local) |
+| `cpanel-dist/` | Artifact pre-built listo para deploy |
 
-## Flujo recomendado
+## Flujo de trabajo
 
-1. Ejecutar `npm run build:cpanel`.
-2. Revisar cambios en `cpanel-dist/`.
-3. Commit de `.cpanel.yml`, `scripts/`, `package.json`, `DEPLOY-CPANEL.md`, `cpanel-dist/` y los cambios del sitio.
-4. Push a GitHub.
-5. En cPanel, usar `Update from Remote`.
-6. En cPanel, usar `Deploy HEAD Commit`.
+```bash
+# 1. Build local
+npm run build:cpanel
+
+# 2. Revisar cambios
+git status
+
+# 3. Commit y push
+git add cpanel-dist/ .cpanel.yml scripts/
+git commit -m "Deploy: update site"
+git push origin main
+
+# 4. En cPanel
+#    Git Version Control → Update from Remote → Deploy HEAD Commit
+```
 
 ## Notas
 
-- El path de despliegue por defecto es `$HOME/public_html` (raíz del dominio fasl-work.com en el hosting compartido).
-- El script preserva `.htaccess`, `.well-known/` y `cgi-bin/` si ya existen en el hosting.
-- cPanel no habilita deploy si falta `.cpanel.yml` en la raiz o si el repo administrado tiene cambios sin commit.
+- El deploy path es `$HOME/public_html` (raíz del dominio fasl-work.com).
+- El script preserva `.htaccess`, `.well-known/`, `cgi-bin/` y otros archivos del hosting.
+- Los logs de deploy se guardan en `$HOME/deploy-logs/fasl-portfolio.log`.
+- cPanel requiere que no haya cambios sin commit en el repo para poder deployar.
