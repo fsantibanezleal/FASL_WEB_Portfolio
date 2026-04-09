@@ -1,0 +1,36 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import LanguageSwitcher from '~/components/widgets/LanguageSwitcher.astro';
+
+import { headerData, headerDataEs, footerData, footerDataEs } from '~/navigation';
+import type { Locale } from '~/utils/i18n';
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+  locale?: Locale;
+}
+
+const { metadata, locale = 'en' } = Astro.props;
+const hData = locale === 'es' ? headerDataEs : headerData;
+const fData = locale === 'es' ? footerDataEs : footerData;
+const currentPath = new URL(Astro.url).pathname;
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...hData} isSticky showToggleTheme>
+    </Header>
+  </Fragment>
+  <div class="fixed top-3 right-20 z-50 md:right-48">
+    <LanguageSwitcher locale={locale} currentPath={currentPath} />
+  </div>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...fData} />
+  </slot>
+</Layout>

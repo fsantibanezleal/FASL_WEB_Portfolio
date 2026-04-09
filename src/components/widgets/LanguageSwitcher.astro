@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Locale } from '~/utils/i18n';
+import { defaultLocale } from '~/utils/i18n';
+
+interface Props {
+  locale?: Locale;
+  currentPath?: string;
+}
+
+const { locale = 'en', currentPath = '/' } = Astro.props;
+
+// Build the alternate locale URL
+let alternatePath: string;
+if (locale === defaultLocale) {
+  // English -> Spanish: add /es prefix
+  alternatePath = `/es${currentPath}`;
+} else {
+  // Spanish -> English: remove /es prefix
+  alternatePath = currentPath.replace(/^\/es/, '') || '/';
+}
+
+const alternateLabel = locale === 'en' ? 'ES' : 'EN';
+---
+
+<a
+  href={alternatePath}
+  class="inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-sm font-medium text-muted hover:text-primary transition-colors"
+  aria-label={locale === 'en' ? 'Cambiar a Español' : 'Switch to English'}
+>
+  <Icon name="tabler:language" class="h-4 w-4" />
+  {alternateLabel}
+</a>
