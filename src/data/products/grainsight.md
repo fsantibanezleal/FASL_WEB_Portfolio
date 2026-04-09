@@ -11,6 +11,7 @@ tags: [granulometry, particle-size, watershed, depth-profiling, rosin-rammler, f
 proprietary: false
 featured: false
 assetPatterns: [grainsize]
+github: "https://github.com/fsantibanezleal/FASL_3D_GrainSize"
 
 challenge: "Traditional particle size analysis requires physical sieve testing — slow, destructive, and impractical for continuous monitoring. Estimating grain size distributions non-invasively from camera data requires robust segmentation of touching and overlapping particles."
 challengeEs: "El análisis tradicional de tamaño de partícula requiere tamizado físico — lento, destructivo e impracticable para monitoreo continuo. Estimar distribuciones de tamaño de grano de forma no invasiva desde datos de cámara requiere segmentación robusta de partículas en contacto y superpuestas."

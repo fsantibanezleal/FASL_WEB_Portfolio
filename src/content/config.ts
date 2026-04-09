@@ -74,6 +74,14 @@ const productCollection = defineCollection({
     image: z.string().optional(),
     assetPatterns: z.array(z.string()).optional(),
 
+    // External links
+    github: z.string().url().optional(),
+    wiki: z.string().url().optional(),
+    demo: z.string().url().optional(),
+    video: z.string().url().optional(),
+    publication: z.string().url().optional(),
+    website: z.string().url().optional(),
+
     // Business context
     challenge: z.string(),
     challengeEs: z.string(),

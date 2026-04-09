@@ -11,6 +11,7 @@ tags: [super-resolution, microscopy, sofi, cumulants, quantum-dots, python, fast
 proprietary: false
 featured: true
 assetPatterns: [sofi]
+github: "https://github.com/fsantibanezleal/FASL_SOFI_QDOTS"
 
 challenge: "Optical microscopy is limited by diffraction: d_min = 0.61λ/NA ≈ 232 nm for 532 nm excitation with 1.4 NA objective. PALM/STORM require single-molecule sparsity conditions. SOFI offers an alternative using temporal statistics of blinking emitters."
 challengeEs: "La microscopía óptica está limitada por difracción: d_min = 0.61λ/NA ≈ 232 nm para excitación a 532 nm con objetivo NA 1.4. PALM/STORM requieren condiciones de dispersión de molécula única. SOFI ofrece una alternativa usando estadísticas temporales de emisores parpadeantes."

@@ -11,6 +11,7 @@ tags: [biophysics, simulation, three-js, fastapi, developmental-biology, python]
 proprietary: false
 featured: false
 assetPatterns: [sphersim, evl_spring]
+github: "https://github.com/fsantibanezleal/SCIAN_EVL_SpherSIM"
 
 challenge: "Simulating collective cell migration on a curved embryonic surface requires coordinate systems that handle spherical geometry — pole singularities, periodic wrapping — while maintaining physically meaningful collision detection and force resolution."
 challengeEs: "Simular migración celular colectiva en una superficie embrionaria curva requiere sistemas de coordenadas que manejen geometría esférica — singularidades polares, wrapping periódico — manteniendo detección de colisiones y resolución de fuerzas físicamente significativas."

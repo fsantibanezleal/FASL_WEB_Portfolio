@@ -11,6 +11,8 @@ tags: [education, microscopy, startup, science-outreach, wordpress, 3d-printing]
 proprietary: false
 featured: false
 assetPatterns: [micromundo]
+website: "https://micromundo.team"
+demo: "https://micromundo.app"
 
 challenge: "Professional microscopes cost $2,000+ making microscopy education inaccessible for most Chilean schools and communities. Virtual microscopy platforms existed but were disconnected from physical experimentation."
 challengeEs: "Los microscopios profesionales cuestan $2,000+ haciendo la educación en microscopía inaccesible para la mayoría de escuelas y comunidades chilenas. Existían plataformas de microscopía virtual pero desconectadas de experimentación física."
