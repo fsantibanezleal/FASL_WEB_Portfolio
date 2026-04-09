@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#1b2d45"/>
+    </linearGradient>
+    <marker id="gsArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#3a7ab8"/>
+    </marker>
+    <marker id="gsArrO" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#e07830"/>
+    </marker>
+    <marker id="gsArrG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#0d7377"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="760" height="300" style="fill:url(#bg)"/>
+  <!-- Title -->
+  <text x="380" y="25" style="font-family:Arial,sans-serif;font-size:14px;fill:#e0e0e0;text-anchor:middle;font-weight:bold">Gerchberg-Saxton Algorithm: Iterative Phase Retrieval</text>
+  <!-- ===== MAIN LOOP ===== -->
+  <!-- Box 1: SLM Plane -->
+  <rect x="40" y="60" width="120" height="50" rx="6" style="fill:#0d1b2a;stroke:#3a7ab8;stroke-width:2"/>
+  <text x="100" y="82" style="font-family:Arial,sans-serif;font-size:11px;fill:#3a7ab8;text-anchor:middle;font-weight:bold">SLM Plane</text>
+  <text x="100" y="98" style="font-family:Arial,sans-serif;font-size:9px;fill:#5a8aaa;text-anchor:middle;font-style:italic">A&#x2080; exp(i&#x3C6;&#x2099;)</text>
+  <!-- Arrow 1: Forward FFT -->
+  <line x1="165" y1="85" x2="218" y2="85" style="stroke:#3a7ab8;stroke-width:2;marker-end:url(#gsArr)"/>
+  <text x="192" y="76" style="font-family:Arial,sans-serif;font-size:9px;fill:#7ab8d4;text-anchor:middle">Forward</text>
+  <text x="192" y="65" style="font-family:Arial,sans-serif;font-size:9px;fill:#7ab8d4;text-anchor:middle">FFT</text>
+  <!-- Box 2: Focal Plane -->
+  <rect x="225" y="60" width="120" height="50" rx="6" style="fill:#0d1b2a;stroke:#e07830;stroke-width:2"/>
+  <text x="285" y="82" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-weight:bold">Focal Plane</text>
+  <text x="285" y="98" style="font-family:Arial,sans-serif;font-size:9px;fill:#c06020;text-anchor:middle;font-style:italic">V&#x2099; = |V&#x2099;| exp(i&#x3C8;&#x2099;)</text>
+  <!-- Arrow 2: Down to amplitude constraint -->
+  <line x1="285" y1="115" x2="285" y2="148" style="stroke:#e07830;stroke-width:2;marker-end:url(#gsArrO)"/>
+  <!-- Box 3: Amplitude constraint -->
+  <rect x="205" y="155" width="160" height="50" rx="6" style="fill:#0d1b2a;stroke:#e07830;stroke-width:1.5;stroke-dasharray:5,3"/>
+  <text x="285" y="175" style="font-family:Arial,sans-serif;font-size:10px;fill:#e07830;text-anchor:middle;font-weight:bold">Apply amplitude constraint</text>
+  <text x="285" y="193" style="font-family:Arial,sans-serif;font-size:9px;fill:#c06020;text-anchor:middle;font-style:italic">equalize trap intensities</text>
+  <!-- Arrow 3: Left back to inverse FFT -->
+  <line x1="205" y1="180" x2="165" y2="180" style="stroke:#0d7377;stroke-width:2;marker-end:url(#gsArrG)"/>
+  <text x="185" y="170" style="font-family:Arial,sans-serif;font-size:9px;fill:#5a9a9a;text-anchor:middle">Inverse</text>
+  <text x="185" y="159" style="font-family:Arial,sans-serif;font-size:9px;fill:#5a9a9a;text-anchor:middle">FFT</text>
+  <!-- Box 4: Back to SLM (extract phase) -->
+  <rect x="40" y="155" width="120" height="50" rx="6" style="fill:#0d1b2a;stroke:#0d7377;stroke-width:2"/>
+  <text x="100" y="175" style="font-family:Arial,sans-serif;font-size:11px;fill:#0d7377;text-anchor:middle;font-weight:bold">SLM Plane</text>
+  <text x="100" y="193" style="font-family:Arial,sans-serif;font-size:9px;fill:#5a9a9a;text-anchor:middle;font-style:italic">Extract phase &#x3C6;&#x2099;&#x208A;&#x2081;</text>
+  <!-- Arrow 4: Up back to start (loop) -->
+  <line x1="60" y1="155" x2="60" y2="115" style="stroke:#0d7377;stroke-width:2;marker-end:url(#gsArrG)"/>
+  <text x="35" y="138" style="font-family:Arial,sans-serif;font-size:9px;fill:#5a9a9a;text-anchor:middle;writing-mode:tb">repeat</text>
+  <!-- Loop indicator -->
+  <path d="M 25 140 C 15 140 15 100 25 100" style="fill:none;stroke:#0d7377;stroke-width:1.5;stroke-dasharray:3,2"/>
+  <polygon points="25,100 20,107 30,107" style="fill:#0d7377"/>
+  <!-- ===== WEIGHT UPDATE (right panel) ===== -->
+  <rect x="420" y="55" width="310" height="80" rx="8" style="fill:#0d1b2a;fill-opacity:0.7;stroke:#e07830;stroke-width:1.5"/>
+  <text x="575" y="76" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-weight:bold">Weight Update Step</text>
+  <text x="575" y="100" style="font-family:Arial,sans-serif;font-size:14px;fill:#e0e0e0;text-anchor:middle;font-style:italic">w&#x2C7C; &#xD7; &#x27E8;|V|&#x27E9; / |V&#x2C7C;|</text>
+  <text x="575" y="122" style="font-family:Arial,sans-serif;font-size:9px;fill:#7ab8d4;text-anchor:middle">Boost weak traps, attenuate strong ones</text>
+  <!-- ===== CONVERGENCE (right panel) ===== -->
+  <rect x="420" y="150" width="310" height="100" rx="8" style="fill:#0d1b2a;fill-opacity:0.7;stroke:#0d7377;stroke-width:1.5"/>
+  <text x="575" y="172" style="font-family:Arial,sans-serif;font-size:11px;fill:#0d7377;text-anchor:middle;font-weight:bold">Convergence</text>
+  <!-- Convergence curve -->
+  <line x1="450" y1="235" x2="700" y2="235" style="stroke:#5a8aaa;stroke-width:0.5"/>
+  <line x1="450" y1="190" x2="450" y2="235" style="stroke:#5a8aaa;stroke-width:0.5"/>
+  <text x="445" y="195" style="font-family:Arial,sans-serif;font-size:8px;fill:#5a8aaa;text-anchor:end">1.0</text>
+  <text x="445" y="220" style="font-family:Arial,sans-serif;font-size:8px;fill:#5a8aaa;text-anchor:end">0.9</text>
+  <text x="445" y="238" style="font-family:Arial,sans-serif;font-size:8px;fill:#5a8aaa;text-anchor:end">0.8</text>
+  <text x="575" y="248" style="font-family:Arial,sans-serif;font-size:8px;fill:#5a8aaa;text-anchor:middle">iterations</text>
+  <!-- Convergence line -->
+  <path d="M 455 232 Q 475 225 490 215 Q 510 205 530 200 Q 560 197 590 195 Q 620 194 650 193 Q 680 192 695 192" style="fill:none;stroke:#0d7377;stroke-width:2"/>
+  <!-- Target line -->
+  <line x1="450" y1="192" x2="700" y2="192" style="stroke:#e07830;stroke-width:0.8;stroke-dasharray:3,3;stroke-opacity:0.6"/>
+  <text x="705" y="195" style="font-family:Arial,sans-serif;font-size:8px;fill:#e07830;text-anchor:start">0.97</text>
+  <!-- Convergence label -->
+  <text x="575" y="186" style="font-family:Arial,sans-serif;font-size:10px;fill:#e0e0e0;text-anchor:middle;font-style:italic">50 iterations &#x2192; uniformity ~0.97</text>
+  <!-- Bottom summary -->
+  <text x="380" y="282" style="font-family:Arial,sans-serif;font-size:10px;fill:#7ab8d4;text-anchor:middle;font-style:italic">Iterative loop: phase-only constraint at SLM &#x2194; amplitude constraint at focal plane</text>
+</svg>

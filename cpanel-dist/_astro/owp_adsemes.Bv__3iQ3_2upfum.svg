@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b2d45"/>
+    </linearGradient>
+    <marker id="cir" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0,7 2.5,0 5" style="fill:#e07830"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" style="fill:url(#bg4)"/>
+  <text x="380" y="26" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">AdSEMES Algorithm Loop</text>
+  <!-- Circular flow: 4 boxes around center -->
+  <!-- Box 1: top - Compute H -->
+  <rect x="270" y="45" width="220" height="36" rx="6" style="fill:#0d1b2a;stroke:#3a7ab8;stroke-width:1.5"/>
+  <text x="380" y="68" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle">Compute H(X | samples)</text>
+  <!-- Box 2: right - Select -->
+  <rect x="545" y="120" width="195" height="36" rx="6" style="fill:#0d1b2a;stroke:#0d7377;stroke-width:1.5"/>
+  <text x="642" y="143" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle">Select max-entropy location</text>
+  <!-- Box 3: bottom - Sample -->
+  <rect x="300" y="218" width="160" height="36" rx="6" style="fill:#0d1b2a;stroke:#e07830;stroke-width:1.5"/>
+  <text x="380" y="241" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle">Sample</text>
+  <!-- Box 4: left - Update -->
+  <rect x="20" y="120" width="180" height="36" rx="6" style="fill:#0d1b2a;stroke:#3a7ab8;stroke-width:1.5"/>
+  <text x="110" y="143" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle">Update posterior</text>
+  <!-- Arrows: top -> right -->
+  <path d="M 490,70 Q 540,70 545,125" style="fill:none;stroke:#8899aa;stroke-width:1.5" marker-end="url(#cir)"/>
+  <!-- right -> bottom -->
+  <path d="M 580,156 Q 540,220 460,230" style="fill:none;stroke:#8899aa;stroke-width:1.5" marker-end="url(#cir)"/>
+  <!-- bottom -> left -->
+  <path d="M 300,240 Q 220,250 180,156" style="fill:none;stroke:#8899aa;stroke-width:1.5" marker-end="url(#cir)"/>
+  <!-- left -> top -->
+  <path d="M 160,120 Q 200,70 270,63" style="fill:none;stroke:#8899aa;stroke-width:1.5" marker-end="url(#cir)"/>
+  <!-- Center text -->
+  <rect x="270" y="125" width="220" height="48" rx="8" style="fill:#1b2d45;fill-opacity:0.9;stroke:#e07830;stroke-width:1;stroke-dasharray:4,2"/>
+  <text x="380" y="146" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-weight:bold">Greedy submodular:</text>
+  <text x="380" y="164" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle">(1 &#x2212; 1/e) guarantee</text>
+  <!-- Step labels -->
+  <text x="510" y="90" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">1</text>
+  <text x="560" y="200" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">2</text>
+  <text x="240" y="250" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">3</text>
+  <text x="195" y="100" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">4</text>
+</svg>

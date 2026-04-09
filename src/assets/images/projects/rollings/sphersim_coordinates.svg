@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b2d45"/>
+    </linearGradient>
+    <radialGradient id="sph1" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#3a7ab8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0d7377" stop-opacity="0.08"/>
+    </radialGradient>
+    <marker id="arr1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#e07830"/>
+    </marker>
+    <marker id="arr1b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#3a7ab8"/>
+    </marker>
+    <marker id="arr1t" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#0d7377"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" style="fill:url(#bg1)"/>
+  <!-- Title -->
+  <text x="380" y="28" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">AER Coordinate System on a Sphere</text>
+  <!-- Sphere -->
+  <ellipse cx="300" cy="160" rx="110" ry="110" style="fill:url(#sph1);stroke:#3a7ab8;stroke-width:1.2;stroke-opacity:0.6"/>
+  <!-- Equator ellipse -->
+  <ellipse cx="300" cy="160" rx="110" ry="30" style="fill:none;stroke:#3a7ab8;stroke-width:0.7;stroke-dasharray:4,3;stroke-opacity:0.5"/>
+  <!-- Meridian ellipse -->
+  <ellipse cx="300" cy="160" rx="30" ry="110" style="fill:none;stroke:#3a7ab8;stroke-width:0.7;stroke-dasharray:4,3;stroke-opacity:0.35"/>
+  <!-- Origin cross-hair axes -->
+  <line x1="300" y1="160" x2="420" y2="160" style="stroke:#3a7ab8;stroke-width:1;stroke-opacity:0.4"/>
+  <line x1="300" y1="160" x2="300" y2="40" style="stroke:#3a7ab8;stroke-width:1;stroke-opacity:0.4"/>
+  <!-- Radius line to point -->
+  <circle cx="370" cy="95" r="5" style="fill:#e07830;stroke:#fff;stroke-width:1"/>
+  <line x1="300" y1="160" x2="370" y2="95" style="stroke:#e07830;stroke-width:1.8" marker-end="url(#arr1)"/>
+  <!-- Azimuth arc (phi) -->
+  <path d="M 340,160 A 40,12 0 0,1 330,148" style="fill:none;stroke:#3a7ab8;stroke-width:1.5" marker-end="url(#arr1b)"/>
+  <text x="348" y="155" style="font-family:Arial,sans-serif;font-size:13px;fill:#3a7ab8;font-style:italic">&#x3C6;</text>
+  <!-- Elevation arc (theta) -->
+  <path d="M 335,128 A 30,30 0 0,0 348,110" style="fill:none;stroke:#0d7377;stroke-width:1.5" marker-end="url(#arr1t)"/>
+  <text x="352" y="118" style="font-family:Arial,sans-serif;font-size:13px;fill:#0d7377;font-style:italic">&#x3B8;</text>
+  <!-- Radius label -->
+  <text x="322" y="138" style="font-family:Arial,sans-serif;font-size:13px;fill:#e07830;font-style:italic">r</text>
+  <!-- Point label -->
+  <text x="378" y="88" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed">P(r, &#x3C6;, &#x3B8;)</text>
+  <!-- Legend panel -->
+  <rect x="520" y="60" width="215" height="130" rx="6" style="fill:#0d1b2a;fill-opacity:0.85;stroke:#3a7ab8;stroke-width:0.8"/>
+  <text x="530" y="82" style="font-family:Arial,sans-serif;font-size:13px;fill:#e0e6ed;font-weight:bold">Coordinates</text>
+  <circle cx="538" cy="100" r="4" style="fill:#3a7ab8"/>
+  <text x="550" y="104" style="font-family:Arial,sans-serif;font-size:12px;fill:#c8d6e5">Azimuth (&#x3C6;) &#x2014; horizontal angle</text>
+  <circle cx="538" cy="122" r="4" style="fill:#0d7377"/>
+  <text x="550" y="126" style="font-family:Arial,sans-serif;font-size:12px;fill:#c8d6e5">Elevation (&#x3B8;) &#x2014; vertical angle</text>
+  <circle cx="538" cy="144" r="4" style="fill:#e07830"/>
+  <text x="550" y="148" style="font-family:Arial,sans-serif;font-size:12px;fill:#c8d6e5">Radius (r) &#x2014; distance</text>
+  <text x="530" y="176" style="font-family:Arial,sans-serif;font-size:11px;fill:#8899aa">Spherical-embryo surface</text>
+  <!-- Poles -->
+  <text x="300" y="45" style="font-family:Arial,sans-serif;font-size:11px;fill:#8899aa;text-anchor:middle">N</text>
+  <text x="300" y="282" style="font-family:Arial,sans-serif;font-size:11px;fill:#8899aa;text-anchor:middle">S</text>
+</svg>

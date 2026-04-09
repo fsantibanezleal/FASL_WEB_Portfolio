@@ -1,0 +1,259 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import FaslLayout from '~/layouts/FaslLayout.astro';
+import { getProducts } from '~/utils/products';
+import { t } from '~/utils/i18n';
+import { getPermalink } from '~/utils/permalinks';
+import type { Locale } from '~/utils/i18n';
+
+export async function getStaticPaths() {
+  const products = await getProducts();
+  return products.map((product) => ({
+    params: { slug: product.data.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const locale: Locale = 'en';
+const d = product.data;
+const dateStr = d.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+const categoryLabel = t(`category.${d.category}`, locale);
+
+// Render the markdown body content
+const { Content } = await render(product);
+
+// Dynamic image imports for diagrams and screenshots
+const allDiagrams = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/diagrams/*.svg', { eager: true });
+const allScreenshots = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/screenshots/*.png', { eager: true });
+const allRollings = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/rollings/*.svg', { eager: true });
+
+// Match diagrams/screenshots by slug patterns
+function findAssets(glob: Record<string, { default: ImageMetadata }>, patterns: string[]) {
+  return Object.entries(glob)
+    .filter(([path]) => patterns.some(p => path.toLowerCase().includes(p.toLowerCase())))
+    .map(([path, mod]) => ({ path, image: mod.default }));
+}
+
+const slugPatterns = d.assetPatterns || [d.slug];
+const diagrams = findAssets(allDiagrams, slugPatterns);
+const screenshots = findAssets(allScreenshots, slugPatterns);
+const rollings = findAssets(allRollings, slugPatterns);
+---
+
+<FaslLayout metadata={{ title: d.title, description: d.excerpt }} locale={locale}>
+  <article class="py-12 md:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <!-- Back link -->
+      <a
+        href={getPermalink('/portfolio')}
+        class="mb-8 inline-flex items-center gap-1 text-sm text-muted hover:text-primary transition-colors"
+      >
+        ← {t('portfolio.back', locale)}
+      </a>
+
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="mb-4 flex flex-wrap items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <Icon name={d.icon} class="h-5 w-5" />
+          </div>
+          <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+            {categoryLabel}
+          </span>
+          <span class="text-sm text-muted">{dateStr}</span>
+          {d.proprietary && (
+            <span class="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+              <Icon name="tabler:lock" class="h-3.5 w-3.5" />
+              Proprietary
+            </span>
+          )}
+        </div>
+
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl leading-tight">
+          {d.title}
+        </h1>
+
+        <p class="mt-6 text-xl leading-relaxed text-muted max-w-3xl">
+          {d.excerpt}
+        </p>
+      </header>
+
+      <!-- Key Metrics Hero Cards -->
+      <div class="mb-14 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {d.metrics.map((m) => (
+          <div class="rounded-xl border border-gray-200 bg-white p-5 text-center dark:border-gray-700/50 dark:bg-gray-800/60 shadow-sm">
+            <div class="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{m.label}</div>
+            <div class="text-sm font-bold text-gray-900 dark:text-white leading-snug">{m.value}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Architecture Diagram (if available) -->
+      {diagrams.length > 0 && (
+        <section class="mb-14">
+          <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <Icon name="tabler:hierarchy-3" class="h-6 w-6 text-primary" />
+            {t('section.architecture', locale)}
+          </h2>
+          <div class="space-y-6">
+            {diagrams.map(({ image, path }) => (
+              <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30 overflow-hidden">
+                <Image src={image} alt={`${d.title} — Architecture`} class="w-full h-auto" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- The Challenge -->
+      <section class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <Icon name="tabler:alert-triangle" class="h-6 w-6 text-amber-500" />
+          {t('section.challenge', locale)}
+        </h2>
+        <div class="rounded-xl bg-amber-50/50 border border-amber-200/50 p-6 dark:bg-amber-900/10 dark:border-amber-800/30">
+          <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">{d.challenge}</p>
+        </div>
+      </section>
+
+      <!-- Our Approach -->
+      <section class="mb-12">
+        <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <Icon name="tabler:bulb" class="h-6 w-6 text-primary" />
+          {t('section.approach', locale)}
+        </h2>
+        <div class="rounded-xl bg-primary/5 border border-primary/20 p-6">
+          <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">{d.approach}</p>
+        </div>
+      </section>
+
+      <!-- Rolling/Concept Diagrams (if available) -->
+      {rollings.length > 0 && (
+        <section class="mb-14">
+          <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <Icon name="tabler:chart-dots" class="h-6 w-6 text-primary" />
+            Technical Details
+          </h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            {rollings.map(({ image, path }) => {
+              const fileName = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
+              return (
+                <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
+                  <Image src={image} alt={fileName} class="w-full h-auto mb-2" loading="lazy" />
+                  <p class="text-xs text-center text-muted capitalize">{fileName}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      <!-- Screenshots (if available) -->
+      {screenshots.length > 0 && (
+        <section class="mb-14">
+          <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <Icon name="tabler:device-desktop" class="h-6 w-6 text-primary" />
+            Application
+          </h2>
+          <div class="space-y-6">
+            {screenshots.map(({ image, path }) => {
+              const fileName = path.split('/').pop()?.replace('.png', '').replace(/_/g, ' ') || '';
+              return (
+                <div class="rounded-xl border border-gray-200 bg-white p-2 dark:border-gray-700/50 dark:bg-gray-800/30 shadow-lg overflow-hidden">
+                  <Image src={image} alt={`${d.title} — Screenshot`} class="w-full h-auto rounded-lg" loading="lazy" />
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      <!-- KPIs Table -->
+      <section class="mb-14">
+        <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <Icon name="tabler:chart-bar" class="h-6 w-6 text-primary" />
+          {t('section.kpis', locale)}
+        </h2>
+        <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700/50">
+          <table class="w-full border-collapse text-sm">
+            <thead>
+              <tr class="bg-gray-50 dark:bg-gray-800/80">
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">KPI</th>
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Baseline</th>
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Result</th>
+                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              {d.kpis.map((kpi, i) => (
+                <tr class:list={['border-t border-gray-100 dark:border-gray-800', { 'bg-gray-50/50 dark:bg-gray-800/20': i % 2 === 0 }]}>
+                  <td class="px-5 py-4 font-medium text-gray-900 dark:text-white">{kpi.label}</td>
+                  <td class="px-5 py-4 text-muted">{kpi.baseline}</td>
+                  <td class="px-5 py-4 font-semibold text-primary">{kpi.result}</td>
+                  <td class="px-5 py-4 text-muted">{kpi.impact}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Rich Markdown Body Content -->
+      {product.body && product.body.length > 5 && (
+        <section class="mb-14">
+          <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-primary prose-strong:text-gray-900 dark:prose-strong:text-white prose-code:text-primary prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
+            <Content />
+          </div>
+        </section>
+      )}
+
+      <!-- Tech Stack -->
+      <section class="mb-14">
+        <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <Icon name="tabler:stack-2" class="h-6 w-6 text-primary" />
+          {t('section.stack', locale)}
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {d.stack.map((tech) => (
+            <span class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <!-- Tags -->
+      <section class="mb-10">
+        <div class="flex flex-wrap gap-2">
+          {d.tags.map((tag) => (
+            <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {d.proprietary && (
+        <div class="mb-10 rounded-xl bg-amber-50 border border-amber-200 p-4 dark:bg-amber-900/10 dark:border-amber-800/30">
+          <p class="text-sm text-amber-800 dark:text-amber-400 flex items-center gap-2">
+            <Icon name="tabler:lock" class="h-4 w-4" />
+            {t('product.proprietary', locale)}
+          </p>
+        </div>
+      )}
+
+      <!-- Back to portfolio -->
+      <div class="pt-8 border-t border-gray-200 dark:border-gray-700">
+        <a
+          href={getPermalink('/portfolio')}
+          class="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+        >
+          ← {t('portfolio.back', locale)}
+        </a>
+      </div>
+    </div>
+  </article>
+</FaslLayout>

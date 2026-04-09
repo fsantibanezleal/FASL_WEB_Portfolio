@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b2d45"/>
+    </linearGradient>
+    <radialGradient id="sph2" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#3a7ab8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0d7377" stop-opacity="0.06"/>
+    </radialGradient>
+    <marker id="mig" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <polygon points="0 0,7 2.5,0 5" style="fill:#e07830"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" style="fill:url(#bg2)"/>
+  <text x="380" y="28" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">Spherical Embryo Model</text>
+  <!-- Sphere -->
+  <ellipse cx="300" cy="155" rx="115" ry="115" style="fill:url(#sph2);stroke:#3a7ab8;stroke-width:1.3;stroke-opacity:0.6"/>
+  <!-- EVL margin line (arc at ~40% from top) -->
+  <ellipse cx="300" cy="110" rx="95" ry="22" style="fill:none;stroke:#0d7377;stroke-width:2.2"/>
+  <!-- Shaded EVL region above margin -->
+  <path d="M 205,110 A 95,22 0 0,1 395,110 A 115,115 0 0,0 205,110 Z" style="fill:#0d7377;fill-opacity:0.15"/>
+  <!-- Animal pole -->
+  <circle cx="300" cy="40" r="4" style="fill:#3a7ab8;stroke:#fff;stroke-width:0.8"/>
+  <text x="310" y="38" style="font-family:Arial,sans-serif;font-size:11px;fill:#3a7ab8">Animal pole</text>
+  <!-- Vegetal pole -->
+  <circle cx="300" cy="270" r="4" style="fill:#3a7ab8;stroke:#fff;stroke-width:0.8"/>
+  <text x="310" y="275" style="font-family:Arial,sans-serif;font-size:11px;fill:#3a7ab8">Vegetal pole</text>
+  <!-- EVL margin label -->
+  <line x1="398" y1="110" x2="440" y2="90" style="stroke:#0d7377;stroke-width:0.8"/>
+  <text x="445" y="94" style="font-family:Arial,sans-serif;font-size:12px;fill:#0d7377;font-weight:bold">EVL margin</text>
+  <!-- DFC cells (dots on margin) -->
+  <circle cx="240" cy="116" r="4" style="fill:#e07830"/>
+  <circle cx="270" cy="108" r="4" style="fill:#e07830"/>
+  <circle cx="310" cy="106" r="4" style="fill:#e07830"/>
+  <circle cx="340" cy="110" r="4" style="fill:#e07830"/>
+  <circle cx="365" cy="118" r="4" style="fill:#e07830"/>
+  <!-- Migration arrows from DFC cells downward -->
+  <line x1="240" y1="122" x2="238" y2="148" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <line x1="270" y1="114" x2="268" y2="140" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <line x1="310" y1="112" x2="308" y2="138" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <line x1="340" y1="116" x2="338" y2="142" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <line x1="365" y1="124" x2="363" y2="150" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <!-- Legend -->
+  <rect x="520" y="60" width="215" height="115" rx="6" style="fill:#0d1b2a;fill-opacity:0.85;stroke:#3a7ab8;stroke-width:0.8"/>
+  <text x="530" y="82" style="font-family:Arial,sans-serif;font-size:13px;fill:#e0e6ed;font-weight:bold">Legend</text>
+  <line x1="530" y1="98" x2="555" y2="98" style="stroke:#0d7377;stroke-width:2.2"/>
+  <text x="562" y="102" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5">EVL margin line</text>
+  <circle cx="542" cy="118" r="4" style="fill:#e07830"/>
+  <text x="562" y="122" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5">DFC cells</text>
+  <line x1="530" y1="138" x2="555" y2="138" style="stroke:#e07830;stroke-width:1.5" marker-end="url(#mig)"/>
+  <text x="562" y="142" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5">Migration direction</text>
+  <rect x="530" y="152" width="15" height="10" style="fill:#0d7377;fill-opacity:0.15;stroke:#0d7377;stroke-width:0.5"/>
+  <text x="562" y="162" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5">EVL coverage</text>
+</svg>

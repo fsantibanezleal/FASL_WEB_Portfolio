@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#1b2d45"/>
+    </linearGradient>
+    <linearGradient id="stiffness" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" style="stop-color:#4a90c2;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:0.9"/>
+    </linearGradient>
+    <marker id="arrThin" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" style="fill:#4a90c2"/>
+    </marker>
+    <marker id="arrThick" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0,10 4,0 8" style="fill:#e07830"/>
+    </marker>
+    <marker id="arrNet" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto">
+      <polygon points="0 0,12 4,0 8" style="fill:#e07830"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="760" height="300" style="fill:url(#bg)"/>
+  <!-- Substrate gradient bar -->
+  <rect x="60" y="185" width="640" height="40" rx="4" style="fill:url(#stiffness);stroke:#3a7ab8;stroke-width:1"/>
+  <!-- Substrate labels -->
+  <text x="80" y="215" style="font-family:Arial,sans-serif;font-size:11px;fill:#7ab8d4;text-anchor:start">Soft</text>
+  <text x="680" y="215" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:end">Stiff</text>
+  <text x="380" y="248" style="font-family:Arial,sans-serif;font-size:10px;fill:#5a8aaa;text-anchor:middle">Substrate stiffness gradient</text>
+  <!-- Stiffness arrow under bar -->
+  <line x1="120" y1="240" x2="640" y2="240" style="stroke:#3a7ab8;stroke-width:1;stroke-dasharray:4,3"/>
+  <polygon points="640,237 650,240 640,243" style="fill:#3a7ab8"/>
+  <!-- Cell body -->
+  <ellipse cx="380" cy="155" rx="55" ry="30" style="fill:#0d7377;fill-opacity:0.6;stroke:#0d7377;stroke-width:2"/>
+  <!-- Nucleus -->
+  <ellipse cx="380" cy="155" rx="18" ry="12" style="fill:#1b2d45;stroke:#3a7ab8;stroke-width:1.5"/>
+  <text x="380" y="159" style="font-family:Arial,sans-serif;font-size:8px;fill:#7ab8d4;text-anchor:middle">nucleus</text>
+  <!-- Filopodia LEFT (soft side, thin) -->
+  <line x1="325" y1="150" x2="240" y2="140" style="stroke:#4a90c2;stroke-width:1.5"/>
+  <line x1="325" y1="160" x2="235" y2="165" style="stroke:#4a90c2;stroke-width:1.5"/>
+  <line x1="325" y1="170" x2="250" y2="180" style="stroke:#4a90c2;stroke-width:1.5"/>
+  <!-- Weak adhesion arrows (left) -->
+  <line x1="240" y1="140" x2="240" y2="182" style="stroke:#4a90c2;stroke-width:1;marker-end:url(#arrThin)"/>
+  <line x1="235" y1="165" x2="235" y2="182" style="stroke:#4a90c2;stroke-width:1;marker-end:url(#arrThin)"/>
+  <line x1="250" y1="180" x2="250" y2="182" style="stroke:#4a90c2;stroke-width:0.8"/>
+  <!-- Filopodia RIGHT (stiff side, thick) -->
+  <line x1="435" y1="145" x2="530" y2="130" style="stroke:#e07830;stroke-width:2.5"/>
+  <line x1="435" y1="155" x2="540" y2="155" style="stroke:#e07830;stroke-width:2.5"/>
+  <line x1="435" y1="165" x2="525" y2="175" style="stroke:#e07830;stroke-width:2.5"/>
+  <!-- Strong adhesion arrows (right) -->
+  <line x1="530" y1="130" x2="530" y2="180" style="stroke:#e07830;stroke-width:2.5;marker-end:url(#arrThick)"/>
+  <line x1="540" y1="155" x2="540" y2="180" style="stroke:#e07830;stroke-width:2.5;marker-end:url(#arrThick)"/>
+  <line x1="525" y1="175" x2="525" y2="180" style="stroke:#e07830;stroke-width:2"/>
+  <!-- Focal adhesion dots (left weak) -->
+  <circle cx="240" cy="186" r="3" style="fill:#4a90c2;fill-opacity:0.5"/>
+  <circle cx="235" cy="186" r="3" style="fill:#4a90c2;fill-opacity:0.5"/>
+  <circle cx="250" cy="186" r="2.5" style="fill:#4a90c2;fill-opacity:0.4"/>
+  <!-- Focal adhesion dots (right strong) -->
+  <circle cx="530" cy="186" r="5" style="fill:#e07830;fill-opacity:0.8"/>
+  <circle cx="540" cy="186" r="5" style="fill:#e07830;fill-opacity:0.8"/>
+  <circle cx="525" cy="186" r="4.5" style="fill:#e07830;fill-opacity:0.7"/>
+  <!-- Weak/strong labels -->
+  <text x="240" y="128" style="font-family:Arial,sans-serif;font-size:9px;fill:#4a90c2;text-anchor:middle">weak adhesion</text>
+  <text x="535" y="118" style="font-family:Arial,sans-serif;font-size:9px;fill:#e07830;text-anchor:middle">strong adhesion</text>
+  <!-- Net migration arrow -->
+  <line x1="395" y1="95" x2="500" y2="95" style="stroke:#e07830;stroke-width:3;marker-end:url(#arrNet)"/>
+  <text x="448" y="88" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-weight:bold">Net migration</text>
+  <!-- Title -->
+  <text x="380" y="30" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e0e0;text-anchor:middle;font-weight:bold">Durotaxis: Cell Migration Along Stiffness Gradients</text>
+  <!-- Bottom equation -->
+  <text x="380" y="282" style="font-family:Arial,sans-serif;font-size:11px;fill:#7ab8d4;text-anchor:middle;font-style:italic">Focal adhesion reinforcement &#x221D; substrate stiffness</text>
+</svg>

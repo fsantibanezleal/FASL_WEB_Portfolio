@@ -1,0 +1,17 @@
+---
+import FaslLayout from '~/layouts/FaslLayout.astro';
+import ProductGrid from '~/components/widgets/ProductGrid.astro';
+import { getProducts } from '~/utils/products';
+
+const locale = 'en';
+const products = await getProducts();
+
+const metadata = {
+  title: 'Portfolio',
+  description: 'Engineering prototypes, software products, and technology solutions by FASL.work.',
+};
+---
+
+<FaslLayout metadata={metadata} locale={locale}>
+  <ProductGrid products={products} locale={locale} />
+</FaslLayout>
