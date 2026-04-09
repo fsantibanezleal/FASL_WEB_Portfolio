@@ -3,10 +3,19 @@
 #  cPanel Git Deployment — FASL.work portfolio
 #
 #  Called by .cpanel.yml after cPanel pulls the repo.
-#  Copies the pre-built static site (cpanel-dist/) into public_html.
+#  Copies the pre-built static site (cpanel-dist/) into the
+#  domain-specific subdirectory under public_html.
+#
+#  CRITICAL: This script ONLY touches files inside DEPLOYPATH.
+#  It will NEVER write to public_html root or other site folders.
 # ------------------------------------------------------------------
 
 set -Eeuo pipefail
+
+# ── Configuration ────────────────────────────────────────────────
+# The subdirectory under public_html where fasl-work.com lives.
+# Change this if cPanel maps the domain to a different folder.
+SITE_DIR="fasl-work.com"
 
 # ── Paths ────────────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,10 +23,8 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
 BUILD_DIR="$REPO_ROOT/dist"
 
-# DEPLOYPATH: default to $HOME/public_html (cPanel standard).
-# Override via environment if needed.
-DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
-DEPLOYPATH="${DEPLOYPATH%/}"   # strip trailing slash
+DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html/${SITE_DIR}}"
+DEPLOYPATH="${DEPLOYPATH%/}"
 
 # ── Logging ──────────────────────────────────────────────────────
 LOG_DIR="$HOME/deploy-logs"
@@ -30,13 +37,32 @@ log() {
   printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$msg" >> "$LOG_FILE"
 }
 
-# ── Safety ───────────────────────────────────────────────────────
+# ── Safety checks ────────────────────────────────────────────────
 require_safe_target() {
+  # Must be a subdirectory of public_html — NEVER public_html itself
   case "$DEPLOYPATH" in
-    "$HOME"/public_html|"$HOME"/public_html/*)
+    "$HOME"/public_html/*)
+      ;;
+    "$HOME"/public_html)
+      log "ABORT: DEPLOYPATH is public_html root — this would destroy other sites!"
+      log "       Set SITE_DIR in the script or override DEPLOYPATH."
+      exit 1
       ;;
     *)
-      log "ABORT: refusing to deploy outside \$HOME/public_html: $DEPLOYPATH"
+      log "ABORT: DEPLOYPATH is outside public_html: $DEPLOYPATH"
+      exit 1
+      ;;
+  esac
+
+  # Extra guard: the target directory name must contain "fasl"
+  local dirname
+  dirname="$(basename "$DEPLOYPATH")"
+  case "$dirname" in
+    *fasl*|*FASL*)
+      ;;
+    *)
+      log "ABORT: target directory '$dirname' doesn't look like a FASL site."
+      log "       This is a safety check to prevent deploying to the wrong folder."
       exit 1
       ;;
   esac
@@ -44,14 +70,12 @@ require_safe_target() {
 
 # ── Source selection ─────────────────────────────────────────────
 choose_source() {
-  # Option A: pre-built artifact committed to repo
   if [ -d "$PREBUILT_DIR" ] && [ -n "$(ls -A "$PREBUILT_DIR" 2>/dev/null)" ]; then
     SOURCE_DIR="$PREBUILT_DIR"
     log "Source: cpanel-dist/ (pre-built artifact)."
     return
   fi
 
-  # Option B: build on server if Node.js available
   if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
     log "cpanel-dist/ not found — building with npm on server."
     ( cd "$REPO_ROOT" && npm ci && npm run build )
@@ -64,22 +88,17 @@ choose_source() {
 }
 
 # ── Deploy ───────────────────────────────────────────────────────
-#  Strategy: delete only OUR files, then copy fresh.
-#  Preserve hosting-managed items that may exist in public_html.
-PRESERVE=(.htaccess .well-known cgi-bin error_log .trash .fantasticodata)
-
 do_deploy() {
-  # Remove previous site files, but keep preserved items
-  local exclude_args=()
-  for item in "${PRESERVE[@]}"; do
-    exclude_args+=( ! -name "$item" )
-  done
+  # Since this is a dedicated subdirectory for fasl-work.com ONLY,
+  # we can safely clean everything inside it and replace with fresh files.
+  # We still preserve .htaccess in case cPanel or SSL config put one there.
 
-  find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 \
-    "${exclude_args[@]}" \
-    -exec rm -rf {} +
+  if [ -d "$DEPLOYPATH" ]; then
+    find "$DEPLOYPATH" -mindepth 1 -maxdepth 1 \
+      ! -name '.htaccess' \
+      -exec rm -rf {} +
+  fi
 
-  # Copy new site
   cp -R "$SOURCE_DIR"/. "$DEPLOYPATH"/
 }
 
@@ -88,6 +107,7 @@ log "=========================================="
 log "Deploy starting"
 log "  REPO_ROOT:  $REPO_ROOT"
 log "  DEPLOYPATH: $DEPLOYPATH"
+log "  SITE_DIR:   $SITE_DIR"
 log "  HOME:       $HOME"
 
 require_safe_target
