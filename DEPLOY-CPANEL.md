@@ -1,48 +1,48 @@
 # cPanel Git Deployment
 
-## Hosting setup
+## Hosting layout
 
-- **Primary domain**: fasl-work.com → `$HOME/public_html/` (direct, no rewrite needed)
-- **Addon domain**: micromundo.team → `$HOME/public_html/micromundo.team/`
-- **Server IP**: 92.204.212.218
-- **DNS**: nameservers in GoDaddy pointing to 123-reg (propagation up to 48h)
+```
+public_html/                    ← shared root, multiple sites
+├── .htaccess                   ← rewrite rules per domain
+├── fasl-work.com/              ← OUR site (primary domain)
+├── micromundo.team/            ← WordPress (addon domain)
+└── (other sites)               ← NEVER TOUCHED by our deploy
+```
 
-## How the deploy works
+## How it works
 
 1. cPanel pulls the repo from GitHub.
-2. `.cpanel.yml` executes `scripts/cpanel-deploy.sh`.
-3. The script copies `cpanel-dist/` into `$HOME/public_html/`.
-4. A **manifest** (`.fasl-deploy-manifest`) tracks which files belong to our site.
-5. On redeploy, only manifested files are removed — addon domain folders are never touched.
+2. `.cpanel.yml` runs `scripts/cpanel-deploy.sh`.
+3. Script copies `cpanel-dist/` → `public_html/fasl-work.com/`.
+4. Script prepends rewrite rules at top of `public_html/.htaccess`.
+5. Rewrite routes `fasl-work.com` requests to the subdirectory.
+
+## Safety
+
+- Site files go ONLY into `public_html/fasl-work.com/` — never the root.
+- `.htaccess` uses BEGIN/END markers — only our block is touched.
+- Rules prepended at TOP so they run before any WordPress catch-all.
+- Rewrite conditioned on `HTTP_HOST` — only matches fasl-work.com.
+- Other sites (micromundo.team, etc.) are never modified.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
 | `.cpanel.yml` | cPanel entry point |
-| `scripts/cpanel-deploy.sh` | Manifest-based deploy to public_html |
-| `scripts/prepare-cpanel-static.mjs` | Generates `cpanel-dist/` from `dist/` (local) |
+| `scripts/cpanel-deploy.sh` | Deploy to subdirectory + install htaccess |
+| `scripts/htaccess-root.conf` | Rewrite rules (prepended to root .htaccess) |
+| `scripts/prepare-cpanel-static.mjs` | Generate `cpanel-dist/` from `dist/` (local) |
 | `cpanel-dist/` | Pre-built static artifact |
 
 ## Workflow
 
 ```bash
-# 1. Build
 npm run build:cpanel
-
-# 2. Commit and push
 git add cpanel-dist/
 git commit -m "Deploy: update site"
 git push origin develop
-
-# 3. Create PR (develop → main), review, merge
-
-# 4. In cPanel: Git Version Control → Update from Remote → Deploy HEAD Commit
+# Create PR develop → main, review, merge
+# cPanel: Update from Remote → Deploy HEAD Commit
 ```
-
-## Safety
-
-- Uses **manifest-based cleanup**: only removes files that were deployed by us.
-- **Never deletes** addon domain folders (micromundo.team/, etc.) or hosting files.
-- Manifest stored as `.fasl-deploy-manifest` in public_html.
-- Logs in `$HOME/deploy-logs/fasl-portfolio.log`.
