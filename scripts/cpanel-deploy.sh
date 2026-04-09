@@ -125,17 +125,23 @@ install_htaccess_rules() {
     return
   fi
 
-  # If our markers already exist, replace the block
+  # If our markers already exist, remove the old block first
   if grep -q "$MARKER_BEGIN" "$ROOT_HTACCESS" 2>/dev/null; then
-    # Remove old block (between markers, inclusive)
     sed -i "/$MARKER_BEGIN/,/$MARKER_END/d" "$ROOT_HTACCESS"
     log "Removed old fasl-work.com rewrite block."
   fi
 
-  # Append our rules at the end
-  printf '\n' >> "$ROOT_HTACCESS"
-  cat "$HTACCESS_CONF" >> "$ROOT_HTACCESS"
-  log "Appended fasl-work.com rewrite rules to $ROOT_HTACCESS."
+  # PREPEND our rules at the TOP of .htaccess
+  # This is critical: our rules MUST execute before WordPress catch-all rules.
+  # WordPress RewriteRule . /index.php [L] matches everything — if it runs
+  # first, fasl-work.com requests get swallowed by WordPress.
+  local tmp_htaccess
+  tmp_htaccess=$(mktemp)
+  cat "$HTACCESS_CONF" > "$tmp_htaccess"
+  printf '\n' >> "$tmp_htaccess"
+  cat "$ROOT_HTACCESS" >> "$tmp_htaccess"
+  mv "$tmp_htaccess" "$ROOT_HTACCESS"
+  log "Prepended fasl-work.com rewrite rules at TOP of $ROOT_HTACCESS."
 }
 
 # ── Main ─────────────────────────────────────────────────────────
