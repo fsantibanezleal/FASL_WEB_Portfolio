@@ -74,7 +74,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PREBUILT_DIR="$REPO_ROOT/cpanel-dist"
 BUILD_DIR="$REPO_ROOT/dist"
-DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html/fasl.work}"
+DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
 DEPLOYPATH="${DEPLOYPATH%/}"
 
 require_safe_target

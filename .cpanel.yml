@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/public_html/fasl.work
+    - export DEPLOYPATH=$HOME/public_html
     - /bin/bash ./scripts/cpanel-deploy.sh
