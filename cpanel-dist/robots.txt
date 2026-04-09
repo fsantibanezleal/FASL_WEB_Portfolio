@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://fasl.work/sitemap-index.xml
+Sitemap: https://fasl-work.com/sitemap-index.xml

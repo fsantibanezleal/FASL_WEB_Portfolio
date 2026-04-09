@@ -1,6 +1,6 @@
 site:
   name: FASL.work
-  site: 'https://fasl.work'
+  site: 'https://fasl-work.com'
   base: '/'
   trailingSlash: false
 
