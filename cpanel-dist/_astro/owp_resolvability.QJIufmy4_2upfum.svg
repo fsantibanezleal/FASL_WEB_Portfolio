@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b2d45"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="300" style="fill:url(#bg5)"/>
+  <text x="380" y="24" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">Resolvability Curve</text>
+  <!-- Axes -->
+  <line x1="100" y1="250" x2="680" y2="250" style="stroke:#8899aa;stroke-width:1.2"/>
+  <line x1="100" y1="250" x2="100" y2="45" style="stroke:#8899aa;stroke-width:1.2"/>
+  <!-- Y axis label -->
+  <text x="30" y="150" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5;text-anchor:middle" transform="rotate(-90,30,150)">Recovery accuracy (%)</text>
+  <!-- X axis label -->
+  <text x="390" y="286" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5;text-anchor:middle">Sampling rate</text>
+  <!-- X ticks -->
+  <text x="100" y="266" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:middle">0.1%</text>
+  <text x="245" y="266" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:middle">1%</text>
+  <text x="390" y="266" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:middle">2%</text>
+  <text x="535" y="266" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:middle">3.5%</text>
+  <text x="680" y="266" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:middle">5%</text>
+  <!-- Y ticks -->
+  <text x="90" y="250" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:end">0</text>
+  <text x="90" y="188" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:end">25</text>
+  <text x="90" y="147" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:end">50</text>
+  <text x="90" y="106" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:end">75</text>
+  <text x="90" y="65" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa;text-anchor:end">100</text>
+  <!-- Grid lines -->
+  <line x1="100" y1="185" x2="680" y2="185" style="stroke:#2d3748;stroke-width:0.5"/>
+  <line x1="100" y1="144" x2="680" y2="144" style="stroke:#2d3748;stroke-width:0.5"/>
+  <line x1="100" y1="103" x2="680" y2="103" style="stroke:#2d3748;stroke-width:0.5"/>
+  <line x1="100" y1="62" x2="680" y2="62" style="stroke:#2d3748;stroke-width:0.5"/>
+  <!-- Shaded advantage area -->
+  <path d="M 100,245 160,220 245,180 350,130 450,95 550,75 650,65 680,62 680,62 650,100 550,125 450,148 350,175 245,210 160,235 100,248 Z" style="fill:#0d7377;fill-opacity:0.12"/>
+  <!-- Adaptive entropy curve (teal, higher) -->
+  <polyline points="100,245 160,220 245,180 350,130 450,95 550,75 650,65 680,62" style="fill:none;stroke:#0d7377;stroke-width:2.5"/>
+  <!-- Regular grid curve (blue, lower) -->
+  <polyline points="100,248 160,235 245,210 350,175 450,148 550,125 650,100 680,92" style="fill:none;stroke:#3a7ab8;stroke-width:2;stroke-dasharray:6,3"/>
+  <!-- Legend -->
+  <rect x="520" y="38" width="210" height="58" rx="5" style="fill:#0d1b2a;fill-opacity:0.85;stroke:#3a7ab8;stroke-width:0.6"/>
+  <line x1="530" y1="54" x2="560" y2="54" style="stroke:#0d7377;stroke-width:2.5"/>
+  <text x="568" y="58" style="font-family:Arial,sans-serif;font-size:11px;fill:#0d7377">Adaptive entropy</text>
+  <line x1="530" y1="74" x2="560" y2="74" style="stroke:#3a7ab8;stroke-width:2;stroke-dasharray:6,3"/>
+  <text x="568" y="78" style="font-family:Arial,sans-serif;font-size:11px;fill:#3a7ab8">Regular grid</text>
+  <!-- Advantage annotation -->
+  <text x="420" y="180" style="font-family:Arial,sans-serif;font-size:10px;fill:#e07830;font-style:italic">advantage</text>
+</svg>

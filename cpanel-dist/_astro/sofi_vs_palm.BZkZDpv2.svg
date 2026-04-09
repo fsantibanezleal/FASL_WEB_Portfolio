@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b2d45"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="300" style="fill:url(#bg7)"/>
+  <text x="380" y="24" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">SOFI vs PALM / STORM</text>
+  <!-- PALM column -->
+  <rect x="30" y="40" width="340" height="210" rx="6" style="fill:#0d1b2a;fill-opacity:0.7;stroke:#3a7ab8;stroke-width:1.2"/>
+  <text x="200" y="62" style="font-family:Arial,sans-serif;font-size:14px;fill:#3a7ab8;text-anchor:middle;font-weight:bold">PALM / STORM</text>
+  <line x1="50" y1="70" x2="350" y2="70" style="stroke:#3a7ab8;stroke-width:0.5;stroke-opacity:0.4"/>
+  <!-- Requirements -->
+  <text x="50" y="92" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5;font-weight:bold">Requirements:</text>
+  <text x="60" y="108" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Sparse blinking (isolated emitters)</text>
+  <text x="60" y="123" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Many frames (10k&#x2013;50k typical)</text>
+  <text x="60" y="138" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Exact single-molecule localization</text>
+  <!-- Pros -->
+  <text x="50" y="162" style="font-family:Arial,sans-serif;font-size:11px;fill:#0d7377;font-weight:bold">Pros:</text>
+  <text x="60" y="178" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; ~20nm resolution</text>
+  <text x="60" y="193" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; True single-molecule precision</text>
+  <!-- Cons -->
+  <text x="50" y="215" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;font-weight:bold">Cons:</text>
+  <text x="60" y="231" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Slow acquisition (minutes&#x2013;hours)</text>
+  <text x="60" y="246" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Photo-bleaching limits imaging</text>
+  <!-- SOFI column -->
+  <rect x="390" y="40" width="340" height="210" rx="6" style="fill:#0d1b2a;fill-opacity:0.7;stroke:#0d7377;stroke-width:1.2"/>
+  <text x="560" y="62" style="font-family:Arial,sans-serif;font-size:14px;fill:#0d7377;text-anchor:middle;font-weight:bold">SOFI</text>
+  <line x1="410" y1="70" x2="710" y2="70" style="stroke:#0d7377;stroke-width:0.5;stroke-opacity:0.4"/>
+  <text x="410" y="92" style="font-family:Arial,sans-serif;font-size:11px;fill:#c8d6e5;font-weight:bold">Requirements:</text>
+  <text x="420" y="108" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Dense blinking OK (overlapping)</text>
+  <text x="420" y="123" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Fewer frames (100&#x2013;1000)</text>
+  <text x="420" y="138" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Statistical cumulant analysis</text>
+  <text x="410" y="162" style="font-family:Arial,sans-serif;font-size:11px;fill:#0d7377;font-weight:bold">Pros:</text>
+  <text x="420" y="178" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Fast acquisition (seconds)</text>
+  <text x="420" y="193" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Works with standard fluorophores</text>
+  <text x="410" y="215" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;font-weight:bold">Cons:</text>
+  <text x="420" y="231" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; ~80&#x2013;120nm resolution</text>
+  <text x="420" y="246" style="font-family:Arial,sans-serif;font-size:10px;fill:#8899aa">&#x2022; Noise amplification at high orders</text>
+  <!-- VS divider -->
+  <circle cx="380" cy="145" r="16" style="fill:#1b2d45;stroke:#e07830;stroke-width:1.5"/>
+  <text x="380" y="150" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-weight:bold">vs</text>
+  <!-- Bottom summary -->
+  <rect x="130" y="260" width="500" height="28" rx="5" style="fill:#1b2d45;stroke:#e07830;stroke-width:0.8"/>
+  <text x="380" y="279" style="font-family:Arial,sans-serif;font-size:11px;fill:#e07830;text-anchor:middle;font-style:italic">SOFI trades single-molecule precision for ensemble speed.</text>
+</svg>

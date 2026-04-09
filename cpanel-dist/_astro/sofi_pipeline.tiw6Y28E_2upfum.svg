@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" style="stop-color:#0d1b2a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1b2d45;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arrowTeal" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" style="fill:#0d7377"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="300" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="380" y="28" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;fill:#3a7ab8">SOFI Processing Pipeline</text>
+
+  <!-- Stage 1: Input -->
+  <rect x="15" y="55" width="110" height="55" rx="6" style="fill:#1b2d45;stroke:#3a7ab8;stroke-width:1.5"/>
+  <text x="70" y="76" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#3a7ab8">Fluorescence</text>
+  <text x="70" y="92" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">Video (T frames)</text>
+
+  <!-- Arrow 1 -->
+  <line x1="128" y1="82" x2="148" y2="82" style="stroke:#0d7377;stroke-width:2" marker-end="url(#arrowTeal)"/>
+
+  <!-- Stage 2: Cumulant -->
+  <rect x="152" y="55" width="110" height="55" rx="6" style="fill:#1b2d45;stroke:#0d7377;stroke-width:1.5"/>
+  <text x="207" y="76" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#0d7377">Temporal</text>
+  <text x="207" y="92" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">Cumulant &#x03BA;&#x2099;</text>
+
+  <!-- Arrow 2 -->
+  <line x1="265" y1="82" x2="285" y2="82" style="stroke:#0d7377;stroke-width:2" marker-end="url(#arrowTeal)"/>
+
+  <!-- Stage 3: PSF Narrowing -->
+  <rect x="289" y="55" width="110" height="55" rx="6" style="fill:#1b2d45;stroke:#0d7377;stroke-width:1.5"/>
+  <text x="344" y="76" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#0d7377">PSF Narrowing</text>
+  <text x="344" y="92" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">&#x00D7;&#x221A;n</text>
+
+  <!-- Arrow 3 -->
+  <line x1="402" y1="82" x2="422" y2="82" style="stroke:#0d7377;stroke-width:2" marker-end="url(#arrowTeal)"/>
+
+  <!-- Stage 4: Fourier Interpolation -->
+  <rect x="426" y="55" width="110" height="55" rx="6" style="fill:#1b2d45;stroke:#0d7377;stroke-width:1.5"/>
+  <text x="481" y="76" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#0d7377">Fourier</text>
+  <text x="481" y="92" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">Interpolation</text>
+
+  <!-- Arrow 4 -->
+  <line x1="539" y1="82" x2="559" y2="82" style="stroke:#0d7377;stroke-width:2" marker-end="url(#arrowTeal)"/>
+
+  <!-- Stage 5: Deconvolution -->
+  <rect x="563" y="55" width="110" height="55" rx="6" style="fill:#1b2d45;stroke:#e07830;stroke-width:1.5"/>
+  <text x="618" y="72" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#e07830">Deconvolution</text>
+  <text x="618" y="88" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">Wiener / RL</text>
+  <text x="618" y="102" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:9px;fill:#8b949e">Richardson-Lucy</text>
+
+  <!-- Final arrow down -->
+  <line x1="618" y1="113" x2="618" y2="138" style="stroke:#e07830;stroke-width:2" marker-end="url(#arrowTeal)"/>
+
+  <!-- Output -->
+  <rect x="538" y="142" width="160" height="45" rx="8" style="fill:#0d7377;fill-opacity:0.3;stroke:#e07830;stroke-width:2"/>
+  <text x="618" y="163" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#e07830">Super-resolved</text>
+  <text x="618" y="178" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">Image</text>
+
+  <!-- Resolution improvement table -->
+  <rect x="50" y="140" width="430" height="80" rx="6" style="fill:#0d1b2a;fill-opacity:0.85;stroke:#3a7ab8;stroke-width:1"/>
+  <text x="265" y="162" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#3a7ab8">Resolution Improvement (PSF narrowing factor &#x221A;n)</text>
+
+  <!-- n=2 -->
+  <rect x="75" y="172" width="110" height="35" rx="4" style="fill:#0d7377;fill-opacity:0.2;stroke:#0d7377;stroke-width:1"/>
+  <text x="130" y="188" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">n = 2</text>
+  <text x="130" y="202" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;font-weight:bold;fill:#e07830">&#x00D7;1.41</text>
+
+  <!-- n=4 -->
+  <rect x="210" y="172" width="110" height="35" rx="4" style="fill:#0d7377;fill-opacity:0.2;stroke:#0d7377;stroke-width:1"/>
+  <text x="265" y="188" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">n = 4</text>
+  <text x="265" y="202" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;font-weight:bold;fill:#e07830">&#x00D7;2.00</text>
+
+  <!-- n=6 -->
+  <rect x="345" y="172" width="110" height="35" rx="4" style="fill:#0d7377;fill-opacity:0.2;stroke:#0d7377;stroke-width:1"/>
+  <text x="400" y="188" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">n = 6</text>
+  <text x="400" y="202" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:13px;font-weight:bold;fill:#e07830">&#x00D7;2.45</text>
+
+  <!-- Bottom note -->
+  <text x="380" y="260" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">Higher-order cumulants yield sharper PSFs but require longer sequences and have lower SNR</text>
+  <text x="380" y="278" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">&#x03BA;&#x2099;(&#x03C4;) captures n-th order temporal statistics &#x2014; only blinking emitters contribute</text>
+</svg>

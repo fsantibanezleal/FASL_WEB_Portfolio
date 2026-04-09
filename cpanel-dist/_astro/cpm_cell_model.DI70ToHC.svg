@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" style="stop-color:#0d1b2a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1b2d45;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" style="fill:#e07830"/>
+    </marker>
+    <radialGradient id="cellBody" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0d7377;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#0d7377;stop-opacity:0.3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="300" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="380" y="28" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;fill:#3a7ab8">CPM Cell Model with Gaussian Filopodia</text>
+
+  <!-- Cell body circle -->
+  <circle cx="220" cy="155" r="70" style="fill:url(#cellBody);stroke:#0d7377;stroke-width:2"/>
+
+  <!-- Filopodia as Gaussian bumps on the membrane -->
+  <!-- Filopodium 1: top-right (theta ~ 30 deg) -->
+  <path d="M 280,120 Q 300,100 310,88 Q 315,85 310,92 Q 305,100 285,118" style="fill:#e07830;fill-opacity:0.7;stroke:#e07830;stroke-width:1.5"/>
+  <ellipse cx="310" cy="88" rx="8" ry="5" style="fill:#e07830;fill-opacity:0.8"/>
+
+  <!-- Filopodium 2: right (theta ~ 0 deg) -->
+  <path d="M 290,150 Q 315,148 330,145 Q 338,143 330,150 Q 320,155 290,158" style="fill:#e07830;fill-opacity:0.7;stroke:#e07830;stroke-width:1.5"/>
+  <ellipse cx="332" cy="147" rx="9" ry="5" style="fill:#e07830;fill-opacity:0.8"/>
+
+  <!-- Filopodium 3: bottom-left (theta ~ 210 deg) -->
+  <path d="M 165,195 Q 148,210 138,220 Q 133,225 138,218 Q 143,210 162,198" style="fill:#e07830;fill-opacity:0.7;stroke:#e07830;stroke-width:1.5"/>
+  <ellipse cx="136" cy="222" rx="7" ry="5" style="fill:#e07830;fill-opacity:0.8"/>
+
+  <!-- Filopodium 4: top-left (theta ~ 150 deg) -->
+  <path d="M 160,110 Q 142,95 132,85 Q 128,80 134,88 Q 140,96 158,112" style="fill:#e07830;fill-opacity:0.7;stroke:#e07830;stroke-width:1.5"/>
+  <ellipse cx="131" cy="84" rx="7" ry="5" style="fill:#e07830;fill-opacity:0.8"/>
+
+  <!-- R0 label on cell body -->
+  <text x="220" y="160" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:18px;font-weight:bold;fill:#e6edf3">R&#x2080;</text>
+  <text x="220" y="178" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">cell body</text>
+
+  <!-- Radius line from center -->
+  <line x1="220" y1="155" x2="290" y2="155" style="stroke:#3a7ab8;stroke-width:1;stroke-dasharray:4,2"/>
+  <text x="255" y="148" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#3a7ab8">R&#x2080;</text>
+
+  <!-- Velocity arrow -->
+  <line x1="220" y1="155" x2="330" y2="120" style="stroke:#e07830;stroke-width:2.5" marker-end="url(#arrowOrange)"/>
+  <text x="290" y="112" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#e07830">v</text>
+
+  <!-- Equations panel -->
+  <rect x="400" y="50" width="340" height="90" rx="6" style="fill:#0d1b2a;fill-opacity:0.8;stroke:#3a7ab8;stroke-width:1"/>
+  <text x="420" y="72" style="font-family:Arial,sans-serif;font-size:11px;fill:#8b949e">Membrane shape:</text>
+  <text x="420" y="94" style="font-family:Arial,sans-serif;font-size:13px;fill:#e6edf3">R(&#x03B8;) = R&#x2080; + A &#x00B7; exp(-(&#x03B8;-&#x03B8;&#x2080;)&#x00B2; / 2W&#x00B2;)</text>
+  <text x="420" y="118" style="font-family:Arial,sans-serif;font-size:11px;fill:#8b949e">Velocity from filopodia:</text>
+  <text x="420" y="130" style="font-family:Arial,sans-serif;font-size:13px;fill:#e6edf3">v = V&#x2080; &#x00B7; &#x03A3; A&#x2C7;(cos&#x03B8;&#x2C7;, sin&#x03B8;&#x2C7;)</text>
+
+  <!-- Legend -->
+  <rect x="400" y="160" width="340" height="110" rx="6" style="fill:#0d1b2a;fill-opacity:0.8;stroke:#3a7ab8;stroke-width:0.5"/>
+  <text x="420" y="182" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#3a7ab8">Parameters</text>
+  <circle cx="430" cy="200" r="5" style="fill:#0d7377"/>
+  <text x="442" y="204" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">R&#x2080; &#x2014; equilibrium cell radius</text>
+  <ellipse cx="430" cy="220" rx="5" ry="3" style="fill:#e07830"/>
+  <text x="442" y="224" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">A &#x2014; filopodium amplitude</text>
+  <text x="420" y="244" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">W &#x2014; filopodium angular width</text>
+  <text x="420" y="260" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">&#x03B8;&#x2080; &#x2014; filopodium angular position</text>
+
+  <!-- Theta arc -->
+  <path d="M 245,155 A 25,25 0 0,0 240,140" style="fill:none;stroke:#8b949e;stroke-width:0.8"/>
+  <text x="252" y="145" style="font-family:Arial,sans-serif;font-size:9px;fill:#8b949e">&#x03B8;</text>
+</svg>
