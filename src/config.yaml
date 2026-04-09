@@ -1,0 +1,69 @@
+site:
+  name: FASL.work
+  site: 'https://fasl.work'
+  base: '/'
+  trailingSlash: false
+
+metadata:
+  title:
+    default: FASL.work — Engineering & Applied Technology
+    template: '%s — FASL.work'
+  description: 'Engineering prototypes, software products, and technology solutions by FASL.work. Research · Hardware · Digital Solutions.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: FASL.work
+    images:
+      - url: '~/assets/images/og-default.png'
+        width: 1200
+        height: 630
+    type: website
+  twitter:
+    handle: '@fsantibanezleal'
+    site: '@fsantibanezleal'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 6
+
+    post:
+      isEnabled: false
+      permalink: '/%slug%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: false
+      pathname: 'blog'
+      robots:
+        index: true
+
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: true
+
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'dark'
