@@ -65,31 +65,44 @@ metrics:
 stack: [Kedro, Azure Databricks, PySpark, Delta Lake, XGBoost, scikit-learn, MLflow, Docker, Azure Pipelines, Power BI, Streamlit]
 ---
 
+## Business Impact
+
+This platform delivered measurable operational gains at industrial scale: throughput uplift exceeding **+100 TPH in SAG milling** — translating to millions in additional annual revenue — alongside measurable copper recovery improvements across flotation circuits. Optimization recommendations run on a 4-hourly production cadence, embedded directly into the operational workflow across multiple mining divisions.
+
+## Strategic Context
+
+In large-scale copper mining, a **1% recovery improvement** or a **100 TPH throughput gain** translates to **tens of millions USD annually**. This platform moved operational decisions from experience-based to data-driven, embedding analytics into the daily operational cadence. The multi-division deployment required balancing standardized methodology with division-specific calibration — a technical and organizational challenge that defined the platform's architecture.
+
+## The Challenge
+
+Large-scale mining operations involve complex, interconnected processes where small improvements in throughput or recovery translate into significant economic impact. SAG mills, flotation banks, and thickeners each have dozens of controllable variables and hundreds of sensor readings, creating a high-dimensional optimization problem that evolves continuously with ore characteristics.
+
 ## System Architecture
 
-The platform is built as a modular Kedro pipeline deployed on Azure Databricks:
+The platform follows a modular pipeline architecture built on **Kedro** for reproducibility and MLOps best practices:
 
 ### 1. Data Ingestion
 Streaming and batch pipelines pulling from **SCADA systems**, lab analyses, and operational databases via Azure Data Factory. Real-time sensor data from hundreds of instruments across the processing plant.
 
 ### 2. Feature Engineering
 Domain-informed features capturing process dynamics:
-- **Rolling statistics** — mean, variance, percentiles over configurable windows
+- **Rolling statistics** — mean, variance, percentiles over configurable time windows
 - **Lag variables** — capturing process inertia and response delays
-- **Ore property indicators** — from assay data reflecting feed composition
-- **Regime detection** — HMMs and change-point algorithms identifying operational states
+- **Ore property indicators** — derived from assay data reflecting feed composition
+- **Regime detection** — hidden Markov models and change-point algorithms identifying operational states
 
 ### 3. Model Training
-Ensemble of **XGBoost**, gradient-boosted trees, and neural networks trained on historical operational windows. MLflow tracks experiments, enabling reproducible model selection.
+Ensemble of **XGBoost**, gradient-boosted trees, and neural networks trained on historical operational windows. **MLflow** tracks experiments, enabling reproducible model selection across divisions.
 
 ### 4. Recommendation Engine
 Scenario simulation generating **actionable setpoint recommendations** with confidence intervals. Operators see not just what to change, but how confident the model is and what range of outcomes to expect.
 
 ### 5. Operational Dashboard
-Real-time monitoring of recommendation adherence, KPI tracking, and expert feedback loops. Power BI dashboards for management, Streamlit prototypes for engineering deep-dives.
+Real-time monitoring of recommendation adherence, KPI tracking, and expert feedback loops. **Power BI** dashboards for management, **Streamlit** prototypes for engineering deep-dives.
 
-## Impact at Scale
+## Results
 
-In large-scale copper mining, a **1% recovery improvement** or **100 TPH throughput gain** translates to **tens of millions USD annually**. This platform moved operational decisions from experience-based to data-driven, embedding analytics into the daily 4-hourly production cadence across multiple mining divisions.
-
-The multi-division deployment required balancing **standardized methodology** with **division-specific calibration** — the same pipeline framework serves each site, but models and thresholds are tuned to local ore characteristics and equipment configurations.
+- Throughput uplift scenarios exceeding **+100 TPH** in SAG milling operations
+- Measurable improvements in **copper recovery** across flotation circuits
+- **Hourly tracking cycles** with 4-hourly optimization recommendations in production
+- Multi-division deployment with division-specific parameter tuning

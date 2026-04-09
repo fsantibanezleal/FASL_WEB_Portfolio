@@ -58,17 +58,21 @@ metrics:
 stack: [Python, FastAPI, Three.js, Octree, SAT, Kelvin-Voigt, OBJ Loader, WebGL]
 ---
 
+## The Challenge
+
+Real-time haptic rendering requires collision detection at **>1 kHz update rates** — the human sense of touch perceives delays of just 1 millisecond. Brute-force triangle-triangle testing is O(N²), far too slow for meshes with thousands of triangles. The force feedback must feel natural and physically plausible, not just detect contact.
+
 ## Collision Detection Pipeline
 
 ### Broad Phase: Octree Spatial Partitioning
-The scene is recursively subdivided into octants, grouping nearby triangles. Only triangles in the same or adjacent octant cells need pairwise testing. Reduces complexity from **O(N²) to O(N log N)**.
+The scene is recursively subdivided into octants, each containing a subset of triangles. For a probe query, only the traversed octant and its neighbors need pairwise testing — reducing complexity from **O(N²) to O(N log N)**. The octree is built once per mesh and supports fast updates for deformable objects.
 
 ### Narrow Phase: Separating Axis Theorem (SAT)
-For each candidate pair, SAT tests for intersection along **11 axes**:
-- 2 triangle normals (one per triangle)
-- 9 cross products of edge pairs (3 edges × 3 edges)
+For each candidate triangle pair, SAT tests for intersection along **11 potential separating axes**:
+- **2 triangle face normals** (one per triangle)
+- **9 cross products** of edge pairs (3 edges × 3 edges)
 
-If a separating axis exists, the triangles don't intersect.
+If any axis separates the two triangles, they don't intersect. Only when all 11 axes fail to separate do we have a collision — mathematically complete and exact.
 
 ## Force Model: Kelvin-Voigt Spring-Damper
 
@@ -77,16 +81,13 @@ Contact forces follow the **Kelvin-Voigt** model:
 `F = -k · (p_probe - p_contact) - b · v_probe`
 
 Where:
-- **k** is the spring stiffness (surface hardness)
-- **b** is the damping coefficient (energy dissipation)
-- **p_probe** and **p_contact** are probe and contact surface positions
-- **v_probe** is the probe velocity
+- **k** = spring stiffness (surface hardness) — how strongly the surface resists penetration
+- **b** = damping coefficient — energy dissipation that provides stability and prevents oscillation
+- **p_probe** and **p_contact** = probe position and nearest contact point on the surface
+- **v_probe** = probe velocity
 
-This produces forces that resist penetration (spring term) and provide stability (damping term), creating physically plausible haptic feedback.
+The spring term resists penetration; the damping term absorbs energy. Together they produce physically plausible haptic feedback that feels like touching a real surface.
 
-## Technical Stack
+## Evolution
 
-- Originally developed in **C++/CLI** with a physical **PHANToM Omni** haptic device (2008)
-- Modern version: **Python/FastAPI** backend with **Three.js** WebGL rendering
-- **Wavefront OBJ** mesh loading for arbitrary 3D models
-- **Keyboard-driven probe** for haptic interaction without physical hardware
+Originally developed in **2008 at Universidad de Concepción** using C++/CLI with a physical **PHANToM Omni** haptic device providing 3-DOF force feedback. The modern version recreates the full simulation as a **Python/FastAPI** backend with **Three.js** WebGL rendering in the browser, supporting keyboard-driven probe interaction without requiring physical hardware.

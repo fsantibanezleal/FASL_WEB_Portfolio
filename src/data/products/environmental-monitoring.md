@@ -65,24 +65,38 @@ metrics:
 stack: [Deep Learning CNNs, Ensemble Time-Series, GenAI/LLMs, Azure Databricks, Streaming Pipelines]
 ---
 
+## Business Impact
+
+The system achieved a **15% reduction in severe environmental alert events**, shifting the operation from reactive incident response to proactive pollution mitigation. Natural-language recommendations made the system accessible to non-technical operators and environmental managers — maximizing adoption where it matters most.
+
+## Strategic Context
+
+Environmental compliance in mining is not optional — it is a **license to operate**. Fines, community relations, and regulatory shutdowns make environmental management a business-critical function. This system transformed it from reactive (respond after alert) to predictive (act before event), protecting both communities and operational continuity.
+
+## The Challenge
+
+Open-pit mining generates airborne particulate matter that affects surrounding communities. Traditional monitoring relies on sparse sensor networks with spatial gaps and delayed reporting. Events can escalate faster than manual response allows — by the time an alert triggers, the damage window has already opened.
+
 ## Three Integrated Stages
 
 ### Stage 1: Real-Time Estimation
-**24 video camera streams** processed continuously using deep learning models. CNNs trained on labeled visibility/opacity data perform regression from image patches to concentration estimates, calibrated against co-located particulate matter sensors. This provides spatial coverage far beyond what point sensors alone can achieve.
+**24 video camera streams** processed continuously using deep learning models. CNNs trained on labeled visibility/opacity data perform regression from image patches to concentration estimates, calibrated against co-located particulate matter sensors. This provides spatial coverage far beyond what point sensors alone can achieve — filling the gaps between fixed monitoring stations.
 
 ### Stage 2: Predictive Forecasting
 Time-series models generate forecasts at **1-hour and 6-hour horizons**, combining:
 - Current pollution estimates from the vision system
 - Meteorological data (wind speed, direction, humidity, temperature)
-- Operational schedules (blasting, hauling, loading)
+- Operational schedules (blasting, hauling, loading activities)
 - Historical patterns and seasonal trends
 
+This gives operators a **decision window of 1–3 hours** — enough time for planned, cost-effective mitigation rather than emergency response.
+
 ### Stage 3: Intelligent Recommendations
-A **Generative AI module** synthesizes the current situation, forecasts, and operational context to produce **natural-language recommendations**. These are specific, actionable guidance in operator language — not technical metrics. This maximized adoption by non-technical environmental managers.
+A **Generative AI module** synthesizes the current situation, forecasts, and operational context to produce **natural-language recommendations**. These are specific, actionable guidance written in operator language — not technical metrics or abstract dashboards. This design choice maximized adoption by environmental managers who are domain experts, not data scientists.
 
 ## Results
 
 - **15% reduction** in severe environmental alert events
 - Shift from reactive to **proactive mitigation** strategies
-- Real-time **spatial pollution maps** across the operation
-- Operator-friendly natural-language guidance that doesn't require data science expertise
+- Real-time **spatial pollution maps** across the entire operation
+- Operator-friendly natural-language guidance accessible without data science expertise

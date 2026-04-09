@@ -60,34 +60,40 @@ stack: [Python, FastAPI, scikit-image, NumPy, HTML5 Canvas, Rosin-Rammler, ISO 1
 
 ## The Characterization Trio
 
-GrainSight is the third component of a mineral characterization trio developed at ALGES:
-1. **HSI Classification** — spectral mineral identification
-2. **Depth Profiler** — 3D surface reconstruction
+GrainSight is the third component of a mineral characterization trio developed at ALGES laboratory:
+1. **HSI Classification** — spectral mineral identification from hyperspectral imagery
+2. **Depth Profiler** — 3D surface reconstruction from RGB-D data
 3. **GrainSight** — particle size distribution from the reconstructed depth data
+
+Together, these three tools provide a complete non-contact characterization pipeline: identify the minerals, reconstruct the surface, and measure the grains.
+
+## The Challenge
+
+Traditional particle size analysis requires **physical sieve testing** — a slow, destructive process impractical for continuous monitoring. Estimating grain size distributions non-invasively from camera data requires robust segmentation of touching and overlapping particles, where simple thresholding fails completely.
 
 ## Grain Segmentation
 
 **Marker-based watershed segmentation** identifies individual grains from the depth map:
-1. Local minima in the depth field serve as seed markers
-2. The watershed algorithm floods from these seeds
-3. Basin boundaries define grain edges
-4. Post-processing merges over-segmented fragments
+1. Local minima in the depth field serve as seed markers — each minimum represents a grain center
+2. The watershed algorithm floods from these seeds — basins grow outward
+3. Basin boundaries define grain edges — the "ridgelines" between flooding basins
+4. Post-processing merges over-segmented fragments and filters noise
 
-## Per-Grain Measurements (18 Properties)
+## Per-Grain Measurements — 18 Properties
 
-Each segmented grain is characterized with:
-- `d_eq = √(4A/π)` — equivalent diameter
-- `AR = d_major / d_minor` — aspect ratio  
-- `C = 4πA / P²` — circularity
+Each segmented grain is characterized with a comprehensive set of geometric descriptors:
+- `d_eq = √(4A/π)` — equivalent diameter (area-based)
+- `AR = d_major / d_minor` — aspect ratio (elongation)
+- `C = 4πA / P²` — circularity (how round)
 - `V = Σ(zᵢ - z_base) · Δx · Δy` — volume from depth integration
-- Plus 14 additional shape, texture, and orientation descriptors
+- Plus 14 additional shape, texture, and orientation descriptors covering convexity, solidity, Feret diameters, and principal axis orientation
 
 ## Rosin-Rammler PSD Fitting
 
-The grain size distribution is fitted to the **Rosin-Rammler model**:
+The grain size distribution is fitted to the **Rosin-Rammler model** — the standard in mineral processing:
 
 `R(d) = 100 × exp(-(d/d')ⁿ)`
 
-Where `d'` is the characteristic size (63.2% passing) and `n` is the uniformity coefficient. **D-values** (D10, D25, D50, D75, D90) are extracted from the cumulative curve with **ISO 565 sieve simulation**.
+Where `d'` is the characteristic size (63.2% passing) and `n` is the uniformity coefficient describing the spread. **D-values** (D10, D25, D50, D75, D90) are extracted from the cumulative curve with **ISO 565 sieve simulation**.
 
 Compliant with **ISO 13322-1** for particle size analysis from images.

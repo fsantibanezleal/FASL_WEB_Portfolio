@@ -198,13 +198,9 @@ const rollings = findAssets(allRollings, slugPatterns);
         </div>
       </section>
 
-      {product.body && product.body.length > 5 && (
-        <section class="mb-14">
-          <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-primary prose-strong:text-gray-900 dark:prose-strong:text-white prose-code:text-primary prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
-            <Content />
-          </div>
-        </section>
-      )}
+      <!-- Body content is English-only; ES version relies on translated
+           frontmatter fields (challengeEs, approachEs, KPIs, metrics)
+           which are shown in the sections above. -->
 
       <section class="mb-14">
         <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">

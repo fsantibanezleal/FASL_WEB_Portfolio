@@ -66,35 +66,44 @@ metrics:
 stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4, Vitest, Playwright]
 ---
 
+## Business Context
+
+Mineral tracking systems generate vast amounts of operational data — belt block compositions, stockpile voxel states, quality distributions, temporal evolution. The raw data exists, but operators and process engineers need structured, route-specific views to answer operational questions: *What is the current state of each stockpile? How has the feed quality evolved over the last shift? Where in the circuit are quality deviations occurring?*
+
+Mine Pile Visualizer bridges this gap — a local-first web application that consumes cached simulation outputs and presents them through four dedicated operator workspaces, each designed to answer a specific class of operational question.
+
 ## Four Operator Workspaces
 
-The platform is organized into four dedicated operator workspaces, each designed to answer a specific class of operational question:
-
 ### Circuit Workspace
-Structural reading of the modeled mining area. Interactive 2D/3D circuit topology diagram built with @xyflow/react and dagre layout engine. Shows flow roles, anchors, and belt connections across the entire processing circuit.
+Structural reading of the modeled mining area. Interactive 2D/3D circuit topology diagram showing stages, nodes, edges, flow roles, and anchor inventory. Built with `@xyflow/react` and `dagre` for automatic graph layout. Answers: *What is the circuit structure and how are processing stages connected?*
 
 ### Live Workspace
-Dense current-state inspection. Belt block compositions displayed as color-coded strips; stockpile voxel states rendered in real-time 3D using React Three Fiber. Operators can inspect individual voxel quality, tonnage, and age.
+Dense current-state inspection. Belt block compositions displayed as color-coded strips; stockpile voxel states rendered in real-time 3D using React Three Fiber with `instancedMesh` for performance. Mass histograms, quality distributions, and per-voxel inspection. Answers: *What is happening right now?*
 
 ### Profiler Workspace
-Historical summarized reading. Snapshot navigation allows stepping through past states. Quality time-series charts reveal shift-to-shift trends and help identify gradual drift in stockpile composition.
+Historical summarized reading. Snapshot navigation through time, quality time-series charts, delta comparisons between snapshots. Shift-to-shift trend analysis helps identify gradual drift in stockpile composition. Answers: *How has this evolved over the shift/day/week?*
 
 ### Simulator Workspace
-Pile-centered discharge reading. Visualizes the central pile structure and active discharge routes, helping operators understand how material flows out of stockpiles during extraction.
+Pile-centered discharge reading. Visualizes the central pile structure, discharge routes, and grouped reclaim sequences. Answers: *Where does the material go when we extract?*
 
-## Data Contract
+## Data Contract — Apache Arrow IPC
 
 The system consumes **Apache Arrow IPC** cached outputs from an upstream mineral tracking simulation engine. Two primary data structures:
 
-- **Pile cells**: `(ix, iy, iz, massTon, timestamps, quality columns)` — voxelized stockpile state
-- **Belt blocks**: `(position, massTon, timestampOldest, timestampNewest, qualities)` — conveyor material composition
+- **Pile cells**: `(ix, iy, iz, massTon, timestamps, quality columns)` — voxelized stockpile state with spatial coordinates and multi-quality attributes
+- **Belt blocks**: `(position, massTon, timestampOldest, timestampNewest, qualities)` — conveyor material composition with temporal bounds
 
-This local-first architecture means the visualizer operates without external services — all data is pre-computed and cached locally.
+The dense binary format enables sub-second loading of voxel datasets with thousands of cells. This local-first architecture means the visualizer operates without external services — all data is pre-computed and cached locally.
 
-## Technical Highlights
+## Technical Architecture
 
-- **Next.js 16** App Router with React 19 and TypeScript 5
-- **React Three Fiber** + Three.js for hardware-accelerated 3D voxel rendering
-- **@xyflow/react** with dagre for automatic 2D circuit layout
-- **Zod 4** for runtime data validation
-- **Vitest** + **Playwright** for unit and end-to-end testing
+- **Framework**: Next.js 16 (App Router) with React 19 and TypeScript 5
+- **2D Circuit Diagrams**: `@xyflow/react` + `dagre` for automatic graph layout of circuit topology
+- **3D Voxel Rendering**: `@react-three/fiber` + Three.js + `drei` — hardware-accelerated WebGL with instanced mesh for stockpile voxels
+- **Data Format**: Apache Arrow IPC for dense block/cell datasets
+- **Validation**: Zod 4 for runtime contract enforcement
+- **Local-first**: No external services — reads app-ready cache from local filesystem
+
+## Recent Updates
+
+**v1.00.001 (April 2026)**: Folded the Stockpiles workspace into Live (Piles/VPiles). Resolved 3D voxel rendering issue — moved from fragile instance-color to explicit merged visible-geometry approach.

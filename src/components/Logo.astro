@@ -1,9 +1,11 @@
 ---
 import faslLogoDark from '~/assets/images/fasl-logo-dark.png';
+import faslLogoLight from '~/assets/images/fasl-logo-light.svg';
 ---
 
 <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 flex items-center gap-2">
-  <img src={faslLogoDark.src} alt="FASL.work" class="h-8 w-auto" />
+  <img src={faslLogoDark.src} alt="FASL.work" class="h-8 w-auto hidden dark:block" />
+  <img src={faslLogoLight.src} alt="FASL.work" class="h-8 w-auto block dark:hidden" />
   <span class="text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
     FASL<span class="text-primary">.work</span>
   </span>

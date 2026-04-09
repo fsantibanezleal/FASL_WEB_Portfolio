@@ -10,7 +10,7 @@ icon: tabler:camera
 tags: [computational-photography, linear-algebra, svd, compressed-sensing, dash, python]
 proprietary: false
 featured: false
-assetPatterns: [dual]
+assetPatterns: [dual_photography, dual_helmholtz, dual_frontend]
 github: "https://github.com/fsantibanezleal/FASL_Coding_DualFotography"
 video: "https://www.youtube.com/watch?v=Ju5GQuowxaE"
 
@@ -47,10 +47,6 @@ metrics:
     labelEs: "Escenas"
     value: "6 types"
     valueEs: "6 tipos"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "70 automated"
-    valueEs: "70 automatizados"
   - label: "Capture"
     labelEs: "Captura"
     value: "Simulation + webcam"
@@ -61,20 +57,25 @@ stack: [Python, NumPy, SciPy, Dash, Plotly, Lambertian BRDF, SVD]
 
 ## The Idea
 
-The **transport matrix T** encodes how every projector pixel contributes to every camera pixel through scene geometry and materials. If we measure T by projecting structured patterns and recording what the camera sees, we can reconstruct the projector's view using **Helmholtz reciprocity**: the dual image is simply T transposed applied to a virtual illumination.
+Imagine reversing the roles of a projector and camera. The **transport matrix T** encodes how every projector pixel contributes to every camera pixel through scene geometry and materials. If we measure T by projecting structured patterns and recording what the camera sees, we can reconstruct the projector's view using **Helmholtz reciprocity**: the dual image is simply T transposed applied to a virtual illumination.
+
+This is dual photography — seeing from where you illuminate.
 
 ## What Makes This Interesting
 
-### SVD Analysis
-The decomposition **T = UΣVᵀ** reveals the scene's optical complexity. The singular value spectrum tells us how many independent optical "modes" the scene supports. A flat wall has a simple spectrum; a complex textured scene has many significant singular values.
+### Light Transport & SVD Analysis
+The decomposition **T = UΣVᵀ** reveals the scene's optical complexity. The singular value spectrum tells us how many independent optical "modes" the scene supports — a flat wall has a simple spectrum with rapid decay; a complex textured scene has many significant singular values. This connects imaging to linear algebra in a beautiful way.
 
 ### Compressed Sensing
-With structured illumination patterns (Bernoulli or Hadamard matrices), we can recover the dual image with **far fewer measurements** than the full transport matrix requires. This connects dual photography to compressed sensing theory.
+With structured illumination patterns (Bernoulli or Hadamard matrices), we can recover the dual image with **far fewer measurements** than the full transport matrix requires. This connects dual photography to compressed sensing theory and enables practical acquisition even for large scenes.
+
+### Numerical Stability
+The condition number of the transport matrix determines reconstruction quality. Ill-conditioned matrices (complex scenes with occlusions) require regularization — the project explores Tikhonov regularization and truncated SVD to handle this.
 
 ## Features
 
-- **6 scene types** with ray-cast simulation (flat, textured, concave, convex, multi-object, occluding)
-- **10 illumination patterns** (point, line, grid, random, Hadamard, etc.)
+- **6 scene types** with ray-cast simulation — flat, textured, concave, convex, multi-object, occluding
+- **10 illumination patterns** — point, line, grid, random, Hadamard, and more
 - **SVD decomposition** with interactive singular value exploration
-- **Optional webcam capture mode** for real-world dual photography
-- **70 automated tests** covering all simulation and analysis pipelines
+- **Optional webcam capture mode** for real-world dual photography experiments
+- **Virtual relighting** — apply arbitrary illumination patterns to captured transport matrices

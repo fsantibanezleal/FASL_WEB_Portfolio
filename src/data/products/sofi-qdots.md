@@ -58,41 +58,58 @@ metrics:
 stack: [Python, FastAPI, NumPy, SciPy, FFT, Cumulant Analysis, Wiener Filter, Richardson-Lucy]
 ---
 
-## How SOFI Works
+## The Physics Behind SOFI
 
-Super-resolution Optical Fluctuation Imaging exploits the **temporal statistics** of independently blinking fluorescent emitters (quantum dots) to extract spatial information beyond the diffraction limit.
-
-### The Physics
-
-The observed fluorescence signal is:
+The fluorescence intensity at pixel position **r** and time t is modeled as:
 
 `F(r,t) = Σₖ εₖ · sₖ(t) · U(r - rₖ) + noise`
 
-where `εₖ` is brightness, `sₖ(t)` is the stochastic blinking function, and `U(r)` is the point spread function (PSF). The key insight: the **nth-order cumulant** of this signal narrows the effective PSF:
+where `εₖ` is the molecular brightness, `sₖ(t)` is the stochastic on/off switching function, and `U(r)` is the microscope's point spread function (PSF).
+
+The fundamental insight: the **nth-order cumulant** of this signal simplifies to:
 
 `Cₙ(r) = Σₖ εₖⁿ · κₙ[sₖ] · Uⁿ(r - rₖ)`
 
-Because the PSF appears raised to the nth power, the effective resolution improves by **√n**.
+The PSF appears raised to the nth power, narrowing the effective width by a factor of **√n**. This is the mathematical core that enables super-resolution without single-molecule sparsity.
 
-### Resolution Scaling
+## Resolution Scaling
 
-| Order | Improvement | Effective Resolution |
-|-------|-------------|---------------------|
+| Cumulant Order | Resolution Improvement | Effective Resolution (λ=532nm, NA=1.4) |
+|----------------|----------------------|----------------------------------------|
 | 2nd | 1.41× (√2) | ~164 nm |
 | 3rd | 1.73× (√3) | ~134 nm |
 | 4th | 2.00× (√4) | ~116 nm |
 | 6th | 2.45× (√6) | ~95 nm |
 
-Starting from a diffraction limit of ~232 nm (λ=532 nm, NA=1.4), 6th-order SOFI resolves features below **~120 nm**.
+Starting from a diffraction limit of ~232 nm (`d_min = 0.61 · λ / NA`), 6th-order SOFI resolves structural features separated by approximately **120 nm** — well below what conventional optical microscopy can achieve.
 
-### Implementation Details
+## Implementation Pipeline
 
-- Cumulant computation orders 2–6 using **consecutive time lags** to eliminate shot noise bias
-- Synthetic quantum dot simulator with **power-law on/off statistics** P(t) ~ t⁻ᵅ (α ≈ 1.5)
-- Fourier-domain **zero-padding** for sub-pixel enhancement
-- Two deconvolution strategies: **Wiener filtering** and **Richardson-Lucy**
-- **nth-root linearization** correction for brightness bias
+### Cumulant Computation
+Orders 2 through 6 computed using **consecutive time lags** to eliminate shot noise bias. The 4th-order cumulant, for example:
 
-## Historical Significance
+`C₄ = ⟨δF₀·δF₁·δF₂·δF₃⟩ - ⟨δF₀·δF₃⟩·⟨δF₁·δF₂⟩ - ⟨δF₀·δF₂⟩·⟨δF₁·δF₃⟩ - ⟨δF₀·δF₁⟩·⟨δF₂·δF₃⟩`
 
-This was the **first successful SOFI implementation in Chile**, developed at SCIAN-Lab (BNI, Universidad de Chile) in collaboration with the III Physics Institute, University of Göttingen (2012–2014). The original MATLAB codebase has been modernized as a Python/FastAPI web application.
+### Quantum Dot Simulator
+Synthetic blinking generator with **power-law on/off time distributions** `P(t) ~ t⁻ᵅ` (α ≈ 1.5), producing Lévy-type statistics where the mean dwell time diverges — realistic modeling of actual quantum dot photophysics.
+
+### Sub-Pixel Enhancement
+**Fourier-domain zero-padding** interpolation provides sub-pixel grid enhancement prior to cumulant computation, increasing the effective sampling density without introducing artifacts.
+
+### Deconvolution
+Two strategies for further sharpening:
+- **Wiener filtering**: `F̂(k) = H*(k)/(|H(k)|² + 1/SNR) · G(k)` — frequency-domain approach with noise regularization
+- **Richardson-Lucy**: Iterative maximum-likelihood deconvolution preserving non-negativity
+
+### Linearization
+**nth-root correction** compensates the `εⁿ` brightness nonlinearity that would otherwise create extreme contrast ratios between emitters of different brightness.
+
+## SOFI vs. Other Super-Resolution Techniques
+
+Unlike PALM/STORM, which require single-molecule sparsity conditions (only a few emitters active per frame), SOFI works with **densely labeled samples** where many emitters blink simultaneously. This makes SOFI applicable to a wider range of biological specimens and labeling strategies.
+
+## Origin and Historical Significance
+
+This was the **first successful SOFI implementation in Chile**, developed at SCIAN-Lab (BNI, Universidad de Chile) in collaboration with the III Physics Institute, University of Göttingen, Germany (2012–2014). The original MATLAB codebase remained unchanged for years before being modernized as a Python/FastAPI web application with interactive visualization, preserving the full computational pipeline while making it accessible through a browser.
+
+**Related publication**: SOFI of GABAB neurotransmitter receptors in hippocampal neurons — SPIE 2013.

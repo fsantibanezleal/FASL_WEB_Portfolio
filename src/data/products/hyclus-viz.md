@@ -57,22 +57,26 @@ metrics:
 stack: [Python, TensorFlow, Keras, scikit-learn, t-SNE, K-means, MinMaxScaler]
 ---
 
+## The Challenge
+
+Hyperspectral imaging captures hundreds of spectral bands per pixel — a data point in hundreds of dimensions. Compressing this into compact, interpretable representations for mineral identification requires nonlinear dimensionality reduction that preserves the meaningful spectral structure while discarding noise.
+
 ## Deep Autoencoder Architecture
 
 The core compression uses a **symmetric deep autoencoder**:
 
 `Input → 128 → 64 → 32 → 16 → 4 (bottleneck) → 16 → 32 → 64 → 128 → Output`
 
-- **Activation**: tanh throughout
-- **Initialization**: Orthogonal weight matrices
+- **Activation**: tanh throughout for smooth nonlinear mappings
+- **Initialization**: Orthogonal weight matrices for gradient stability
 - **Normalization**: MinMaxScaler to [0, 1] range
 - **Training**: Reconstruction loss minimization
 
-The 4-dimensional bottleneck captures the essential spectral structure, discarding noise and redundancy from hundreds of original bands.
+The 4-dimensional bottleneck captures the essential spectral structure, discarding noise and redundancy from hundreds of original bands. The key question: does this compressed representation preserve mineralogically meaningful information?
 
 ## Dimensionality Reduction & Clustering
 
-After autoencoder compression, **t-SNE** (t-distributed Stochastic Neighbor Embedding) provides nonlinear 2D embedding for visualization. KL-divergence minimization preserves local neighborhood structure.
+After autoencoder compression, **t-SNE** (t-distributed Stochastic Neighbor Embedding) provides nonlinear 2D embedding for visualization. KL-divergence minimization preserves local neighborhood structure — similar spectra remain close in the 2D map.
 
 **K-means clustering** with the **elbow method** identifies natural groupings in the compressed spectral space.
 
@@ -80,10 +84,10 @@ After autoencoder compression, **t-SNE** (t-distributed Stochastic Neighbor Embe
 
 Evaluated on real mining data — 72 monthly composites from 3 processing plants, 2 granulometry levels, across 12 months:
 
-| Task | Accuracy |
-|------|----------|
-| Grain size classification | **95–97%** |
-| Plant origin identification | 57–65% |
+| Classification Task | Accuracy |
+|---------------------|----------|
+| Grain size | **95–97%** |
+| Plant origin | 57–65% |
 | Month prediction | 24–33% |
 
-The high grain size accuracy confirms that spectral data encodes meaningful physical properties. Plant origin and temporal patterns are harder to distinguish, suggesting more homogeneous processing across sites.
+The high grain size accuracy confirms that spectral data encodes meaningful physical properties related to particle size. Plant origin and temporal patterns are harder to distinguish, suggesting relatively homogeneous processing across sites — itself a useful finding for process consistency.

@@ -62,31 +62,31 @@ stack: [WordPress, WooCommerce, 3D Printing, LED Optics, Virtual Microscopy, Web
 ## The Journey
 
 ### 2015: Genesis
-Founded from a research gap identified at **BNI/SCIAN-Lab** — microscopy education in Chile was limited by the cost of professional equipment and lack of digital tools.
+Founded from a research gap identified at **BNI/SCIAN-Lab** — microscopy education in Chile was limited by the prohibitive cost of professional equipment ($2,000+) and the lack of digital tools to complement physical observation.
 
 ### 2017: Start-Up Chile
-Selected for the national startup accelerator. **Microsoft Imagine Lab** partnership provided cloud resources and mentorship. Additional support from **BNI Scientific Seed Fund**.
+Selected for Chile's national startup accelerator. **Microsoft Imagine Lab** partnership provided cloud resources and mentorship. Additional support from **BNI Scientific Seed Fund** enabled first production batch of microscope kits.
 
 ### 2017–2019: Education Deployment
-Platform used in **Medical Informatics courses** at Universidad San Sebastián. Students combined physical microscope kits with the virtual microscopy web application.
+Platform deployed in **Medical Informatics courses** at Universidad San Sebastián. Students combined physical microscope kits with the virtual microscopy web application — bridging hands-on observation with digital analysis.
 
 ### 2020: Valentín Letelier Fund
-Grant from Universidad de Chile enabled platform expansion and new microscope kit designs.
+Grant from Universidad de Chile enabled platform expansion, new microscope kit designs with improved LED illumination, and expanded educational content.
 
 ## The Platform Ecosystem
 
 ### 3D-Printed Microscope Kits
-Low-cost microscopes with **LED illumination**, designed for classroom use. At **$50–100** vs $2,000+ for professional microscopes, they make microscopy education accessible to any school.
+Low-cost optical microscopes with **LED illumination**, designed for classroom use. At **$50–100** versus $2,000+ for professional instruments, they make microscopy education accessible to any school. The 3D-printable design means schools with access to a printer can manufacture their own units.
 
 ### Virtual Microscopy Web Application
-Browser-based sample exploration with zoom, pan, and annotation tools. Students can examine pre-loaded samples or upload their own microscope images.
+Browser-based sample exploration at [micromundo.app](https://micromundo.app) — zoom, pan, and annotate microscope images. Students can examine pre-loaded sample libraries or upload their own microscope captures. No installation required.
 
-### Team Website (micromundo.team)
-WordPress site with WooCommerce for kit ordering, educational content, and team information.
+### Team Website
+[micromundo.team](https://micromundo.team) — WordPress site with WooCommerce for kit ordering, educational content, workshop announcements, and team information.
 
 ### Educational Content
-Structured curricula for integrating microscopy into science education at multiple levels.
+Structured curricula integrating microscopy into science education at primary, secondary, and university levels. Lesson plans, observation guides, and sample preparation protocols.
 
 ## Impact
 
-The **20–40× cost reduction** compared to professional microscopes removes the primary barrier to microscopy education in Chilean schools and communities. The combination of physical kits and virtual tools provides both hands-on and digital learning experiences.
+The **20–40× cost reduction** compared to professional microscopes removes the primary barrier to microscopy education in Chilean schools and communities. The combination of physical kits (tactile, real observation) with virtual tools (digital analysis, remote access) provides a complete learning experience that neither approach achieves alone.

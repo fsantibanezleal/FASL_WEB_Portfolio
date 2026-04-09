@@ -16,8 +16,8 @@ github: "https://github.com/fsantibanezleal/SCIAN_LEO_CPM"
 challenge: "Understanding how cells collectively migrate during embryonic development requires models that capture deformable cell shapes, contact interactions, and directed motility — not just point-particle dynamics."
 challengeEs: "Entender cómo las células migran colectivamente durante el desarrollo embrionario requiere modelos que capturen formas celulares deformables, interacciones de contacto y motilidad dirigida — no solo dinámica de partículas puntuales."
 
-approach: "Hamiltonian minimization balancing area constraints, perimeter constraints, adhesion energy, and Gaussian filopodia motility. Two-pass collision resolution, per-cell color coding, tissue boundary dynamics, cell proliferation. REST API with 30+ automated tests."
-approachEs: "Minimización de Hamiltoniano balanceando restricciones de área, restricciones de perímetro, energía de adhesión y motilidad por filopodios Gaussianos. Resolución de colisiones en dos pasadas, codificación de color por célula, dinámica de bordes tisulares, proliferación celular. API REST con 30+ tests automatizados."
+approach: "Hamiltonian minimization balancing area constraints, perimeter constraints, adhesion energy, and Gaussian filopodia motility. Two-pass collision resolution, per-cell color coding, tissue boundary dynamics, cell proliferation."
+approachEs: "Minimización de Hamiltoniano balanceando restricciones de área, restricciones de perímetro, energía de adhesión y motilidad por filopodios Gaussianos. Resolución de colisiones en dos pasadas, codificación de color por célula, dinámica de bordes tisulares, proliferación celular."
 
 kpis:
   - label: "Cell Model"
@@ -50,22 +50,23 @@ metrics:
     labelEs: "Tasa de Cuadros"
     value: "10-50 FPS"
     valueEs: "10-50 FPS"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "30+ automated"
-    valueEs: "30+ automatizados"
 
 stack: [Python, FastAPI, HTML5 Canvas, NumPy, Hamiltonian Minimization, Metropolis Algorithm]
 ---
 
+## Biological Context
+
+During zebrafish embryonic development, **Dorsal Forerunner Cells (DFCs)** migrate collectively to form the Kupffer's vesicle — a transient organ responsible for establishing left-right body asymmetry. Understanding how these cells coordinate their movement requires models that capture deformable cell shapes, contact interactions, and directed motility — not just point-particle dynamics.
+
 ## Why a Cellular Potts Model?
 
-Unlike point-particle models, the CPM represents cells as **deformable bodies** on a lattice. Each cell occupies multiple lattice sites and can change shape through stochastic site-copy events. The system evolves by minimizing a **Hamiltonian** that balances:
+Unlike agent-based models that treat cells as points or rigid circles, the CPM represents cells as **deformable bodies** on a lattice. Each cell occupies multiple lattice sites and can change shape through stochastic site-copy events governed by a **Hamiltonian** energy function. The system evolves by Metropolis-style Monte Carlo sampling, accepting or rejecting copy attempts based on energy change.
 
-- **Area constraint** — cells resist compression and expansion
-- **Perimeter constraint** — cells resist excessive deformation
-- **Adhesion energy** — type-dependent contact interactions between cells
-- **Motility** — directed forces from Gaussian filopodia
+The Hamiltonian balances:
+- **Area constraint** — cells resist compression and expansion, maintaining target size
+- **Perimeter constraint** — cells resist excessive deformation, maintaining compact shapes
+- **Adhesion energy** — type-dependent contact interactions between cells (cell-cell vs cell-substrate)
+- **Motility** — directed forces from Gaussian filopodia that drive migration
 
 ## Gaussian Filopodia Model
 
@@ -73,17 +74,15 @@ Cell motility is driven by filopodia — probing extensions that generate direct
 
 `R(θ) = max_j { R₀ + Aⱼ · exp(-(θ - θ₀ⱼ)² / (2·Wⱼ²)) }`
 
-Each filopodium `j` has amplitude `Aⱼ`, preferred direction `θ₀ⱼ`, and angular width `Wⱼ`. The maximum over all filopodia determines the cell's effective reach in each direction.
+Each filopodium `j` has amplitude `Aⱼ`, preferred direction `θ₀ⱼ`, and angular width `Wⱼ`. The maximum over all filopodia determines the cell's effective reach in each direction — creating directionally biased protrusion that drives cell crawling.
 
 ## Key Features
 
-- **Deformable cell model** with area and perimeter constraints
+- **Deformable cell model** with area and perimeter energy constraints
 - **Durotaxis mechanics** — cells respond to substrate stiffness gradients
-- **Real-time 2D Canvas visualization** at 10–50 FPS
-- **Per-cell color coding** for tracking individual cells
-- **Tissue boundary dynamics** and cell proliferation
-- **Two-pass collision resolution** preventing cell overlap
-- **REST API** with Swagger/ReDoc documentation
-- **30+ automated tests** covering simulation physics and API
+- **Real-time 2D Canvas visualization** at 10–50 FPS with per-cell color coding
+- **Tissue boundary dynamics** — EVL and DEB boundary layers constrain migration
+- **Cell proliferation** — growing population during development
+- **Two-pass collision resolution** preventing cell overlap while preserving deformability
 
-Developed at **SCIAN-Lab** and **BNI**, Universidad de Chile, supporting developmental biology research on zebrafish Kupffer's vesicle formation.
+Developed at **SCIAN-Lab** and **BNI** (Biomedical Neuroscience Institute), Universidad de Chile, supporting developmental biology research on zebrafish Kupffer's vesicle formation.

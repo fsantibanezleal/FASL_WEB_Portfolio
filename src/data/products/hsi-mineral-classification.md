@@ -65,25 +65,39 @@ metrics:
 stack: [XGBoost, ExtraTrees, scikit-learn, TensorFlow, Keras, FastAPI, Dash, NumPy, SciPy, HDF5, GeoTIFF]
 ---
 
+## Business Impact
+
+This platform automated mineral identification that previously required manual laboratory analysis, compressing turnaround from **days to minutes** for routine characterization. Faster mineralogical feedback enables tighter process control in geometallurgical workflows. Compositional constraints (abundances sum to 100%) ensure results are physically meaningful and directly usable by geologists without manual correction.
+
+## Strategic Context
+
+Laboratory mineral analysis (XRD/XRF) takes days and requires sample preparation; this system provides estimates in minutes directly from spectral data. For geometallurgical applications, faster characterization means tighter feedback loops between ore properties and processing parameters — enabling operators to adapt process settings to changing ore in near real-time rather than reacting to stale lab results.
+
+## The Challenge
+
+Hyperspectral cameras capture hundreds of narrow spectral bands across the visible, near-infrared, and short-wave infrared ranges. Each pixel encodes a spectral signature that can reveal mineral composition. However, translating raw spectral data into reliable mineral maps requires careful calibration, robust models, and domain-aware constraints — particularly the requirement that **predicted mineral abundances at each pixel must sum to 100%**.
+
 ## System Architecture
 
-The platform implements a five-stage pipeline from raw spectral data to mineral maps:
-
 ### 1. Data Ingestion
-Accepts hyperspectral rasters from VNIR/SWIR cameras alongside laboratory reference measurements (XRD/XRF). Supports standard formats including HDF5 and GeoTIFF.
+Accepts hyperspectral rasters from VNIR/SWIR cameras alongside laboratory reference measurements (XRD for mineral phases, XRF for elemental composition). Regions of interest (ROIs) link spectral patches with ground-truth mineral labels.
 
 ### 2. Spectral Patch Database
-ROI-aligned spectral patches extracted and organized with augmentation and normalization pipelines. Training data curated from laboratory-verified samples.
+ROI-aligned spectral patches extracted and organized into training databases, with augmentation and normalization pipelines to handle varying illumination and sensor conditions.
 
 ### 3. Multi-Model Training
-XGBoost, ExtraTrees, Ridge regression, PLSR, and 1D/2D CNNs trained in parallel. Each model captures different aspects of the spectral-mineralogical relationship.
+Several architectures trained in parallel — **XGBoost**, **ExtraTrees**, **Ridge regression**, **PLSR** (Partial Least Squares Regression), and **1D/2D CNNs**. An ensemble layer and meta-learning strategies combine predictions across models and datasets.
 
 ### 4. Compositional Constraints
-Post-processing enforces physically meaningful results: predicted mineral abundances must sum to 100% (closure constraint) and remain non-negative. This is critical for geological validity.
+Post-processing layer enforces that predicted mineral abundances satisfy closure and non-negativity:
+
+`min ‖a - a_pred‖² subject to Σaᵢ = 1 and aᵢ ≥ 0`
+
+Solved via quadratic programming or simplex projection. This is critical — geologists cannot use abundance estimates that don't sum to 100%.
 
 ### 5. Output Products
-Mineral classification maps with per-pixel abundance estimates and confidence intervals. Supports clays (kaolinite, chlorite, smectite, muscovite), sulfates (alunite), iron oxides (limonite), and phyllosilicates.
+Mineral classification maps, per-pixel abundance estimates with confidence intervals, and summary statistics for geological interpretation.
 
-## Strategic Value
+## Minerals Handled
 
-Laboratory mineral analysis (XRD/XRF) takes **days** and requires sample preparation. This platform provides estimates in **minutes** directly from spectral data. For geometallurgical applications, faster mineralogical characterization means tighter feedback loops between ore properties and processing parameters — enabling real-time ore routing decisions at conveyor-mounted sensors or same-day results from drone flights.
+The system has been applied to clays (kaolinite, chlorite, smectite, muscovite), sulfates (alunite), iron oxides (limonite), and various phyllosilicates. Model configurations are adapted per mineral system.

@@ -59,28 +59,38 @@ metrics:
 stack: [Python, NumPy, SciPy, Information Theory, Geostatistics, Indicator Kriging, LaTeX]
 ---
 
-## Theoretical Foundations
+## The Problem
 
-The thesis addresses the **Optimal Sensor Placement (OSP) problem**: given a budget of N measurements, where should they be placed to maximize information gained about an unknown spatial field?
+Given a budget of N measurements, where should they be placed to maximize information gained about an unknown spatial field? This is the **Optimal Sensor Placement (OSP) problem** — fundamental to mineral exploration, environmental monitoring, and any domain where data collection is expensive.
+
+## Theoretical Foundations
 
 ### Information-Theoretic Framework
 
-- **Shannon Entropy**: `H(X) = -Σ p(x) log p(x)` — measures total uncertainty
-- **Conditional Entropy**: `H(X^f | X_f)` — residual uncertainty after observing locations f
-- **Mutual Information**: `I(X_f; X^f) = H(X^f) - H(X^f | X_f)` — the information gained by measuring
+- **Shannon Entropy**: `H(X) = -Σ p(x) log p(x)` — measures total uncertainty about the unknown field
+- **Conditional Entropy**: `H(X^f | X_f)` — residual uncertainty after observing at locations f
+- **Mutual Information**: `I(X_f; X^f) = H(X^f) - H(X^f | X_f)` — the information gained by measuring at f
+
+The goal: choose measurement locations f that maximize mutual information — or equivalently, minimize conditional entropy.
+
+### The Computational Challenge
+
+For a field of size H×W with K measurement locations, the search space is C(H×W, K) — combinatorially explosive. Exhaustive search is NP-hard.
 
 ### The AdSEMES Algorithm
 
-**Adaptive Sequential Empirical Maximum Entropy Sampling** exploits a key mathematical property: entropy maximization in this setting is **submodular** — adding a measurement to a small set gives more information gain than adding it to a large set. This guarantees that greedy sequential selection achieves at least **(1-1/e) ≈ 63.2%** of the global optimum.
+**Adaptive Sequential Empirical Maximum Entropy Sampling** exploits a key mathematical property: entropy maximization in this setting is **submodular** — adding a measurement to a small set yields more information gain than adding it to a large set. This guarantees that greedy sequential selection achieves at least **(1-1/e) ≈ 63.2%** of the global optimum. Not just empirically — this is a provable bound.
 
 ## Applications
 
-- **Drill hole placement** for mineral resource estimation
-- **Ore-waste boundary discrimination** using minimal samples
-- **Geological facies recovery** from sparse observations
+- **Drill hole placement** for mineral resource estimation — where to drill next for maximum geological information
+- **Ore-waste boundary discrimination** — delineating contacts with minimal samples
+- **Geological facies recovery** — reconstructing subsurface geological images from sparse observations
 
 ## Publications
 
 1. "Sampling Strategies for Uncertainty Reduction in Categorical Random Fields" — *Mathematical Geosciences*, 2019
 2. "Optimal Sampling Strategy for Spatial Estimation of Ore-Waste Contacts Using Maximum Entropy" — *Natural Resources Research*, 2020
 3. "Geological Facies Recovery Based on Weighted L1-Regularization" — *Mathematical Geosciences*, 2019
+
+**Thesis repository**: [Universidad de Chile](http://repositorio.uchile.cl/handle/2250/175050)

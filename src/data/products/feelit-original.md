@@ -57,30 +57,35 @@ metrics:
 stack: [Windows Forms, C#, Electromagnetic Actuators, Servo Motors, 3D Haptics, Hardware Prototyping]
 ---
 
-## The Pin-Array Vision
+## The Vision
 
-The concept was inspired by a **3D metal pin art board** — the idea of electronically controllable pin positions to store and recall surface shapes dynamically. If each pin could be individually addressed, a blind user could feel the shape of any digital object.
+Inspired by a **3D metal pin art board** — the idea of electronically controllable pin positions to store and recall surface shapes dynamically. If each pin could be individually addressed, a blind user could feel the shape of any digital object through tactile relief. A physical-digital bridge for accessibility.
 
 ## Hardware Evolution
 
 ### Version 1: 4×4 Grid (2008)
-Initial prototype with **16 electromagnetic pins** in a binary (up/down) configuration. Proved the concept but resolution was too low for meaningful shape representation.
+Initial prototype with **16 electromagnetic pins** in a binary (up/down) configuration. Custom electronics board with USB microcontroller interface. Proved the concept but resolution was far too low for meaningful shape representation — 16 pixels of touch.
 
 ### Version 2: 10×10 Array (2009–2010)
-Expanded to **100 pins** with multiple height levels. Electromagnetic actuators allowed continuous position control. Combined with a custom electronics board and USB microcontroller interface.
+Expanded to **100 pins** with **multiple height levels** — no longer just up/down but continuous position control. Electromagnetic actuators allowed proportional displacement. Combined with custom power driver boards and improved microcontroller firmware. At this scale, simple shapes (bumps, ridges, waves) became tactilely distinguishable.
 
 ### Haptic Device Integration
-During the undergraduate thesis, servo-motor-based haptic devices were explored in combination with a virtual environment. The **Novint Falcon** provided 3-DOF force feedback while users explored 3D objects in a Windows Forms application.
+During the undergraduate thesis phase, servo-motor-based haptic devices were explored. The **Novint Falcon** provided 3-DOF force feedback while users explored 3D objects in a Windows Forms application — combining active force feedback with the passive pin array display.
 
 ## User Testing
 
-Testing with blind users demonstrated **successful shape exploration** through haptic interaction. Users could distinguish between basic geometric shapes (sphere, cube, pyramid) and navigate simple virtual environments.
+Testing with blind users demonstrated **successful shape exploration** through haptic interaction. Users could:
+- Distinguish between basic geometric shapes (sphere, cube, pyramid)
+- Navigate simple virtual environments using force feedback cues
+- Identify raised patterns on the pin array display
+
+These results validated the core hypothesis: tactile 3D rendering is a viable accessibility modality.
 
 ## Why It Was Frozen
 
 The project was frozen in 2012 due to:
-- **Hardware miniaturization limits** — electromagnetic actuators couldn't be made small enough for useful resolution
-- **Cost constraints** — each pin mechanism added significant cost
-- **Maintenance complexity** — 100 moving parts required constant calibration
+- **Hardware miniaturization limits** — electromagnetic actuators couldn't be made small enough for useful resolution while maintaining sufficient force
+- **Cost constraints** — each pin mechanism added significant per-unit cost, making the device economically impractical
+- **Maintenance complexity** — 100 independently moving parts required constant mechanical calibration
 
-The vision lived on and was reborn in 2026 as **FeelIT 2.0** — taking a purely software approach with web technologies.
+The vision lived on. Fourteen years later, it was reborn as **[FeelIT 2.0](/portfolio/feelit-2)** — taking a purely software approach with web technologies, proving that the accessibility goal could be achieved without custom hardware.

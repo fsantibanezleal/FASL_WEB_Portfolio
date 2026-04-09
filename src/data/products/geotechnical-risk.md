@@ -65,25 +65,37 @@ metrics:
 stack: [Kedro, Databricks Asset Bundles, XGBoost, SHAP, scikit-learn, PySpark, Delta Lake, Unity Catalog]
 ---
 
+## Business Impact
+
+This system replaced ad hoc manual expert judgment with systematic, data-driven risk assessment on a **weekly operational cadence**. It enables access restriction decisions that balance safety with productivity — the eternal tension in underground mining. Interpretable outputs (SHAP-based feature importance) ensure trust and action from geotechnical engineers.
+
+## Strategic Context
+
+Underground mining safety decisions traditionally depend on individual expert judgment, which varies in consistency and availability. Rock mass under stress can fail suddenly — rockbursts and slope collapses are among the most dangerous hazards in mining. This system provides a consistent, data-driven baseline that supports (not replaces) expert decisions, ensuring systematic and auditable risk assessment.
+
+## The Challenge
+
+Seismic monitoring systems generate continuous event catalogs — thousands of micro-seismic events per week. Assessment traditionally relies on manual surveys and rule-of-thumb thresholds that miss complex multivariate patterns. The question: can we detect the precursor signatures buried in the seismic data before a major event occurs?
+
 ## Feature Engineering from Seismic Data
 
 Raw seismic event catalogs are transformed into predictive features across four dimensions:
 
 ### Energy Indices
-Cumulative seismic energy release, apparent stress calculations, and windowed energy rate patterns that capture the build-up of strain energy in rock mass.
+Cumulative seismic energy release, apparent stress calculations, and windowed energy rate patterns that capture the build-up of strain energy in rock mass. Rising energy indices often precede failure.
 
 ### Spatial Features
-**DBSCAN-based event clustering**, migration velocity vectors tracking how seismic activity moves through the mine, and proximity metrics to mapped geological structures (faults, lithological contacts).
+**DBSCAN-based event clustering** identifies spatial concentrations. Migration velocity vectors track how seismic activity moves through the mine. Proximity metrics to mapped geological structures (faults, lithological contacts) add structural context.
 
 ### Temporal Patterns
-Event rate changes over multiple time windows, **seismic quiescence detection** (sudden drops in activity can precede large events), and **Gutenberg-Richter b-value estimation** characterizing the frequency-magnitude distribution.
+Event rate changes over multiple time windows. **Seismic quiescence detection** — sudden drops in activity that can paradoxically precede large events. **Gutenberg-Richter b-value estimation** characterizes the frequency-magnitude distribution; declining b-values suggest increasing stress.
 
 ### Block Model Integration
-Geological and geomechanical properties from 3D mine models — rock type, UCS (Unconfined Compressive Strength), RQD (Rock Quality Designation), and stress field estimates.
+Geological and geomechanical properties from 3D mine models — rock type, UCS (Unconfined Compressive Strength), RQD (Rock Quality Designation), and stress field estimates from numerical modeling.
 
 ## Classification & Explainability
 
-**XGBoost ensemble models** classify spatial blocks into risk levels using a traffic-light system (Green/Amber/Red). Critically, each prediction comes with **SHAP feature importance** — the model explains *why* a zone is flagged, enabling geotechnical engineers to validate predictions against their domain knowledge.
+**XGBoost ensemble models** classify spatial blocks into risk levels using a traffic-light system (Green/Amber/Red). Critically, each prediction comes with **SHAP feature importance** — the model explains *why* a zone is flagged, enabling geotechnical engineers to validate predictions against their domain knowledge and decide whether to act.
 
 ## Operational Integration
 
