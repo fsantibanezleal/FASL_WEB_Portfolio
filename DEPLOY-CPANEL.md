@@ -22,6 +22,6 @@ Este repositorio queda configurado para `Git Version Control` de cPanel con dos 
 
 ## Notas
 
-- El path de despliegue por defecto es `$HOME/public_html/fasl.work` (servidor compartido, subdirectorio por dominio).
+- El path de despliegue por defecto es `$HOME/public_html` (raíz del dominio fasl.work en el hosting compartido).
 - El script preserva `.htaccess`, `.well-known/` y `cgi-bin/` si ya existen en el hosting.
 - cPanel no habilita deploy si falta `.cpanel.yml` en la raiz o si el repo administrado tiene cambios sin commit.
