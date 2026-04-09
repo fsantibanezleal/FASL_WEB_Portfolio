@@ -1,0 +1,85 @@
+---
+/**
+ * TabPanel — Tabbed content layout for product detail pages.
+ *
+ * Usage:
+ *   <TabPanel tabs={['Overview', 'Business', 'Technical', 'Gallery', 'Links']} id="product-tabs">
+ *     <div data-tab="Overview"> ... </div>
+ *     <div data-tab="Business"> ... </div>
+ *     ...
+ *   </TabPanel>
+ */
+
+interface Props {
+  tabs: string[];
+  id?: string;
+}
+
+const { tabs, id = 'tab-panel' } = Astro.props;
+---
+
+<div id={id} class="tab-panel">
+  <!-- Tab Navigation -->
+  <nav class="mb-8 border-b border-gray-200 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px gap-1" role="tablist">
+      {tabs.map((tab, i) => (
+        <li role="presentation">
+          <button
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-tab-target={tab}
+            class:list={[
+              'tab-button inline-flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-all duration-200',
+              i === 0
+                ? 'border-primary text-primary'
+                : 'border-transparent text-muted hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300',
+            ]}
+          >
+            {tab}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <slot />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tab-panel').forEach((panel) => {
+      const buttons = panel.querySelectorAll('.tab-button');
+      const contents = panel.querySelectorAll('.tab-content > [data-tab]');
+
+      // Show first tab, hide rest
+      contents.forEach((c, i) => {
+        (c as HTMLElement).style.display = i === 0 ? '' : 'none';
+      });
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab-target');
+
+          // Update button styles
+          buttons.forEach((b) => {
+            b.classList.remove('border-primary', 'text-primary');
+            b.classList.add('border-transparent', 'text-muted');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('border-primary', 'text-primary');
+          btn.classList.remove('border-transparent', 'text-muted');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Show/hide content
+          contents.forEach((c) => {
+            const el = c as HTMLElement;
+            el.style.display = c.getAttribute('data-tab') === target ? '' : 'none';
+          });
+        });
+      });
+    });
+  });
+</script>
