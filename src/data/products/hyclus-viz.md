@@ -57,37 +57,24 @@ metrics:
 stack: [Python, TensorFlow, Keras, scikit-learn, t-SNE, K-means, MinMaxScaler]
 ---
 
-## The Challenge
+## The Dimensionality Problem
 
-Hyperspectral imaging captures hundreds of spectral bands per pixel — a data point in hundreds of dimensions. Compressing this into compact, interpretable representations for mineral identification requires nonlinear dimensionality reduction that preserves the meaningful spectral structure while discarding noise.
+A hyperspectral camera captures hundreds of spectral bands per pixel — a data point living in hundreds of dimensions. The challenge: compress this into something a human can interpret without losing the mineralogically meaningful structure. Linear methods (PCA) miss the nonlinear relationships in spectral data. Simply picking a few bands throws away information that might matter.
 
-## Deep Autoencoder Architecture
+## Deep Compression
 
-The core compression uses a **symmetric deep autoencoder**:
+A **symmetric deep autoencoder** (Input → 128 → 64 → 32 → 16 → **4** → 16 → 32 → 64 → 128 → Output) with tanh activation compresses hundreds of spectral bands into a 4-dimensional bottleneck representation. The network learns to discard noise and redundancy while preserving the spectral features that distinguish different mineral compositions.
 
-`Input → 128 → 64 → 32 → 16 → 4 (bottleneck) → 16 → 32 → 64 → 128 → Output`
+After compression, **t-SNE** provides a nonlinear 2D embedding for visualization — preserving local neighborhood structure so spectrally similar samples remain close in the map. K-means clustering with the elbow method identifies natural groupings.
 
-- **Activation**: tanh throughout for smooth nonlinear mappings
-- **Initialization**: Orthogonal weight matrices for gradient stability
-- **Normalization**: MinMaxScaler to [0, 1] range
-- **Training**: Reconstruction loss minimization
+## What the Data Reveals
 
-The 4-dimensional bottleneck captures the essential spectral structure, discarding noise and redundancy from hundreds of original bands. The key question: does this compressed representation preserve mineralogically meaningful information?
+Evaluated on real mining data — 72 monthly composites from 3 processing plants, 2 granulometry levels, 12 months:
 
-## Dimensionality Reduction & Clustering
-
-After autoencoder compression, **t-SNE** (t-distributed Stochastic Neighbor Embedding) provides nonlinear 2D embedding for visualization. KL-divergence minimization preserves local neighborhood structure — similar spectra remain close in the 2D map.
-
-**K-means clustering** with the **elbow method** identifies natural groupings in the compressed spectral space.
-
-## Classification Results
-
-Evaluated on real mining data — 72 monthly composites from 3 processing plants, 2 granulometry levels, across 12 months:
-
-| Classification Task | Accuracy |
-|---------------------|----------|
-| Grain size | **95–97%** |
+| Task | Accuracy |
+|------|----------|
+| **Grain size classification** | **95–97%** |
 | Plant origin | 57–65% |
 | Month prediction | 24–33% |
 
-The high grain size accuracy confirms that spectral data encodes meaningful physical properties related to particle size. Plant origin and temporal patterns are harder to distinguish, suggesting relatively homogeneous processing across sites — itself a useful finding for process consistency.
+The grain size result is striking: spectral data encodes meaningful physical properties related to particle size with near-perfect classification accuracy. Plant origin and temporal patterns are harder to distinguish — which is itself a useful finding, suggesting relatively homogeneous processing across sites and stable spectral signatures over time.

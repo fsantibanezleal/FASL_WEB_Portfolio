@@ -54,35 +54,18 @@ metrics:
 stack: [Python, FastAPI, HTML5 Canvas, NumPy, Hamiltonian Minimization, Metropolis Algorithm]
 ---
 
-## Biological Context
+## The Biology
 
-During zebrafish embryonic development, **Dorsal Forerunner Cells (DFCs)** migrate collectively to form the Kupffer's vesicle — a transient organ responsible for establishing left-right body asymmetry. Understanding how these cells coordinate their movement requires models that capture deformable cell shapes, contact interactions, and directed motility — not just point-particle dynamics.
+During zebrafish embryonic development, Dorsal Forerunner Cells (DFCs) migrate collectively to form the Kupffer's vesicle — the organ that establishes left-right body asymmetry. Understanding this process requires a model that captures what actually matters: cells aren't points or rigid circles. They deform. They stick to each other. They extend probing filopodia that pull them in specific directions.
 
-## Why a Cellular Potts Model?
+## The Model
 
-Unlike agent-based models that treat cells as points or rigid circles, the CPM represents cells as **deformable bodies** on a lattice. Each cell occupies multiple lattice sites and can change shape through stochastic site-copy events governed by a **Hamiltonian** energy function. The system evolves by Metropolis-style Monte Carlo sampling, accepting or rejecting copy attempts based on energy change.
+The Cellular Potts Model represents each cell as a **deformable body** occupying multiple lattice sites. The system evolves through Metropolis-style Monte Carlo sampling — proposing site-copy events and accepting or rejecting them based on a **Hamiltonian** energy function that balances four competing forces:
 
-The Hamiltonian balances:
-- **Area constraint** — cells resist compression and expansion, maintaining target size
-- **Perimeter constraint** — cells resist excessive deformation, maintaining compact shapes
-- **Adhesion energy** — type-dependent contact interactions between cells (cell-cell vs cell-substrate)
-- **Motility** — directed forces from Gaussian filopodia that drive migration
-
-## Gaussian Filopodia Model
-
-Cell motility is driven by filopodia — probing extensions that generate directed forces:
+Area and perimeter constraints keep cells from growing or shrinking unrealistically. Adhesion energy governs how strongly different cell types stick to each other. And the **Gaussian filopodia model** drives migration:
 
 `R(θ) = max_j { R₀ + Aⱼ · exp(-(θ - θ₀ⱼ)² / (2·Wⱼ²)) }`
 
-Each filopodium `j` has amplitude `Aⱼ`, preferred direction `θ₀ⱼ`, and angular width `Wⱼ`. The maximum over all filopodia determines the cell's effective reach in each direction — creating directionally biased protrusion that drives cell crawling.
+Each filopodium creates a directional protrusion bias — amplitude Aⱼ, preferred direction θ₀ⱼ, angular width Wⱼ. The maximum over all filopodia determines the cell's effective reach, creating the crawling behavior observed in real DFC migration.
 
-## Key Features
-
-- **Deformable cell model** with area and perimeter energy constraints
-- **Durotaxis mechanics** — cells respond to substrate stiffness gradients
-- **Real-time 2D Canvas visualization** at 10–50 FPS with per-cell color coding
-- **Tissue boundary dynamics** — EVL and DEB boundary layers constrain migration
-- **Cell proliferation** — growing population during development
-- **Two-pass collision resolution** preventing cell overlap while preserving deformability
-
-Developed at **SCIAN-Lab** and **BNI** (Biomedical Neuroscience Institute), Universidad de Chile, supporting developmental biology research on zebrafish Kupffer's vesicle formation.
+The simulation runs at 10–50 FPS with real-time 2D Canvas visualization, two-pass collision resolution, and tissue boundary dynamics (EVL and DEB layers). Developed at **SCIAN-Lab** and **BNI**, Universidad de Chile, supporting developmental biology research.

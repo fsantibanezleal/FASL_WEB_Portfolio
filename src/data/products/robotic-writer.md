@@ -59,15 +59,15 @@ metrics:
 stack: [Python, Dash, Plotly, MATLAB, Arduino, Serial Communication, Denavit-Hartenberg, NumPy]
 ---
 
-## The Concept
+## The Task
 
-A 5-DOF Scorbot III robotic arm picks letter blocks arranged on a **circular arc** and places them on a line to spell words. What started as a 2004 laboratory activity at Universidad de Concepcion evolved into a complete kinematics exploration and simulation environment.
+A 5-DOF Scorbot III robotic arm picks letter blocks arranged on a circular arc and places them to spell words. What started as a 2004 lab exercise at Universidad de Concepción became a complete kinematics exploration environment — forward and inverse kinematics, trajectory planning, and multi-hardware control.
 
 ## Denavit-Hartenberg Kinematics
 
-The Scorbot III is modeled using the standard **DH convention** — the systematic method for describing serial kinematic chains used in every robotics textbook.
+The Scorbot III is modeled using the standard DH convention. The forward kinematics chain `T₀₅ = T₀₁·T₁₂·T₂₃·T₃₄·T₄₅` computes end-effector pose from joint angles — five 4×4 homogeneous transformation matrices multiplied to give the complete gripper position and orientation.
 
-### DH Parameter Table
+The inverse problem — given a target (x, y, z, pitch, roll), find the joint angles — uses **analytical closed-form solutions** computed geometrically. No iterative numerical methods, no convergence issues, no local minima. This is critical for smooth real-time trajectory execution where the robot must move fluidly between pick and place positions.
 
 | Joint | Type | θ | d | a | α |
 |-------|------|---|---|---|---|
@@ -77,26 +77,4 @@ The Scorbot III is modeled using the standard **DH convention** — the systemat
 | Pitch | Revolute | θ₄ | 0 | 0 | -90° |
 | Roll | Revolute | θ₅ | d₅ | 0 | 0° |
 
-### Forward Kinematics
-The end-effector pose is computed as the product of homogeneous transformations:
-
-`T₀₅ = T₀₁ · T₁₂ · T₂₃ · T₃₄ · T₄₅`
-
-Each `Tᵢ` is a 4×4 matrix encoding rotation and translation for that joint — the product gives the complete position and orientation of the gripper.
-
-### Inverse Kinematics
-**Analytical closed-form** solution for real-time performance. Given a target (x, y, z, pitch, roll), joint angles are computed geometrically — no iterative numerical methods needed. This is critical for smooth real-time trajectory execution.
-
-## The Writing Task
-
-The robot picks letter blocks and places them to spell words. This requires:
-1. **Trajectory planning** — smooth paths between pick and place positions avoiding obstacles
-2. **Joint interpolation** — coordinated multi-joint motion for natural-looking movement
-3. **Gripper coordination** — timed open/close sequences for reliable block manipulation
-4. **Collision avoidance** — staying within the reachable workspace
-
-## Multiple Hardware Backends
-
-- **Scorbot III serial** — direct RS-232 communication with the physical robot controller
-- **Arduino steppers** — custom stepper motor control board for educational setups
-- **MATLAB Engine** — interfacing with MATLAB-based control systems and Simulink models
+The writing task requires trajectory planning between pick/place positions, coordinated multi-joint interpolation for natural motion, timed gripper open/close sequences, and workspace boundary awareness. Three hardware backends support different contexts: Scorbot III serial communication, Arduino stepper control, and MATLAB Engine integration.

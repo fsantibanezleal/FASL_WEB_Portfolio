@@ -59,34 +59,22 @@ metrics:
 stack: [WordPress, WooCommerce, 3D Printing, LED Optics, Virtual Microscopy, Web App]
 ---
 
+## The Cost Barrier
+
+Professional microscopes cost $2,000 or more. For most Chilean schools and communities, that price makes microscopy education simply inaccessible. Virtual microscopy platforms existed, but they were disconnected from physical experimentation — students could look at images on screen but never experience the act of preparing a slide and observing it themselves.
+
+## The Ecosystem
+
+Micromundo bridges physical and digital microscopy through an integrated ecosystem:
+
+**3D-printed microscope kits** with LED illumination — costing $50–100 instead of $2,000+. Schools with access to a 3D printer can manufacture their own units. The design prioritizes robustness for classroom use over optical perfection.
+
+A **virtual microscopy web application** at micromundo.app provides browser-based sample exploration — zoom, pan, annotate. Students can examine pre-loaded sample libraries or upload their own microscope captures. No installation required.
+
+The **team website** at micromundo.team (WordPress + WooCommerce) handles kit distribution, educational content, and workshop coordination.
+
 ## The Journey
 
-### 2015: Genesis
-Founded from a research gap identified at **BNI/SCIAN-Lab** — microscopy education in Chile was limited by the prohibitive cost of professional equipment ($2,000+) and the lack of digital tools to complement physical observation.
+Founded in 2015 from a research gap at BNI/SCIAN-Lab. Selected for **Start-Up Chile** in 2017 with **Microsoft Imagine Lab** partnership. Deployed in Medical Informatics courses at Universidad San Sebastian (2017–2019), where students combined physical kits with the virtual platform. **Valentin Letelier Fund** grant from Universidad de Chile (2020) enabled expansion.
 
-### 2017: Start-Up Chile
-Selected for Chile's national startup accelerator. **Microsoft Imagine Lab** partnership provided cloud resources and mentorship. Additional support from **BNI Scientific Seed Fund** enabled first production batch of microscope kits.
-
-### 2017–2019: Education Deployment
-Platform deployed in **Medical Informatics courses** at Universidad San Sebastián. Students combined physical microscope kits with the virtual microscopy web application — bridging hands-on observation with digital analysis.
-
-### 2020: Valentín Letelier Fund
-Grant from Universidad de Chile enabled platform expansion, new microscope kit designs with improved LED illumination, and expanded educational content.
-
-## The Platform Ecosystem
-
-### 3D-Printed Microscope Kits
-Low-cost optical microscopes with **LED illumination**, designed for classroom use. At **$50–100** versus $2,000+ for professional instruments, they make microscopy education accessible to any school. The 3D-printable design means schools with access to a printer can manufacture their own units.
-
-### Virtual Microscopy Web Application
-Browser-based sample exploration at [micromundo.app](https://micromundo.app) — zoom, pan, and annotate microscope images. Students can examine pre-loaded sample libraries or upload their own microscope captures. No installation required.
-
-### Team Website
-[micromundo.team](https://micromundo.team) — WordPress site with WooCommerce for kit ordering, educational content, workshop announcements, and team information.
-
-### Educational Content
-Structured curricula integrating microscopy into science education at primary, secondary, and university levels. Lesson plans, observation guides, and sample preparation protocols.
-
-## Impact
-
-The **20–40× cost reduction** compared to professional microscopes removes the primary barrier to microscopy education in Chilean schools and communities. The combination of physical kits (tactile, real observation) with virtual tools (digital analysis, remote access) provides a complete learning experience that neither approach achieves alone.
+The **20–40x cost reduction** removes the primary barrier. The combination of physical kits and virtual tools provides a learning experience that neither approach achieves alone.

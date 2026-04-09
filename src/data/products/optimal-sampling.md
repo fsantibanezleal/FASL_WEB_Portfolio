@@ -59,35 +59,20 @@ metrics:
 stack: [Python, FastAPI, NumPy, SciPy, Information Theory, Indicator Kriging, Shannon Entropy]
 ---
 
-## The Problem
+## The Combinatorial Explosion
 
-Given K measurements on an H×W binary random field, where should we place them to minimize posterior uncertainty? The search space is C(H×W, K) — combinatorially explosive and NP-hard. Traditional approaches (regular grids, random sampling) ignore spatial information content entirely.
+Given K measurements on an H×W binary random field, the number of possible placement configurations is C(H×W, K). For a 50×50 field with 20 measurements: over 10²⁶ possibilities. Exhaustive search is NP-hard. And traditional approaches — regular grids, random placement — ignore spatial information content entirely.
 
-## Six Sampling Strategies
+## Six Strategies Compared
 
-The system compares six fundamentally different approaches:
+The system implements six fundamentally different approaches: random placement (baseline), stratified sampling (random within grid cells), multiscale refinement (coarse to fine), an oracle using true field knowledge (theoretical upper bound), the AdSEMES entropy maximization method, and regular grid spacing (standard practice).
 
-1. **Random** — uniform random placement (baseline)
-2. **Stratified** — random within regular grid cells (better spatial coverage)
-3. **Multiscale** — hierarchical refinement from coarse to fine
-4. **Oracle** — uses true field knowledge (theoretical upper bound, unreachable in practice)
-5. **Adaptive Entropy (AdSEMES)** — sequential entropy maximization (our method)
-6. **Regular Grid** — evenly-spaced measurements (standard practice)
+Each strategy can incorporate **spatial penalty functions** that discourage clustering — important because entropy-optimal placement can concentrate measurements in high-uncertainty regions at the expense of spatial coverage.
 
-Each strategy can be combined with **spatial penalty functions** that discourage clustering, ensuring measurements are well-distributed even when entropy-optimal placement might favor certain regions.
-
-## Three Reconstruction Methods
-
-Given sparse observations, the unknown field is reconstructed using:
-
-1. **Nearest Neighbor** — simple Voronoi-based assignment (fast, no assumptions)
-2. **Indicator Kriging** — geostatistical interpolation exploiting spatial correlation (optimal under stationarity)
-3. **Entropy-Weighted Inverse Distance** — hybrid approach weighting by both distance and information content
+Three reconstruction methods complete the pipeline: nearest neighbor (fast, no assumptions), indicator kriging (optimal under stationarity), and entropy-weighted inverse distance (hybrid approach weighting by both proximity and information content).
 
 ## The Submodularity Guarantee
 
-The key theoretical result: because entropy maximization in this setting satisfies **submodularity** (diminishing returns), the greedy sequential algorithm achieves at least **(1 - 1/e) ≈ 63.2%** of the globally optimal information gain.
+Entropy maximization satisfies **submodularity**: the marginal information gain from adding a measurement decreases as the existing set grows. This mathematical property guarantees the greedy sequential algorithm achieves at least **(1 - 1/e) ≈ 63.2%** of the globally optimal information gain. This is a **provable bound**, not an empirical observation — the greedy solution is certifiably close to optimal despite the combinatorial explosion of the search space.
 
-This is not an empirical observation — it is a **mathematical guarantee**. The greedy algorithm provably produces high-quality solutions despite the combinatorial explosion of the search space.
-
-Developed at the IDS Group, Universidad de Chile (2014–2016), under **Fondecyt Grant 1140840**.
+Developed at the IDS Group, Universidad de Chile (2014–2016), under Fondecyt Grant 1140840.

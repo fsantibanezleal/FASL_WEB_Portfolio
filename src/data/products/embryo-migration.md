@@ -54,33 +54,14 @@ metrics:
 stack: [Python, FastAPI, WebSocket, Three.js, NumPy, AER Coordinates, Orbit Controls]
 ---
 
-## Biological Context
+## The Process
 
-During zebrafish gastrulation, the **Enveloping Layer (EVL)** expands to engulf the yolk cell in a process called **epiboly** — one of the fundamental morphogenetic movements in vertebrate development. **Deep Forming Cells (DFCs)** migrate collectively on the embryo surface, guided by EVL expansion forces and cell-cell interactions. This simulation captures that process on the actual curved geometry of the embryo.
+During zebrafish gastrulation, the Enveloping Layer (EVL) expands to engulf the yolk cell in a process called **epiboly**. Deep Forming Cells (DFCs) ride this expansion, migrating collectively on the curved embryo surface. This simulation captures that process on the actual spherical geometry of the embryo — not a flat approximation.
 
-## AER Coordinate System
+## Spherical Coordinates
 
-The simulation uses **Azimuth-Elevation-Radius** coordinates, naturally suited to spherical geometry:
+The AER (Azimuth-Elevation-Radius) coordinate system handles the geometry naturally. Azimuth wraps periodically (-π to π) — moving past one side means appearing on the other. Elevation clamps at the poles (-π/2 to π/2). Radius stays constant — cells are confined to the embryo surface.
 
-- **Azimuth** (φ): horizontal angle, -π to π, with **periodic wrapping** — moving past one edge of the sphere means appearing on the other side
-- **Elevation** (θ): vertical angle, -π/2 to π/2, with **pole clamping** — cells can't go past the poles
-- **Radius** (r): constant — cells remain on the embryo surface at all times
+Each cell's velocity combines a **deterministic component** from EVL coupling (`base_velocity = [0, -(π/2)·evl_speed, 0]` — the expanding EVL drags cells vegetally) with a **Gaussian stochastic term** adding biological variability. Collision detection operates in angular space with symmetric push-apart resolution: overlapping cells are displaced equally in opposite directions, then projected back onto the sphere.
 
-This coordinate system avoids the singularities and distortions that plague Cartesian simulations on curved surfaces.
-
-### Velocity Model
-
-Each cell's velocity combines two components:
-- **Deterministic** from EVL coupling: `base_velocity = [0, -(π/2)·evl_speed, 0]` — the expanding EVL drags cells vegetally
-- **Gaussian stochastic term** — biological variability in cell movement, preventing unrealistic lock-step migration
-
-### Collision Detection
-
-Pairwise collision detection in angular space with **symmetric push-apart resolution**: when two cells overlap, both are displaced equally in opposite directions, then projected back onto the sphere surface. This preserves momentum balance and prevents cells from "winning" collisions based on iteration order.
-
-## Technical Highlights
-
-- **Python/FastAPI** backend with **WebSocket streaming** for real-time simulation state
-- **Three.js (r128)** visualization with orbit controls — rotate, zoom, and inspect the 3D embryo from any angle
-- **Layer-based DFC management** with configurable cell properties per population
-- **Play/Pause/Step controls** for detailed frame-by-frame inspection of migration dynamics
+Three.js visualization with orbit controls lets researchers rotate, zoom, and inspect the 3D embryo from any angle. WebSocket streaming provides real-time simulation state. Play/Pause/Step controls enable frame-by-frame inspection of migration dynamics.

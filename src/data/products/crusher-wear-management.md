@@ -65,32 +65,28 @@ metrics:
 stack: [FastAPI, PostgreSQL, Redis, Celery, Next.js, React, TypeScript, Streamlit, Dash, PyInstaller, NumPy, SciPy, Open3D, Docker Swarm, Traefik, Ansible]
 ---
 
-## Business Impact
+## The Cost of Getting It Wrong
 
-This platform replaced manual caliper measurements with automated 3D point cloud analysis, transforming liner wear assessment from imprecise periodic snapshots into continuous, data-driven forecasting. Maintenance scheduling shifted from fixed intervals to **remaining-useful-life predictions** — reducing both premature replacements and the risk of catastrophic failure.
+A single gyratory crusher liner set costs hundreds of thousands of dollars. Replacement requires days of downtime and a full maintenance mobilization. Replace too early, and you've wasted material and production time. Replace too late, and you risk catastrophic failure — a damaged crusher can shut down the entire processing circuit for weeks.
 
-## Strategic Context
+The previous approach: send personnel into the crusher during maintenance windows to take manual caliper measurements at specific cross-sections. Slow. Imprecise. Dangerous. And fundamentally limited — calipers measure a few points on a surface that degrades non-uniformly across millions of square millimeters.
 
-Crusher liner replacement is one of the **highest-cost maintenance activities** in mineral processing — each change involves days of downtime and hundreds of thousands in parts and labor. Replacing liners too early wastes material; too late risks catastrophic failure that can shut down the entire crushing circuit. This system provides the quantitative basis to make that decision optimally.
+This platform replaces that entire process with automated 3D point cloud analysis.
 
-## The Challenge
+## From Point Cloud to Prediction
 
-Gyratory and cone crushers are among the largest and most critical machines in a minerals processing plant. Their concave and mantle liners degrade continuously under extreme loads. Traditionally, wear is estimated with manual caliper measurements taken during maintenance windows — a slow, imprecise, and sometimes dangerous process. 3D laser scanning offers a far richer picture, but the raw point clouds (millions of points in DXF or PTS format) require significant processing before they become actionable.
+### Ingestion
+Raw 3D laser scan files arrive as DXF or PTS — typically millions of points per scan, an unstructured cloud of spatial data. The first processing step transforms these into **cylindrical coordinates** (r, θ, z) aligned to the crusher's rotational axis via least-squares fitting. Points are binned by angular sector and axial elevation, collapsing the dense cloud into interpretable **radial-axial wear profiles** that capture the geometry of concave and mantle surfaces.
 
-## System Architecture
+### Campaign Management
+Each liner installation defines a **campaign**. Multiple surveys (scans) are registered within a campaign, building a time-series of wear progression. The system manages alignment corrections between scans (the scanner position isn't identical each time), reference geometries (the original liner profile), and metadata for traceability.
 
-### 1. Point Cloud Ingestion & Parsing
-Raw scan files (DXF, PTS — typically millions of points per scan) parsed and transformed into **cylindrical coordinate representations** (r, θ, z) aligned to the crusher axis via least-squares axis fitting. Aggregation routines bin points by angular sector and axial elevation, collapsing the dense point cloud into interpretable radial-axial wear profiles.
+### Forecasting
+Wear rates are computed per profile zone using regression models. The system projects **remaining useful life** with confidence bounds, generating recommended change dates that maintenance planners can use for scheduling — transforming a judgment call into a data-backed planning activity.
 
-### 2. Campaign & Survey Management
-Each crusher liner installation defines a **campaign**. Multiple surveys (scans) registered within a campaign enable wear progression tracking over time. The system manages metadata, alignment corrections, and reference geometries.
+### Deployment
+The platform operates in two modes to cover the full spectrum of mining site connectivity:
 
-### 3. Wear Trend Modeling & Forecasting
-Wear rates computed per profile zone using regression models. **Remaining useful life** projections with confidence bounds support maintenance planning — recommended change dates with quantified uncertainty.
+A **desktop application** (Streamlit/Dash packaged with PyInstaller) serves offline mine sites where internet is unreliable or nonexistent — the geologist processes scans on a local laptop.
 
-### 4. Dual Deployment Architecture
-- **Desktop application** (Streamlit/Dash packaged with PyInstaller) — for offline mine sites with no internet connectivity
-- **Web platform** (Next.js frontend, FastAPI backend, PostgreSQL, Redis) — for centralized management across multi-site operations
-
-### 5. Infrastructure
-Docker Swarm orchestration with **Traefik** as reverse proxy and load balancer. **Ansible** playbooks automate provisioning and deployment across environments.
+A **web platform** (Next.js frontend, FastAPI backend, PostgreSQL, Redis) provides centralized management for multi-site operations, with Docker Swarm orchestration, Traefik load balancing, and Ansible-automated provisioning.
