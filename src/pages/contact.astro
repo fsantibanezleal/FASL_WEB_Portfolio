@@ -1,0 +1,38 @@
+---
+import FaslLayout from '~/layouts/FaslLayout.astro';
+
+const locale = 'en';
+const metadata = {
+  title: 'Contact',
+  description: 'Get in touch with FASL.work for engineering and technology consulting.',
+};
+---
+
+<FaslLayout metadata={metadata} locale={locale}>
+  <section class="py-12 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-6">Get in Touch</h1>
+      <p class="text-lg text-muted mb-10">
+        Interested in working together? Reach out through any of the channels below.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-3 mb-12">
+        <a href="https://github.com/fsantibanezleal" target="_blank" class="group rounded-xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg dark:border-gray-700/50 dark:bg-gray-800/50">
+          <div class="mb-3 text-3xl">🐙</div>
+          <div class="font-semibold text-gray-900 dark:text-white group-hover:text-primary">GitHub</div>
+          <div class="text-sm text-muted">fsantibanezleal</div>
+        </a>
+        <a href="https://linkedin.com/in/fsantibanezleal" target="_blank" class="group rounded-xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg dark:border-gray-700/50 dark:bg-gray-800/50">
+          <div class="mb-3 text-3xl">💼</div>
+          <div class="font-semibold text-gray-900 dark:text-white group-hover:text-primary">LinkedIn</div>
+          <div class="text-sm text-muted">fsantibanezleal</div>
+        </a>
+        <a href="https://fsantibanezleal.github.io" target="_blank" class="group rounded-xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg dark:border-gray-700/50 dark:bg-gray-800/50">
+          <div class="mb-3 text-3xl">🌐</div>
+          <div class="font-semibold text-gray-900 dark:text-white group-hover:text-primary">Personal Website</div>
+          <div class="text-sm text-muted">fsantibanezleal.github.io</div>
+        </a>
+      </div>
+    </div>
+  </section>
+</FaslLayout>
