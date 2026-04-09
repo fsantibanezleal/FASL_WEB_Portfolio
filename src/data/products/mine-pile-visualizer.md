@@ -63,7 +63,7 @@ metrics:
     value: "4 dedicated views"
     valueEs: "4 vistas dedicadas"
 
-stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4]
+stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4, Vitest, Playwright]
 ---
 
 ## Four Operator Workspaces
