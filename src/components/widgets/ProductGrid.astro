@@ -1,0 +1,99 @@
+---
+import ProductCard from './ProductCard.astro';
+import type { Locale } from '~/utils/i18n';
+import { t } from '~/utils/i18n';
+
+interface Product {
+  data: {
+    title: string;
+    titleEs: string;
+    slug: string;
+    excerpt: string;
+    excerptEs: string;
+    icon: string;
+    category: string;
+    date: Date;
+    tags: string[];
+    proprietary: boolean;
+  };
+}
+
+interface Props {
+  products: Product[];
+  locale?: Locale;
+}
+
+const { products, locale = 'en' } = Astro.props;
+
+const categories = ['all', ...new Set(products.map((p) => p.data.category))];
+---
+
+<section class="relative py-12 md:py-20" id="portfolio">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="mb-12 text-center">
+      <p class="text-base font-semibold uppercase tracking-wide text-primary">{t('portfolio.tagline', locale)}</p>
+      <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        {t('portfolio.title', locale)}
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-muted">
+        {t('portfolio.subtitle', locale)}
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="mb-10 flex flex-wrap justify-center gap-2" id="category-filter">
+      {categories.map((cat) => (
+        <button
+          data-category={cat}
+          class:list={[
+            'filter-btn rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
+            cat === 'all'
+              ? 'bg-primary text-white'
+              : 'bg-gray-100 text-gray-700 hover:bg-primary/10 hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20',
+          ]}
+        >
+          {t(`category.${cat}`, locale)}
+        </button>
+      ))}
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="product-grid">
+      {products.map((product) => (
+        <div data-category={product.data.category} class="product-item">
+          <ProductCard {...product.data} locale={locale} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.product-item');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        // Update active button
+        buttons.forEach((b) => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('bg-gray-100', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
+        });
+        btn.classList.add('bg-primary', 'text-white');
+        btn.classList.remove('bg-gray-100', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
+
+        // Filter items
+        items.forEach((item) => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            (item as HTMLElement).style.display = '';
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
