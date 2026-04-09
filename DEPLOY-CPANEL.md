@@ -1,50 +1,48 @@
 # cPanel Git Deployment
 
-Este repositorio está configurado para `Git Version Control` de cPanel.
+## Hosting layout
 
-## Cómo funciona
-
-1. cPanel hace pull del repo desde GitHub.
-2. `.cpanel.yml` ejecuta `scripts/cpanel-deploy.sh`.
-3. El script copia `cpanel-dist/` a `$HOME/public_html/fasl-work.com/`.
-4. Si `cpanel-dist/` no existe y el servidor tiene Node.js, compila con `npm ci && npm run build`.
-
-## Archivos relevantes
-
-| Archivo | Propósito |
-|---------|-----------|
-| `.cpanel.yml` | Entry point de cPanel — ejecuta el script de deploy |
-| `scripts/cpanel-deploy.sh` | Copia el sitio a `public_html/fasl-work.com/` e instala rewrite rules |
-| `scripts/htaccess-root.conf` | Reglas de rewrite para servir desde el subdirectorio |
-| `scripts/prepare-cpanel-static.mjs` | Genera `cpanel-dist/` desde `dist/` (se ejecuta en local) |
-| `cpanel-dist/` | Artifact pre-built listo para deploy |
-
-## Flujo de trabajo
-
-```bash
-# 1. Build local
-npm run build:cpanel
-
-# 2. Revisar cambios
-git status
-
-# 3. Commit y push
-git add cpanel-dist/ .cpanel.yml scripts/
-git commit -m "Deploy: update site"
-git push origin main
-
-# 4. En cPanel
-#    Git Version Control → Update from Remote → Deploy HEAD Commit
+```
+public_html/                    ← shared root, multiple sites
+├── .htaccess                   ← rewrite rules per domain
+├── fasl-work.com/              ← OUR site (primary domain)
+├── micromundo.team/            ← WordPress (addon domain)
+└── (other sites)               ← NEVER TOUCHED by our deploy
 ```
 
-## Seguridad
+## How it works
 
-- El deploy path es `$HOME/public_html/fasl-work.com` (subdirectorio dedicado).
-- **NUNCA** escribe en `public_html/` directamente — protege los otros sitios del hosting.
-- El script tiene doble validación: debe ser subdirectorio de `public_html` Y contener "fasl" en el nombre.
-- Si cPanel mapea el dominio a otra carpeta, editar `SITE_DIR` en `scripts/cpanel-deploy.sh`.
-- Preserva `.htaccess` dentro del subdirectorio destino.
-- Instala automáticamente reglas de rewrite en `public_html/.htaccess` (usando markers, sin tocar reglas de otros sitios).
-- El rewrite solo aplica a requests que llegan vía `fasl-work.com` (condición `%{HTTP_HOST}`).
-- Los logs de deploy se guardan en `$HOME/deploy-logs/fasl-portfolio.log`.
-- cPanel requiere que no haya cambios sin commit en el repo para poder deployar.
+1. cPanel pulls the repo from GitHub.
+2. `.cpanel.yml` runs `scripts/cpanel-deploy.sh`.
+3. Script copies `cpanel-dist/` → `public_html/fasl-work.com/`.
+4. Script prepends rewrite rules at top of `public_html/.htaccess`.
+5. Rewrite routes `fasl-work.com` requests to the subdirectory.
+
+## Safety
+
+- Site files go ONLY into `public_html/fasl-work.com/` — never the root.
+- `.htaccess` uses BEGIN/END markers — only our block is touched.
+- Rules prepended at TOP so they run before any WordPress catch-all.
+- Rewrite conditioned on `HTTP_HOST` — only matches fasl-work.com.
+- Other sites (micromundo.team, etc.) are never modified.
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| `.cpanel.yml` | cPanel entry point |
+| `scripts/cpanel-deploy.sh` | Deploy to subdirectory + install htaccess |
+| `scripts/htaccess-root.conf` | Rewrite rules (prepended to root .htaccess) |
+| `scripts/prepare-cpanel-static.mjs` | Generate `cpanel-dist/` from `dist/` (local) |
+| `cpanel-dist/` | Pre-built static artifact |
+
+## Workflow
+
+```bash
+npm run build:cpanel
+git add cpanel-dist/
+git commit -m "Deploy: update site"
+git push origin develop
+# Create PR develop → main, review, merge
+# cPanel: Update from Remote → Deploy HEAD Commit
+```
