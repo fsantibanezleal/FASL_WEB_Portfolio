@@ -14,7 +14,8 @@ Este repositorio está configurado para `Git Version Control` de cPanel.
 | Archivo | Propósito |
 |---------|-----------|
 | `.cpanel.yml` | Entry point de cPanel — ejecuta el script de deploy |
-| `scripts/cpanel-deploy.sh` | Copia el sitio a `public_html/fasl-work.com/` de forma segura |
+| `scripts/cpanel-deploy.sh` | Copia el sitio a `public_html/fasl-work.com/` e instala rewrite rules |
+| `scripts/htaccess-root.conf` | Reglas de rewrite para servir desde el subdirectorio |
 | `scripts/prepare-cpanel-static.mjs` | Genera `cpanel-dist/` desde `dist/` (se ejecuta en local) |
 | `cpanel-dist/` | Artifact pre-built listo para deploy |
 
@@ -42,6 +43,8 @@ git push origin main
 - **NUNCA** escribe en `public_html/` directamente — protege los otros sitios del hosting.
 - El script tiene doble validación: debe ser subdirectorio de `public_html` Y contener "fasl" en el nombre.
 - Si cPanel mapea el dominio a otra carpeta, editar `SITE_DIR` en `scripts/cpanel-deploy.sh`.
-- Preserva `.htaccess` si existe en el directorio destino.
+- Preserva `.htaccess` dentro del subdirectorio destino.
+- Instala automáticamente reglas de rewrite en `public_html/.htaccess` (usando markers, sin tocar reglas de otros sitios).
+- El rewrite solo aplica a requests que llegan vía `fasl-work.com` (condición `%{HTTP_HOST}`).
 - Los logs de deploy se guardan en `$HOME/deploy-logs/fasl-portfolio.log`.
 - cPanel requiere que no haya cambios sin commit en el repo para poder deployar.

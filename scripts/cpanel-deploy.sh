@@ -87,7 +87,7 @@ choose_source() {
   exit 1
 }
 
-# ── Deploy ───────────────────────────────────────────────────────
+# ── Deploy site files ────────────────────────────────────────────
 do_deploy() {
   # Since this is a dedicated subdirectory for fasl-work.com ONLY,
   # we can safely clean everything inside it and replace with fresh files.
@@ -100,6 +100,42 @@ do_deploy() {
   fi
 
   cp -R "$SOURCE_DIR"/. "$DEPLOYPATH"/
+}
+
+# ── Install .htaccess rewrite in public_html root ────────────────
+#  This makes the domain serve content from the subdirectory
+#  without showing it in the URL. Only touches the fasl-work.com
+#  block — leaves all other rules untouched.
+HTACCESS_CONF="$REPO_ROOT/scripts/htaccess-root.conf"
+PUBLIC_HTML="$HOME/public_html"
+ROOT_HTACCESS="$PUBLIC_HTML/.htaccess"
+MARKER_BEGIN="# --- BEGIN fasl-work.com rewrite ---"
+MARKER_END="# --- END fasl-work.com rewrite ---"
+
+install_htaccess_rules() {
+  if [ ! -f "$HTACCESS_CONF" ]; then
+    log "WARNING: htaccess-root.conf not found, skipping .htaccess install."
+    return
+  fi
+
+  # If .htaccess doesn't exist, create it with our rules
+  if [ ! -f "$ROOT_HTACCESS" ]; then
+    cp "$HTACCESS_CONF" "$ROOT_HTACCESS"
+    log "Created $ROOT_HTACCESS with fasl-work.com rewrite rules."
+    return
+  fi
+
+  # If our markers already exist, replace the block
+  if grep -q "$MARKER_BEGIN" "$ROOT_HTACCESS" 2>/dev/null; then
+    # Remove old block (between markers, inclusive)
+    sed -i "/$MARKER_BEGIN/,/$MARKER_END/d" "$ROOT_HTACCESS"
+    log "Removed old fasl-work.com rewrite block."
+  fi
+
+  # Append our rules at the end
+  printf '\n' >> "$ROOT_HTACCESS"
+  cat "$HTACCESS_CONF" >> "$ROOT_HTACCESS"
+  log "Appended fasl-work.com rewrite rules to $ROOT_HTACCESS."
 }
 
 # ── Main ─────────────────────────────────────────────────────────
@@ -117,6 +153,7 @@ log "  SOURCE_DIR: $SOURCE_DIR"
 
 mkdir -p "$DEPLOYPATH"
 do_deploy
+install_htaccess_rules
 
 log "Deploy finished — $(find "$DEPLOYPATH" -type f | wc -l) files in $DEPLOYPATH"
 log "=========================================="
