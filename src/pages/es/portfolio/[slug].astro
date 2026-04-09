@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import FaslLayout from '~/layouts/FaslLayout.astro';
+import TabPanel from '~/components/widgets/TabPanel.astro';
 import { getProducts } from '~/utils/products';
 import { t } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
@@ -38,6 +39,8 @@ const slugPatterns = d.assetPatterns || [d.slug];
 const diagrams = findAssets(allDiagrams, slugPatterns);
 const screenshots = findAssets(allScreenshots, slugPatterns);
 const rollings = findAssets(allRollings, slugPatterns);
+
+const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'];
 ---
 
 <FaslLayout metadata={{ title: d.titleEs, description: d.excerptEs }} locale={locale}>
@@ -48,7 +51,7 @@ const rollings = findAssets(allRollings, slugPatterns);
         ← {t('portfolio.back', locale)}
       </a>
 
-      <header class="mb-14">
+      <header class="mb-10">
         <div class="mb-4 flex flex-wrap items-center gap-3">
           <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Icon name={d.icon} class="h-5 w-5" />
@@ -61,188 +64,201 @@ const rollings = findAssets(allRollings, slugPatterns);
             </span>
           )}
         </div>
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl leading-tight mb-6">{d.titleEs}</h1>
-        <p class="text-xl leading-relaxed text-muted max-w-3xl">{d.excerptEs}</p>
-
-        {(d.github || d.demo || d.video || d.website) && (
-          <div class="mt-6 flex flex-wrap gap-3">
-            {d.github && (
-              <a href={d.github} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
-                <Icon name="tabler:brand-github" class="h-4 w-4" /> Código Fuente
-              </a>
-            )}
-            {d.demo && (
-              <a href={d.demo} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-secondary transition-colors">
-                <Icon name="tabler:external-link" class="h-4 w-4" /> Demo
-              </a>
-            )}
-            {d.website && (
-              <a href={d.website} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-secondary transition-colors">
-                <Icon name="tabler:world" class="h-4 w-4" /> Sitio Web
-              </a>
-            )}
-          </div>
-        )}
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl leading-tight">{d.titleEs}</h1>
       </header>
 
-      <section class="mb-14">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-          <Icon name="tabler:target" class="h-6 w-6 text-primary" /> Contexto y Motivación
-        </h2>
-        <div class="grid gap-6 md:grid-cols-2">
-          <div class="rounded-xl bg-amber-50/50 border border-amber-200/50 p-6 dark:bg-amber-900/10 dark:border-amber-800/30">
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-3">El Desafío</h3>
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{d.challengeEs}</p>
-          </div>
-          <div class="rounded-xl bg-primary/5 border border-primary/20 p-6">
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-primary mb-3">Nuestro Enfoque</h3>
-            <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{d.approachEs}</p>
-          </div>
-        </div>
-      </section>
+      <TabPanel tabs={tabs}>
 
-      <section class="mb-14">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-          <Icon name="tabler:chart-bar" class="h-6 w-6 text-primary" /> Impacto de Negocio
-        </h2>
-        <div class="grid grid-cols-2 gap-4 md:grid-cols-4 mb-8">
-          {d.metrics.map((m) => (
-            <div class="rounded-xl border border-gray-200 bg-white p-5 text-center dark:border-gray-700/50 dark:bg-gray-800/60 shadow-sm">
-              <div class="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{m.labelEs}</div>
-              <div class="text-sm font-bold text-gray-900 dark:text-white leading-snug">{m.valueEs}</div>
-            </div>
-          ))}
-        </div>
-        <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700/50">
-          <table class="w-full border-collapse text-sm">
-            <thead>
-              <tr class="bg-gray-50 dark:bg-gray-800/80">
-                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">KPI</th>
-                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Línea Base</th>
-                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Resultado</th>
-                <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Impacto</th>
-              </tr>
-            </thead>
-            <tbody>
-              {d.kpis.map((kpi, i) => (
-                <tr class:list={['border-t border-gray-100 dark:border-gray-800', { 'bg-gray-50/50 dark:bg-gray-800/20': i % 2 === 0 }]}>
-                  <td class="px-5 py-4 font-medium text-gray-900 dark:text-white">{kpi.labelEs}</td>
-                  <td class="px-5 py-4 text-muted">{kpi.baselineEs}</td>
-                  <td class="px-5 py-4 font-semibold text-primary">{kpi.resultEs}</td>
-                  <td class="px-5 py-4 text-muted">{kpi.impactEs}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {diagrams.length > 0 && (
-        <section class="mb-14">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-            <Icon name="tabler:hierarchy-3" class="h-6 w-6 text-primary" /> Arquitectura del Sistema
-          </h2>
-          <div class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700/50 dark:bg-gray-800/30">
-            <Image src={diagrams[0].image} alt={`${d.titleEs} — Arquitectura`} class="w-full h-auto" loading="lazy" />
+        <!-- ═══ RESUMEN ═══ -->
+        <div data-tab="Resumen">
+          <p class="text-xl leading-relaxed text-muted mb-8 max-w-3xl">{d.excerptEs}</p>
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-4 mb-10">
+            {d.metrics.map((m) => (
+              <div class="rounded-xl border border-gray-200 bg-white p-5 text-center dark:border-gray-700/50 dark:bg-gray-800/60 shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-primary mb-2">{m.labelEs}</div>
+                <div class="text-sm font-bold text-gray-900 dark:text-white leading-snug">{m.valueEs}</div>
+              </div>
+            ))}
           </div>
-          {diagrams.length > 1 && (
-            <div class="mt-6 grid gap-6 md:grid-cols-2">
-              {diagrams.slice(1).map(({ image, path }) => {
-                const name = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
-                return (
-                  <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
-                    <Image src={image} alt={name} class="w-full h-auto mb-2" loading="lazy" />
-                    <p class="text-xs text-center text-muted capitalize">{name}</p>
-                  </div>
-                );
-              })}
+          {diagrams.length > 0 && (
+            <div class="mb-10 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700/50 dark:bg-gray-800/30">
+              <Image src={diagrams[0].image} alt={`${d.titleEs} — Arquitectura`} class="w-full h-auto" loading="lazy" />
             </div>
           )}
-        </section>
-      )}
-
-      <section class="mb-14">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-          <Icon name="tabler:stack-2" class="h-6 w-6 text-primary" /> Stack Tecnológico
-        </h2>
-        <div class="flex flex-wrap gap-2">
-          {d.stack.map((tech) => (
-            <span class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">{tech}</span>
-          ))}
+          <div class="flex flex-wrap gap-2">
+            {d.tags.map((tag) => (
+              <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">#{tag}</span>
+            ))}
+          </div>
         </div>
-      </section>
 
-      {(screenshots.length > 0 || rollings.length > 0) && (
-        <section class="mb-14">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-            <Icon name="tabler:photo" class="h-6 w-6 text-primary" /> Galería
-          </h2>
-          {screenshots.length > 0 && (
-            <div class="space-y-6 mb-8">
-              {screenshots.map(({ image }) => (
-                <div class="rounded-xl border border-gray-200 bg-white p-2 dark:border-gray-700/50 dark:bg-gray-800/30 shadow-lg overflow-hidden">
-                  <Image src={image} alt={`${d.titleEs} — Captura`} class="w-full h-auto rounded-lg" loading="lazy" />
-                </div>
+        <!-- ═══ IMPACTO DE NEGOCIO ═══ -->
+        <div data-tab="Impacto de Negocio">
+          <div class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Contexto de Negocio</h2>
+            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">{d.businessContextEs}</p>
+          </div>
+          <div class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Valor Estratégico</h2>
+            <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">{d.strategicValueEs}</p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2 mb-10">
+            <div class="rounded-xl bg-amber-50/50 border border-amber-200/50 p-6 dark:bg-amber-900/10 dark:border-amber-800/30">
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-3">El Desafío</h3>
+              <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{d.challengeEs}</p>
+            </div>
+            <div class="rounded-xl bg-primary/5 border border-primary/20 p-6">
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-primary mb-3">Nuestro Enfoque</h3>
+              <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{d.approachEs}</p>
+            </div>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Indicadores Clave de Rendimiento</h2>
+          <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700/50 mb-10">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="bg-gray-50 dark:bg-gray-800/80">
+                  <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">KPI</th>
+                  <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Línea Base</th>
+                  <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Resultado</th>
+                  <th class="px-5 py-4 text-left font-semibold text-gray-900 dark:text-white">Impacto</th>
+                </tr>
+              </thead>
+              <tbody>
+                {d.kpis.map((kpi, i) => (
+                  <tr class:list={['border-t border-gray-100 dark:border-gray-800', { 'bg-gray-50/50 dark:bg-gray-800/20': i % 2 === 0 }]}>
+                    <td class="px-5 py-4 font-medium text-gray-900 dark:text-white">{kpi.labelEs}</td>
+                    <td class="px-5 py-4 text-muted">{kpi.baselineEs}</td>
+                    <td class="px-5 py-4 font-semibold text-primary">{kpi.resultEs}</td>
+                    <td class="px-5 py-4 text-muted">{kpi.impactEs}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {d.proprietary && (
+            <div class="rounded-xl bg-amber-50 border border-amber-200 p-4 dark:bg-amber-900/10 dark:border-amber-800/30">
+              <p class="text-sm text-amber-800 dark:text-amber-400 flex items-center gap-2">
+                <Icon name="tabler:lock" class="h-4 w-4" /> {t('product.proprietary', locale)}
+              </p>
+            </div>
+          )}
+        </div>
+
+        <!-- ═══ TÉCNICO ═══ -->
+        <div data-tab="Técnico">
+          {diagrams.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Arquitectura</h2>
+              <div class="space-y-6">
+                {diagrams.map(({ image, path }) => {
+                  const name = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
+                  return (
+                    <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
+                      <Image src={image} alt={name} class="w-full h-auto mb-2" loading="lazy" />
+                      <p class="text-xs text-center text-muted capitalize">{name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Stack Tecnológico</h2>
+            <div class="flex flex-wrap gap-2">
+              {d.stack.map((tech) => (
+                <span class="inline-flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">{tech}</span>
               ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ GALERÍA ═══ -->
+        <div data-tab="Galería">
+          {screenshots.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Capturas de la Aplicación</h2>
+              <div class="space-y-6">
+                {screenshots.map(({ image }) => (
+                  <div class="rounded-xl border border-gray-200 bg-white p-2 dark:border-gray-700/50 dark:bg-gray-800/30 shadow-lg overflow-hidden">
+                    <Image src={image} alt={`${d.titleEs}`} class="w-full h-auto rounded-lg" loading="lazy" />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
           {rollings.length > 0 && (
-            <div class="grid gap-6 md:grid-cols-2">
-              {rollings.map(({ image, path }) => {
-                const name = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
-                return (
-                  <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
-                    <Image src={image} alt={name} class="w-full h-auto mb-2" loading="lazy" />
-                    <p class="text-xs text-center text-muted capitalize">{name}</p>
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Diagramas Técnicos</h2>
+              <div class="grid gap-6 md:grid-cols-2">
+                {rollings.map(({ image, path }) => {
+                  const name = path.split('/').pop()?.replace('.svg', '').replace(/_/g, ' ') || '';
+                  return (
+                    <div class="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700/50 dark:bg-gray-800/30">
+                      <Image src={image} alt={name} class="w-full h-auto mb-2" loading="lazy" />
+                      <p class="text-xs text-center text-muted capitalize">{name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          {screenshots.length === 0 && rollings.length === 0 && (
+            <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
+              <Icon name="tabler:photo-off" class="h-10 w-10 mx-auto mb-3 text-muted" />
+              <p class="text-muted">Los recursos visuales de este proyecto no están disponibles públicamente.</p>
+            </div>
+          )}
+        </div>
+
+        <!-- ═══ ENLACES ═══ -->
+        <div data-tab="Enlaces">
+          <div class="space-y-6">
+            {d.github && (
+              <a href={d.github} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900 text-white dark:bg-gray-700"><Icon name="tabler:brand-github" class="h-6 w-6" /></div>
+                <div><div class="font-semibold text-gray-900 dark:text-white">Código Fuente</div><div class="text-sm text-muted">{d.github}</div></div>
+              </a>
+            )}
+            {d.video && (
+              <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex items-center gap-3 mb-4"><Icon name="tabler:brand-youtube" class="h-6 w-6 text-red-600" /><span class="font-semibold text-gray-900 dark:text-white">Video Demo</span></div>
+                {(d.video.includes('youtube.com') || d.video.includes('youtu.be')) ? (
+                  <div class="aspect-video rounded-lg overflow-hidden">
+                    <iframe src={`https://www.youtube.com/embed/${d.video.includes('watch?v=') ? d.video.split('watch?v=')[1] : d.video.split('/').pop()}`} class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </section>
-      )}
-
-      {(d.video || d.publication) && (
-        <section class="mb-14">
-          {d.video && (d.video.includes('youtube.com') || d.video.includes('youtu.be')) && (
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                <Icon name="tabler:player-play" class="h-6 w-6 text-primary" /> Demo
-              </h2>
-              <div class="aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 shadow-lg">
-                <iframe src={`https://www.youtube.com/embed/${d.video.includes('watch?v=') ? d.video.split('watch?v=')[1] : d.video.split('/').pop()}`} class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                ) : (<a href={d.video} target="_blank" rel="noopener" class="text-primary hover:underline">{d.video}</a>)}
               </div>
-            </div>
-          )}
-          {d.publication && (
-            <a href={d.publication} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
-              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600 text-white"><Icon name="tabler:file-text" class="h-6 w-6" /></div>
-              <div>
-                <div class="font-semibold text-gray-900 dark:text-white">Publicación</div>
-                <div class="text-sm text-muted">{d.publication}</div>
+            )}
+            {d.demo && (
+              <a href={d.demo} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:external-link" class="h-6 w-6" /></div>
+                <div><div class="font-semibold text-gray-900 dark:text-white">Demo</div><div class="text-sm text-muted">{d.demo}</div></div>
+              </a>
+            )}
+            {d.website && (
+              <a href={d.website} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white"><Icon name="tabler:world" class="h-6 w-6" /></div>
+                <div><div class="font-semibold text-gray-900 dark:text-white">Sitio Web</div><div class="text-sm text-muted">{d.website}</div></div>
+              </a>
+            )}
+            {d.publication && (
+              <a href={d.publication} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-5 hover:border-primary/40 hover:shadow-md transition-all dark:border-gray-700/50 dark:bg-gray-800/50">
+                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600 text-white"><Icon name="tabler:file-text" class="h-6 w-6" /></div>
+                <div><div class="font-semibold text-gray-900 dark:text-white">Publicación</div><div class="text-sm text-muted">{d.publication}</div></div>
+              </a>
+            )}
+            {!d.github && !d.video && !d.demo && !d.website && !d.publication && (
+              <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
+                <Icon name="tabler:lock" class="h-10 w-10 mx-auto mb-3 text-muted" />
+                <p class="text-muted">Este es un proyecto propietario. El código fuente y recursos externos no están disponibles públicamente.</p>
               </div>
-            </a>
-          )}
-        </section>
-      )}
-
-      <section class="mb-10">
-        <div class="flex flex-wrap gap-2">
-          {d.tags.map((tag) => (
-            <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">#{tag}</span>
-          ))}
+            )}
+          </div>
         </div>
-      </section>
 
-      {d.proprietary && (
-        <div class="mb-10 rounded-xl bg-amber-50 border border-amber-200 p-4 dark:bg-amber-900/10 dark:border-amber-800/30">
-          <p class="text-sm text-amber-800 dark:text-amber-400 flex items-center gap-2">
-            <Icon name="tabler:lock" class="h-4 w-4" /> {t('product.proprietary', locale)}
-          </p>
-        </div>
-      )}
+      </TabPanel>
 
-      <div class="pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
         <a href={getPermalink('/es/portfolio')} class="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white">
           ← {t('portfolio.back', locale)}
         </a>
