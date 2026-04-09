@@ -65,24 +65,32 @@ metrics:
 stack: [FastAPI, PostgreSQL, Redis, Celery, Next.js, React, TypeScript, Streamlit, Dash, PyInstaller, NumPy, SciPy, Open3D, Docker Swarm, Traefik, Ansible]
 ---
 
+## Business Impact
+
+This platform replaced manual caliper measurements with automated 3D point cloud analysis, transforming liner wear assessment from imprecise periodic snapshots into continuous, data-driven forecasting. Maintenance scheduling shifted from fixed intervals to **remaining-useful-life predictions** — reducing both premature replacements and the risk of catastrophic failure.
+
+## Strategic Context
+
+Crusher liner replacement is one of the **highest-cost maintenance activities** in mineral processing — each change involves days of downtime and hundreds of thousands in parts and labor. Replacing liners too early wastes material; too late risks catastrophic failure that can shut down the entire crushing circuit. This system provides the quantitative basis to make that decision optimally.
+
+## The Challenge
+
+Gyratory and cone crushers are among the largest and most critical machines in a minerals processing plant. Their concave and mantle liners degrade continuously under extreme loads. Traditionally, wear is estimated with manual caliper measurements taken during maintenance windows — a slow, imprecise, and sometimes dangerous process. 3D laser scanning offers a far richer picture, but the raw point clouds (millions of points in DXF or PTS format) require significant processing before they become actionable.
+
 ## System Architecture
 
-### Point Cloud Ingestion & Parsing
-Raw scan files (DXF, PTS) are parsed and transformed into **cylindrical coordinate representations** (r, θ, z). Points are binned by angular sector and axial elevation, creating a structured representation of the liner surface from unstructured point clouds.
+### 1. Point Cloud Ingestion & Parsing
+Raw scan files (DXF, PTS — typically millions of points per scan) parsed and transformed into **cylindrical coordinate representations** (r, θ, z) aligned to the crusher axis via least-squares axis fitting. Aggregation routines bin points by angular sector and axial elevation, collapsing the dense point cloud into interpretable radial-axial wear profiles.
 
-### Campaign & Survey Management
-Each liner installation defines a **campaign**. Multiple surveys are registered within a campaign, enabling wear progression tracking over the liner's operational life. This temporal organization is fundamental to forecasting.
+### 2. Campaign & Survey Management
+Each crusher liner installation defines a **campaign**. Multiple surveys (scans) registered within a campaign enable wear progression tracking over time. The system manages metadata, alignment corrections, and reference geometries.
 
-### Wear Trend Modeling & Forecasting
-Wear rates computed per profile zone using regression models. **Remaining useful life** projections help maintenance planners schedule liner changes at the optimal point — not too early (wasting material) and not too late (risking failure).
+### 3. Wear Trend Modeling & Forecasting
+Wear rates computed per profile zone using regression models. **Remaining useful life** projections with confidence bounds support maintenance planning — recommended change dates with quantified uncertainty.
 
-### Dual Deployment Architecture
-- **Desktop application** (Streamlit/Dash packaged with PyInstaller) — for offline mine sites with limited connectivity
-- **Web platform** (Next.js frontend, FastAPI backend, PostgreSQL, Redis) — for centralized management across multiple crushers
+### 4. Dual Deployment Architecture
+- **Desktop application** (Streamlit/Dash packaged with PyInstaller) — for offline mine sites with no internet connectivity
+- **Web platform** (Next.js frontend, FastAPI backend, PostgreSQL, Redis) — for centralized management across multi-site operations
 
-### Infrastructure
+### 5. Infrastructure
 Docker Swarm orchestration with **Traefik** as reverse proxy and load balancer. **Ansible** playbooks automate provisioning and deployment across environments.
-
-## Why This Matters
-
-Crusher liner replacement is one of the **highest-cost maintenance activities** in mineral processing. A single gyratory crusher liner set can cost hundreds of thousands of dollars. The previous approach — manual caliper measurements at specific cross-sections — was slow, imprecise, dangerous (requiring personnel inside the crusher), and provided incomplete coverage. This system transforms wear assessment from periodic snapshots into continuous, data-driven forecasting with full point cloud coverage.

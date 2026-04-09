@@ -62,39 +62,56 @@ metrics:
 stack: [Python 3.12, FastAPI, Uvicorn, Three.js, Braille Engine, PyInstaller, Inno Setup]
 ---
 
-## The Resurrection: From 2008 to 2026
+## The Resurrection — From 2008 to 2026
 
-The original FeelIT (2008–2012) was a pioneering attempt to create tactile accessibility using a physical pin-array display. It was frozen when hardware miniaturization made the electromagnetic pin array impractical at accessible cost. FeelIT 2.0 takes the original accessibility vision and rebuilds it entirely with modern web architecture.
+The [original FeelIT](/portfolio/feelit-original) (2008–2012) was frozen when hardware miniaturization and costs made the pin-array display impractical. Fourteen years later, the landscape changed: web technologies enable cross-platform deployment, Three.js provides hardware-accelerated 3D in any browser, and the haptic device ecosystem has expanded beyond proprietary solutions.
+
+FeelIT 2.0 takes the original accessibility vision and rebuilds it from scratch with modern architecture — Python/FastAPI backend + Three.js frontend instead of Windows Forms + OpenGL.
+
+## Business Context
+
+Tactile accessibility remains an underserved space. Screen readers and audio descriptions dominate assistive technology, but audio alone cannot convey spatial relationships, 3D shapes, or the physical texture of objects. FeelIT 2.0 addresses this gap with a structured, multi-workspace approach to tactile interaction.
+
+## Four Workspaces
+
+### 1. 3D Object Explorer
+Load bundled OBJ models or upload custom files. Select from **8 tactile material profiles** — polished metal, carved stone, unfinished wood, rubber, foam, textured polymer, coated paper, glazed ceramic — each defining how the object feels to the haptic stylus. Navigate with keyboard-driven stylus emulation (WASD/QE movement, Space/Enter activate).
+
+### 2. Braille Reader
+Scene-native 3D library launcher with paged document targets. Load bounded segments (configurable 1,200 chars) from TXT, HTML, or EPUB files. Navigate with in-scene Previous/Next controls. Companion audio catalog pairs readings with narration.
+
+**Braille encoding**: Each character → 6-dot mask (0–63) → 3D positioned cell. Layout: cells arranged in rows × columns grid with orientation rail and origin marker. Standard 6-dot Braille with full ASCII + accented character support.
+
+### 3. Haptic Desktop
+Workspace-driven launcher providing a neutral hub with entry points for models, texts, audio, and file browser. Typed file entries have distinct tactile shapes (folders, models, documents, audio, unsupported). Detail plaques show names before opening. Scene-persistent camera viewpoint survives transitions.
+
+### 4. Workspace Manager
+Create new workspaces from external folders with auto-population of models, documents, and audio. Register existing `.haptic_workspace.json` descriptors. Review catalog with registry diagnostics.
+
+## From 2008 to 2026
 
 | Aspect | Original (2008–2012) | FeelIT 2.0 (2026) |
 |--------|---------------------|-------------------|
 | Platform | Windows Forms | Web (FastAPI + Three.js) |
-| Scope | Braille only | 4 workspaces |
-| Haptic device | Novint Falcon-specific | Pluggable backend |
-| Documents | Text files only | TXT, HTML, EPUB |
+| Scope | Braille only | 4 workspaces (Explorer, Braille, Desktop, Manager) |
+| Haptic device | Novint Falcon-specific | Pluggable backend (works without hardware) |
+| Documents | Text files only | TXT, HTML, EPUB with segmented loading |
+| Documentation | Minimal | 12 docs + 5 SVGs + snapshot archive |
 
-## Four Workspaces
+## Technical Architecture
 
-### 3D Object Explorer
-Load bundled OBJ models or upload custom files. **8 tactile material profiles** (polished metal, carved stone, unfinished wood, rubber, foam, textured polymer, coated paper, glazed ceramic) define how objects feel to the haptic stylus. Keyboard-driven stylus emulation enables exploration without physical hardware.
-
-### Braille Reader
-Scene-native 3D library with paged document targets. Loads bounded segments (1,200 chars) from TXT, HTML, or EPUB files. Standard 6-dot Braille encoding with full ASCII + accented character support. Each character maps to a 6-dot mask (0–63) → 3D positioned cell with orientation rail and origin marker.
-
-### Haptic Desktop
-Workspace-driven launcher providing a neutral hub with entry points for models, texts, audio, and file browser. Functions as the home screen for navigating between different content types.
-
-### Workspace Manager
-Create new workspaces from external folders with auto-population of models, documents, and audio content. Organizes the user's content library.
-
-## Braille Encoding Engine
-
-The custom Braille encoder (134 lines) transforms text into spatial 3D representations:
-
-`Character → 6-dot mask (0-63) → 3D positioned cell`
-
-Cells are arranged in rows × columns grid with consistent spacing, an orientation rail for navigation, and an origin marker for spatial reference.
+- **Backend**: Python 3.12+, FastAPI, Uvicorn (port 8101)
+- **Frontend**: Three.js (bundled locally), vanilla JavaScript, dark theme
+- **Braille**: Custom 6-dot encoder with layout engine (134 lines)
+- **Materials**: 8 frozen dataclass profiles with stiffness, friction, texture, vibration parameters
+- **Haptics**: Pluggable backend abstraction — null backend for visual-only mode, hardware-ready interface for physical devices
+- **Content**: 10 bundled OBJ models, 5 public-domain documents (Gutenberg), 4 audio tracks (LibriVox)
+- **Distribution**: PyInstaller + Inno Setup for standalone Windows installer
 
 ## Methodological Honesty
 
-The Implementation Gap Audit documents exactly what works today (Braille reading, 3D staging, workspace management) and what requires future work (native haptic hardware bridge, PDF/DOCX support, force-feedback material realization with the physical device).
+This project explicitly separates what is **shipped and tested** from what is **planned**. The Implementation Gap Audit documents exactly what works today (Braille reading, 3D staging, workspace management) and what requires future work (native haptic hardware bridge, PDF/DOCX support, force-feedback material realization).
+
+## Recent Updates
+
+**v2.18.000 (April 2026)**: First bounded native haptic pilot — real force feedback through physical device. The pluggable backend abstraction allowed hardware integration with zero changes to workspaces, Braille engine, or material profiles. Haptic configuration review flow added for safe parameter adjustment before sessions.

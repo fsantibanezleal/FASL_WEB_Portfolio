@@ -10,7 +10,7 @@ icon: tabler:focus-2
 tags: [optics, holography, computational-physics, fastapi, python]
 proprietary: false
 featured: false
-assetPatterns: [dinhot, gs_phase, fourier_optics, trap_types]
+assetPatterns: [dinhot, gs_phase]
 github: "https://github.com/fsantibanezleal/CEFOP_DinHot"
 
 challenge: "Optical tweezers require precise phase masks computed in real-time to create multiple independently positioned laser traps. The Gerchberg-Saxton algorithm involves iterative Fourier transforms that must converge quickly for interactive manipulation of microscopic particles."
@@ -56,28 +56,31 @@ stack: [Python, FastAPI, NumPy, FFT, HTML5 Canvas, WebSocket, Gerchberg-Saxton]
 
 ## How Optical Tweezers Work
 
-Optical tweezers use a tightly focused laser beam to trap and manipulate microscopic particles (cells, beads, molecules). The **radiation pressure gradient** near the focal point creates a stable 3D potential well.
+Optical tweezers use a tightly focused laser beam to trap and manipulate microscopic particles — cells, beads, molecules. The **radiation pressure gradient** near the focal point creates a stable 3D potential well: the particle is pulled toward the highest intensity point. By moving the focus, you move the trapped object.
 
-## Holographic Phase Masks
+## The Challenge: Multiple Traps
 
-To create **multiple independently positioned traps** from a single laser, the beam must be shaped using a **phase-only spatial light modulator (SLM)**. The SLM displays a computed phase mask that splits and redirects the beam into multiple focal points.
+A single focused beam creates one trap. To create **multiple independently positioned traps** from a single laser, the beam must be shaped using a **phase-only spatial light modulator (SLM)** — a device that modifies the wavefront without affecting amplitude. The SLM displays a computed phase mask that splits and redirects the beam into multiple focal points, each capable of trapping a particle.
+
+Computing the right phase mask is the core computational challenge.
 
 ## The Gerchberg-Saxton Algorithm
 
-The **weighted GS algorithm** computes these phase masks through iterative Fourier transform cycling:
+The **weighted GS algorithm** computes phase masks through iterative Fourier transform cycling:
 
-1. Start with desired trap positions in the focal plane
-2. Inverse FFT to SLM plane → extract phase, replace amplitude with uniform beam
-3. Forward FFT to focal plane → extract phase, replace amplitude with desired pattern
-4. Repeat until convergence
+1. Start with desired trap positions and intensities in the focal plane
+2. **Inverse FFT** to SLM plane → extract phase, replace amplitude with uniform beam profile
+3. **Forward FFT** to focal plane → extract phase, replace amplitude with desired trap pattern
+4. Repeat until convergence (typically 10–50 iterations)
 
-The **weighting** adjusts trap intensities to ensure uniform trapping force across all positions.
+The **weighting** adjusts trap intensities at each iteration to ensure uniform trapping force across all positions — without it, outer traps tend to be weaker.
 
 ## Features
 
 - **Real-time** phase mask computation for interactive trap positioning
-- **Multiple independent traps** from a single beam
-- **WebSocket communication** for low-latency interaction
-- **HTML5 Canvas** visualization of phase patterns and simulated focal plane
+- **Multiple independent traps** from a single laser beam
+- **WebSocket communication** for low-latency interaction between browser and computation engine
+- **HTML5 Canvas** visualization of phase patterns, simulated focal plane, and trap quality metrics
+- **6 Zernike aberration modes** for simulating optical system imperfections
 
 Originally developed at **CEFOP** (Center for Optics and Photonics), Universidad de Concepción.

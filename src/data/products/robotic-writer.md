@@ -59,9 +59,13 @@ metrics:
 stack: [Python, Dash, Plotly, MATLAB, Arduino, Serial Communication, Denavit-Hartenberg, NumPy]
 ---
 
+## The Concept
+
+A 5-DOF Scorbot III robotic arm picks letter blocks arranged on a **circular arc** and places them on a line to spell words. What started as a 2004 laboratory activity at Universidad de Concepcion evolved into a complete kinematics exploration and simulation environment.
+
 ## Denavit-Hartenberg Kinematics
 
-The Scorbot III is modeled using the standard **DH convention** — a systematic method for describing the geometry of serial kinematic chains.
+The Scorbot III is modeled using the standard **DH convention** — the systematic method for describing serial kinematic chains used in every robotics textbook.
 
 ### DH Parameter Table
 
@@ -78,21 +82,21 @@ The end-effector pose is computed as the product of homogeneous transformations:
 
 `T₀₅ = T₀₁ · T₁₂ · T₂₃ · T₃₄ · T₄₅`
 
+Each `Tᵢ` is a 4×4 matrix encoding rotation and translation for that joint — the product gives the complete position and orientation of the gripper.
+
 ### Inverse Kinematics
-**Analytical closed-form** solution for real-time performance. Given a target (x, y, z, pitch, roll), joint angles are computed geometrically — no iterative numerical methods needed.
+**Analytical closed-form** solution for real-time performance. Given a target (x, y, z, pitch, roll), joint angles are computed geometrically — no iterative numerical methods needed. This is critical for smooth real-time trajectory execution.
 
 ## The Writing Task
 
-The robot picks letter blocks arranged on a **circular arc** and places them to spell words. This requires:
-1. **Trajectory planning** between pick and place positions
-2. **Joint interpolation** for smooth motion
-3. **Gripper coordination** for block manipulation
-4. **Collision avoidance** within the workspace
+The robot picks letter blocks and places them to spell words. This requires:
+1. **Trajectory planning** — smooth paths between pick and place positions avoiding obstacles
+2. **Joint interpolation** — coordinated multi-joint motion for natural-looking movement
+3. **Gripper coordination** — timed open/close sequences for reliable block manipulation
+4. **Collision avoidance** — staying within the reachable workspace
 
 ## Multiple Hardware Backends
 
-- **Scorbot III serial** — direct serial communication with the physical robot
-- **Arduino steppers** — custom stepper motor control board
-- **MATLAB Engine** — for interfacing with MATLAB-based control systems
-
-Originally a lab activity at Universidad de Concepción (2004), evolved into a complete kinematics exploration and simulation tool.
+- **Scorbot III serial** — direct RS-232 communication with the physical robot controller
+- **Arduino steppers** — custom stepper motor control board for educational setups
+- **MATLAB Engine** — interfacing with MATLAB-based control systems and Simulink models
