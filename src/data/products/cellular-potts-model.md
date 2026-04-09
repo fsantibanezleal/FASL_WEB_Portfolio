@@ -16,8 +16,8 @@ github: "https://github.com/fsantibanezleal/SCIAN_LEO_CPM"
 challenge: "Understanding how cells collectively migrate during embryonic development requires models that capture deformable cell shapes, contact interactions, and directed motility — not just point-particle dynamics."
 challengeEs: "Entender cómo las células migran colectivamente durante el desarrollo embrionario requiere modelos que capturen formas celulares deformables, interacciones de contacto y motilidad dirigida — no solo dinámica de partículas puntuales."
 
-approach: "Hamiltonian minimization balancing area constraints, perimeter constraints, adhesion energy, and Gaussian filopodia motility. Two-pass collision resolution, per-cell color coding, tissue boundary dynamics, cell proliferation. REST API with 30+ automated tests."
-approachEs: "Minimización de Hamiltoniano balanceando restricciones de área, restricciones de perímetro, energía de adhesión y motilidad por filopodios Gaussianos. Resolución de colisiones en dos pasadas, codificación de color por célula, dinámica de bordes tisulares, proliferación celular. API REST con 30+ tests automatizados."
+approach: "Hamiltonian minimization balancing area constraints, perimeter constraints, adhesion energy, and Gaussian filopodia motility. Two-pass collision resolution, per-cell color coding, tissue boundary dynamics, cell proliferation."
+approachEs: "Minimización de Hamiltoniano balanceando restricciones de área, restricciones de perímetro, energía de adhesión y motilidad por filopodios Gaussianos. Resolución de colisiones en dos pasadas, codificación de color por célula, dinámica de bordes tisulares, proliferación celular."
 
 kpis:
   - label: "Cell Model"
@@ -50,10 +50,6 @@ metrics:
     labelEs: "Tasa de Cuadros"
     value: "10-50 FPS"
     valueEs: "10-50 FPS"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "30+ automated"
-    valueEs: "30+ automatizados"
 
 stack: [Python, FastAPI, HTML5 Canvas, NumPy, Hamiltonian Minimization, Metropolis Algorithm]
 ---
@@ -83,7 +79,5 @@ Each filopodium `j` has amplitude `Aⱼ`, preferred direction `θ₀ⱼ`, and an
 - **Per-cell color coding** for tracking individual cells
 - **Tissue boundary dynamics** and cell proliferation
 - **Two-pass collision resolution** preventing cell overlap
-- **REST API** with Swagger/ReDoc documentation
-- **30+ automated tests** covering simulation physics and API
 
 Developed at **SCIAN-Lab** and **BNI**, Universidad de Chile, supporting developmental biology research on zebrafish Kupffer's vesicle formation.

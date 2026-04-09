@@ -46,10 +46,6 @@ metrics:
     labelEs: "Trampas"
     value: "Multiple independent"
     valueEs: "Múltiples independientes"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "59 automated"
-    valueEs: "59 automatizados"
   - label: "Origin"
     labelEs: "Origen"
     value: "CEFOP, U. de Concepción"
@@ -82,7 +78,6 @@ The **weighting** adjusts trap intensities to ensure uniform trapping force acro
 - **Real-time** phase mask computation for interactive trap positioning
 - **Multiple independent traps** from a single beam
 - **WebSocket communication** for low-latency interaction
-- **59 automated tests** covering GS convergence, phase mask validity, and API
 - **HTML5 Canvas** visualization of phase patterns and simulated focal plane
 
 Originally developed at **CEFOP** (Center for Optics and Photonics), Universidad de Concepción.

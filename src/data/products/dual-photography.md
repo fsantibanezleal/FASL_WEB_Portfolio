@@ -47,10 +47,6 @@ metrics:
     labelEs: "Escenas"
     value: "6 types"
     valueEs: "6 tipos"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "70 automated"
-    valueEs: "70 automatizados"
   - label: "Capture"
     labelEs: "Captura"
     value: "Simulation + webcam"
@@ -77,4 +73,3 @@ With structured illumination patterns (Bernoulli or Hadamard matrices), we can r
 - **10 illumination patterns** (point, line, grid, random, Hadamard, etc.)
 - **SVD decomposition** with interactive singular value exploration
 - **Optional webcam capture mode** for real-world dual photography
-- **70 automated tests** covering all simulation and analysis pipelines

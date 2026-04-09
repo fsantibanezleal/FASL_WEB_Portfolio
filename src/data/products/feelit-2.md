@@ -44,14 +44,6 @@ kpis:
     resultEs: "Backend nulo — funciona sin dispositivo háptico"
     impact: "Immediate usability"
     impactEs: "Usabilidad inmediata"
-  - label: "Test Coverage"
-    labelEs: "Cobertura de Tests"
-    baseline: "Not applicable"
-    baselineEs: "No aplica"
-    result: "49 automated tests + browser smoke"
-    resultEs: "49 tests automatizados + smoke de navegador"
-    impact: "Verifiable reliability"
-    impactEs: "Confiabilidad verificable"
 
 metrics:
   - label: "Workspaces"
@@ -62,10 +54,6 @@ metrics:
     labelEs: "Perfiles de Material"
     value: "8 tactile profiles"
     valueEs: "8 perfiles táctiles"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "49 automated"
-    valueEs: "49 automatizados"
   - label: "Distribution"
     labelEs: "Distribución"
     value: "Web + Windows installer"
@@ -84,7 +72,6 @@ The original FeelIT (2008–2012) was a pioneering attempt to create tactile acc
 | Scope | Braille only | 4 workspaces |
 | Haptic device | Novint Falcon-specific | Pluggable backend |
 | Documents | Text files only | TXT, HTML, EPUB |
-| Testing | None documented | 49 automated + browser smoke |
 
 ## Four Workspaces
 

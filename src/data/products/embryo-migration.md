@@ -50,10 +50,6 @@ metrics:
     labelEs: "Renderizado"
     value: "Three.js r128"
     valueEs: "Three.js r128"
-  - label: "Tests"
-    labelEs: "Tests"
-    value: "23+ automated"
-    valueEs: "23+ automatizados"
 
 stack: [Python, FastAPI, WebSocket, Three.js, NumPy, AER Coordinates, Orbit Controls]
 ---
@@ -86,4 +82,3 @@ Pairwise collision detection in angular space with **symmetric push-apart resolu
 - **Three.js (r128)** visualization with orbit controls for 3D embryo exploration
 - **Layer-based DFC management** with configurable cell properties
 - **Play/Pause/Step controls** for detailed simulation inspection
-- **23+ automated tests** covering coordinate transforms, collision physics, and API

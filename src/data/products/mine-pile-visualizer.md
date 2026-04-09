@@ -63,7 +63,7 @@ metrics:
     value: "4 dedicated views"
     valueEs: "4 vistas dedicadas"
 
-stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4, Vitest, Playwright]
+stack: [Next.js 16, React 19, TypeScript 5, React Three Fiber, Three.js, "@xyflow/react", dagre, Apache Arrow, Zod 4]
 ---
 
 ## Four Operator Workspaces
@@ -97,4 +97,3 @@ This local-first architecture means the visualizer operates without external ser
 - **React Three Fiber** + Three.js for hardware-accelerated 3D voxel rendering
 - **@xyflow/react** with dagre for automatic 2D circuit layout
 - **Zod 4** for runtime data validation
-- **Vitest** + **Playwright** for unit and end-to-end testing
