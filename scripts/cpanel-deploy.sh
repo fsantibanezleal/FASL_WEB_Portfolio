@@ -106,6 +106,7 @@ install_htaccess_rules() {
   # No .htaccess exists yet — create with our rules only
   if [ ! -f "$ROOT_HTACCESS" ]; then
     cp "$HTACCESS_CONF" "$ROOT_HTACCESS"
+    chmod 644 "$ROOT_HTACCESS"
     log "Created $ROOT_HTACCESS"
     return
   fi
@@ -123,6 +124,7 @@ install_htaccess_rules() {
   printf '\n' >> "$tmp"
   cat "$ROOT_HTACCESS" >> "$tmp"
   mv "$tmp" "$ROOT_HTACCESS"
+  chmod 644 "$ROOT_HTACCESS"
   log "Prepended fasl-work.com rules at top of $ROOT_HTACCESS"
 }
 
