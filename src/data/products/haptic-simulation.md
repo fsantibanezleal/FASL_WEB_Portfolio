@@ -11,6 +11,7 @@ tags: [haptics, collision-detection, octree, three-js, fastapi, simulation, pyth
 proprietary: false
 featured: false
 assetPatterns: [haptic]
+github: "https://github.com/fsantibanezleal/UDEC_Haptic_SIM"
 
 challenge: "Real-time haptic rendering requires collision detection at >1 kHz update rates. Brute-force triangle-triangle testing is O(N²), far too slow for complex meshes. The force feedback must feel natural and physically plausible."
 challengeEs: "El renderizado háptico en tiempo real requiere detección de colisiones a tasas de actualización >1 kHz. La prueba bruta triángulo-triángulo es O(N²), demasiado lenta para mallas complejas. La retroalimentación de fuerza debe sentirse natural y físicamente plausible."

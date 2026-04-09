@@ -11,6 +11,7 @@ tags: [depth-profiling, 3d-reconstruction, surface-analysis, granulometry, fasta
 proprietary: false
 featured: false
 assetPatterns: [depth_profiler]
+github: "https://github.com/fsantibanezleal/FASL_3D_Distance_Profiler"
 
 challenge: "Characterizing mineral sample surface topography requires expensive laboratory equipment. Depth cameras provide affordable alternatives but raw depth data needs sophisticated processing for meaningful surface analysis — noise removal, 3D reconstruction, and standardized roughness metrics."
 challengeEs: "Caracterizar la topografía superficial de muestras minerales requiere equipamiento de laboratorio costoso. Las cámaras de profundidad proveen alternativas accesibles pero los datos brutos de profundidad necesitan procesamiento sofisticado para análisis de superficies significativo — eliminación de ruido, reconstrucción 3D y métricas de rugosidad estandarizadas."

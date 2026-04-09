@@ -11,6 +11,8 @@ tags: [robotics, kinematics, denavit-hartenberg, simulation, dash, python, matla
 proprietary: false
 featured: false
 assetPatterns: [robotic, robot_dh, robot_workspace]
+github: "https://github.com/fsantibanezleal/Udec_Robotic_Writer"
+video: "https://www.youtube.com/watch?v=ubUdNsb0W-o"
 
 challenge: "Controlling a 5-DOF robotic arm requires solving both forward and inverse kinematics in real-time. The inverse problem — finding joint angles for a desired end-effector position — has multiple solutions and must be computed efficiently for smooth motion."
 challengeEs: "Controlar un brazo robótico de 5 GDL requiere resolver cinemática directa e inversa en tiempo real. El problema inverso — encontrar ángulos articulares para una posición deseada del efector final — tiene múltiples soluciones y debe calcularse eficientemente para movimiento suave."

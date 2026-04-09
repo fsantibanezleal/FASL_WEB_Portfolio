@@ -11,6 +11,8 @@ tags: [information-theory, entropy, sampling, geostatistics, python, fastapi]
 proprietary: false
 featured: false
 assetPatterns: [ids_owp, owp, sampling_comparison]
+github: "https://github.com/fsantibanezleal/IDS_OWP"
+video: "https://www.youtube.com/watch?v=KnTyQgQcpCQ"
 
 challenge: "Given K measurements on an H×W binary field, minimize posterior uncertainty. The combinatorial search over C(H×W, K) candidates is NP-hard, requiring efficient approximation with provable quality bounds."
 challengeEs: "Dadas K mediciones en un campo binario H×W, minimizar incertidumbre posterior. La búsqueda combinatoria sobre C(H×W, K) candidatos es NP-hard, requiriendo aproximación eficiente con cotas de calidad demostrables."

@@ -11,6 +11,8 @@ tags: [phd-thesis, information-theory, entropy, geostatistics, optimal-sampling,
 proprietary: false
 featured: false
 assetPatterns: [ids_owp, owp]
+github: "https://github.com/fsantibanezleal/IDS_OWP"
+publication: "http://repositorio.uchile.cl/handle/2250/175050"
 
 challenge: "Given N measurements budget, where to place them to minimize posterior uncertainty? The combinatorial search over C(H×W, K) candidates is NP-hard. Traditional sampling strategies (regular grids, random) ignore spatial information content."
 challengeEs: "Dado un presupuesto de N mediciones, ¿dónde ubicarlas para minimizar la incertidumbre posterior? La búsqueda combinatoria sobre C(H×W, K) candidatos es NP-hard. Las estrategias de muestreo tradicionales (grillas regulares, aleatorias) ignoran el contenido informacional espacial."
