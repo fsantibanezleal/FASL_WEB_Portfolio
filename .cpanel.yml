@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - DEPLOYPATH=/home/faslwork/public_html /bin/bash scripts/cpanel-deploy.sh
+    - export DEPLOYPATH=/home/faslwork/public_html
+    - /bin/bash ./scripts/cpanel-deploy.sh
