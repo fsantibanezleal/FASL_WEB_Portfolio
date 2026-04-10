@@ -12,6 +12,7 @@ proprietary: false
 featured: true
 assetPatterns: [feelit2]
 github: "https://github.com/fsantibanezleal/UDEC_FEELIT"
+demo: "https://feelit.fasl-work.com"
 
 challenge: "Tactile accessibility remains underserved. Screen readers and audio descriptions dominate assistive technology, but audio alone cannot convey spatial relationships, 3D shapes, or physical texture of objects. The original FeelIT (2008-2012) was frozen when hardware miniaturization made the pin-array display impractical."
 challengeEs: "La accesibilidad táctil sigue desatendida. Los lectores de pantalla y descripciones de audio dominan la tecnología asistiva, pero el audio solo no puede transmitir relaciones espaciales, formas 3D o textura física de objetos. El FeelIT original (2008-2012) fue congelado cuando la miniaturización del hardware hizo impracticable la pantalla de pin-array."

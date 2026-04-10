@@ -12,6 +12,7 @@ proprietary: false
 featured: true
 assetPatterns: [minepile, material_tracking]
 github: "https://github.com/fsantibanezleal/MINE_PILE_VIZ_TS"
+demo: "https://minepile.fasl-work.com"
 
 challenge: "Mineral tracking systems generate vast amounts of operational data — belt block compositions, stockpile voxel states, quality distributions. The raw data exists, but operators and process engineers need structured, route-specific views to answer operational questions about current stockpile state, feed quality evolution, and circuit understanding."
 challengeEs: "Los sistemas de seguimiento de mineral generan enormes cantidades de datos operacionales — composiciones de bloques en correas, estados voxel de acopios, distribuciones de calidad. Los datos existen, pero operadores e ingenieros de proceso necesitan vistas estructuradas y específicas por ruta para responder preguntas operacionales."
