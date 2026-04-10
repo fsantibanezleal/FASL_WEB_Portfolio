@@ -12,6 +12,7 @@ proprietary: false
 featured: false
 assetPatterns: [dinhot, gs_phase]
 github: "https://github.com/fsantibanezleal/CEFOP_DinHot"
+demo: "https://dinhot.fasl-work.com"
 
 challenge: "Optical tweezers require precise phase masks computed in real-time to create multiple independently positioned laser traps. The Gerchberg-Saxton algorithm involves iterative Fourier transforms that must converge quickly for interactive manipulation of microscopic particles."
 challengeEs: "Las pinzas ópticas requieren máscaras de fase precisas calculadas en tiempo real para crear múltiples trampas láser posicionadas independientemente. El algoritmo de Gerchberg-Saxton involucra transformadas de Fourier iterativas que deben converger rápidamente para manipulación interactiva de partículas microscópicas."

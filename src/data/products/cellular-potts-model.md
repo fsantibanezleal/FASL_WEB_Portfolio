@@ -12,6 +12,7 @@ proprietary: false
 featured: false
 assetPatterns: [cpm]
 github: "https://github.com/fsantibanezleal/SCIAN_LEO_CPM"
+demo: "https://cpm.fasl-work.com"
 
 challenge: "Understanding how cells collectively migrate during embryonic development requires models that capture deformable cell shapes, contact interactions, and directed motility — not just point-particle dynamics."
 challengeEs: "Entender cómo las células migran colectivamente durante el desarrollo embrionario requiere modelos que capturen formas celulares deformables, interacciones de contacto y motilidad dirigida — no solo dinámica de partículas puntuales."

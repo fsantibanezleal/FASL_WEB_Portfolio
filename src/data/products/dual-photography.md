@@ -13,6 +13,7 @@ featured: false
 assetPatterns: [dual_photography, dual_helmholtz, dual_frontend]
 github: "https://github.com/fsantibanezleal/FASL_Coding_DualFotography"
 video: "https://www.youtube.com/watch?v=Ju5GQuowxaE"
+demo: "https://dual.fasl-work.com"
 
 challenge: "Dual photography involves recovering the view from a projector's perspective using only camera observations. The transport matrix T encodes how every projector pixel contributes to every camera pixel through scene geometry and materials — but working with it requires efficient decomposition and reconstruction methods."
 challengeEs: "La fotografía dual implica recuperar la vista desde la perspectiva de un proyector usando solo observaciones de cámara. La matriz de transporte T codifica cómo cada píxel del proyector contribuye a cada píxel de cámara a través de geometría y materiales de la escena — pero trabajar con ella requiere métodos eficientes de descomposición y reconstrucción."
