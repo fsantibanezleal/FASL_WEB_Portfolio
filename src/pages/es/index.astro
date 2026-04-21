@@ -72,9 +72,7 @@ const metadata = {
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {featured.map((product) => (
-          <ProductCard {...product.data} locale={locale} />
-        ))}
+        {featured.map((product) => <ProductCard {...product.data} locale={locale} />)}
       </div>
 
       <div class="mt-10 text-center">
@@ -95,32 +93,38 @@ const metadata = {
     items={[
       {
         title: 'Machine Learning e IA',
-        description: 'Plataformas ML end-to-end para optimización industrial, modelado predictivo y visión por computador. Desde ingeniería de características hasta despliegue en producción.',
+        description:
+          'Plataformas ML end-to-end para optimización industrial, modelado predictivo y visión por computador. Desde ingeniería de características hasta despliegue en producción.',
         icon: 'tabler:brain',
       },
       {
         title: 'Visualización 3D y Nubes de Puntos',
-        description: 'Aplicaciones web 3D interactivas, análisis de nubes de puntos y procesamiento de datos espaciales para minería, manufactura e investigación.',
+        description:
+          'Aplicaciones web 3D interactivas, análisis de nubes de puntos y procesamiento de datos espaciales para minería, manufactura e investigación.',
         icon: 'tabler:cube-3d-sphere',
       },
       {
         title: 'Desarrollo Full-Stack',
-        description: 'Plataformas web de producción con FastAPI, Next.js, React y PostgreSQL. Aplicaciones de escritorio con PyInstaller y Streamlit.',
+        description:
+          'Plataformas web de producción con FastAPI, Next.js, React y PostgreSQL. Aplicaciones de escritorio con PyInstaller y Streamlit.',
         icon: 'tabler:code',
       },
       {
         title: 'Ingeniería de Datos y MLOps',
-        description: 'Pipelines Kedro, Databricks, Delta Lake, orquestación Docker Swarm y automatización CI/CD para productos de datos escalables.',
+        description:
+          'Pipelines Kedro, Databricks, Delta Lake, orquestación Docker Swarm y automatización CI/CD para productos de datos escalables.',
         icon: 'tabler:database',
       },
       {
         title: 'Procesamiento Espectral y de Señales',
-        description: 'Análisis de imágenes hiperespectrales, desmezclado espectral, calibración de sensores y procesamiento de señales para caracterización mineral.',
+        description:
+          'Análisis de imágenes hiperespectrales, desmezclado espectral, calibración de sensores y procesamiento de señales para caracterización mineral.',
         icon: 'tabler:wave-sine',
       },
       {
         title: 'Consultoría y Prototipado',
-        description: 'Del concepto a la producción. Prototipado rápido de soluciones de ingeniería con documentación clara y transferencia tecnológica.',
+        description:
+          'Del concepto a la producción. Prototipado rápido de soluciones de ingeniería con documentación clara y transferencia tecnológica.',
         icon: 'tabler:bulb',
       },
     ]}
@@ -134,15 +138,18 @@ const metadata = {
     items={[
       {
         title: 'Fundada por un PhD en Ingeniería Eléctrica',
-        description: 'Más de 15 años de experiencia en investigación aplicada, optimización industrial y desarrollo de software en minería, microscopía y accesibilidad.',
+        description:
+          'Más de 15 años de experiencia en investigación aplicada, optimización industrial y desarrollo de software en minería, microscopía y accesibilidad.',
       },
       {
         title: 'De la Investigación a la Producción',
-        description: 'Conectamos la brecha entre investigación académica y despliegue industrial, entregando soluciones que funcionan en el mundo real.',
+        description:
+          'Conectamos la brecha entre investigación académica y despliegue industrial, entregando soluciones que funcionan en el mundo real.',
       },
       {
         title: 'Open Source e Industria',
-        description: 'Un portafolio que abarca herramientas de investigación de código abierto, plataformas industriales propietarias y proyectos de accesibilidad.',
+        description:
+          'Un portafolio que abarca herramientas de investigación de código abierto, plataformas industriales propietarias y proyectos de accesibilidad.',
       },
     ]}
     image={{
@@ -151,7 +158,9 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Investigación · Hardware · Soluciones Digitales</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Investigación · Hardware · Soluciones Digitales
+      </h3>
       {t('about.description', locale)}
     </Fragment>
 

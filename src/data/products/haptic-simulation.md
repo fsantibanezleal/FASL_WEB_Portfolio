@@ -1,65 +1,65 @@
 ---
-title: "3D Haptic Simulation with Octree Collision Detection"
-titleEs: "Simulación Háptica 3D con Detección de Colisiones Octree"
+title: '3D Haptic Simulation with Octree Collision Detection'
+titleEs: 'Simulación Háptica 3D con Detección de Colisiones Octree'
 slug: haptic-simulation
 date: 2009-06-01
 category: accessibility
-excerpt: "A 3D simulation system recreating haptic interaction with virtual objects. Uses octree spatial partitioning (O(N log N)) and Separating Axis Theorem for collision detection with spring-damper Kelvin-Voigt force model."
-excerptEs: "Sistema de simulación 3D que recrea interacción háptica con objetos virtuales. Usa particionamiento espacial octree (O(N log N)) y Teorema del Eje Separador para detección de colisiones con modelo de fuerza Kelvin-Voigt resorte-amortiguador."
+excerpt: 'A 3D simulation system recreating haptic interaction with virtual objects. Uses octree spatial partitioning (O(N log N)) and Separating Axis Theorem for collision detection with spring-damper Kelvin-Voigt force model.'
+excerptEs: 'Sistema de simulación 3D que recrea interacción háptica con objetos virtuales. Usa particionamiento espacial octree (O(N log N)) y Teorema del Eje Separador para detección de colisiones con modelo de fuerza Kelvin-Voigt resorte-amortiguador.'
 icon: tabler:hand-click
 tags: [haptics, collision-detection, octree, three-js, fastapi, simulation, python]
 proprietary: false
 featured: false
 assetPatterns: [haptic]
-github: "https://github.com/fsantibanezleal/UDEC_Haptic_SIM"
-demo: "https://haptic.fasl-work.com"
+github: 'https://github.com/fsantibanezleal/UDEC_Haptic_SIM'
+demo: 'https://haptic.fasl-work.com'
 
-challenge: "Real-time haptic rendering requires collision detection at >1 kHz update rates. Brute-force triangle-triangle testing is O(N²), far too slow for complex meshes. The force feedback must feel natural and physically plausible."
-challengeEs: "El renderizado háptico en tiempo real requiere detección de colisiones a tasas de actualización >1 kHz. La prueba bruta triángulo-triángulo es O(N²), demasiado lenta para mallas complejas. La retroalimentación de fuerza debe sentirse natural y físicamente plausible."
+challenge: 'Real-time haptic rendering requires collision detection at >1 kHz update rates. Brute-force triangle-triangle testing is O(N²), far too slow for complex meshes. The force feedback must feel natural and physically plausible.'
+challengeEs: 'El renderizado háptico en tiempo real requiere detección de colisiones a tasas de actualización >1 kHz. La prueba bruta triángulo-triángulo es O(N²), demasiado lenta para mallas complejas. La retroalimentación de fuerza debe sentirse natural y físicamente plausible.'
 
-approach: "Two-phase collision: octree spatial partitioning for broad-phase O(N log N), SAT (Separating Axis Theorem) for narrow-phase triangle-triangle intersection across 11 axes. Contact forces follow Kelvin-Voigt spring-damper: F = -k·(p_probe - p_contact) - b·v_probe. Modern web version with Three.js WebGL rendering."
-approachEs: "Colisión en dos fases: particionamiento espacial octree para fase amplia O(N log N), SAT (Teorema del Eje Separador) para fase estrecha intersección triángulo-triángulo en 11 ejes. Fuerzas de contacto siguen Kelvin-Voigt resorte-amortiguador: F = -k·(p_sonda - p_contacto) - b·v_sonda. Versión web moderna con renderizado Three.js WebGL."
+approach: 'Two-phase collision: octree spatial partitioning for broad-phase O(N log N), SAT (Separating Axis Theorem) for narrow-phase triangle-triangle intersection across 11 axes. Contact forces follow Kelvin-Voigt spring-damper: F = -k·(p_probe - p_contact) - b·v_probe. Modern web version with Three.js WebGL rendering.'
+approachEs: 'Colisión en dos fases: particionamiento espacial octree para fase amplia O(N log N), SAT (Teorema del Eje Separador) para fase estrecha intersección triángulo-triángulo en 11 ejes. Fuerzas de contacto siguen Kelvin-Voigt resorte-amortiguador: F = -k·(p_sonda - p_contacto) - b·v_sonda. Versión web moderna con renderizado Three.js WebGL.'
 
-businessContext: "Haptic rendering requires collision detection at update rates exceeding 1 kHz — the human sense of touch perceives delays of just 1 millisecond. For 3D meshes with thousands of triangles, brute-force O(N²) collision testing is orders of magnitude too slow. And the force feedback must feel natural: not a binary on/off contact signal, but continuous resistance that increases with penetration depth and provides stability through energy dissipation."
-businessContextEs: "El renderizado háptico requiere detección de colisiones a tasas de actualización superiores a 1 kHz — el sentido del tacto humano percibe retardos de solo 1 milisegundo. Para mallas 3D con miles de triángulos, la prueba de colisión de fuerza bruta O(N²) es órdenes de magnitud demasiado lenta. Y la retroalimentación de fuerza debe sentirse natural: no una señal de contacto binaria on/off, sino resistencia continua que aumenta con la profundidad de penetración y provee estabilidad mediante disipación de energía."
-strategicValue: "Two-phase collision detection achieves real-time haptic rates: octree spatial partitioning for O(N log N) broad phase, Separating Axis Theorem across 11 axes for mathematically exact narrow phase. Contact forces follow the Kelvin-Voigt spring-damper model F = -k·(p_probe - p_contact) - b·v_probe, producing physically plausible touch sensation. Originally built in 2008 at Universidad de Concepción with a physical PHANToM Omni providing 3-DOF force feedback; modernized as Python/FastAPI + Three.js WebGL with keyboard-driven probe interaction that works without physical hardware."
-strategicValueEs: "Detección de colisiones en dos fases logra tasas hápticas en tiempo real: particionamiento espacial octree para fase amplia O(N log N), Teorema del Eje Separador en 11 ejes para fase estrecha matemáticamente exacta. Las fuerzas de contacto siguen el modelo resorte-amortiguador de Kelvin-Voigt F = -k·(p_sonda - p_contacto) - b·v_sonda, produciendo sensación de tacto físicamente plausible. Originalmente construido en 2008 en Universidad de Concepción con un PHANToM Omni físico proveyendo retroalimentación de fuerza 3-DOF; modernizado como Python/FastAPI + Three.js WebGL con interacción de sonda por teclado que funciona sin hardware físico."
+businessContext: 'Haptic rendering requires collision detection at update rates exceeding 1 kHz — the human sense of touch perceives delays of just 1 millisecond. For 3D meshes with thousands of triangles, brute-force O(N²) collision testing is orders of magnitude too slow. And the force feedback must feel natural: not a binary on/off contact signal, but continuous resistance that increases with penetration depth and provides stability through energy dissipation.'
+businessContextEs: 'El renderizado háptico requiere detección de colisiones a tasas de actualización superiores a 1 kHz — el sentido del tacto humano percibe retardos de solo 1 milisegundo. Para mallas 3D con miles de triángulos, la prueba de colisión de fuerza bruta O(N²) es órdenes de magnitud demasiado lenta. Y la retroalimentación de fuerza debe sentirse natural: no una señal de contacto binaria on/off, sino resistencia continua que aumenta con la profundidad de penetración y provee estabilidad mediante disipación de energía.'
+strategicValue: 'Two-phase collision detection achieves real-time haptic rates: octree spatial partitioning for O(N log N) broad phase, Separating Axis Theorem across 11 axes for mathematically exact narrow phase. Contact forces follow the Kelvin-Voigt spring-damper model F = -k·(p_probe - p_contact) - b·v_probe, producing physically plausible touch sensation. Originally built in 2008 at Universidad de Concepción with a physical PHANToM Omni providing 3-DOF force feedback; modernized as Python/FastAPI + Three.js WebGL with keyboard-driven probe interaction that works without physical hardware.'
+strategicValueEs: 'Detección de colisiones en dos fases logra tasas hápticas en tiempo real: particionamiento espacial octree para fase amplia O(N log N), Teorema del Eje Separador en 11 ejes para fase estrecha matemáticamente exacta. Las fuerzas de contacto siguen el modelo resorte-amortiguador de Kelvin-Voigt F = -k·(p_sonda - p_contacto) - b·v_sonda, produciendo sensación de tacto físicamente plausible. Originalmente construido en 2008 en Universidad de Concepción con un PHANToM Omni físico proveyendo retroalimentación de fuerza 3-DOF; modernizado como Python/FastAPI + Three.js WebGL con interacción de sonda por teclado que funciona sin hardware físico.'
 
 kpis:
-  - label: "Collision Efficiency"
-    labelEs: "Eficiencia de Colisión"
-    baseline: "O(N²) brute force"
-    baselineEs: "O(N²) fuerza bruta"
-    result: "O(N log N) octree + SAT"
-    resultEs: "O(N log N) octree + SAT"
-    impact: "Real-time haptic rates"
-    impactEs: "Tasas hápticas en tiempo real"
-  - label: "Force Model"
-    labelEs: "Modelo de Fuerza"
-    baseline: "Simple contact detection"
-    baselineEs: "Detección de contacto simple"
-    result: "Kelvin-Voigt spring-damper"
-    resultEs: "Resorte-amortiguador Kelvin-Voigt"
-    impact: "Physically plausible feedback"
-    impactEs: "Retroalimentación físicamente plausible"
+  - label: 'Collision Efficiency'
+    labelEs: 'Eficiencia de Colisión'
+    baseline: 'O(N²) brute force'
+    baselineEs: 'O(N²) fuerza bruta'
+    result: 'O(N log N) octree + SAT'
+    resultEs: 'O(N log N) octree + SAT'
+    impact: 'Real-time haptic rates'
+    impactEs: 'Tasas hápticas en tiempo real'
+  - label: 'Force Model'
+    labelEs: 'Modelo de Fuerza'
+    baseline: 'Simple contact detection'
+    baselineEs: 'Detección de contacto simple'
+    result: 'Kelvin-Voigt spring-damper'
+    resultEs: 'Resorte-amortiguador Kelvin-Voigt'
+    impact: 'Physically plausible feedback'
+    impactEs: 'Retroalimentación físicamente plausible'
 
 metrics:
-  - label: "Broad Phase"
-    labelEs: "Fase Amplia"
-    value: "Octree O(N log N)"
-    valueEs: "Octree O(N log N)"
-  - label: "Narrow Phase"
-    labelEs: "Fase Estrecha"
-    value: "SAT (11 axes)"
-    valueEs: "SAT (11 ejes)"
-  - label: "Force Model"
-    labelEs: "Modelo de Fuerza"
-    value: "Kelvin-Voigt spring-damper"
-    valueEs: "Kelvin-Voigt resorte-amortiguador"
-  - label: "Rendering"
-    labelEs: "Renderizado"
-    value: "Three.js WebGL"
-    valueEs: "Three.js WebGL"
+  - label: 'Broad Phase'
+    labelEs: 'Fase Amplia'
+    value: 'Octree O(N log N)'
+    valueEs: 'Octree O(N log N)'
+  - label: 'Narrow Phase'
+    labelEs: 'Fase Estrecha'
+    value: 'SAT (11 axes)'
+    valueEs: 'SAT (11 ejes)'
+  - label: 'Force Model'
+    labelEs: 'Modelo de Fuerza'
+    value: 'Kelvin-Voigt spring-damper'
+    valueEs: 'Kelvin-Voigt resorte-amortiguador'
+  - label: 'Rendering'
+    labelEs: 'Renderizado'
+    value: 'Three.js WebGL'
+    valueEs: 'Three.js WebGL'
 
 stack: [Python, FastAPI, Three.js, Octree, SAT, Kelvin-Voigt, OBJ Loader, WebGL]
 ---
