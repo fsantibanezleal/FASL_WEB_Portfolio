@@ -1,5 +1,6 @@
 # build output
-dist/
+# dist/ is intentionally committed — VPS has no Node, so it pulls the
+# pre-built artifact directly. See scripts/local.sh preview.
 .output/
 
 # dependencies
