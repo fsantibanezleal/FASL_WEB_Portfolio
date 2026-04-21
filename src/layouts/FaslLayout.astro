@@ -21,8 +21,7 @@ const currentPath = new URL(Astro.url).pathname;
 
 <Layout metadata={metadata}>
   <Fragment slot="header">
-    <Header {...hData} isSticky showToggleTheme>
-    </Header>
+    <Header {...hData} isSticky showToggleTheme />
   </Fragment>
   <div class="fixed top-3 right-20 z-50 md:right-48">
     <LanguageSwitcher locale={locale} currentPath={currentPath} />

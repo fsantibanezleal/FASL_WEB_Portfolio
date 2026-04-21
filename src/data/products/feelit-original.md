@@ -1,63 +1,63 @@
 ---
-title: "FeelIT — Haptic Accessibility Prototype (2008-2012)"
-titleEs: "FeelIT — Prototipo de Accesibilidad Háptica (2008-2012)"
+title: 'FeelIT — Haptic Accessibility Prototype (2008-2012)'
+titleEs: 'FeelIT — Prototipo de Accesibilidad Háptica (2008-2012)'
 slug: feelit-original
 date: 2012-07-07
 category: accessibility
-excerpt: "The original FeelIT project — a digital environment with tactile feedback for blind users to explore virtual objects through relief information. Pioneered a 10×10 electromagnetically controlled pin-array display and servo-motor haptic devices."
-excerptEs: "El proyecto FeelIT original — un entorno digital con retroalimentación táctil para usuarios ciegos que exploran objetos virtuales mediante información en relieve. Pionero con una pantalla de 10×10 pines electromagnéticos y dispositivos hápticos servo-motor."
+excerpt: 'The original FeelIT project — a digital environment with tactile feedback for blind users to explore virtual objects through relief information. Pioneered a 10×10 electromagnetically controlled pin-array display and servo-motor haptic devices.'
+excerptEs: 'El proyecto FeelIT original — un entorno digital con retroalimentación táctil para usuarios ciegos que exploran objetos virtuales mediante información en relieve. Pionero con una pantalla de 10×10 pines electromagnéticos y dispositivos hápticos servo-motor.'
 icon: tabler:hand-finger
 tags: [haptics, accessibility, virtual-reality, hardware, assistive-technology]
 proprietary: false
 featured: false
 assetPatterns: [feelit_concept]
 
-challenge: "Creating a tactile display capable of rendering 3D surfaces for blind users. Commercial haptic devices were expensive and limited. The concept of electronically controllable pin positions to store and recall surface shapes dynamically had not been implemented at accessible cost."
-challengeEs: "Crear una pantalla táctil capaz de renderizar superficies 3D para usuarios ciegos. Los dispositivos hápticos comerciales eran caros y limitados. El concepto de posiciones de pines electrónicamente controlables para almacenar y recuperar formas de superficie dinámicamente no había sido implementado a costo accesible."
+challenge: 'Creating a tactile display capable of rendering 3D surfaces for blind users. Commercial haptic devices were expensive and limited. The concept of electronically controllable pin positions to store and recall surface shapes dynamically had not been implemented at accessible cost.'
+challengeEs: 'Crear una pantalla táctil capaz de renderizar superficies 3D para usuarios ciegos. Los dispositivos hápticos comerciales eran caros y limitados. El concepto de posiciones de pines electrónicamente controlables para almacenar y recuperar formas de superficie dinámicamente no había sido implementado a costo accesible.'
 
-approach: "Evolved from 4×4 (16-pin) binary electromagnetic grid to 10×10 array with multiple height levels. Combined with servo-motor-based haptic device and virtual environment for blind users to explore 3D objects through touch. User testing demonstrated successful shape exploration through haptic interaction. Project frozen due to hardware miniaturization limitations."
-approachEs: "Evolucionó de grilla electromagnética binaria 4×4 (16 pines) a arreglo 10×10 con múltiples niveles de altura. Combinado con dispositivo háptico basado en servo-motor y entorno virtual para usuarios ciegos que exploran objetos 3D mediante tacto. Pruebas con usuarios demostraron exploración exitosa de formas mediante interacción háptica. Proyecto congelado por limitaciones de miniaturización de hardware."
+approach: 'Evolved from 4×4 (16-pin) binary electromagnetic grid to 10×10 array with multiple height levels. Combined with servo-motor-based haptic device and virtual environment for blind users to explore 3D objects through touch. User testing demonstrated successful shape exploration through haptic interaction. Project frozen due to hardware miniaturization limitations.'
+approachEs: 'Evolucionó de grilla electromagnética binaria 4×4 (16 pines) a arreglo 10×10 con múltiples niveles de altura. Combinado con dispositivo háptico basado en servo-motor y entorno virtual para usuarios ciegos que exploran objetos 3D mediante tacto. Pruebas con usuarios demostraron exploración exitosa de formas mediante interacción háptica. Proyecto congelado por limitaciones de miniaturización de hardware.'
 
-businessContext: "In 2008, no accessible device existed that could dynamically render 3D surface information through touch. Existing assistive technology was limited to Braille embossers for text and screen readers for audio. The concept of an electronically controllable pin array — like a screen, but for touch — was technically unexplored at accessible cost points."
-businessContextEs: "En 2008, no existía ningún dispositivo accesible que pudiera renderizar dinámicamente información de superficie 3D a través del tacto. La tecnología asistiva existente estaba limitada a impresoras Braille para texto y lectores de pantalla para audio. El concepto de un arreglo de pines electrónicamente controlable — como una pantalla, pero para tacto — estaba técnicamente inexplorado a puntos de costo accesibles."
-strategicValue: "The project evolved from a 4x4 binary electromagnetic grid (2008) to a 10x10 array with multiple height levels (2009-2010), combined with Novint Falcon haptic device integration for 3-DOF force feedback. User testing with blind participants demonstrated successful shape exploration — validating that tactile 3D rendering is a viable accessibility modality. The project was frozen in 2012 due to hardware miniaturization limits, prohibitive per-pin cost, and mechanical calibration complexity. The validated concept was reborn 14 years later as FeelIT 2.0, proving the accessibility goal through software instead of custom hardware."
-strategicValueEs: "El proyecto evolucionó desde una grilla electromagnética binaria 4x4 (2008) a un arreglo 10x10 con múltiples niveles de altura (2009-2010), combinado con integración de dispositivo háptico Novint Falcon para retroalimentación de fuerza 3-DOF. Pruebas con usuarios ciegos demostraron exploración exitosa de formas — validando que el renderizado 3D táctil es una modalidad de accesibilidad viable. El proyecto fue congelado en 2012 debido a límites de miniaturización de hardware, costo prohibitivo por pin, y complejidad de calibración mecánica. El concepto validado renació 14 años después como FeelIT 2.0, demostrando el objetivo de accesibilidad a través de software en lugar de hardware personalizado."
+businessContext: 'In 2008, no accessible device existed that could dynamically render 3D surface information through touch. Existing assistive technology was limited to Braille embossers for text and screen readers for audio. The concept of an electronically controllable pin array — like a screen, but for touch — was technically unexplored at accessible cost points.'
+businessContextEs: 'En 2008, no existía ningún dispositivo accesible que pudiera renderizar dinámicamente información de superficie 3D a través del tacto. La tecnología asistiva existente estaba limitada a impresoras Braille para texto y lectores de pantalla para audio. El concepto de un arreglo de pines electrónicamente controlable — como una pantalla, pero para tacto — estaba técnicamente inexplorado a puntos de costo accesibles.'
+strategicValue: 'The project evolved from a 4x4 binary electromagnetic grid (2008) to a 10x10 array with multiple height levels (2009-2010), combined with Novint Falcon haptic device integration for 3-DOF force feedback. User testing with blind participants demonstrated successful shape exploration — validating that tactile 3D rendering is a viable accessibility modality. The project was frozen in 2012 due to hardware miniaturization limits, prohibitive per-pin cost, and mechanical calibration complexity. The validated concept was reborn 14 years later as FeelIT 2.0, proving the accessibility goal through software instead of custom hardware.'
+strategicValueEs: 'El proyecto evolucionó desde una grilla electromagnética binaria 4x4 (2008) a un arreglo 10x10 con múltiples niveles de altura (2009-2010), combinado con integración de dispositivo háptico Novint Falcon para retroalimentación de fuerza 3-DOF. Pruebas con usuarios ciegos demostraron exploración exitosa de formas — validando que el renderizado 3D táctil es una modalidad de accesibilidad viable. El proyecto fue congelado en 2012 debido a límites de miniaturización de hardware, costo prohibitivo por pin, y complejidad de calibración mecánica. El concepto validado renació 14 años después como FeelIT 2.0, demostrando el objetivo de accesibilidad a través de software en lugar de hardware personalizado.'
 
 kpis:
-  - label: "Pin Array"
-    labelEs: "Arreglo de Pines"
-    baseline: "No accessible tactile display"
-    baselineEs: "Sin pantalla táctil accesible"
-    result: "10×10 multi-height electromagnetic array"
-    resultEs: "Arreglo electromagnético 10×10 multi-altura"
-    impact: "Physical tactile rendering"
-    impactEs: "Renderizado táctil físico"
-  - label: "User Validation"
-    labelEs: "Validación de Usuario"
-    baseline: "Concept only"
-    baselineEs: "Solo concepto"
-    result: "Successful shape exploration by blind users"
-    resultEs: "Exploración exitosa de formas por usuarios ciegos"
-    impact: "Proven accessibility approach"
-    impactEs: "Enfoque de accesibilidad comprobado"
+  - label: 'Pin Array'
+    labelEs: 'Arreglo de Pines'
+    baseline: 'No accessible tactile display'
+    baselineEs: 'Sin pantalla táctil accesible'
+    result: '10×10 multi-height electromagnetic array'
+    resultEs: 'Arreglo electromagnético 10×10 multi-altura'
+    impact: 'Physical tactile rendering'
+    impactEs: 'Renderizado táctil físico'
+  - label: 'User Validation'
+    labelEs: 'Validación de Usuario'
+    baseline: 'Concept only'
+    baselineEs: 'Solo concepto'
+    result: 'Successful shape exploration by blind users'
+    resultEs: 'Exploración exitosa de formas por usuarios ciegos'
+    impact: 'Proven accessibility approach'
+    impactEs: 'Enfoque de accesibilidad comprobado'
 
 metrics:
-  - label: "Pin Array"
-    labelEs: "Arreglo de Pines"
-    value: "10×10 electromagnetic"
-    valueEs: "10×10 electromagnético"
-  - label: "Evolution"
-    labelEs: "Evolución"
-    value: "4×4 → 10×10 grid"
-    valueEs: "Grilla 4×4 → 10×10"
-  - label: "Haptic Device"
-    labelEs: "Dispositivo Háptico"
-    value: "Servo-motor based"
-    valueEs: "Basado en servo-motor"
-  - label: "Status"
-    labelEs: "Estado"
-    value: "Frozen → Reborn as FeelIT 2.0"
-    valueEs: "Congelado → Renacido como FeelIT 2.0"
+  - label: 'Pin Array'
+    labelEs: 'Arreglo de Pines'
+    value: '10×10 electromagnetic'
+    valueEs: '10×10 electromagnético'
+  - label: 'Evolution'
+    labelEs: 'Evolución'
+    value: '4×4 → 10×10 grid'
+    valueEs: 'Grilla 4×4 → 10×10'
+  - label: 'Haptic Device'
+    labelEs: 'Dispositivo Háptico'
+    value: 'Servo-motor based'
+    valueEs: 'Basado en servo-motor'
+  - label: 'Status'
+    labelEs: 'Estado'
+    value: 'Frozen → Reborn as FeelIT 2.0'
+    valueEs: 'Congelado → Renacido como FeelIT 2.0'
 
 stack: [Windows Forms, C#, Electromagnetic Actuators, Servo Motors, 3D Haptics, Hardware Prototyping]
 ---

@@ -42,28 +42,32 @@ const categories = ['all', ...new Set(products.map((p) => p.data.category))];
 
     <!-- Category Filter -->
     <div class="mb-10 flex flex-wrap justify-center gap-2" id="category-filter">
-      {categories.map((cat) => (
-        <button
-          data-category={cat}
-          class:list={[
-            'filter-btn rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
-            cat === 'all'
-              ? 'bg-primary text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-primary/10 hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20',
-          ]}
-        >
-          {t(`category.${cat}`, locale)}
-        </button>
-      ))}
+      {
+        categories.map((cat) => (
+          <button
+            data-category={cat}
+            class:list={[
+              'filter-btn rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
+              cat === 'all'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-primary/10 hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20',
+            ]}
+          >
+            {t(`category.${cat}`, locale)}
+          </button>
+        ))
+      }
     </div>
 
     <!-- Product Grid -->
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="product-grid">
-      {products.map((product) => (
-        <div data-category={product.data.category} class="product-item">
-          <ProductCard {...product.data} locale={locale} />
-        </div>
-      ))}
+      {
+        products.map((product) => (
+          <div data-category={product.data.category} class="product-item">
+            <ProductCard {...product.data} locale={locale} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

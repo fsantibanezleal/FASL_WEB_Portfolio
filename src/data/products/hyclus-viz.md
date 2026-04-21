@@ -1,62 +1,62 @@
 ---
-title: "HyClus Viz — Hyperspectral Clustering Visualization"
-titleEs: "HyClus Viz — Visualización de Clustering Hiperespectral"
+title: 'HyClus Viz — Hyperspectral Clustering Visualization'
+titleEs: 'HyClus Viz — Visualización de Clustering Hiperespectral'
 slug: hyclus-viz
 date: 2019-08-08
 category: spectral-analysis
-excerpt: "Deep autoencoders combined with t-SNE for transforming raw hyperspectral data into interpretable visualizations. Achieved 95-97% accuracy for grain size classification from mining comminution feeders."
-excerptEs: "Autoencoders profundos combinados con t-SNE para transformar datos hiperespectrales brutos en visualizaciones interpretables. Logró 95-97% de precisión en clasificación de tamaño de grano desde alimentadores de conminución minera."
+excerpt: 'Deep autoencoders combined with t-SNE for transforming raw hyperspectral data into interpretable visualizations. Achieved 95-97% accuracy for grain size classification from mining comminution feeders.'
+excerptEs: 'Autoencoders profundos combinados con t-SNE para transformar datos hiperespectrales brutos en visualizaciones interpretables. Logró 95-97% de precisión en clasificación de tamaño de grano desde alimentadores de conminución minera.'
 icon: tabler:chart-scatter
 tags: [hyperspectral, deep-learning, dimensionality-reduction, t-sne, autoencoders, clustering]
 proprietary: true
 featured: false
 assetPatterns: [hyclusvi]
 
-challenge: "Hyperspectral imaging captures hundreds of spectral bands per pixel. Compressing this high-dimensional data into compact, interpretable representations for mineral identification requires nonlinear dimensionality reduction that preserves meaningful spectral structure."
-challengeEs: "Las imágenes hiperespectrales capturan cientos de bandas espectrales por píxel. Comprimir estos datos de alta dimensionalidad en representaciones compactas e interpretables para identificación mineral requiere reducción de dimensionalidad no lineal que preserve estructura espectral significativa."
+challenge: 'Hyperspectral imaging captures hundreds of spectral bands per pixel. Compressing this high-dimensional data into compact, interpretable representations for mineral identification requires nonlinear dimensionality reduction that preserves meaningful spectral structure.'
+challengeEs: 'Las imágenes hiperespectrales capturan cientos de bandas espectrales por píxel. Comprimir estos datos de alta dimensionalidad en representaciones compactas e interpretables para identificación mineral requiere reducción de dimensionalidad no lineal que preserve estructura espectral significativa.'
 
-approach: "Symmetric deep autoencoder (input→128→64→32→16→4 bottleneck→decoder) with tanh activation for spectral compression, followed by t-SNE for 2D embedding and K-means clustering with elbow method. Evaluated on real mining data: 72 monthly composites across 3 plants, 2 granulometry levels, 12 months."
-approachEs: "Autoencoder profundo simétrico (entrada→128→64→32→16→4 cuello de botella→decoder) con activación tanh para compresión espectral, seguido de t-SNE para embedding 2D y clustering K-means con método del codo. Evaluado en datos mineros reales: 72 compuestos mensuales de 3 plantas, 2 niveles de granulometría, 12 meses."
-businessContext: "Hyperspectral imaging captures hundreds of spectral bands per pixel — data points living in hundreds of dimensions. The challenge for mineral identification is compressing this into representations that humans can interpret without losing the mineralogically meaningful spectral structure. Linear methods like PCA miss nonlinear relationships in spectral data, and simply selecting a few bands discards potentially critical information."
-businessContextEs: "Las imágenes hiperespectrales capturan cientos de bandas espectrales por píxel — puntos de datos que viven en cientos de dimensiones. El desafío para identificación mineral es comprimir esto en representaciones que los humanos puedan interpretar sin perder la estructura espectral mineralógicamente significativa. Métodos lineales como PCA pierden relaciones no lineales en datos espectrales, y simplemente seleccionar algunas bandas descarta información potencialmente crítica."
-strategicValue: "A symmetric deep autoencoder (input→128→64→32→16→4 bottleneck→decoder) compresses hundreds of spectral bands into a 4-dimensional representation that preserves mineralogically meaningful structure. Combined with t-SNE for nonlinear 2D visualization and K-means clustering, the system achieved 95-97% accuracy for grain size classification on real mining data (72 monthly composites from 3 plants). Plant origin (57-65%) and temporal patterns (24-33%) proved harder to distinguish — itself a useful finding suggesting process homogeneity across sites."
-strategicValueEs: "Un autoencoder profundo simétrico (entrada→128→64→32→16→4 cuello de botella→decodificador) comprime cientos de bandas espectrales en una representación 4-dimensional que preserva estructura mineralógicamente significativa. Combinado con t-SNE para visualización 2D no lineal y clustering K-means, el sistema logró 95-97% de precisión en clasificación de tamaño de grano en datos mineros reales (72 compuestos mensuales de 3 plantas). El origen por planta (57-65%) y patrones temporales (24-33%) resultaron más difíciles de distinguir — hallazgo útil en sí mismo sugiriendo homogeneidad de proceso entre sitios."
+approach: 'Symmetric deep autoencoder (input→128→64→32→16→4 bottleneck→decoder) with tanh activation for spectral compression, followed by t-SNE for 2D embedding and K-means clustering with elbow method. Evaluated on real mining data: 72 monthly composites across 3 plants, 2 granulometry levels, 12 months.'
+approachEs: 'Autoencoder profundo simétrico (entrada→128→64→32→16→4 cuello de botella→decoder) con activación tanh para compresión espectral, seguido de t-SNE para embedding 2D y clustering K-means con método del codo. Evaluado en datos mineros reales: 72 compuestos mensuales de 3 plantas, 2 niveles de granulometría, 12 meses.'
+businessContext: 'Hyperspectral imaging captures hundreds of spectral bands per pixel — data points living in hundreds of dimensions. The challenge for mineral identification is compressing this into representations that humans can interpret without losing the mineralogically meaningful spectral structure. Linear methods like PCA miss nonlinear relationships in spectral data, and simply selecting a few bands discards potentially critical information.'
+businessContextEs: 'Las imágenes hiperespectrales capturan cientos de bandas espectrales por píxel — puntos de datos que viven en cientos de dimensiones. El desafío para identificación mineral es comprimir esto en representaciones que los humanos puedan interpretar sin perder la estructura espectral mineralógicamente significativa. Métodos lineales como PCA pierden relaciones no lineales en datos espectrales, y simplemente seleccionar algunas bandas descarta información potencialmente crítica.'
+strategicValue: 'A symmetric deep autoencoder (input→128→64→32→16→4 bottleneck→decoder) compresses hundreds of spectral bands into a 4-dimensional representation that preserves mineralogically meaningful structure. Combined with t-SNE for nonlinear 2D visualization and K-means clustering, the system achieved 95-97% accuracy for grain size classification on real mining data (72 monthly composites from 3 plants). Plant origin (57-65%) and temporal patterns (24-33%) proved harder to distinguish — itself a useful finding suggesting process homogeneity across sites.'
+strategicValueEs: 'Un autoencoder profundo simétrico (entrada→128→64→32→16→4 cuello de botella→decodificador) comprime cientos de bandas espectrales en una representación 4-dimensional que preserva estructura mineralógicamente significativa. Combinado con t-SNE para visualización 2D no lineal y clustering K-means, el sistema logró 95-97% de precisión en clasificación de tamaño de grano en datos mineros reales (72 compuestos mensuales de 3 plantas). El origen por planta (57-65%) y patrones temporales (24-33%) resultaron más difíciles de distinguir — hallazgo útil en sí mismo sugiriendo homogeneidad de proceso entre sitios.'
 
 kpis:
-  - label: "Grain Size Classification"
-    labelEs: "Clasificación Tamaño de Grano"
-    baseline: "Manual spectral analysis"
-    baselineEs: "Análisis espectral manual"
-    result: "95-97% accuracy"
-    resultEs: "95-97% precisión"
-    impact: "Automated grain characterization"
-    impactEs: "Caracterización automática de grano"
-  - label: "Dimensionality"
-    labelEs: "Dimensionalidad"
-    baseline: "Hundreds of spectral bands"
-    baselineEs: "Cientos de bandas espectrales"
-    result: "4-dimensional bottleneck"
-    resultEs: "Cuello de botella 4-dimensional"
-    impact: "Interpretable compact representation"
-    impactEs: "Representación compacta interpretable"
+  - label: 'Grain Size Classification'
+    labelEs: 'Clasificación Tamaño de Grano'
+    baseline: 'Manual spectral analysis'
+    baselineEs: 'Análisis espectral manual'
+    result: '95-97% accuracy'
+    resultEs: '95-97% precisión'
+    impact: 'Automated grain characterization'
+    impactEs: 'Caracterización automática de grano'
+  - label: 'Dimensionality'
+    labelEs: 'Dimensionalidad'
+    baseline: 'Hundreds of spectral bands'
+    baselineEs: 'Cientos de bandas espectrales'
+    result: '4-dimensional bottleneck'
+    resultEs: 'Cuello de botella 4-dimensional'
+    impact: 'Interpretable compact representation'
+    impactEs: 'Representación compacta interpretable'
 
 metrics:
-  - label: "Grain Size Accuracy"
-    labelEs: "Precisión Tamaño Grano"
-    value: "95-97%"
-    valueEs: "95-97%"
-  - label: "Plant Origin Accuracy"
-    labelEs: "Precisión Planta Origen"
-    value: "57-65%"
-    valueEs: "57-65%"
-  - label: "Bottleneck"
-    labelEs: "Cuello de Botella"
-    value: "4 dimensions"
-    valueEs: "4 dimensiones"
-  - label: "Samples"
-    labelEs: "Muestras"
-    value: "72 monthly composites"
-    valueEs: "72 compuestos mensuales"
+  - label: 'Grain Size Accuracy'
+    labelEs: 'Precisión Tamaño Grano'
+    value: '95-97%'
+    valueEs: '95-97%'
+  - label: 'Plant Origin Accuracy'
+    labelEs: 'Precisión Planta Origen'
+    value: '57-65%'
+    valueEs: '57-65%'
+  - label: 'Bottleneck'
+    labelEs: 'Cuello de Botella'
+    value: '4 dimensions'
+    valueEs: '4 dimensiones'
+  - label: 'Samples'
+    labelEs: 'Muestras'
+    value: '72 monthly composites'
+    valueEs: '72 compuestos mensuales'
 
 stack: [Python, TensorFlow, Keras, scikit-learn, t-SNE, K-means, MinMaxScaler]
 ---
@@ -75,10 +75,10 @@ After compression, **t-SNE** provides a nonlinear 2D embedding for visualization
 
 Evaluated on real mining data — 72 monthly composites from 3 processing plants, 2 granulometry levels, 12 months:
 
-| Task | Accuracy |
-|------|----------|
+| Task                          | Accuracy   |
+| ----------------------------- | ---------- |
 | **Grain size classification** | **95–97%** |
-| Plant origin | 57–65% |
-| Month prediction | 24–33% |
+| Plant origin                  | 57–65%     |
+| Month prediction              | 24–33%     |
 
 The grain size result is striking: spectral data encodes meaningful physical properties related to particle size with near-perfect classification accuracy. Plant origin and temporal patterns are harder to distinguish — which is itself a useful finding, suggesting relatively homogeneous processing across sites and stable spectral signatures over time.

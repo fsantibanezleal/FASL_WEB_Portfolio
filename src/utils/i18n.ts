@@ -69,10 +69,16 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // Footer
   'footer.rights': { en: 'All rights reserved.', es: 'Todos los derechos reservados.' },
-  'footer.tagline': { en: 'Research · Hardware · Digital Solutions', es: 'Investigación · Hardware · Soluciones Digitales' },
+  'footer.tagline': {
+    en: 'Research · Hardware · Digital Solutions',
+    es: 'Investigación · Hardware · Soluciones Digitales',
+  },
 
   // Product detail
-  'product.proprietary': { en: 'Proprietary — source code not publicly available', es: 'Propietario — código fuente no disponible públicamente' },
+  'product.proprietary': {
+    en: 'Proprietary — source code not publicly available',
+    es: 'Propietario — código fuente no disponible públicamente',
+  },
   'product.date': { en: 'Date', es: 'Fecha' },
   'product.tags': { en: 'Tags', es: 'Etiquetas' },
   'product.metrics': { en: 'Key Metrics', es: 'Métricas Clave' },

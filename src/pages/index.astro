@@ -75,9 +75,7 @@ const metadata = {
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {featured.map((product) => (
-          <ProductCard {...product.data} locale={locale} />
-        ))}
+        {featured.map((product) => <ProductCard {...product.data} locale={locale} />)}
       </div>
 
       <div class="mt-10 text-center">
@@ -99,32 +97,38 @@ const metadata = {
     items={[
       {
         title: 'Machine Learning & AI',
-        description: 'End-to-end ML platforms for industrial optimization, predictive modeling, and computer vision. From feature engineering to production deployment.',
+        description:
+          'End-to-end ML platforms for industrial optimization, predictive modeling, and computer vision. From feature engineering to production deployment.',
         icon: 'tabler:brain',
       },
       {
         title: '3D Visualization & Point Cloud',
-        description: 'Interactive 3D web applications, point cloud analysis, and spatial data processing for mining, manufacturing, and research applications.',
+        description:
+          'Interactive 3D web applications, point cloud analysis, and spatial data processing for mining, manufacturing, and research applications.',
         icon: 'tabler:cube-3d-sphere',
       },
       {
         title: 'Full-Stack Development',
-        description: 'Production-grade web platforms with FastAPI, Next.js, React, and PostgreSQL. Desktop applications with PyInstaller and Streamlit.',
+        description:
+          'Production-grade web platforms with FastAPI, Next.js, React, and PostgreSQL. Desktop applications with PyInstaller and Streamlit.',
         icon: 'tabler:code',
       },
       {
         title: 'Data Engineering & MLOps',
-        description: 'Kedro pipelines, Databricks, Delta Lake, Docker Swarm orchestration, and CI/CD automation for scalable data products.',
+        description:
+          'Kedro pipelines, Databricks, Delta Lake, Docker Swarm orchestration, and CI/CD automation for scalable data products.',
         icon: 'tabler:database',
       },
       {
         title: 'Spectral & Signal Processing',
-        description: 'Hyperspectral image analysis, spectral unmixing, sensor calibration, and signal processing for mineral characterization and quality control.',
+        description:
+          'Hyperspectral image analysis, spectral unmixing, sensor calibration, and signal processing for mineral characterization and quality control.',
         icon: 'tabler:wave-sine',
       },
       {
         title: 'Consulting & Prototyping',
-        description: 'From proof-of-concept to production. Rapid prototyping of engineering solutions with clear documentation and technology transfer.',
+        description:
+          'From proof-of-concept to production. Rapid prototyping of engineering solutions with clear documentation and technology transfer.',
         icon: 'tabler:bulb',
       },
     ]}
@@ -139,15 +143,18 @@ const metadata = {
     items={[
       {
         title: 'Founded by a PhD in Electrical Engineering',
-        description: 'Over 15 years of experience in applied research, industrial optimization, and software engineering across mining, microscopy, and accessibility.',
+        description:
+          'Over 15 years of experience in applied research, industrial optimization, and software engineering across mining, microscopy, and accessibility.',
       },
       {
         title: 'From Research to Production',
-        description: 'We bridge the gap between academic research and industrial deployment, delivering solutions that work in the real world.',
+        description:
+          'We bridge the gap between academic research and industrial deployment, delivering solutions that work in the real world.',
       },
       {
         title: 'Open Source & Industry',
-        description: 'A portfolio spanning open-source research tools, proprietary industrial platforms, and accessibility-focused projects.',
+        description:
+          'A portfolio spanning open-source research tools, proprietary industrial platforms, and accessibility-focused projects.',
       },
     ]}
     image={{
@@ -156,7 +163,9 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Research · Hardware · Digital Solutions</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Research · Hardware · Digital Solutions
+      </h3>
       {t('about.description', locale)}
     </Fragment>
 

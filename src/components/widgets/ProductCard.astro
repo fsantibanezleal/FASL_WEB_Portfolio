@@ -17,7 +17,19 @@ interface Props {
   locale?: Locale;
 }
 
-const { title, titleEs, slug, excerpt, excerptEs, icon, category, date, tags, proprietary, locale = 'en' } = Astro.props;
+const {
+  title,
+  titleEs,
+  slug,
+  excerpt,
+  excerptEs,
+  icon,
+  category,
+  date,
+  tags,
+  proprietary,
+  locale = 'en',
+} = Astro.props;
 
 const displayTitle = locale === 'es' ? titleEs : title;
 const displayExcerpt = locale === 'es' ? excerptEs : excerpt;
@@ -26,7 +38,9 @@ const href = getLocalePath(`/portfolio/${slug}`, locale);
 const dateStr = date.toLocaleDateString(locale === 'es' ? 'es-CL' : 'en-US', { year: 'numeric', month: 'short' });
 ---
 
-<article class="group relative flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary/40">
+<article
+  class="group relative flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary/40"
+>
   <div class="flex items-start justify-between mb-4">
     <div class="flex items-center gap-3">
       <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
@@ -38,15 +52,19 @@ const dateStr = date.toLocaleDateString(locale === 'es' ? 'es-CL' : 'en-US', { y
         <span class="text-xs text-muted">{dateStr}</span>
       </div>
     </div>
-    {proprietary && (
-      <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
-        <Icon name="tabler:lock" class="mr-1 h-3 w-3" />
-        {locale === 'es' ? 'Propietario' : 'Proprietary'}
-      </span>
-    )}
+    {
+      proprietary && (
+        <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+          <Icon name="tabler:lock" class="mr-1 h-3 w-3" />
+          {locale === 'es' ? 'Propietario' : 'Proprietary'}
+        </span>
+      )
+    }
   </div>
 
-  <h3 class="mb-3 text-lg font-bold leading-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+  <h3
+    class="mb-3 text-lg font-bold leading-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors"
+  >
     <a href={href} class="after:absolute after:inset-0">
       {displayTitle}
     </a>
@@ -57,15 +75,19 @@ const dateStr = date.toLocaleDateString(locale === 'es' ? 'es-CL' : 'en-US', { y
   </p>
 
   <div class="flex flex-wrap gap-1.5 mt-auto">
-    {tags.slice(0, 5).map((tag) => (
-      <span class="inline-flex items-center rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300">
-        {tag}
-      </span>
-    ))}
-    {tags.length > 5 && (
-      <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs text-muted">
-        +{tags.length - 5}
-      </span>
-    )}
+    {
+      tags
+        .slice(0, 5)
+        .map((tag) => (
+          <span class="inline-flex items-center rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300">
+            {tag}
+          </span>
+        ))
+    }
+    {
+      tags.length > 5 && (
+        <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs text-muted">+{tags.length - 5}</span>
+      )
+    }
   </div>
 </article>
