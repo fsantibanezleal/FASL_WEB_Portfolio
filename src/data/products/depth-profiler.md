@@ -1,6 +1,6 @@
 ---
-title: '3D Distance Profiler — Depth Maps for Surface Analysis'
-titleEs: 'Perfilador de Distancia 3D — Mapas de Profundidad para Análisis de Superficies'
+title: 'SurfaceScope — RGB-D Depth Profiling for Surface Analysis'
+titleEs: 'SurfaceScope — Perfilado de Profundidad RGB-D para Análisis de Superficies'
 slug: depth-profiler
 date: 2017-08-01
 category: 3d-visualization

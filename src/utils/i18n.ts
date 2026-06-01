@@ -43,6 +43,8 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.robotics': { en: 'Robotics & Control', es: 'Robótica y Control' },
   'category.education': { en: 'Education & Outreach', es: 'Educación y Divulgación' },
   'category.research': { en: 'Research & Thesis', es: 'Investigación y Tesis' },
+  'category.audio-signal': { en: 'Audio & Signal', es: 'Audio y Señales' },
+  'category.quant-finance': { en: 'Quantitative Finance', es: 'Finanzas Cuantitativas' },
   'category.all': { en: 'All', es: 'Todos' },
 
   // Sections
