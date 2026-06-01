@@ -61,14 +61,14 @@ export const footerData = {
         { text: 'GitHub', href: 'https://github.com/fsantibanezleal' },
         { text: 'Personal Website', href: 'https://fsantibanezleal.github.io' },
         { text: 'Online CV', href: 'https://fsantibanezleal.github.io/online-cv/' },
-        { text: 'LinkedIn', href: 'https://linkedin.com/in/fsantibanezleal' },
+        { text: 'LinkedIn', href: 'https://www.linkedin.com/in/fsantibanez' },
       ],
     },
   ],
   secondaryLinks: [],
   socialLinks: [
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/fsantibanezleal' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/in/fsantibanezleal' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/fsantibanez' },
   ],
   footNote: `
     &copy; ${new Date().getFullYear()} FASL.work — Engineering & Applied Technology. All rights reserved.
@@ -92,14 +92,14 @@ export const footerDataEs = {
         { text: 'GitHub', href: 'https://github.com/fsantibanezleal' },
         { text: 'Sitio Personal', href: 'https://fsantibanezleal.github.io' },
         { text: 'CV Online', href: 'https://fsantibanezleal.github.io/online-cv/' },
-        { text: 'LinkedIn', href: 'https://linkedin.com/in/fsantibanezleal' },
+        { text: 'LinkedIn', href: 'https://www.linkedin.com/in/fsantibanez' },
       ],
     },
   ],
   secondaryLinks: [],
   socialLinks: [
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/fsantibanezleal' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/in/fsantibanezleal' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/fsantibanez' },
   ],
   footNote: `
     &copy; ${new Date().getFullYear()} FASL.work — Ingeniería y Tecnología Aplicada. Todos los derechos reservados.
