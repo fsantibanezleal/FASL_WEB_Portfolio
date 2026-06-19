@@ -45,6 +45,9 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.research': { en: 'Research & Thesis', es: 'Investigación y Tesis' },
   'category.audio-signal': { en: 'Audio & Signal', es: 'Audio y Señales' },
   'category.quant-finance': { en: 'Quantitative Finance', es: 'Finanzas Cuantitativas' },
+  'category.geophysics': { en: 'Geophysics & Seismic Hazard', es: 'Geofísica y Riesgo Sísmico' },
+  'category.agentic-ai': { en: 'Agentic AI & Automation', es: 'IA Agéntica y Automatización' },
+  'category.mobile-apps': { en: 'Mobile Apps', es: 'Apps Móviles' },
   'category.all': { en: 'All', es: 'Todos' },
 
   // Sections
