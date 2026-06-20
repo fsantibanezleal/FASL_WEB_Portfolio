@@ -9,7 +9,7 @@ excerptEs: 'Banco de trabajo háptico web de accesibilidad que permite a usuario
 icon: tabler:accessible
 tags: [accessibility, haptics, braille, three-js, fastapi, assistive-technology, python]
 proprietary: false
-featured: true
+featured: false
 assetPatterns: [feelit2]
 github: 'https://github.com/fsantibanezleal/UDEC_FEELIT'
 demo: 'https://feelit.fasl-work.com'

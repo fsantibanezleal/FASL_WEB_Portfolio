@@ -9,7 +9,7 @@ excerptEs: 'Plataforma de machine learning para clasificar minerales y estimar a
 icon: tabler:prism
 tags: [hyperspectral, machine-learning, mineral-classification, cnn, fastapi, dash]
 proprietary: true
-featured: true
+featured: false
 assetPatterns: [hsi_mineral]
 
 challenge: 'Laboratory mineral analysis (XRD/XRF) takes days and requires sample preparation. For geometallurgical applications, faster characterization means tighter feedback loops between ore properties and processing parameters. The key constraint: predicted mineral abundances must sum to 100%.'
