@@ -9,7 +9,7 @@ excerptEs: 'Plataforma full-stack para seguimiento y pronóstico de desgaste de 
 icon: tabler:3d-cube-sphere
 tags: [point-cloud, 3d-analysis, wear-forecasting, fastapi, nextjs, python]
 proprietary: true
-featured: true
+featured: false
 assetPatterns: [crusher_wear]
 
 challenge: 'Crusher liner replacement is one of the highest-cost maintenance activities. Replacing liners too early wastes material; too late risks catastrophic failure. Traditional wear estimation relied on manual calipers — slow, imprecise, and dangerous in the crushing environment.'

@@ -9,7 +9,7 @@ excerptEs: 'Diagnóstico abierto y explicable de fallas en rodamientos a partir 
 icon: tabler:engine
 tags: [predictive-maintenance, vibration, dsp, envelope-analysis, bearings, mining, signal-processing]
 proprietary: false
-featured: false
+featured: true
 assetPatterns: [rotorvitals, rotor]
 github: 'https://github.com/fsantibanezleal/CAOS_RotorVitals'
 demo: 'https://rotorvitals.fasl-work.com'
