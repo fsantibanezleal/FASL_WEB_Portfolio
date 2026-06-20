@@ -73,8 +73,12 @@ const categories = ['all', ...new Set(products.map((p) => p.data.category))];
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.filter-btn');
+  function setupCategoryFilter() {
+    const filter = document.getElementById('category-filter');
+    // Only run on a page that actually has the portfolio filter
+    if (!filter) return;
+
+    const buttons = filter.querySelectorAll('.filter-btn');
     const items = document.querySelectorAll('.product-item');
 
     buttons.forEach((btn) => {
@@ -99,5 +103,10 @@ const categories = ['all', ...new Set(products.map((p) => p.data.category))];
         });
       });
     });
-  });
+  }
+
+  // Astro ClientRouter (View Transitions) does client-side navigations, so `DOMContentLoaded`
+  // only fires on the very first hard load — arriving at /portfolio/ via in-site nav left the
+  // filter buttons unbound. `astro:page-load` fires on the initial load AND after every swap.
+  document.addEventListener('astro:page-load', setupCategoryFilter);
 </script>
