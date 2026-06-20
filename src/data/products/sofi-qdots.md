@@ -9,7 +9,7 @@ excerptEs: 'Implementa SOFI — técnica computacional de super-resolución que 
 icon: tabler:atom-2
 tags: [super-resolution, microscopy, sofi, cumulants, quantum-dots, python, fastapi]
 proprietary: false
-featured: true
+featured: false
 assetPatterns: [sofi]
 github: 'https://github.com/fsantibanezleal/FASL_SOFI_QDOTS'
 demo: 'https://sofi.fasl-work.com'

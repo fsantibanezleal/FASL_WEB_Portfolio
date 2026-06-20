@@ -9,7 +9,7 @@ excerptEs: 'Plataforma ML end-to-end para optimizar procesamiento mineral — mo
 icon: tabler:chart-bar
 tags: [machine-learning, mining, optimization, kedro, azure, mlops]
 proprietary: true
-featured: true
+featured: false
 assetPatterns: [mining_optimization]
 
 challenge: 'Large-scale mining operations involve complex, interconnected processes. SAG mills, flotation banks, and thickeners each have dozens of controllable variables and hundreds of sensor readings, creating a high-dimensional optimization problem that evolves with ore characteristics. A 1% recovery improvement translates to tens of millions USD annually.'

@@ -9,7 +9,7 @@ excerptEs: 'Panel de operador interactivo que convierte la salida semanal de un 
 icon: tabler:map-2
 tags: [geotechnical, mining-safety, deckgl, nextjs, dashboard, shap, visualization]
 proprietary: false
-featured: true
+featured: false
 assetPatterns: [undermine, underrisk]
 github: 'https://github.com/fsantibanezleal/CAOS_WEB_UnderMineRisk'
 demo: 'https://underrisk.fasl-work.com'
