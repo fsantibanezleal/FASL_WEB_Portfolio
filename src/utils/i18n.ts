@@ -48,6 +48,8 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.geophysics': { en: 'Geophysics & Seismic Hazard', es: 'Geofísica y Riesgo Sísmico' },
   'category.agentic-ai': { en: 'Agentic AI & Automation', es: 'IA Agéntica y Automatización' },
   'category.mobile-apps': { en: 'Mobile Apps', es: 'Apps Móviles' },
+  'category.simulation': { en: 'Simulation & Operations Research', es: 'Simulación e Investigación de Operaciones' },
+  'category.predictive-maintenance': { en: 'Predictive Maintenance', es: 'Mantenimiento Predictivo' },
   'category.all': { en: 'All', es: 'Todos' },
 
   // Sections
