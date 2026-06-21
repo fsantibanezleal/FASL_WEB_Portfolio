@@ -23,3 +23,9 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .astro
+# Python virtualenvs (any name, any depth) — never commit venvs
+.venv/
+.venv*
+**/.venv*
+venv/
+**/venv/
