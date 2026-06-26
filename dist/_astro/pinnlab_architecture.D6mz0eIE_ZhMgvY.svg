@@ -27,7 +27,7 @@
 
     <rect x="28" y="126" width="180" height="40" rx="4" fill="#0c2018" stroke="#2f6e54" stroke-width="0.9"/>
     <text x="118" y="143" text-anchor="middle" font-size="8" font-weight="bold" fill="#3ddc97">evaluate vs anchor</text>
-    <text x="118" y="156" text-anchor="middle" font-size="7" fill="#bfe9d6">relative-L2 vs analytic / FEM / real</text>
+    <text x="118" y="156" text-anchor="middle" font-size="7" fill="#bfe9d6">relative-L2 vs analytic / benchmark / real</text>
     <rect x="224" y="126" width="180" height="40" rx="4" fill="#11243b" stroke="#29B6F6" stroke-width="1"/>
     <text x="314" y="143" text-anchor="middle" font-size="8" font-weight="bold" fill="#29B6F6">export → ONNX</text>
     <text x="314" y="156" text-anchor="middle" font-size="7" fill="#cdd9e5">opset 18 · parity &lt; 1e-4</text>

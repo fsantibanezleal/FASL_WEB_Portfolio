@@ -4,8 +4,8 @@ titleEs: 'PINN-Lab — Un Catálogo Ejecutable de Redes Neuronales Informadas po
 slug: pinnlab
 date: 2026-06-25
 category: scientific-ml
-excerpt: 'A live catalogue of 19 Physics-Informed Neural Network cases — each trained offline (DeepXDE → ONNX), validated against an analytic, FEM, or real-data anchor, and re-inferred live in the browser: move a physical parameter and watch the trained network re-solve the PDE.'
-excerptEs: 'Un catálogo en vivo de 19 casos de Redes Neuronales Informadas por la Física — cada uno entrenado offline (DeepXDE → ONNX), validado contra un anclaje analítico, FEM o de datos reales, y re-inferido en vivo en el navegador: mueve un parámetro físico y mira a la red re-resolver la EDP.'
+excerpt: 'A live catalogue of 19 Physics-Informed Neural Network cases — each trained offline (DeepXDE → ONNX), validated against an analytic, benchmark, or real-data anchor, and re-inferred live in the browser: move a physical parameter and watch the trained network re-solve the PDE.'
+excerptEs: 'Un catálogo en vivo de 19 casos de Redes Neuronales Informadas por la Física — cada uno entrenado offline (DeepXDE → ONNX), validado contra un anclaje analítico, de benchmark o de datos reales, y re-inferido en vivo en el navegador: mueve un parámetro físico y mira a la red re-resolver la EDP.'
 icon: tabler:math-function
 tags: [scientific-ml, pinn, deepxde, onnx, pde, inverse-problems, operator-learning]
 proprietary: false
@@ -18,8 +18,8 @@ website: 'https://pinnlab.fasl-work.com'
 challenge: 'Physics-Informed Neural Networks are widely hyped and rarely shown honestly: most demos are a single forward problem on a clean equation, with no anchor to say whether the answer is right, no inverse or uncertainty problems, and nothing you can actually run. The interesting, honest questions — where do PINNs help, where do they struggle, and how close are they to a trusted reference — go unanswered.'
 challengeEs: 'Las Redes Neuronales Informadas por la Física están muy sobrevaloradas y rara vez se muestran con honestidad: la mayoría de los demos son un único problema directo sobre una ecuación limpia, sin un anclaje que diga si la respuesta es correcta, sin problemas inversos o de incertidumbre, y sin nada que puedas correr. Las preguntas interesantes y honestas — dónde ayudan las PINNs, dónde sufren y qué tan cerca están de una referencia confiable — quedan sin responder.'
 
-approach: 'PINN-Lab is a method catalogue and per-case workbench of 19 cases, built as two worlds joined by an artifact contract: a heavy offline Python pipeline (preprocess → train with DeepXDE/PyTorch → validate against an analytic / FEM / real-data anchor → export to ONNX, opset 18, with parity < 1e-4) and a light static web app that never recomputes the physics. 18 of the 19 cases ship their ONNX and re-evaluate live in the browser via onnxruntime-web — because the physical knob is a network input, one trained net drives a whole parameter family with a continuous live sweep. It exercises the real method ladder: forward PDE solving, inverse problems (parameter and field recovery), uncertainty quantification (Bayesian / ensemble), and operator learning (FNO). A measured lane gate classifies each case live vs precompute from real numbers (ONNX size, inference time, trace size).'
-approachEs: 'PINN-Lab es un catálogo de métodos y un workbench por caso de 19 casos, construido como dos mundos unidos por un contrato de artefactos: un pipeline pesado offline en Python (preprocesar → entrenar con DeepXDE/PyTorch → validar contra un anclaje analítico / FEM / de datos reales → exportar a ONNX, opset 18, con paridad < 1e-4) y una app web liviana y estática que nunca recomputa la física. 18 de los 19 casos publican su ONNX y se re-evalúan en vivo en el navegador vía onnxruntime-web — como el parámetro físico es una entrada de la red, una sola red entrenada impulsa toda una familia de parámetros con un barrido continuo en vivo. Ejercita la escalera real de métodos: resolución directa de EDPs, problemas inversos (recuperación de parámetros y de campos), cuantificación de incertidumbre (Bayesiana / ensemble) y aprendizaje de operadores (FNO). Una compuerta de carril medida clasifica cada caso vivo vs precomputado con números reales (tamaño ONNX, tiempo de inferencia, tamaño de traza).'
+approach: 'PINN-Lab is a method catalogue and per-case workbench of 19 cases, built as two worlds joined by an artifact contract: a heavy offline Python pipeline (preprocess → train with DeepXDE/PyTorch → validate against an analytic / benchmark / real-data anchor → export to ONNX, opset 18, with parity < 1e-4) and a light static web app that never recomputes the physics. 18 of the 19 cases ship their ONNX and re-evaluate live in the browser via onnxruntime-web — because the physical knob is a network input, one trained net drives a whole parameter family with a continuous live sweep. It exercises the real method ladder: forward PDE solving, inverse problems (parameter and field recovery), uncertainty quantification (Bayesian / ensemble), and operator learning (FNO). A measured lane gate classifies each case live vs precompute from real numbers (ONNX size, inference time, trace size).'
+approachEs: 'PINN-Lab es un catálogo de métodos y un workbench por caso de 19 casos, construido como dos mundos unidos por un contrato de artefactos: un pipeline pesado offline en Python (preprocesar → entrenar con DeepXDE/PyTorch → validar contra un anclaje analítico / de benchmark / de datos reales → exportar a ONNX, opset 18, con paridad < 1e-4) y una app web liviana y estática que nunca recomputa la física. 18 de los 19 casos publican su ONNX y se re-evalúan en vivo en el navegador vía onnxruntime-web — como el parámetro físico es una entrada de la red, una sola red entrenada impulsa toda una familia de parámetros con un barrido continuo en vivo. Ejercita la escalera real de métodos: resolución directa de EDPs, problemas inversos (recuperación de parámetros y de campos), cuantificación de incertidumbre (Bayesiana / ensemble) y aprendizaje de operadores (FNO). Una compuerta de carril medida clasifica cada caso vivo vs precomputado con números reales (tamaño ONNX, tiempo de inferencia, tamaño de traza).'
 
 businessContext: 'Scientific machine learning is moving from papers into engineering practice, but adoption needs an honest map: which problem shapes (forward, inverse, parametric, operator) PINNs handle well, how they compare to a trusted classical anchor, and where their known failure modes (spectral bias, stiff regimes) bite. PINN-Lab is that map made runnable — a teaching and decision instrument rather than a single cherry-picked result.'
 businessContextEs: 'El machine learning científico está pasando de los papers a la práctica de ingeniería, pero su adopción necesita un mapa honesto: qué formas de problema (directo, inverso, paramétrico, operador) manejan bien las PINNs, cómo se comparan con un anclaje clásico confiable y dónde muerden sus modos de falla conocidos (sesgo espectral, regímenes rígidos). PINN-Lab es ese mapa hecho ejecutable — un instrumento de enseñanza y decisión, no un único resultado escogido a dedo.'
@@ -62,10 +62,10 @@ metrics:
     labelEs: 'Paridad ONNX (PyTorch vs onnxruntime)'
     value: '< 1e-4 everywhere'
     valueEs: '< 1e-4 en todos'
-  - label: 'Clean analytic relative-L2'
-    labelEs: 'L2 relativo analítico limpio'
-    value: '≤ ~0.4% (Poisson 0.03%, Burgers 0.08%)'
-    valueEs: '≤ ~0,4% (Poisson 0,03%, Burgers 0,08%)'
+  - label: 'Clean-case relative-L2 (representative)'
+    labelEs: 'L2 relativo en casos limpios (representativo)'
+    value: 'Best ~0.03–0.08% (Poisson, Burgers); harder regimes up to ~1–2%'
+    valueEs: 'Mejores ~0,03–0,08% (Poisson, Burgers); regímenes difíciles ~1–2%'
   - label: 'Known-limit cases (reported honestly)'
     labelEs: 'Casos de límite conocido (reportados con honestidad)'
     value: 'Helmholtz ~10% · Navier-cavity ~17% L2 (spectral bias, CPU lane)'
@@ -79,12 +79,12 @@ metrics:
     value: 'DeepXDE/PyTorch → ONNX · onnxruntime-web · React 19 / Vite / TS · static · v0.10'
     valueEs: 'DeepXDE/PyTorch → ONNX · onnxruntime-web · React 19 / Vite / TS · estático · v0.10'
 
-stack: [Python, DeepXDE, PyTorch, neuraloperator, ONNX, onnxruntime-web, TypeScript, React, Vite, KaTeX, GitHub Pages]
+stack: [Python, DeepXDE, PyTorch, ONNX, onnxruntime-web, TypeScript, React, Vite, KaTeX, GitHub Pages]
 ---
 
 ## Train offline, re-solve live
 
-PINN-Lab is a runnable catalogue of **19 Physics-Informed Neural Network cases**. Each is trained offline with DeepXDE/PyTorch, validated against an analytic, FEM, or real-data anchor, and exported to ONNX — then the static web app loads that ONNX and **re-infers it live in the browser** (onnxruntime-web). Because the physical parameter is a network input, you move a slider and the trained network re-solves the PDE client-side, in real time. Live at [pinnlab.fasl-work.com](https://pinnlab.fasl-work.com).
+PINN-Lab is a runnable catalogue of **19 Physics-Informed Neural Network cases**. Each is trained offline with DeepXDE/PyTorch, validated against an analytic, benchmark, or real-data anchor, and exported to ONNX — then the static web app loads that ONNX and **re-infers it live in the browser** (onnxruntime-web). Because the physical parameter is a network input, you move a slider and the trained network re-solves the PDE client-side, in real time. Live at [pinnlab.fasl-work.com](https://pinnlab.fasl-work.com).
 
 ## The full method ladder
 
