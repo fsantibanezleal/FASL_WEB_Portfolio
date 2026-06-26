@@ -50,6 +50,8 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.mobile-apps': { en: 'Mobile Apps', es: 'Apps Móviles' },
   'category.simulation': { en: 'Simulation & Operations Research', es: 'Simulación e Investigación de Operaciones' },
   'category.predictive-maintenance': { en: 'Predictive Maintenance', es: 'Mantenimiento Predictivo' },
+  'category.quantum-computing': { en: 'Quantum Computing', es: 'Computación Cuántica' },
+  'category.scientific-ml': { en: 'Scientific Machine Learning', es: 'Machine Learning Científico' },
   'category.all': { en: 'All', es: 'Todos' },
 
   // Sections
