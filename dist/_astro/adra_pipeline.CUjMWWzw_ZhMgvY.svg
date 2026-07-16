@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="ADRA: a target plus a client governance suite feed deterministic tools that ground a blocking adversarial critic and an LLM-as-judge, producing an accepted, blocked or escalated verdict with an immutable run record">
+  <defs>
+    <linearGradient id="adbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#adbg)"/>
+  <text x="32" y="46" class="t" font-size="22">ADRA</text>
+  <text x="32" y="68" class="m">Adversarial Dev Review Agent · deterministic-first · refutes not blesses · offline with no API key</text>
+
+  <rect x="32" y="96" width="182" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">SOURCE</text>
+  <rect x="48" y="138" width="150" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">Target</text><text x="60" y="178" class="m">diff · PR · experiment</text>
+  <rect x="48" y="208" width="150" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="230" class="t" font-size="12">Connector</text><text x="60" y="248" class="m">GitHub · AzDO · Databricks</text>
+  <rect x="48" y="278" width="150" height="52" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="300" class="t" font-size="12">Client suite</text><text x="60" y="318" class="m">conventions · ADRs · CI std</text>
+
+  <path d="M214 222 H250" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="256" y="104" width="270" height="74" rx="9" class="box acc"/>
+  <text x="272" y="128" class="a" font-size="13">Ground: deterministic tools FIRST</text>
+  <text x="272" y="150" class="m">git · exact CI command · bundle validate</text>
+  <text x="272" y="168" class="m">lang/leak scan · discovery · SQL probes</text>
+
+  <rect x="256" y="186" width="270" height="70" rx="9" class="box"/>
+  <text x="272" y="210" class="t" font-size="13">Critic (blocking)</text>
+  <text x="272" y="232" class="m">deterministic hard-floor (typed rubric)</text>
+  <text x="272" y="250" class="m">+ LLM semantic attack · revise loop</text>
+
+  <rect x="256" y="264" width="270" height="84" rx="9" class="box"/>
+  <text x="272" y="288" class="t" font-size="13">Judge <tspan class="a">(LLM-as-judge)</tspan></text>
+  <text x="272" y="308" class="m">swap-and-average · reference anchoring</text>
+  <text x="272" y="326" class="m">stable-under-swap winner only</text>
+  <text x="272" y="344" class="m">mock offline · real provider = config only</text>
+
+  <path d="M526 141 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 221 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 306 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="244" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">VERDICT</text>
+  <rect x="580" y="142" width="172" height="34" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="592" y="164" class="t" font-size="12">accepted</text>
+  <rect x="580" y="182" width="172" height="34" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="592" y="204" class="t" font-size="12">blocked (evidence)</text>
+  <rect x="580" y="222" width="172" height="34" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="592" y="244" class="a" font-size="12">escalate to human</text>
+  <text x="580" y="282" class="m">read-only by default</text>
+  <text x="580" y="300" class="m">human gate on create/push/merge</text>
+  <text x="580" y="322" class="t" font-size="12">Immutable run record</text>
+  <text x="580" y="340" class="m">every blocker traces to a tool result</text>
+
+  <text x="32" y="384" class="m">Six skills on one loop · framework-free state machine · client-agnostic · pip install adra · v0.04.000</text>
+</svg>
