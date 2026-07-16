@@ -47,6 +47,13 @@ const diagrams = findAssets(allDiagrams, slugPatterns);
 const screenshots = findAssets(allScreenshots, slugPatterns);
 const rollings = findAssets(allRollings, slugPatterns);
 
+// Animated "in action" tour, served from public/ (Astro's <Image> cannot animate gifs).
+const allGifs = import.meta.glob('/public/gifs/*.gif');
+const gifKey =
+  Object.keys(allGifs).find((p) => p.toLowerCase().endsWith(`/${d.slug.toLowerCase()}.gif`)) ||
+  Object.keys(allGifs).find((p) => slugPatterns.some((pat) => p.toLowerCase().endsWith(`/${pat.toLowerCase()}.gif`)));
+const gifSrc = gifKey ? gifKey.replace('/public', '') : null;
+
 const tabs = ['Overview', 'Business Impact', 'Technical', 'Gallery', 'Links'];
 ---
 
@@ -240,6 +247,18 @@ const tabs = ['Overview', 'Business Impact', 'Technical', 'Gallery', 'Links'];
         <!-- ═══ GALLERY ═══ -->
         <div data-tab="Gallery">
           {
+            gifSrc && (
+              <div class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">In action</h2>
+                <p class="mb-6 text-sm text-muted">A short tour of the live app — the real interface, recorded from the deployed site.</p>
+                <div class="overflow-hidden rounded-xl border border-gray-200 bg-white p-2 shadow-lg dark:border-gray-700/50 dark:bg-gray-800/30">
+                  <img src={gifSrc} alt={`${d.title} in action`} class="h-auto w-full rounded-lg" loading="lazy" />
+                </div>
+              </div>
+            )
+          }
+
+          {
             screenshots.length > 0 && (
               <div class="mb-10">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Screenshots</h2>
@@ -274,7 +293,7 @@ const tabs = ['Overview', 'Business Impact', 'Technical', 'Gallery', 'Links'];
           }
 
           {
-            screenshots.length === 0 && rollings.length === 0 && (
+            !gifSrc && screenshots.length === 0 && rollings.length === 0 && (
               <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
                 <Icon name="tabler:photo-off" class="h-10 w-10 mx-auto mb-3 text-muted" />
                 <p class="text-muted">Visual assets for this project are not publicly available.</p>
