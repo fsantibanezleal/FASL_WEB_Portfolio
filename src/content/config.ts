@@ -65,6 +65,8 @@ const productCollection = defineCollection({
     slug: z.string(),
     date: z.date(),
     category: z.string(),
+    // Optional top-level grouping; falls back to a category->family map (see utils/products.ts).
+    family: z.enum(['faena', 'labs', 'platforms', 'agentic', 'optics', 'industry']).optional(),
     excerpt: z.string(),
     excerptEs: z.string(),
     icon: z.string(),

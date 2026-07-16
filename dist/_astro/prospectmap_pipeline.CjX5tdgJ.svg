@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="ProspectMap: real MVT geophysical layers scored by Weights of Evidence, logistic regression and spatial cross-validation, with a published null result">
+  <defs>
+    <linearGradient id="pmbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#pmbg)"/>
+  <text x="32" y="46" class="t" font-size="22">ProspectMap</text>
+  <text x="32" y="68" class="m">Mineral-prospectivity workbench · Weights of Evidence posterior live in the browser · adversarial honesty by design</text>
+
+  <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">EVIDENCE LAYERS</text>
+  <rect x="48" y="138" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">real US MVT belt</text><text x="60" y="178" class="m">Lawley 2022 CMMI · USGS PD</text>
+  <rect x="48" y="206" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="228" class="t" font-size="12">4 measured + 2 derived</text><text x="60" y="246" class="m">mag · grav · LAB · fault prox</text>
+  <rect x="48" y="274" width="152" height="56" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="296" class="t" font-size="12">25,344 cells</text><text x="60" y="314" class="m">144x176 · ~5.4 km · + 10 synth</text>
+
+  <path d="M216 222 H252" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="258" y="104" width="268" height="112" rx="9" class="box"/>
+  <text x="274" y="128" class="t" font-size="13">Classical + validation</text>
+  <text x="274" y="150" class="m">Weights of Evidence, W+/W-, contrast</text>
+  <text x="274" y="170" class="m">Agterberg-Cheng omnibus CI test</text>
+  <text x="274" y="190" class="m">logistic regression, IRLS + ridge</text>
+  <text x="274" y="208" class="m">random vs contiguous spatial-block CV</text>
+
+  <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
+  <text x="274" y="252" class="a" font-size="13">Learned tier <tspan class="m">(ONNX)</tspan></text>
+  <text x="274" y="274" class="m">MLP classifier (synth + real lanes)</text>
+  <text x="274" y="294" class="m">geology-OOD autoencoder</text>
+  <text x="274" y="314" class="m">PU-Conformal (nnPU + split conformal)</text>
+  <text x="274" y="330" class="m">RF + gradient boosting offline</text>
+
+  <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="230" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">PROSPECTIVITY + NULL</text>
+  <text x="580" y="150" class="m">posterior P(deposit | evidence)</text>
+  <text x="580" y="172" class="m">6 models, identical spatial folds</text>
+  <text x="580" y="196" class="t" font-size="12">Published null result</text>
+  <text x="580" y="214" class="m">contiguous-fold AUC 0.783</text>
+  <text x="580" y="234" class="m">tied by a distance-to-deposit null</text>
+  <text x="580" y="258" class="m">proposed PU-Conformal 0.656,</text>
+  <text x="580" y="278" class="m">loses to 1989 WofE 0.732</text>
+  <text x="580" y="302" class="m">ranking_win: false (committed)</text>
+
+  <text x="32" y="384" class="m">Honest: no AlphaEarth / foundation embeddings · conformal band flags 88% of the belt · target generation, not a resource estimate · static Pages</text>
+</svg>

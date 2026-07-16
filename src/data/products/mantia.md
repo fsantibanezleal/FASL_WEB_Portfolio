@@ -4,6 +4,7 @@ titleEs: 'Mantia — Suite Agéntica de Mantenimiento Industrial'
 slug: mantia
 date: 2026-06-12
 category: agentic-ai
+family: agentic
 excerpt: 'A private suite of agentic assistants for industrial asset maintenance, shaped to enterprise EAM data via OData. A portal hub catalogs three specialist agents — work-order generation, spares planning, and notification triage — all built on one shared agent core with a mock-or-real connector.'
 excerptEs: 'Una suite privada de asistentes agénticos para el mantenimiento de activos industriales, modelada sobre datos EAM empresariales vía OData. Un portal-hub cataloga tres agentes especialistas — generación de órdenes de trabajo, planificación de repuestos y triage de avisos — todos sobre un núcleo de agente compartido con conector simulado o real.'
 icon: tabler:robot

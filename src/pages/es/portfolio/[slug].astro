@@ -47,6 +47,13 @@ const diagrams = findAssets(allDiagrams, slugPatterns);
 const screenshots = findAssets(allScreenshots, slugPatterns);
 const rollings = findAssets(allRollings, slugPatterns);
 
+// Recorrido animado "en acción", servido desde public/ (el <Image> de Astro no anima gifs).
+const allGifs = import.meta.glob('/public/gifs/*.gif');
+const gifKey =
+  Object.keys(allGifs).find((p) => p.toLowerCase().endsWith(`/${d.slug.toLowerCase()}.gif`)) ||
+  Object.keys(allGifs).find((p) => slugPatterns.some((pat) => p.toLowerCase().endsWith(`/${pat.toLowerCase()}.gif`)));
+const gifSrc = gifKey ? gifKey.replace('/public', '') : null;
+
 const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'];
 ---
 
@@ -234,6 +241,17 @@ const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'
         <!-- ═══ GALERÍA ═══ -->
         <div data-tab="Galería">
           {
+            gifSrc && (
+              <div class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">En acción</h2>
+                <p class="mb-6 text-sm text-muted">Un recorrido corto por la app en vivo: la interfaz real, grabada desde el sitio desplegado.</p>
+                <div class="overflow-hidden rounded-xl border border-gray-200 bg-white p-2 shadow-lg dark:border-gray-700/50 dark:bg-gray-800/30">
+                  <img src={gifSrc} alt={`${d.titleEs} en acción`} class="h-auto w-full rounded-lg" loading="lazy" />
+                </div>
+              </div>
+            )
+          }
+          {
             screenshots.length > 0 && (
               <div class="mb-10">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Capturas de la Aplicación</h2>
@@ -266,7 +284,7 @@ const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'
             )
           }
           {
-            screenshots.length === 0 && rollings.length === 0 && (
+            !gifSrc && screenshots.length === 0 && rollings.length === 0 && (
               <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
                 <Icon name="tabler:photo-off" class="h-10 w-10 mx-auto mb-3 text-muted" />
                 <p class="text-muted">Los recursos visuales de este proyecto no están disponibles públicamente.</p>

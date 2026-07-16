@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="PitForge: a block model solved to the exact ultimate pit by Dinic min-cut with nested Whittle shells, validated against three published MineLib optima">
+  <defs>
+    <linearGradient id="pfbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#pfbg)"/>
+  <text x="32" y="46" class="t" font-size="22">PitForge</text>
+  <text x="32" y="68" class="m">Open-pit design workbench · exact ultimate pit via min-cut, live in the browser · validated on published MineLib optima</text>
+
+  <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">BLOCK MODEL</text>
+  <rect x="48" y="138" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">9 synthetic deposits</text><text x="60" y="178" class="m">seeded grade fields + trend</text>
+  <rect x="48" y="206" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="228" class="t" font-size="12">3 MineLib instances</text><text x="60" y="246" class="m">fetched at runtime, locked knobs</text>
+  <rect x="48" y="274" width="152" height="56" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="296" class="t" font-size="12">bring-your-own CSV</text><text x="60" y="314" class="m">in-app block table ingestion</text>
+
+  <path d="M216 222 H252" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="258" y="104" width="268" height="112" rx="9" class="box"/>
+  <text x="274" y="128" class="t" font-size="13">Exact optimiser</text>
+  <text x="274" y="150" class="m">UPL = max-weight closure</text>
+  <text x="274" y="170" class="m">Picard min-cut on a Dinic max-flow</text>
+  <text x="274" y="190" class="m">nested Whittle shells by revenue factor</text>
+  <text x="274" y="208" class="m">pitValue = sum(pos) - maxflow, asserted</text>
+
+  <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
+  <text x="274" y="252" class="a" font-size="13">Grade + learned <tspan class="m">(ONNX)</tspan></text>
+  <text x="274" y="274" class="m">IDW + ordinary kriging estimation</text>
+  <text x="274" y="294" class="m">grade-nn R2 0.9613 (ties kriging)</text>
+  <text x="274" y="314" class="m">pit-surrogate AUC 0.9811</text>
+  <text x="274" y="330" class="m">CPIT LP bound offline (10.46% gap)</text>
+
+  <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="230" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">MINELIB VALIDATION</text>
+  <text x="580" y="150" class="m">reproduces published optima to</text>
+  <text x="580" y="170" class="t" font-size="13">&lt;= 2e-9 relative error</text>
+  <text x="580" y="194" class="m">newman1 · zuck_small · kd</text>
+  <rect x="580" y="208" width="172" height="1" fill="#30363d"/>
+  <text x="580" y="230" class="t" font-size="12">14,153 blocks exact</text>
+  <text x="580" y="250" class="m">219,778 precedences</text>
+  <text x="580" y="270" class="m">~259 ms median solve</text>
+  <text x="580" y="292" class="t" font-size="12">match: true on all 3</text>
+  <text x="580" y="312" class="m">a self-checking optimiser</text>
+
+  <text x="32" y="384" class="m">Honest: engine is Dinic min-cut (equivalent to Lerchs-Grossmann), not pseudoflow · CPIT is offline · not a JORC estimate · static Pages</text>
+</svg>

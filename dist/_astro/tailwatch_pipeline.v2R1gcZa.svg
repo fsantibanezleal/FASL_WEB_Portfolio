@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="TailWatch: an InSAR displacement cube feeding classical velocity forecasting and a learned CNN with conformal intervals, live in the browser">
+  <defs>
+    <linearGradient id="twbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#twbg)"/>
+  <text x="32" y="46" class="t" font-size="22">TailWatch</text>
+  <text x="32" y="68" class="m">In-browser InSAR ground-deformation studio for tailings dams &amp; slopes · velocity + inverse-velocity forecasting</text>
+
+  <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">DISPLACEMENT CUBE</text>
+  <rect x="48" y="138" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">5 simulated cases</text><text x="60" y="178" class="m">physics forward model, S1 geometry</text>
+  <rect x="48" y="206" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="228" class="t" font-size="12">1 real Sentinel-1</text><text x="60" y="246" class="m">Campi Flegrei · LiCSAR/LiCSBAS</text>
+  <rect x="48" y="274" width="152" height="56" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="296" class="t" font-size="12">160x120 grid</text><text x="60" y="314" class="m">60 epochs · 12-day cadence</text>
+
+  <path d="M216 222 H252" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="258" y="104" width="268" height="112" rx="9" class="box"/>
+  <text x="274" y="128" class="t" font-size="13">Classical ladder</text>
+  <text x="274" y="150" class="m">OLS per-pixel velocity + slope t-stat</text>
+  <text x="274" y="170" class="m">Fukuzono inverse-velocity time-of-failure</text>
+  <text x="274" y="190" class="m">two-geometry LOS decomposition (Up/East)</text>
+  <text x="274" y="208" class="m">EWMA velocity · onset-of-acceleration gate</text>
+
+  <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
+  <text x="274" y="252" class="a" font-size="13">Learned tier <tspan class="m">(ONNX)</tspan></text>
+  <text x="274" y="274" class="m">1-D CNN 6-class, live per clicked pixel</text>
+  <text x="274" y="294" class="m">conv-autoencoder anomaly map (baked)</text>
+  <text x="274" y="314" class="m">split-conformal intervals on t_f</text>
+  <text x="274" y="330" class="m">disjoint calibration / test seed banks</text>
+
+  <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="230" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">LIVE IN BROWSER</text>
+  <text x="580" y="150" class="m">onnxruntime-web (WASM)</text>
+  <polyline points="580,232 600,232 612,198 624,232 648,232 660,180 672,232 700,232 712,214 724,232 748,232"
+            fill="none" stroke="#29B6F6" stroke-width="2"/>
+  <line x1="580" y1="232" x2="752" y2="232" stroke="#30363d"/>
+  <text x="580" y="268" class="m">velocity / coherence maps</text>
+  <text x="580" y="288" class="t" font-size="12">t_f forecast + conformal band</text>
+  <text x="580" y="308" class="m">5.7% median t_f error</text>
+  <text x="580" y="326" class="m">coverage 0.892 vs 0.900 nominal</text>
+
+  <text x="32" y="384" class="m">Honest held-out: classical |v| AUC 0.968 beats the learned AE anomaly 0.898 · 5 cases invented, 1 real caldera clip · static GitHub Pages</text>
+</svg>

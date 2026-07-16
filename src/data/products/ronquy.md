@@ -4,6 +4,7 @@ titleEs: 'Ronquy — Detección de Ronquidos en el Dispositivo'
 slug: ronquy
 date: 2026-06-14
 category: mobile-apps
+family: platforms
 excerpt: 'A private mobile app that detects snoring on-device, overnight, with no audio leaving the phone — a YAMNet + TFLite model runs an 8-hour audio-and-inference loop locally, with an optional cloud account for sync.'
 excerptEs: 'Una app móvil privada que detecta ronquidos en el dispositivo, durante toda la noche, sin que el audio salga del teléfono — un modelo YAMNet + TFLite corre localmente un bucle de 8 horas de audio e inferencia, con una cuenta en la nube opcional para sincronizar.'
 icon: tabler:zzz

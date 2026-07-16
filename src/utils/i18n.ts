@@ -56,6 +56,39 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.data-engineering': { en: 'Data Engineering', es: 'Ingeniería de Datos' },
   'category.all': { en: 'All', es: 'Todos' },
 
+  // Families (the 6 top-level groupings on the portfolio)
+  'family.all': { en: 'All', es: 'Todo' },
+  'family.faena': { en: 'Faena · Mining Analytics', es: 'Faena · Analítica Minera' },
+  'family.faena.blurb': {
+    en: 'A hub of browser-native mining apps: comminution, dispatch, geology, geotechnics and prognostics, each with an offline precompute lane and an honest results ledger.',
+    es: 'Un hub de apps mineras nativas del navegador: conminución, despacho, geología, geotecnia y pronóstico, cada una con un lane de precómputo offline y un registro honesto de resultados.',
+  },
+  'family.labs': { en: 'Research Labs', es: 'Laboratorios de Investigación' },
+  'family.labs.blurb': {
+    en: 'Runnable catalogues that explore a method family end to end: what it is, where it applies, and where it fails, with real datasets and published negative results.',
+    es: 'Catálogos ejecutables que exploran una familia de métodos de punta a punta: qué es, dónde aplica y dónde falla, con datos reales y resultados negativos publicados.',
+  },
+  'family.platforms': { en: 'Platforms & Products', es: 'Plataformas y Productos' },
+  'family.platforms.blurb': {
+    en: 'Standalone products and platforms: data observatories, forecasting, audio and 3D tooling, and mobile apps.',
+    es: 'Productos y plataformas independientes: observatorios de datos, pronóstico, herramientas de audio y 3D, y apps móviles.',
+  },
+  'family.agentic': { en: 'Agentic AI', es: 'IA Agéntica' },
+  'family.agentic.blurb': {
+    en: 'Agent-based decision-support systems for industrial operations, on a mock service boundary until wired to real backends.',
+    es: 'Sistemas de apoyo a la decisión basados en agentes para operaciones industriales, sobre un borde de servicio mock hasta conectarse a backends reales.',
+  },
+  'family.optics': { en: 'Optical & Imaging Science', es: 'Óptica e Imagenología' },
+  'family.optics.blurb': {
+    en: 'Research from the optics, microscopy and spectral-imaging work: super-resolution, holographic tweezers, hyperspectral geometallurgy, haptics and accessibility.',
+    es: 'Investigación desde el trabajo en óptica, microscopía e imagen espectral: superresolución, pinzas holográficas, geometalurgia hiperespectral, háptica y accesibilidad.',
+  },
+  'family.industry': { en: 'Industry (proprietary)', es: 'Industria (propietario)' },
+  'family.industry.blurb': {
+    en: 'Delivered for industrial clients under confidentiality: general description and a schematic only, no client data.',
+    es: 'Entregado a clientes industriales bajo confidencialidad: solo descripción general y un esquema, sin datos del cliente.',
+  },
+
   // Sections
   'section.kpis': { en: 'Key Performance Indicators', es: 'Indicadores Clave de Rendimiento' },
   'section.architecture': { en: 'System Architecture', es: 'Arquitectura del Sistema' },

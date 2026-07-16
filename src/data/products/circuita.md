@@ -4,6 +4,7 @@ titleEs: 'Circuita — Motor Estocástico de Trazabilidad Mineral y Consola'
 slug: circuita
 date: 2026-06-08
 category: mining-optimization
+family: agentic
 excerpt: 'A private analysis console built on a stochastic cellular-automaton engine that tracks material through a processing circuit. It produces fan, balance, delta and inventory views per pile and exports a self-contained, bilingual report with inline-SVG charts.'
 excerptEs: 'Una consola de análisis privada construida sobre un motor de autómata celular estocástico que rastrea material a través de un circuito de procesamiento. Produce vistas de abanico, balance, delta e inventario por pila y exporta un reporte autocontenido y bilingüe con gráficos SVG embebidos.'
 icon: tabler:circuit-changeover

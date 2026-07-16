@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="CoreLog Vision: synthetic core trays classified by a colour baseline and a lithology CNN with Mahalanobis out-of-distribution flagging into a depth strip log">
+  <defs>
+    <linearGradient id="clbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#clbg)"/>
+  <text x="32" y="46" class="t" font-size="22">CoreLog Vision</text>
+  <text x="32" y="68" class="m">Browser-native drill-core logging · 6-lithology CNN + OOD flagging on synthetic trays, real DCID photos as eval</text>
+
+  <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">CORE TRAYS</text>
+  <rect x="48" y="138" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">8 synthetic cases</text><text x="60" y="178" class="m">procedural textures · train + score</text>
+  <rect x="48" y="206" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="228" class="t" font-size="12">real DCID-7 photos</text><text x="60" y="246" class="m">21 patches · eval only (CC BY-NC)</text>
+  <rect x="48" y="274" width="152" height="56" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="296" class="t" font-size="12">grouped-by-hole</text><text x="60" y="314" class="m">14 train / 4 test holes</text>
+
+  <path d="M216 222 H252" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="258" y="104" width="268" height="112" rx="9" class="box"/>
+  <text x="274" y="128" class="t" font-size="13">Method ladder</text>
+  <text x="274" y="150" class="m">colour/texture baseline classifier</text>
+  <text x="274" y="170" class="m">run-merge segmentation (emergent)</text>
+  <text x="274" y="190" class="m">lithology CNN, 6-class + 64-d feature</text>
+  <text x="274" y="208" class="m">real DCID head (MobileNetV3-Small)</text>
+
+  <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
+  <text x="274" y="252" class="a" font-size="13">OOD detection <tspan class="m">(ONNX)</tspan></text>
+  <text x="274" y="274" class="m">Mahalanobis in 64-d CNN space (shipped)</text>
+  <text x="274" y="294" class="m">AUROC 0.9463, replacing a pixel AE</text>
+  <text x="274" y="314" class="m">AE scored 0.308, worse than chance</text>
+  <text x="274" y="330" class="m">9 detectors benchmarked on one split</text>
+
+  <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="230" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">DEPTH STRIP LOG</text>
+  <rect x="592" y="146" width="26" height="170" rx="3" fill="#0d1117" stroke="#30363d"/>
+  <rect x="592" y="146" width="26" height="40" fill="#29B6F6" opacity="0.55"/>
+  <rect x="592" y="186" width="26" height="30" fill="#8b949e" opacity="0.45"/>
+  <rect x="592" y="216" width="26" height="52" fill="#29B6F6" opacity="0.35"/>
+  <rect x="592" y="268" width="26" height="48" fill="#8b949e" opacity="0.6"/>
+  <text x="632" y="166" class="t" font-size="12">lithology + depth</text>
+  <text x="632" y="186" class="m">confidence shading</text>
+  <text x="632" y="212" class="t" font-size="12">CNN acc 0.994</text>
+  <text x="632" y="232" class="m">vs 0.9286 baseline</text>
+  <text x="632" y="256" class="m">(synthetic-vs-synthetic)</text>
+  <text x="632" y="284" class="t" font-size="12">real head top-1 0.9916</text>
+  <text x="632" y="304" class="m">null collapses to chance</text>
+
+  <text x="32" y="384" class="m">Honest: 0.994 is synthetic-vs-synthetic, not real-core accuracy · no in-app upload · DCID has no schist/ore · static Pages</text>
+</svg>
