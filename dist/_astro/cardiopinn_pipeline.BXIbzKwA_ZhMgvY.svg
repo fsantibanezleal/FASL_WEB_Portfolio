@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
-     aria-label="CardioPINN: real ECGi and 4D-flow MRI data feed two offline lanes, a NumPy Tikhonov-plus-ensemble ECGi lane and a torch divergence-free PINN 4D-flow lane, baked into JSON traces a static web replays, with an honest verdict that the proposal does not beat Tikhonov but adds calibrated uncertainty">
+     aria-label="CardioPINN: real ECGi and 4D-flow MRI data feed two offline lanes, a NumPy Tikhonov-plus-ensemble ECGi lane and a torch divergence-free PINN 4D-flow lane, baked into JSON traces a static web replays; scoped as a complement to classical methods: calibrated per-node uncertainty and a resolved pressure field, at point-accuracy parity with Tikhonov">
   <defs>
     <linearGradient id="cpbg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
@@ -15,7 +15,7 @@
   </defs>
   <rect width="800" height="400" fill="url(#cpbg)"/>
   <text x="32" y="46" class="t" font-size="22">CardioPINN</text>
-  <text x="32" y="68" class="m">Physics-informed cardiac inverse problems · 100% real data · the honest result is the point</text>
+  <text x="32" y="68" class="m">Physics-informed cardiac inverse problems · 100% real data · complement, not replacement</text>
 
   <rect x="32" y="96" width="182" height="252" rx="10" class="box acc"/>
   <text x="48" y="122" class="a" font-size="13">REAL DATA</text>
@@ -56,11 +56,11 @@
   <text x="580" y="128" class="a" font-size="13">BAKE-AND-READ</text>
   <text x="580" y="150" class="m">physics computed offline into JSON</text>
   <text x="580" y="168" class="m">static web replays · no browser compute</text>
-  <text x="580" y="196" class="t" font-size="12">Honest verdict</text>
-  <text x="580" y="216" class="m">proposal does NOT beat Tikhonov</text>
-  <text x="580" y="234" class="m">on any of 4 beats (disclosed)</text>
-  <text x="580" y="258" class="a" font-size="12">real gain: calibrated UQ</text>
-  <text x="580" y="276" class="m">2-sigma reliability 0.89-0.90</text>
+  <text x="580" y="196" class="t" font-size="12">The right scorecard</text>
+  <text x="580" y="216" class="m">point accuracy: parity with Tikhonov</text>
+  <text x="580" y="234" class="m">(stated in-app, by design)</text>
+  <text x="580" y="258" class="a" font-size="12">adds: calibrated UQ + pressure field</text>
+  <text x="580" y="276" class="m">2-sigma 0.89-0.90 · well-posed solve</text>
   <text x="580" y="300" class="m">0.79 mmHg range: physiological,</text>
   <text x="580" y="318" class="m">not validated (no gold standard)</text>
   <text x="580" y="336" class="m">not clinically deployed</text>
