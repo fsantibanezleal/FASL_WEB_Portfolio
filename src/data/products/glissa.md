@@ -4,6 +4,7 @@ titleEs: 'Glissa — Instrumento Expresivo de Glissando'
 slug: glissa
 date: 2026-06-15
 category: mobile-apps
+family: platforms
 excerpt: 'A private mobile musical instrument whose signature is continuous glissando — slide smoothly between notes with Keys, Glide and Auto modes — backed by an FX rack, instrument morphing, sampled packs, and a Pro tier with cloud sync.'
 excerptEs: 'Un instrumento musical móvil privado cuya firma es el glissando continuo — deslízate suavemente entre notas con modos Keys, Glide y Auto — respaldado por un rack de efectos, morphing de instrumentos, packs muestreados y un nivel Pro con sincronización en la nube.'
 icon: tabler:music

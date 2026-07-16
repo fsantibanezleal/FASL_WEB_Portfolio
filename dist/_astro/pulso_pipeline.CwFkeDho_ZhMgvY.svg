@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="Pulso: pressure-transient curves clustered by DTW k-medoids with Warren-Root physics and RF/SHAP attribution into fracture-behaviour GeoTypes">
+  <defs>
+    <linearGradient id="plbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}
+      .acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#plbg)"/>
+  <text x="32" y="46" class="t" font-size="22">Pulso</text>
+  <text x="32" y="68" class="m">GeoType catalogue for fractured reservoirs · pressure-transient curve-shape clustering + attribution</text>
+
+  <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
+  <text x="48" y="122" class="a" font-size="13">PRESSURE-TRANSIENT</text>
+  <rect x="48" y="138" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="160" class="t" font-size="12">real 4TU corpus</text><text x="60" y="178" class="m">~4768 Bourdet curves (GPL-3)</text>
+  <rect x="48" y="206" width="152" height="60" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="228" class="t" font-size="12">2 real field sites</text><text x="60" y="246" class="m">welltestpy pumping tests</text>
+  <rect x="48" y="274" width="152" height="56" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <text x="60" y="296" class="t" font-size="12">DFN + Warren-Root</text><text x="60" y="314" class="m">22 baked cases total</text>
+
+  <path d="M216 222 H252" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="258" y="104" width="268" height="112" rx="9" class="box"/>
+  <text x="274" y="128" class="t" font-size="13">Physics + clustering</text>
+  <text x="274" y="150" class="m">Bourdet derivative</text>
+  <text x="274" y="170" class="m">Warren-Root dual-porosity (Stehfest)</text>
+  <text x="274" y="190" class="m">DTW k-medoids + MDS embedding</text>
+  <text x="274" y="208" class="m">RF + SHAP + permutation attribution</text>
+
+  <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
+  <text x="274" y="252" class="a" font-size="13">Learned tier <tspan class="m">(4 ONNX)</tspan></text>
+  <text x="274" y="274" class="m">InceptionTime · PatchTST</text>
+  <text x="274" y="294" class="m">curve autoencoder + embedding</text>
+  <text x="274" y="314" class="m">conformal prediction on a user curve</text>
+  <text x="274" y="330" class="m">DARTS analytic gate: rel-L2 0.0108</text>
+
+  <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="564" y="104" width="204" height="230" rx="10" class="box acc"/>
+  <text x="580" y="128" class="a" font-size="13">REGIME CLUSTERS</text>
+  <circle cx="608" cy="168" r="5" fill="#29B6F6"/><circle cx="624" cy="160" r="5" fill="#29B6F6"/>
+  <circle cx="620" cy="182" r="5" fill="#29B6F6"/><circle cx="640" cy="176" r="5" fill="#29B6F6"/>
+  <circle cx="702" cy="200" r="5" fill="#8b949e"/><circle cx="720" cy="192" r="5" fill="#8b949e"/>
+  <circle cx="712" cy="214" r="5" fill="#8b949e"/>
+  <text x="580" y="242" class="t" font-size="12">GeoTypes + attribution</text>
+  <text x="580" y="262" class="m">silhouette 0.72 / 0.86 (real A/B)</text>
+  <text x="580" y="282" class="m">vs 0.137 single-regime control</text>
+  <text x="580" y="304" class="m">InceptionTime 0.911 test acc</text>
+  <text x="580" y="324" class="m">(vs cluster labels, not truth)</text>
+
+  <text x="32" y="384" class="m">Honest: aquifer transfer is shape-diagnostic only (T/S unknown) · 4 ONNX models ship · field attribution skipped at n=8 · static Pages</text>
+</svg>

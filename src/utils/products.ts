@@ -37,8 +37,11 @@ const CATEGORY_TO_FAMILY: Record<string, Family> = {
 };
 
 export function familyOf(data: { family?: string; category: string; proprietary?: boolean }): Family {
-  if (data.proprietary) return 'industry';
+  // Explicit family wins (so a private product of Felipe's own — e.g. an agentic system or a
+  // mobile app — groups by what it IS, keeping its lock badge). A proprietary product with no
+  // explicit family is client-confidential work (Codelco / Omega) and goes to `industry`.
   if (data.family && FAMILY_ORDER.includes(data.family as Family)) return data.family as Family;
+  if (data.proprietary) return 'industry';
   return CATEGORY_TO_FAMILY[data.category] ?? 'platforms';
 }
 

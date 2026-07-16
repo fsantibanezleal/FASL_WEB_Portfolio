@@ -4,6 +4,7 @@ titleEs: 'Veta — Soporte de Decisión Agéntico para Trazabilidad Mineral'
 slug: veta
 date: 2026-06-10
 category: mining-optimization
+family: agentic
 excerpt: 'A private decision-support system that turns a natural-language question (typed or spoken) about a mineral-processing operation into a traceable, evidence-backed answer — a multi-stage agent pipeline routes the query to tiered solvers and grounds every recommendation in plant data with RAG.'
 excerptEs: 'Un sistema privado de soporte a la decisión que convierte una pregunta en lenguaje natural (escrita o hablada) sobre una operación de procesamiento mineral en una respuesta trazable y respaldada por evidencia — un pipeline de agentes enruta la consulta a solvers por niveles y fundamenta cada recomendación en datos de planta con RAG.'
 icon: tabler:pick
