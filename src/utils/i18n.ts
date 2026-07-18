@@ -52,6 +52,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.predictive-maintenance': { en: 'Predictive Maintenance', es: 'Mantenimiento Predictivo' },
   'category.quantum-computing': { en: 'Quantum Computing', es: 'Computación Cuántica' },
   'category.scientific-ml': { en: 'Scientific Machine Learning', es: 'Machine Learning Científico' },
+  'category.image-representation': { en: 'Image Representation', es: 'Representación de Imágenes' },
   'category.mining-analytics': { en: 'Mining Analytics', es: 'Analítica Minera' },
   'category.data-engineering': { en: 'Data Engineering', es: 'Ingeniería de Datos' },
   'category.all': { en: 'All', es: 'Todos' },
