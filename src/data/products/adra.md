@@ -2,7 +2,7 @@
 title: 'ADRA — Adversarial Dev Review Agent'
 titleEs: 'ADRA — Agente de Revisión de Desarrollo Adversarial'
 slug: adra
-date: 2026-07-15
+date: 2026-07-16
 category: agentic-ai
 family: agentic
 excerpt: 'A deterministic-first, adversarial-validation engine for the software lifecycle. Deterministic tools (git, the exact CI command, bundle validation, a language/leak scan, SQL probes) run FIRST and become both the grounding the model may not contradict and the evidence in an immutable provenance log; a blocking adversarial critic tries to refute each artifact instead of blessing it, an LLM-as-judge scores with swap-and-average, and the loop escalates to a human where nothing deterministic backs the verdict. Six skills (code review, PR eval, experiment, improve, document, decide) run the same loop. Runs offline with no API key; published on PyPI as adra.'

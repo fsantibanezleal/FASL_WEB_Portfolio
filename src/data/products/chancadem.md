@@ -2,7 +2,7 @@
 title: 'ChancaDEM — Crusher-Comminution Studio (Population-Balance Engine)'
 titleEs: 'ChancaDEM — Estudio de Chancado y Conminución (Motor de Balance Poblacional)'
 slug: chancadem
-date: 2026-07-15
+date: 2026-07-09
 category: mining-optimization
 family: faena
 excerpt: 'An in-browser crusher-comminution studio: you set the machine, closed-side setting, eccentric throw and speed and the feed gradation, and a pure-TypeScript closed-form engine (Whiten population balance + Evertsson capacity + Bond power) computes the product gradation, throughput and power in sub-millisecond. Despite the name it does NOT run DEM: the 3D chamber is a kinematic animation. The secondary-cone lane is calibrated against 10 published HP500 surveys (Rocha et al. 2024), with a leave-one-out cross-validation that includes negative controls.'

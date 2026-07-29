@@ -2,7 +2,7 @@
 title: 'SymLab — Symbolic Regression Lab (Accuracy and Recovery, Reported Separately)'
 titleEs: 'SymLab — Laboratorio de Regresión Simbólica (Exactitud y Recuperación, Reportadas por Separado)'
 slug: symlab
-date: 2026-07-16
+date: 2026-07-28
 category: scientific-ml
 family: labs
 excerpt: 'A public research lab on symbolic regression: recovering an explicit closed-form expression from data, rather than fitting a predictor nobody can read. Its reason to exist is one honest measurement: accuracy and structural recovery are different claims, and a method can clear R2 above 0.999 while returning a structure with nothing in common with the law that generated the data. SymLab reports the two separately, on every case, and never averages them into one number. It runs multiple search families (genetic programming with linear scaling and deduplication, sparse regression) at published budgets, live in the browser, on benchmark laws where the true expression is known.'

@@ -2,7 +2,7 @@
 title: 'CardioPINN — Physics-Informed Cardiac Inverse-Problem Lab'
 titleEs: 'CardioPINN — Laboratorio de Problemas Inversos Cardiacos con Física Informada'
 slug: cardiopinn
-date: 2026-07-15
+date: 2026-07-14
 category: scientific-ml
 family: labs
 excerpt: 'A two-case lab in physics-informed cardiac reconstruction, on 100% real measured data, scoped as a complement to classical methods, not a replacement. Case 1 (ECGi) recovers heart-surface potentials from body-surface potentials with regularized least squares plus a graph prior and a deep ensemble; case 2 (4D-flow) recovers the aortic relative-pressure FIELD from MRI velocity with a genuine divergence-free PINN. What the physics adds is what the classical method cannot give: calibrated per-node uncertainty (2-sigma coverage ~0.90) and a resolved pressure field from a well-posed solve, a different output class than a one-number Bernoulli estimate. Point accuracy sits at parity with a well-tuned Tikhonov baseline, stated in-app, because replacing classical accuracy was never the goal. Two confirmed, CI-tested autograd advances (spatial and temporal) and three published null results.'

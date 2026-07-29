@@ -2,7 +2,7 @@
 title: 'Fisura — Materials-Damage Vision Lab (Crack Detection to Engineering Units)'
 titleEs: 'Fisura — Laboratorio de Visión de Daño en Materiales (De la Grieta a Unidades de Ingeniería)'
 slug: fisura
-date: 2026-07-16
+date: 2026-07-26
 category: computer-vision
 family: labs
 excerpt: 'A public research lab on seeing damage in built materials. One image of a concrete wall, pavement, masonry facade or industrial surface goes in; Fisura detects the damage (cracks, spalling, surface defects), quantifies it in engineering units (width, length, orientation, density, growth between inspections), and shows how every method family gets there on the same open cases with the same metrics. The ladder runs classical pipelines, learned SOTA segmentation, promptable foundation models and unsupervised anomaly detection, then measurement (pixel-to-mm calibrated width/length, change detection, 2D digital image correlation). Masks are never the end result: they are the input to engineering numbers. Offline heavy lane plus a browser live lane where the photo never leaves the device. Honest: it is a method-comparison lab, not a certified inspection tool, and the classical engine is real while the higher tiers land one vertical slice at a time.'

@@ -2,7 +2,7 @@
 title: 'PitForge — Exact Ultimate Pit Limit & Nested Whittle Pit-Shell Workbench'
 titleEs: 'PitForge — Banco de Trabajo de Pit Final Exacto y Cascaras de Pit Whittle Anidadas'
 slug: pitforge
-date: 2026-07-15
+date: 2026-07-05
 category: mining-optimization
 family: faena
 excerpt: 'An open-pit mine-design workbench that solves the ultimate pit limit exactly, as a maximum-weight closure of the block-precedence graph reduced to a minimum cut on a Dinic max-flow engine, running live in the browser, and derives the nested Whittle pit shells by revenue factor. It reproduces the published optima of three real MineLib instances to at most 2e-9 relative error, and self-checks every solve with the max-flow duality identity. This is the only one of the Faena four whose headline is validated against third-party published optima rather than its own generator.'

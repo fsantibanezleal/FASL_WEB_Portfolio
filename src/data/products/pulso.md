@@ -2,7 +2,7 @@
 title: 'Pulso — Well-Test Diagnostic-Curve Shape Clustering and Attribution'
 titleEs: 'Pulso — Agrupamiento y Atribución de Forma de Curvas Diagnósticas de Well-Test'
 slug: pulso
-date: 2026-07-15
+date: 2026-07-11
 category: scientific-ml
 family: labs
 excerpt: 'An unsupervised catalogue of flow-behaviour classes ("GeoTypes") for fractured reservoirs: it clusters the SHAPE of pressure-transient Bourdet-derivative curves with DTW k-medoids, attributes each class to the fracture-network descriptors that control it (Random Forest + SHAP), and ships a browser workbench that classifies a user curve against the baked medoids with conformal prediction. It reproduces and extends Kamel Targhi et al. 2026 (Comp. Geosciences 30, 57) on a real 4TU corpus (~4768 curves), then transfers the same shape diagnostic to two real aquifer pumping-test sites, with an explicit caveat that the shape transfers but the physics does not.'

@@ -2,7 +2,7 @@
 title: 'TailWatch — InSAR Ground-Deformation Studio for Tailings Dams & Slopes'
 titleEs: 'TailWatch — Estudio de Deformación de Terreno con InSAR para Tranques de Relaves y Taludes'
 slug: tailwatch
-date: 2026-07-15
+date: 2026-07-08
 category: geotechnical
 family: faena
 excerpt: 'An in-browser InSAR ground-deformation studio for tailings dams and slopes. It renders a multi-temporal LOS-displacement cube (velocity, coherence, cumulative series) and runs classical velocity and inverse-velocity failure forecasting plus two small neural nets over it. Five cases are physics-simulated from a forward model; one is a real Sentinel-1 sample. Honest by design: on the held-out benchmark the classical velocity map (AUC 0.968) beats the learned anomaly autoencoder (AUC 0.898), and the app says so.'
