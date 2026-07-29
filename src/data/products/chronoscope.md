@@ -2,7 +2,7 @@
 title: 'ChronoScope — Univariate Forecasting Atlas with a Foundation-Model Tier'
 titleEs: 'ChronoScope — Atlas de Pronóstico Univariado con una Capa de Modelos Fundacionales'
 slug: chronoscope
-date: 2026-07-15
+date: 2026-07-10
 category: scientific-ml
 family: labs
 excerpt: 'A univariate time-series forecasting atlas: 15 diagnostic cases (4 real, licensed + 11 seeded synthetic), each forecast by the same 19-method ladder with backtested MASE/sMAPE/coverage, from classical baselines through ML and deep nets to four zero-shot foundation models (Chronos-Bolt, Chronos-2, TimesFM-2.5, TiRex-2). A 10-module statistical analysis suite runs alongside. Everything is baked offline and replayed in a static SPA; a Pyodide live lane forecasts a bring-your-own-series with a numpy core. Honest by design: the foundation models are offline-only, and on real M4-hourly a plain SeasonalNaive beats TimesFM-2.5.'

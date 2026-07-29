@@ -2,7 +2,7 @@
 title: 'GeoLab — Browser-Native Multi-Engine Geospatial Tool Platform'
 titleEs: 'GeoLab — Plataforma Geoespacial Multi-Motor Nativa del Navegador'
 slug: geolab
-date: 2026-07-16
+date: 2026-07-24
 category: data-engineering
 family: labs
 excerpt: 'A browser-native, no-install geospatial platform: load a DEM, GeoTIFF, vector or point cloud (a bundled sample or your own file), run real geoprocessing tools, chain them into reproducible pipelines, and explore the result on a map or 3D canvas, entirely in your browser. No server, no Python, no GDAL install, and your data never leaves your machine. Today it runs 747 real WhiteboxTools / GeoLibre tools client-side via the geolibre WASM engine; the architecture (ADR-0059) is multi-engine by design, aggregating GDAL, GEOS, Turf, H3, mapshaper, ITK-Wasm, OpenCV.js and ONNX behind one uniform tool interface as adapters land incrementally. Every tool shows its source engine, authors and license, and the tool count is only what genuinely runs, never padded.'

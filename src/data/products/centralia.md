@@ -2,7 +2,7 @@
 title: 'CentralIA — Initiative-Management Console over a Version-Control Provider'
 titleEs: 'CentralIA — Consola de Gestión de Iniciativas sobre un Proveedor de Control de Versiones'
 slug: centralia
-date: 2026-07-16
+date: 2026-07-21
 category: data-engineering
 family: platforms
 excerpt: 'A connection-first web console that connects to a version-control provider (GitHub, GitLab, or an offline emulator), reads a management repo through its structure map, and renders a whole portfolio of repo-mapped initiatives: a filterable grid, per-initiative 5-axis status (development, design, implementation, deployment, value), implementation backlog, live open issues, plans, findings and history, plus a hub drill-down with a growth graph showing how a suite of components knits together through consumes edges. It is a real tool, not a mockup: the connectors are genuinely implemented and the offline emulator is a self-contained backend with a bundled fake management repo. The access token lives in the server environment, never the browser or a database, and a server-side anonymize toggle redacts client info for screen-sharing.'

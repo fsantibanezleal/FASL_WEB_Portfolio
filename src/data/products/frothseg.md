@@ -2,7 +2,7 @@
 title: 'FrothSeg — Flotation-Froth Instance Segmentation Lab (Browser ML)'
 titleEs: 'FrothSeg — Laboratorio de Segmentación de Instancias de Espuma de Flotación (ML en el Navegador)'
 slug: frothseg
-date: 2026-07-16
+date: 2026-07-23
 category: computer-vision
 family: faena
 excerpt: 'A browser-native lab for instance segmentation of flotation froth: it delineates individual bubbles in a froth image, entirely client-side via ONNX, and compares a ladder of seven classical methods against a real published research model. That model, LamellaStar, is a four-head net shipped as a three-seed logit-mean ensemble (N1: mean AP 0.5186, AP50 0.8279, PQ 0.7359), with SAM2 and Cellpose-SAM as offline teachers and a distilled mask head for the browser. The honest core is the data situation, stated openly: no real froth images exist publicly (the search is recorded as a null, Roboflow dropped), so the froth cases are synthetic and BBBC038 (64 real dense-touching images, CC0) serves as an adjacent-domain transfer lane that the lab explicitly says does NOT clear the froth blocker. The study even refuted its own hypothesis: the froth ranking is generator-specific and the model drops on real transfer.'

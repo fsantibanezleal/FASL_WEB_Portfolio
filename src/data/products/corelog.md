@@ -2,7 +2,7 @@
 title: 'CoreLog Vision — Drill-Core Logging & Lithology Classification Workbench'
 titleEs: 'CoreLog Vision — Banco de Trabajo de Logueo de Testigos y Clasificación Litológica'
 slug: corelog
-date: 2026-07-15
+date: 2026-07-04
 category: mining-analytics
 family: faena
 excerpt: 'A browser-native drill-core logging workbench: it classifies sliding windows along core-tray channels into six lithologies with a CNN, merges adjacent same-class patches into a depth-stitched strip log with confidence shading, and flags out-of-distribution core with a Mahalanobis detector instead of forcing a class. It runs on procedurally synthetic trays, with a real-photo lane (DCID) used strictly as the out-of-distribution and real-head evaluation set. Honest by design: the CNN accuracy is synthetic-vs-synthetic, a label-permutation control collapses to chance, and the shipped detector is named for what it is.'
