@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="SymLab: data runs through genetic-programming and sparse-regression search families on known-law cases, and accuracy (R2) and structural recovery are reported as two separate columns, never averaged">
+  <defs>
+    <linearGradient id="slbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="slar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}
+      .warn{fill:#e0a030}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#slbg)"/>
+  <text x="32" y="44" class="t" font-size="22">SymLab</text>
+  <text x="32" y="66" class="m">Symbolic regression · accuracy and recovery are different claims, reported separately, never averaged</text>
+
+  <rect x="32" y="96" width="150" height="150" rx="10" class="box acc"/>
+  <text x="46" y="120" class="a" font-size="13">DATA</text>
+  <text x="46" y="144" class="t" font-size="12">Known-law cases</text>
+  <text x="46" y="162" class="m">e.g. the Feynman set</text>
+  <text x="46" y="184" class="m">true expression known,</text>
+  <text x="46" y="200" class="m">so recovery is scored</text>
+  <text x="46" y="216" class="m">exactly (edit distance)</text>
+
+  <path d="M182 171 H214" class="acc" fill="none" stroke-width="2" marker-end="url(#slar)"/>
+
+  <rect x="214" y="96" width="210" height="150" rx="10" class="box"/>
+  <text x="230" y="120" class="a" font-size="13">SEARCH FAMILIES</text>
+  <rect x="230" y="132" width="178" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="150" class="t" font-size="12">Genetic programming</text>
+  <text x="242" y="166" class="m">Koza · +linear scaling · +dedup</text>
+  <rect x="230" y="182" width="178" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="200" class="t" font-size="12">Sparse regression (non-GP)</text>
+  <text x="242" y="216" class="m">library of candidate terms</text>
+
+  <path d="M424 171 H456" class="acc" fill="none" stroke-width="2" marker-end="url(#slar)"/>
+
+  <rect x="456" y="96" width="312" height="150" rx="10" class="box"/>
+  <text x="472" y="120" class="a" font-size="13">TWO COLUMNS, NEVER ONE NUMBER</text>
+  <text x="472" y="146" class="t" font-size="12">Accuracy (R2 on test)</text>
+  <text x="472" y="164" class="m">how well it fits</text>
+  <text x="472" y="190" class="t" font-size="12">Structural recovery</text>
+  <text x="472" y="208" class="m">did it return the true law? (yes/no)</text>
+  <text x="472" y="232" class="warn" font-size="11">these disagree constantly</text>
+
+  <rect x="32" y="270" width="736" height="66" rx="10" class="box acc"/>
+  <text x="46" y="292" class="a" font-size="13">HEADLINE: Feynman Gaussian</text>
+  <text x="46" y="314" class="t" font-size="12">sparse regression: R2 = 1 - 1.8e-09 in ~0 s</text>
+  <text x="360" y="314" class="warn" font-size="12">recovered = NO</text>
+  <text x="520" y="314" class="m">no GP configuration recovers it either</text>
+  <text x="46" y="330" class="m">a near-perfect fit, the wrong structure. Every accuracy-only benchmark scores this as solved.</text>
+
+  <text x="32" y="366" class="m">Runs live in the browser at published budgets. Accuracy tells you it fits; recovery tells you it found the law. Both, always.</text>
+</svg>

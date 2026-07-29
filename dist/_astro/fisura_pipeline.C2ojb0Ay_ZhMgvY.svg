@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="Fisura: one surface image runs a method ladder (classical pipeline, learned SOTA segmentation, foundation models, anomaly detection) then a measurement layer turns masks into calibrated engineering numbers">
+  <defs>
+    <linearGradient id="fzbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="fzar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#fzbg)"/>
+  <text x="32" y="44" class="t" font-size="22">Fisura</text>
+  <text x="32" y="66" class="m">Materials-damage vision · one image in · engineering numbers out · classical to foundation ladder</text>
+
+  <rect x="32" y="92" width="150" height="120" rx="10" class="box acc"/>
+  <text x="46" y="116" class="a" font-size="13">INPUT</text>
+  <text x="46" y="140" class="t" font-size="12">One surface image</text>
+  <text x="46" y="158" class="m">concrete · pavement</text>
+  <text x="46" y="174" class="m">masonry · industrial</text>
+  <text x="46" y="196" class="m">live lane: never leaves</text>
+
+  <path d="M182 152 H214" class="acc" fill="none" stroke-width="2" marker-end="url(#fzar)"/>
+
+  <rect x="214" y="80" width="228" height="240" rx="10" class="box"/>
+  <text x="230" y="104" class="a" font-size="13">METHOD LADDER (same cases, same metrics)</text>
+  <rect x="230" y="116" width="196" height="40" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="134" class="t" font-size="12">Classical pipeline S0-S8</text>
+  <text x="242" y="149" class="m">ridge filters · morphology · skeleton</text>
+  <rect x="230" y="162" width="196" height="40" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="180" class="t" font-size="12">Learned SOTA</text>
+  <text x="242" y="195" class="m">enc-dec + transformer segmentation</text>
+  <rect x="230" y="208" width="196" height="40" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="226" class="t" font-size="12">Beyond SOTA</text>
+  <text x="242" y="241" class="m">foundation models · anomaly detection</text>
+  <rect x="230" y="254" width="196" height="52" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="272" class="t" font-size="12">Honest scoring</text>
+  <text x="242" y="287" class="m">accuracy AND measurement,</text>
+  <text x="242" y="300" class="m">reported separately</text>
+
+  <path d="M442 200 H474" class="acc" fill="none" stroke-width="2" marker-end="url(#fzar)"/>
+
+  <rect x="474" y="92" width="150" height="216" rx="10" class="box"/>
+  <text x="488" y="116" class="a" font-size="13">MEASUREMENT</text>
+  <text x="488" y="140" class="t" font-size="12">Masks to numbers</text>
+  <text x="488" y="160" class="m">pixel-to-mm width/length</text>
+  <text x="488" y="178" class="m">orientation · density</text>
+  <text x="488" y="196" class="m">change between epochs</text>
+  <text x="488" y="214" class="m">2D digital image correlation</text>
+  <text x="488" y="240" class="a" font-size="12">severity: documented</text>
+  <text x="488" y="256" class="m">context, not advice</text>
+
+  <path d="M624 200 H656" class="acc" fill="none" stroke-width="2" marker-end="url(#fzar)"/>
+
+  <rect x="656" y="120" width="118" height="160" rx="10" class="box acc"/>
+  <text x="670" y="144" class="a" font-size="13">OUTPUT</text>
+  <text x="670" y="168" class="t" font-size="12">Engineering</text>
+  <text x="670" y="184" class="t" font-size="12">numbers</text>
+  <text x="670" y="208" class="m">not a mask;</text>
+  <text x="670" y="224" class="m">a defensible</text>
+  <text x="670" y="240" class="m">measurement</text>
+
+  <text x="32" y="356" class="m">Reproducible offline pipeline + static replay over audited artifacts + client-side browser live lane. A method-comparison</text>
+  <text x="32" y="374" class="m">research lab, NOT a certified inspection tool. Dataset-honest: full open data outside the repo. Under active build-out.</text>
+</svg>
