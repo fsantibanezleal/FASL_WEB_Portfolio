@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="FrothSeg: a froth image runs a ladder of seven classical methods and a learned LamellaStar ensemble (SAM2 and Cellpose-SAM teachers, distilled browser head) to per-bubble instances, with an honest data note that no real froth data exists and BBBC038 is only an adjacent-domain transfer probe">
+  <defs>
+    <linearGradient id="fsbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="fsar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}.warn{fill:#e0a030}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#fsbg)"/>
+  <text x="32" y="44" class="t" font-size="22">FrothSeg</text>
+  <text x="32" y="66" class="m">Flotation-froth instance segmentation · client-side ONNX · a real model and an honest data null</text>
+
+  <rect x="32" y="92" width="150" height="150" rx="10" class="box acc"/>
+  <text x="46" y="116" class="a" font-size="13">INPUT</text>
+  <text x="46" y="140" class="t" font-size="12">Froth image</text>
+  <text x="46" y="158" class="m">dense, touching,</text>
+  <text x="46" y="174" class="m">translucent bubbles</text>
+  <text x="46" y="200" class="m">synthetic cases</text>
+  <text x="46" y="216" class="warn" font-size="11">no real froth data exists</text>
+
+  <path d="M182 167 H214" class="acc" fill="none" stroke-width="2" marker-end="url(#fsar)"/>
+
+  <rect x="214" y="80" width="226" height="240" rx="10" class="box"/>
+  <text x="230" y="104" class="a" font-size="13">TWO TIERS, SAME CASES</text>
+  <rect x="230" y="116" width="194" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="134" class="t" font-size="12">7 classical methods</text>
+  <text x="242" y="150" class="m">watershed + morphology delineators</text>
+  <rect x="230" y="166" width="194" height="60" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="184" class="t" font-size="12">LamellaStar (learned)</text>
+  <text x="242" y="199" class="m">4-head net, 3-seed logit-mean ensemble</text>
+  <text x="242" y="214" class="m">SAM2 + Cellpose-SAM teachers</text>
+  <rect x="230" y="232" width="194" height="40" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="250" class="t" font-size="12">Distilled mask head</text>
+  <text x="242" y="265" class="m">compact, runs in the browser</text>
+  <text x="230" y="296" class="a" font-size="12">N1: mean AP 0.5186 · AP50 0.8279 · PQ 0.7359</text>
+
+  <path d="M440 200 H472" class="acc" fill="none" stroke-width="2" marker-end="url(#fsar)"/>
+
+  <rect x="472" y="92" width="150" height="150" rx="10" class="box"/>
+  <text x="486" y="116" class="a" font-size="13">OUTPUT</text>
+  <text x="486" y="140" class="t" font-size="12">Per-bubble instances</text>
+  <text x="486" y="160" class="m">masks + panoptic quality</text>
+  <text x="486" y="184" class="m">the front end for</text>
+  <text x="486" y="200" class="m">bubble-size + load</text>
+  <text x="486" y="216" class="m">analytics</text>
+
+  <rect x="636" y="92" width="132" height="150" rx="10" class="box acc"/>
+  <text x="650" y="116" class="a" font-size="12">REAL TRANSFER</text>
+  <text x="650" y="138" class="m">BBBC038 (CC0)</text>
+  <text x="650" y="154" class="m">64 real dense-</text>
+  <text x="650" y="170" class="m">touching images</text>
+  <text x="650" y="192" class="warn" font-size="11">adjacent domain:</text>
+  <text x="650" y="208" class="warn" font-size="11">does NOT clear</text>
+  <text x="650" y="224" class="warn" font-size="11">the froth blocker</text>
+
+  <text x="32" y="356" class="m">The transfer study refuted its own hypothesis: the synthetic froth ranking is generator-specific and the model</text>
+  <text x="32" y="374" class="m">drops on real transfer. Published, not hidden. Part of the Faena hub; a research lab, not a plant tool.</text>
+</svg>
