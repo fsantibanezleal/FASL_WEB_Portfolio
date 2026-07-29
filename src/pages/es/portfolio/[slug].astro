@@ -53,6 +53,9 @@ const gifKey =
   Object.keys(allGifs).find((p) => p.toLowerCase().endsWith(`/${d.slug.toLowerCase()}.gif`)) ||
   Object.keys(allGifs).find((p) => slugPatterns.some((pat) => p.toLowerCase().endsWith(`/${pat.toLowerCase()}.gif`)));
 const gifSrc = gifKey ? gifKey.replace('/public', '') : null;
+// Un "reel" curado (del kit de difusión), mostrado junto al recorrido crudo de la app.
+const reelKey = Object.keys(allGifs).find((p) => p.toLowerCase().endsWith(`/${d.slug.toLowerCase()}-reel.gif`));
+const reelSrc = reelKey ? reelKey.replace('/public', '') : null;
 
 const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'];
 ---
@@ -241,6 +244,17 @@ const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'
         <!-- ═══ GALERÍA ═══ -->
         <div data-tab="Galería">
           {
+            reelSrc && (
+              <div class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Reel</h2>
+                <p class="mb-6 text-sm text-muted">Un reel corto y compuesto del producto.</p>
+                <div class="overflow-hidden rounded-xl border border-gray-200 bg-white p-2 shadow-lg dark:border-gray-700/50 dark:bg-gray-800/30">
+                  <img src={reelSrc} alt={`${d.titleEs} reel`} class="h-auto w-full rounded-lg" loading="lazy" />
+                </div>
+              </div>
+            )
+          }
+          {
             gifSrc && (
               <div class="mb-10">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">En acción</h2>
@@ -284,7 +298,7 @@ const tabs = ['Resumen', 'Impacto de Negocio', 'Técnico', 'Galería', 'Enlaces'
             )
           }
           {
-            !gifSrc && screenshots.length === 0 && rollings.length === 0 && (
+            !reelSrc && !gifSrc && screenshots.length === 0 && rollings.length === 0 && (
               <div class="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-10 text-center">
                 <Icon name="tabler:photo-off" class="h-10 w-10 mx-auto mb-3 text-muted" />
                 <p class="text-muted">Los recursos visuales de este proyecto no están disponibles públicamente.</p>
