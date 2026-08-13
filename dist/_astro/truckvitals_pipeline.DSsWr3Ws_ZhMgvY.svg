@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="TruckVitals: raw haul-truck telemetry is first segmented into operating regimes learned from context channels disjoint from the monitored ones, then a change detector runs on the within-regime residual to give a fault onset, with the headline stated as a detector-free effect size and a negative control that returns exactly one">
+  <defs>
+    <linearGradient id="tvbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="tvar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}.warn{fill:#e0a030}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#tvbg)"/>
+  <text x="32" y="44" class="t" font-size="22">TruckVitals</text>
+  <text x="32" y="66" class="m">Onset detection on haul-truck telemetry · segment the regime FIRST, then detect on the residual</text>
+
+  <rect x="32" y="92" width="150" height="150" rx="10" class="box acc"/>
+  <text x="46" y="116" class="a" font-size="13">RAW TELEMETRY</text>
+  <text x="46" y="140" class="t" font-size="12">Monitored channels</text>
+  <text x="46" y="164" class="m">every channel moves</text>
+  <text x="46" y="180" class="m">with payload, grade</text>
+  <text x="46" y="196" class="m">and speed</text>
+  <text x="46" y="220" class="warn" font-size="11">detect here and you</text>
+  <text x="46" y="234" class="warn" font-size="11">detect the ramp</text>
+
+  <path d="M182 167 H214" class="acc" fill="none" stroke-width="2" marker-end="url(#tvar)"/>
+
+  <rect x="214" y="80" width="226" height="240" rx="10" class="box"/>
+  <text x="230" y="104" class="a" font-size="13">REGIME FIRST</text>
+  <rect x="230" y="116" width="194" height="46" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="134" class="t" font-size="12">Segment on CONTEXT</text>
+  <text x="242" y="150" class="m">payload, grade, speed:</text>
+  <text x="242" y="164" class="m">DISJOINT from monitored</text>
+  <rect x="230" y="170" width="194" height="42" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="188" class="t" font-size="12">Within-regime residual</text>
+  <text x="242" y="204" class="m">context removed, fault left</text>
+  <rect x="230" y="218" width="194" height="42" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="236" class="t" font-size="12">Change point</text>
+  <text x="242" y="252" class="m">cusum · ewma · pca-spe · pca-t2</text>
+  <text x="230" y="284" class="m">disjointness is what stops the segmentation</text>
+  <text x="230" y="300" class="m">absorbing the fault it exists to expose</text>
+
+  <path d="M440 200 H472" class="acc" fill="none" stroke-width="2" marker-end="url(#tvar)"/>
+
+  <rect x="472" y="92" width="150" height="150" rx="10" class="box"/>
+  <text x="486" y="116" class="a" font-size="13">ONSET</text>
+  <text x="486" y="140" class="t" font-size="12">A developing fault,</text>
+  <text x="486" y="158" class="t" font-size="12">not a hill</text>
+  <text x="486" y="184" class="m">effect size, no detector:</text>
+  <text x="486" y="202" class="a" font-size="12">0.16 sigma pooled</text>
+  <text x="486" y="220" class="a" font-size="12">11.95 sigma in-regime</text>
+
+  <rect x="636" y="92" width="132" height="150" rx="10" class="box acc"/>
+  <text x="650" y="116" class="a" font-size="12">CONTROL</text>
+  <text x="650" y="138" class="m">1 operating condition</text>
+  <text x="650" y="154" class="m">returns exactly</text>
+  <text x="650" y="176" class="t" font-size="18">1.00</text>
+  <text x="650" y="200" class="m">a negative control</text>
+  <text x="650" y="216" class="m">nobody designed:</text>
+  <text x="650" y="232" class="m">one regime, one spread</text>
+
+  <text x="32" y="356" class="m">Published NULL: regime conditioning does not improve onset LOCALISATION (-0.08 +/- 0.74 over 5 seeds). WITHDRAWN: no</text>
+  <text x="32" y="374" class="m">false-alarm claim. A review commissioned to refute the headline broke 3 of its 4 numbers. Engine: the separate regimecpd package.</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="PhaseFlow: a block model plus a declared scenario is scheduled period by period under slope precedence and per-period capacity, producing a year-coloured pit and an NPV, and every case is measured against two LP bounds whose difference separates a weak plan from a loose bound">
+  <defs>
+    <linearGradient id="pfbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="pfar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}.warn{fill:#e0a030}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#pfbg)"/>
+  <text x="32" y="44" class="t" font-size="22">PhaseFlow</text>
+  <text x="32" y="66" class="m">Open-pit production schedule (CPIT) · certified bound, no LP solver · animated year by year</text>
+
+  <rect x="32" y="92" width="150" height="150" rx="10" class="box acc"/>
+  <text x="46" y="116" class="a" font-size="13">INPUT</text>
+  <text x="46" y="140" class="t" font-size="12">Block model</text>
+  <text x="46" y="158" class="m">+ declared scenario:</text>
+  <text x="46" y="176" class="m">periods, discount rate,</text>
+  <text x="46" y="194" class="m">mining + processing</text>
+  <text x="46" y="212" class="m">capacity, slope angle</text>
+
+  <path d="M182 167 H214" class="acc" fill="none" stroke-width="2" marker-end="url(#pfar)"/>
+
+  <rect x="214" y="80" width="226" height="240" rx="10" class="box"/>
+  <text x="230" y="104" class="a" font-size="13">SCHEDULE (when, not which)</text>
+  <rect x="230" y="116" width="194" height="42" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="134" class="t" font-size="12">Slope precedence per period</text>
+  <text x="242" y="150" class="m">capacity respected every year</text>
+  <rect x="230" y="164" width="194" height="42" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="182" class="t" font-size="12">Critical multiplier bound</text>
+  <text x="242" y="198" class="m">CPIT LP exact, O(mn log n), no solver</text>
+  <rect x="230" y="212" width="194" height="42" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="242" y="230" class="t" font-size="12">Learned ExTS surrogate</text>
+  <text x="242" y="246" class="m">schedule with NO LP solve</text>
+  <text x="230" y="278" class="a" font-size="12">Re-solves LIVE in the browser (parity-tested)</text>
+  <text x="230" y="298" class="warn" font-size="11">guard ships with it: discount rate &gt;= 0.15</text>
+
+  <path d="M440 200 H472" class="acc" fill="none" stroke-width="2" marker-end="url(#pfar)"/>
+
+  <rect x="472" y="92" width="150" height="150" rx="10" class="box"/>
+  <text x="486" y="116" class="a" font-size="13">OUTPUT</text>
+  <text x="486" y="140" class="t" font-size="12">Year-coloured pit</text>
+  <text x="486" y="158" class="m">walls carry the year</text>
+  <text x="486" y="174" class="m">that exposed them</text>
+  <text x="486" y="198" class="t" font-size="12">NPV + spatial KPIs</text>
+  <text x="486" y="216" class="m">components, largest share</text>
+
+  <rect x="636" y="92" width="132" height="150" rx="10" class="box acc"/>
+  <text x="650" y="116" class="a" font-size="12">TWO BOUNDS</text>
+  <text x="650" y="138" class="m">certified but LOOSE</text>
+  <text x="650" y="154" class="m">(one resource at a</text>
+  <text x="650" y="170" class="m">time) vs JOINT BZ</text>
+  <text x="650" y="194" class="a" font-size="11">their difference =</text>
+  <text x="650" y="210" class="a" font-size="11">the part of the gap</text>
+  <text x="650" y="226" class="a" font-size="11">that is the BOUND</text>
+
+  <text x="32" y="356" class="m">Anchored to MineLib newman1.cpit solved AS PUBLISHED: ultimate pit 26,086,899 (exact match), joint bound 24,486,184 vs a</text>
+  <text x="32" y="374" class="m">published 24,486,549; gap 2.49% vs 1.26%, stated. No stockpiles, no blending. Engine: the separate oreblocks package.</text>
+</svg>
