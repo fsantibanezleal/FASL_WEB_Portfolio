@@ -1,6 +1,6 @@
 ---
-title: 'ADRA — Adversarial Dev Review Agent'
-titleEs: 'ADRA — Agente de Revisión de Desarrollo Adversarial'
+title: 'ADRA, Adversarial Dev Review Agent'
+titleEs: 'ADRA, Agente de Revisión de Desarrollo Adversarial'
 slug: adra
 date: 2026-07-16
 category: agentic-ai

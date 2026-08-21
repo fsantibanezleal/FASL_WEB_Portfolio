@@ -1,6 +1,6 @@
 ---
-title: 'ChancaDEM — Crusher-Comminution Studio (Population-Balance Engine)'
-titleEs: 'ChancaDEM — Estudio de Chancado y Conminución (Motor de Balance Poblacional)'
+title: 'ChancaDEM, Crusher-Comminution Studio (Population-Balance Engine)'
+titleEs: 'ChancaDEM, Estudio de Chancado y Conminución (Motor de Balance Poblacional)'
 slug: chancadem
 date: 2026-07-09
 category: mining-optimization

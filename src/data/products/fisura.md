@@ -1,6 +1,6 @@
 ---
-title: 'Fisura — Materials-Damage Vision Lab (Crack Detection to Engineering Units)'
-titleEs: 'Fisura — Laboratorio de Visión de Daño en Materiales (De la Grieta a Unidades de Ingeniería)'
+title: 'Fisura, Materials-Damage Vision Lab (Crack Detection to Engineering Units)'
+titleEs: 'Fisura, Laboratorio de Visión de Daño en Materiales (De la Grieta a Unidades de Ingeniería)'
 slug: fisura
 date: 2026-07-26
 category: computer-vision

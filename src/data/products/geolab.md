@@ -1,6 +1,6 @@
 ---
-title: 'GeoLab — Browser-Native Multi-Engine Geospatial Tool Platform'
-titleEs: 'GeoLab — Plataforma Geoespacial Multi-Motor Nativa del Navegador'
+title: 'GeoLab, Browser-Native Multi-Engine Geospatial Tool Platform'
+titleEs: 'GeoLab, Plataforma Geoespacial Multi-Motor Nativa del Navegador'
 slug: geolab
 date: 2026-07-24
 category: data-engineering

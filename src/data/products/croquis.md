@@ -1,6 +1,6 @@
 ---
-title: 'Croquis — On-Device 3D Reconstruction of Real Spaces on Android'
-titleEs: 'Croquis — Reconstrucción 3D de Espacios Reales en el Dispositivo (Android)'
+title: 'Croquis, On-Device 3D Reconstruction of Real Spaces on Android'
+titleEs: 'Croquis, Reconstrucción 3D de Espacios Reales en el Dispositivo (Android)'
 slug: croquis
 date: 2026-07-19
 category: mobile-apps

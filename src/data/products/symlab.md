@@ -1,6 +1,6 @@
 ---
-title: 'SymLab — Symbolic Regression Lab (Accuracy and Recovery, Reported Separately)'
-titleEs: 'SymLab — Laboratorio de Regresión Simbólica (Exactitud y Recuperación, Reportadas por Separado)'
+title: 'SymLab, Symbolic Regression Lab (Accuracy and Recovery, Reported Separately)'
+titleEs: 'SymLab, Laboratorio de Regresión Simbólica (Exactitud y Recuperación, Reportadas por Separado)'
 slug: symlab
 date: 2026-07-28
 category: scientific-ml

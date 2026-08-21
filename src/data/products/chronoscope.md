@@ -1,6 +1,6 @@
 ---
-title: 'ChronoScope — Univariate Forecasting Atlas with a Foundation-Model Tier'
-titleEs: 'ChronoScope — Atlas de Pronóstico Univariado con una Capa de Modelos Fundacionales'
+title: 'ChronoScope, Univariate Forecasting Atlas with a Foundation-Model Tier'
+titleEs: 'ChronoScope, Atlas de Pronóstico Univariado con una Capa de Modelos Fundacionales'
 slug: chronoscope
 date: 2026-07-10
 category: scientific-ml

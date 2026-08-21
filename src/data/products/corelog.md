@@ -1,6 +1,6 @@
 ---
-title: 'CoreLog Vision — Drill-Core Logging & Lithology Classification Workbench'
-titleEs: 'CoreLog Vision — Banco de Trabajo de Logueo de Testigos y Clasificación Litológica'
+title: 'CoreLog Vision, Drill-Core Logging & Lithology Classification Workbench'
+titleEs: 'CoreLog Vision, Banco de Trabajo de Logueo de Testigos y Clasificación Litológica'
 slug: corelog
 date: 2026-07-04
 category: mining-analytics

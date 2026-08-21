@@ -1,6 +1,6 @@
 ---
-title: 'FragmentIQ — Post-Blast Muckpile Fragmentation Analysis Workbench'
-titleEs: 'FragmentIQ — Banco de Trabajo de Analisis de Fragmentacion de Pila Post-Tronadura'
+title: 'FragmentIQ, Post-Blast Muckpile Fragmentation Analysis Workbench'
+titleEs: 'FragmentIQ, Banco de Trabajo de Analisis de Fragmentacion de Pila Post-Tronadura'
 slug: fragmentiq
 date: 2026-07-07
 category: mining-analytics

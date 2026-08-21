@@ -1,12 +1,12 @@
 ---
-title: 'Veta — Agentic Mineral-Tracking Decision Support'
-titleEs: 'Veta — Soporte de Decisión Agéntico para Trazabilidad Mineral'
+title: 'Veta, Agentic Mineral-Tracking Decision Support'
+titleEs: 'Veta, Soporte de Decisión Agéntico para Trazabilidad Mineral'
 slug: veta
 date: 2026-06-10
 category: mining-optimization
 family: agentic
-excerpt: 'A private decision-support system that turns a natural-language question (typed or spoken) about a mineral-processing operation into a traceable, evidence-backed answer — a multi-stage agent pipeline routes the query to tiered solvers and grounds every recommendation in plant data with RAG.'
-excerptEs: 'Un sistema privado de soporte a la decisión que convierte una pregunta en lenguaje natural (escrita o hablada) sobre una operación de procesamiento mineral en una respuesta trazable y respaldada por evidencia — un pipeline de agentes enruta la consulta a solvers por niveles y fundamenta cada recomendación en datos de planta con RAG.'
+excerpt: 'A private decision-support system that turns a natural-language question (typed or spoken) about a mineral-processing operation into a traceable, evidence-backed answer, a multi-stage agent pipeline routes the query to tiered solvers and grounds every recommendation in plant data with RAG.'
+excerptEs: 'Un sistema privado de soporte a la decisión que convierte una pregunta en lenguaje natural (escrita o hablada) sobre una operación de procesamiento mineral en una respuesta trazable y respaldada por evidencia, un pipeline de agentes enruta la consulta a solvers por niveles y fundamenta cada recomendación en datos de planta con RAG.'
 icon: tabler:pick
 tags: [mining, decision-support, agents, rag, voice, optimization, private]
 proprietary: true
@@ -14,8 +14,8 @@ featured: false
 demo: 'https://veta.fasl-work.com'
 website: 'https://veta.fasl-work.com'
 
-challenge: 'In a mineral-processing operation, the knowledge needed to answer "what should we do about this feed and these operating constraints?" is spread across telemetry, historical runs, and expert intuition. Pulling it together is slow, manual, and hard to audit — and an answer with no traceable evidence is hard to trust on the plant floor.'
-challengeEs: 'En una operación de procesamiento mineral, el conocimiento para responder "¿qué hacemos con esta alimentación y estas restricciones operativas?" está disperso entre telemetría, corridas históricas e intuición experta. Reunirlo es lento, manual y difícil de auditar — y una respuesta sin evidencia trazable cuesta confiar en planta.'
+challenge: 'In a mineral-processing operation, the knowledge needed to answer "what should we do about this feed and these operating constraints?" is spread across telemetry, historical runs, and expert intuition. Pulling it together is slow, manual, and hard to audit, and an answer with no traceable evidence is hard to trust on the plant floor.'
+challengeEs: 'En una operación de procesamiento mineral, el conocimiento para responder "¿qué hacemos con esta alimentación y estas restricciones operativas?" está disperso entre telemetría, corridas históricas e intuición experta. Reunirlo es lento, manual y difícil de auditar, y una respuesta sin evidencia trazable cuesta confiar en planta.'
 approach: 'Veta exposes a single chat surface (text and voice). Each request flows through a multi-stage agent pipeline that interprets intent, assembles the relevant plant state, and routes to a tiered solver (cheap heuristics first, heavier optimization only when warranted). Every recommendation is grounded with retrieval over the tracked sites'' data (RAG), so the answer arrives with its supporting evidence attached. An offline pipeline builds per-site artifacts that are content-addressed (sha256-manifested) for reproducibility.'
 approachEs: 'Veta expone una sola superficie de chat (texto y voz). Cada solicitud fluye por un pipeline de agentes que interpreta la intención, ensambla el estado de planta relevante y enruta a un solver por niveles (heurísticas baratas primero, optimización pesada solo cuando se justifica). Cada recomendación se fundamenta con recuperación sobre los datos de los sitios trazados (RAG), de modo que la respuesta llega con su evidencia adjunta. Un pipeline offline construye artefactos por sitio direccionados por contenido (manifestados con sha256) para reproducibilidad.'
 businessContext: 'Plant decisions are high-stakes and time-sensitive, yet the supporting analysis is often locked in spreadsheets and specialists'' heads. A conversational, evidence-first assistant compresses the loop from question to defensible recommendation, and makes the reasoning auditable rather than a black box.'
@@ -44,8 +44,8 @@ kpis:
 metrics:
   - label: 'Interface'
     labelEs: 'Interfaz'
-    value: 'Conversational — text + voice'
-    valueEs: 'Conversacional — texto + voz'
+    value: 'Conversational, text + voice'
+    valueEs: 'Conversacional, texto + voz'
   - label: 'Pipeline'
     labelEs: 'Pipeline'
     value: 'Multi-stage agents → tiered solvers + RAG evidence'
@@ -64,6 +64,6 @@ stack: [Python, FastAPI, LLM agents, RAG, Speech-to-Text, Optimization, Docker, 
 
 ## A conversational front door to plant decisions
 
-Veta is a **private** decision-support system for mineral-processing operations. Ask it a question — typed or spoken — and a multi-stage agent pipeline interprets the intent, gathers the relevant plant state, routes to the right solver tier, and answers with the supporting evidence attached.
+Veta is a **private** decision-support system for mineral-processing operations. Ask it a question, typed or spoken, and a multi-stage agent pipeline interprets the intent, gathers the relevant plant state, routes to the right solver tier, and answers with the supporting evidence attached.
 
 *This is proprietary work; the live deployment is private. The card describes the architecture and intent without exposing internal data or logic.*

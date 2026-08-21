@@ -1,6 +1,6 @@
 ---
-title: 'FrothSeg — Flotation-Froth Instance Segmentation Lab (Browser ML)'
-titleEs: 'FrothSeg — Laboratorio de Segmentación de Instancias de Espuma de Flotación (ML en el Navegador)'
+title: 'FrothSeg, Flotation-Froth Instance Segmentation Lab (Browser ML)'
+titleEs: 'FrothSeg, Laboratorio de Segmentación de Instancias de Espuma de Flotación (ML en el Navegador)'
 slug: frothseg
 date: 2026-07-23
 category: computer-vision

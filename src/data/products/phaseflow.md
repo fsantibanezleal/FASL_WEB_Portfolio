@@ -1,6 +1,6 @@
 ---
-title: 'PhaseFlow — Open-Pit Production Schedule with a Certified Bound'
-titleEs: 'PhaseFlow — Programa de Producción de Rajo Abierto con Cota Certificada'
+title: 'PhaseFlow, Open-Pit Production Schedule with a Certified Bound'
+titleEs: 'PhaseFlow, Programa de Producción de Rajo Abierto con Cota Certificada'
 slug: phaseflow
 date: 2026-08-10
 category: mining-optimization

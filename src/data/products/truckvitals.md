@@ -1,6 +1,6 @@
 ---
-title: 'TruckVitals — Onset Detection on Haul-Truck Telemetry (Regime First, Then Residual)'
-titleEs: 'TruckVitals — Detección de Inicio en Telemetría de Camiones (Primero el Régimen, Luego el Residuo)'
+title: 'TruckVitals, Onset Detection on Haul-Truck Telemetry (Regime First, Then Residual)'
+titleEs: 'TruckVitals, Detección de Inicio en Telemetría de Camiones (Primero el Régimen, Luego el Residuo)'
 slug: truckvitals
 date: 2026-08-11
 category: predictive-maintenance

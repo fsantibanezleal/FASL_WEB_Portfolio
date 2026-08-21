@@ -1,6 +1,6 @@
 ---
-title: 'Pulso — Well-Test Diagnostic-Curve Shape Clustering and Attribution'
-titleEs: 'Pulso — Agrupamiento y Atribución de Forma de Curvas Diagnósticas de Well-Test'
+title: 'Pulso, Well-Test Diagnostic-Curve Shape Clustering and Attribution'
+titleEs: 'Pulso, Agrupamiento y Atribución de Forma de Curvas Diagnósticas de Well-Test'
 slug: pulso
 date: 2026-07-11
 category: scientific-ml

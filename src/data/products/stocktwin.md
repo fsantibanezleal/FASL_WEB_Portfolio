@@ -1,6 +1,6 @@
 ---
-title: 'StockTwin — Run-of-Mine Stockpile Twin (Built Truck by Truck)'
-titleEs: 'StockTwin — Gemelo de Acopio Run-of-Mine (Construido Camión a Camión)'
+title: 'StockTwin, Run-of-Mine Stockpile Twin (Built Truck by Truck)'
+titleEs: 'StockTwin, Gemelo de Acopio Run-of-Mine (Construido Camión a Camión)'
 slug: stocktwin
 date: 2026-08-02
 category: mining-simulation

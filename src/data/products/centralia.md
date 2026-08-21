@@ -1,6 +1,6 @@
 ---
-title: 'CentralIA — Initiative-Management Console over a Version-Control Provider'
-titleEs: 'CentralIA — Consola de Gestión de Iniciativas sobre un Proveedor de Control de Versiones'
+title: 'CentralIA, Initiative-Management Console over a Version-Control Provider'
+titleEs: 'CentralIA, Consola de Gestión de Iniciativas sobre un Proveedor de Control de Versiones'
 slug: centralia
 date: 2026-07-21
 category: data-engineering

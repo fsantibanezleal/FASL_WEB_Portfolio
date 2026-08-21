@@ -1,6 +1,6 @@
 ---
-title: 'DispatchLab — Truck-to-Shovel Dispatch Bench for Open-Pit Mining'
-titleEs: 'DispatchLab — Banco de Despacho Camión-a-Pala para Minería de Rajo Abierto'
+title: 'DispatchLab, Truck-to-Shovel Dispatch Bench for Open-Pit Mining'
+titleEs: 'DispatchLab, Banco de Despacho Camión-a-Pala para Minería de Rajo Abierto'
 slug: dispatchlab
 date: 2026-07-13
 category: mining-optimization
