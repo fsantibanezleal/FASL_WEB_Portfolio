@@ -32,14 +32,12 @@ const { products, locale = 'en' } = Astro.props;
 // ---- cover-image resolution -------------------------------------------------
 // A card cover is (in order): the light/dark app screenshot, else the product's
 // theme-aware SVG diagram, else nothing (the card falls back to its icon tile).
-const allScreens = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/projects/screenshots/*.png',
-  { eager: true }
-);
-const allDiagrams = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/projects/diagrams/*.svg',
-  { eager: true }
-);
+const allScreens = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/screenshots/*.png', {
+  eager: true,
+});
+const allDiagrams = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/diagrams/*.svg', {
+  eager: true,
+});
 const screenBy = (suffix: string) =>
   Object.fromEntries(
     Object.entries(allScreens)
