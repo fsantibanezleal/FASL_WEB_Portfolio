@@ -2,3 +2,7 @@ dist
 node_modules
 .github
 .changeset
+
+# Content, not code. These markdown files are data: hand-maintained bilingual front matter
+# whose tag arrays prettier would explode into multi-line flow sequences with trailing commas.
+src/data

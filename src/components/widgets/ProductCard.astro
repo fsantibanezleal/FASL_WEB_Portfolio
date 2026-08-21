@@ -26,8 +26,20 @@ interface Props {
   locale?: Locale;
 }
 
-const { title, titleEs, slug, excerpt, excerptEs, icon, category, date, tags, proprietary, cover, locale = 'en' } =
-  Astro.props;
+const {
+  title,
+  titleEs,
+  slug,
+  excerpt,
+  excerptEs,
+  icon,
+  category,
+  date,
+  tags,
+  proprietary,
+  cover,
+  locale = 'en',
+} = Astro.props;
 
 const displayTitle = locale === 'es' ? titleEs : title;
 const displayExcerpt = locale === 'es' ? excerptEs : excerpt;
@@ -41,21 +53,29 @@ const coverFit = cover?.kind === 'diagram' ? 'object-contain p-3' : 'object-cove
   class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/40 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary/40"
 >
   <!-- Cover -->
-  <div class="relative aspect-[16/10] overflow-hidden border-b border-gray-100 bg-gray-50 dark:border-gray-700/50 dark:bg-gray-900/40">
+  <div
+    class="relative aspect-[16/10] overflow-hidden border-b border-gray-100 bg-gray-50 dark:border-gray-700/50 dark:bg-gray-900/40"
+  >
     {
       cover ? (
         <>
           <Image
             src={cover.light}
             alt={displayTitle}
-            class:list={['h-full w-full transition-transform duration-500 group-hover:scale-[1.03] dark:hidden', coverFit]}
+            class:list={[
+              'h-full w-full transition-transform duration-500 group-hover:scale-[1.03] dark:hidden',
+              coverFit,
+            ]}
             loading="lazy"
             width={640}
           />
           <Image
             src={cover.dark}
             alt={displayTitle}
-            class:list={['hidden h-full w-full transition-transform duration-500 group-hover:scale-[1.03] dark:block', coverFit]}
+            class:list={[
+              'hidden h-full w-full transition-transform duration-500 group-hover:scale-[1.03] dark:block',
+              coverFit,
+            ]}
             loading="lazy"
             width={640}
           />
@@ -102,7 +122,11 @@ const coverFit = cover?.kind === 'diagram' ? 'object-contain p-3' : 'object-cove
             </span>
           ))
       }
-      {tags.length > 4 && <span class="inline-flex items-center px-1 py-0.5 text-xs text-muted">+{tags.length - 4}</span>}
+      {
+        tags.length > 4 && (
+          <span class="inline-flex items-center px-1 py-0.5 text-xs text-muted">+{tags.length - 4}</span>
+        )
+      }
     </div>
   </div>
 </article>

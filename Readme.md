@@ -21,16 +21,16 @@ Architecture diagrams are hand-authored SVGs under
 
 ## Layout
 
-| Path | What it holds |
-|---|---|
-| `src/data/products/` | one markdown file per product, bilingual |
-| `src/data/post/` | blog entries |
-| `src/pages/` | routes; `src/pages/es/` mirrors the English tree |
-| `src/assets/images/projects/diagrams/` | hand-authored architecture SVGs |
-| `src/config.yaml` | site metadata, title template, analytics |
-| `src/navigation.ts` | header and footer structure, per language |
-| `scripts/check_content_standards.py` | the ADR-0067 guard, see below |
-| `dist/` | the built site, committed on purpose, see Deploy |
+| Path                                   | What it holds                                    |
+| -------------------------------------- | ------------------------------------------------ |
+| `src/data/products/`                   | one markdown file per product, bilingual         |
+| `src/data/post/`                       | blog entries                                     |
+| `src/pages/`                           | routes; `src/pages/es/` mirrors the English tree |
+| `src/assets/images/projects/diagrams/` | hand-authored architecture SVGs                  |
+| `src/config.yaml`                      | site metadata, title template, analytics         |
+| `src/navigation.ts`                    | header and footer structure, per language        |
+| `scripts/check_content_standards.py`   | the ADR-0067 guard, see below                    |
+| `dist/`                                | the built site, committed on purpose, see Deploy |
 
 ## Develop
 
