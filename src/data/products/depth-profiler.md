@@ -1,6 +1,6 @@
 ---
-title: 'SurfaceScope — RGB-D Depth Profiling for Surface Analysis'
-titleEs: 'SurfaceScope — Perfilado de Profundidad RGB-D para Análisis de Superficies'
+title: 'SurfaceScope, RGB-D Depth Profiling for Surface Analysis'
+titleEs: 'SurfaceScope, Perfilado de Profundidad RGB-D para Análisis de Superficies'
 slug: depth-profiler
 date: 2017-08-01
 category: 3d-visualization
@@ -14,8 +14,8 @@ assetPatterns: [depth_profiler]
 github: 'https://github.com/fsantibanezleal/FASL_3D_Distance_Profiler'
 demo: 'https://profiler.fasl-work.com'
 
-challenge: 'Characterizing mineral sample surface topography requires expensive laboratory equipment. Depth cameras provide affordable alternatives but raw depth data needs sophisticated processing for meaningful surface analysis — noise removal, 3D reconstruction, and standardized roughness metrics.'
-challengeEs: 'Caracterizar la topografía superficial de muestras minerales requiere equipamiento de laboratorio costoso. Las cámaras de profundidad proveen alternativas accesibles pero los datos brutos de profundidad necesitan procesamiento sofisticado para análisis de superficies significativo — eliminación de ruido, reconstrucción 3D y métricas de rugosidad estandarizadas.'
+challenge: 'Characterizing mineral sample surface topography requires expensive laboratory equipment. Depth cameras provide affordable alternatives but raw depth data needs sophisticated processing for meaningful surface analysis: noise removal, 3D reconstruction, and standardized roughness metrics.'
+challengeEs: 'Caracterizar la topografía superficial de muestras minerales requiere equipamiento de laboratorio costoso. Las cámaras de profundidad proveen alternativas accesibles pero los datos brutos de profundidad necesitan procesamiento sofisticado para análisis de superficies significativo, eliminación de ruido, reconstrucción 3D y métricas de rugosidad estandarizadas.'
 
 approach: 'Complete pipeline: synthetic or real RGB-D input, bilateral filtering preprocessing, 3D reconstruction via pinhole camera model, surface analysis (normal estimation, curvature computation), profile extraction along arbitrary paths, and ISO 4287 roughness metrics (Ra, Rq, Rz). Exports to PLY/PCD/OBJ formats.'
 approachEs: 'Pipeline completo: entrada RGB-D sintética o real, preprocesamiento con filtrado bilateral, reconstrucción 3D vía modelo de cámara pinhole, análisis de superficie (estimación de normales, cálculo de curvatura), extracción de perfiles a lo largo de trayectorias arbitrarias, y métricas de rugosidad ISO 4287 (Ra, Rq, Rz). Exporta a formatos PLY/PCD/OBJ.'
@@ -66,11 +66,11 @@ stack: [Python, FastAPI, Three.js, NumPy, SciPy, Bilateral Filtering, ISO 4287]
 
 ## Non-Contact Surface Analysis
 
-Characterizing mineral sample surfaces traditionally requires expensive contact profilometry — a physical stylus dragged across the sample. RGB-D depth cameras offer an affordable alternative, but raw depth data is noisy, distorted, and meaningless without processing. The value is in the pipeline that transforms those raw pixels into standardized engineering measurements.
+Characterizing mineral sample surfaces traditionally requires expensive contact profilometry, a physical stylus dragged across the sample. RGB-D depth cameras offer an affordable alternative, but raw depth data is noisy, distorted, and meaningless without processing. The value is in the pipeline that transforms those raw pixels into standardized engineering measurements.
 
 ## The Pipeline
 
-**Bilateral filtering** is the critical first step. Unlike Gaussian blur, it removes depth noise while preserving edges — essential where sharp transitions between mineral grains must survive the preprocessing, not be smoothed away.
+**Bilateral filtering** is the critical first step. Unlike Gaussian blur, it removes depth noise while preserving edges, essential where sharp transitions between mineral grains must survive the preprocessing, not be smoothed away.
 
 The **pinhole camera model** transforms depth pixels into 3D point clouds: each `(u, v, d)` maps to `(X, Y, Z)` using camera intrinsic parameters. Differential geometry computed on the reconstructed surface reveals features invisible in raw depth: surface normals `n = (-∂z/∂x, -∂z/∂y, 1) / ‖...‖`, Gaussian curvature `K = (f_xx·f_yy - f_xy²) / (1 + f_x² + f_y²)²`, and mean curvature. Convex grain peaks, concave boundaries, and flat regions become distinguishable.
 

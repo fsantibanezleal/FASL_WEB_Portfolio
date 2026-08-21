@@ -1,6 +1,6 @@
 ---
-title: 'ProspectMap — Mineral Prospectivity Workbench with a Published Null Result'
-titleEs: 'ProspectMap — Banco de Trabajo de Prospectividad Mineral con un Resultado Nulo Publicado'
+title: 'ProspectMap, Mineral Prospectivity Workbench with a Published Null Result'
+titleEs: 'ProspectMap, Banco de Trabajo de Prospectividad Mineral con un Resultado Nulo Publicado'
 slug: prospectmap
 date: 2026-07-06
 category: mining-analytics

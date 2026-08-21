@@ -1,6 +1,6 @@
 ---
-title: 'ImageLab — One Image Across the Full Spectrum of Mathematical Representations'
-titleEs: 'ImageLab — Una Imagen a lo Largo de Todo el Espectro de Representaciones Matemáticas'
+title: 'ImageLab, One Image Across the Full Spectrum of Mathematical Representations'
+titleEs: 'ImageLab, Una Imagen a lo Largo de Todo el Espectro de Representaciones Matemáticas'
 slug: imglab
 date: 2026-07-18
 category: image-representation

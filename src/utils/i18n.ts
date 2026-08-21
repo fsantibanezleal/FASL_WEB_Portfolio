@@ -121,8 +121,8 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // Product detail
   'product.proprietary': {
-    en: 'Proprietary — source code not publicly available',
-    es: 'Propietario — código fuente no disponible públicamente',
+    en: 'Proprietary, source code not publicly available',
+    es: 'Propietario, código fuente no disponible públicamente',
   },
   'product.date': { en: 'Date', es: 'Fecha' },
   'product.tags': { en: 'Tags', es: 'Etiquetas' },

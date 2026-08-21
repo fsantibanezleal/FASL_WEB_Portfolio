@@ -1,6 +1,6 @@
 ---
-title: 'CardioPINN — Physics-Informed Cardiac Inverse-Problem Lab'
-titleEs: 'CardioPINN — Laboratorio de Problemas Inversos Cardiacos con Física Informada'
+title: 'CardioPINN, Physics-Informed Cardiac Inverse-Problem Lab'
+titleEs: 'CardioPINN, Laboratorio de Problemas Inversos Cardiacos con Física Informada'
 slug: cardiopinn
 date: 2026-07-14
 category: scientific-ml

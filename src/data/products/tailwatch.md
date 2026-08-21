@@ -1,6 +1,6 @@
 ---
-title: 'TailWatch — InSAR Ground-Deformation Studio for Tailings Dams & Slopes'
-titleEs: 'TailWatch — Estudio de Deformación de Terreno con InSAR para Tranques de Relaves y Taludes'
+title: 'TailWatch, InSAR Ground-Deformation Studio for Tailings Dams & Slopes'
+titleEs: 'TailWatch, Estudio de Deformación de Terreno con InSAR para Tranques de Relaves y Taludes'
 slug: tailwatch
 date: 2026-07-08
 category: geotechnical

@@ -84,13 +84,13 @@ const productCollection = defineCollection({
     publication: z.string().url().optional(),
     website: z.string().url().optional(),
 
-    // Business context — Overview tab
+    // Business context (Overview tab)
     challenge: z.string(),
     challengeEs: z.string(),
     approach: z.string(),
     approachEs: z.string(),
 
-    // Business narrative — Business Impact tab
+    // Business narrative (Business Impact tab)
     businessContext: z.string(),
     businessContextEs: z.string(),
     strategicValue: z.string(),

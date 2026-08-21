@@ -6,8 +6,8 @@ site:
 
 metadata:
   title:
-    default: FASL.work — Engineering & Applied Technology
-    template: '%s — FASL.work'
+    default: FASL.work · Engineering & Applied Technology
+    template: '%s · FASL.work'
   description: 'Engineering prototypes, software products, and technology solutions by FASL.work. Research · Hardware · Digital Solutions.'
   robots:
     index: true

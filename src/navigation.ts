@@ -71,7 +71,7 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/fsantibanez' },
   ],
   footNote: `
-    &copy; ${new Date().getFullYear()} FASL.work — Engineering & Applied Technology. All rights reserved.
+    &copy; ${new Date().getFullYear()} FASL.work · Engineering & Applied Technology. All rights reserved.
   `,
 };
 
@@ -102,6 +102,6 @@ export const footerDataEs = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/fsantibanez' },
   ],
   footNote: `
-    &copy; ${new Date().getFullYear()} FASL.work — Ingeniería y Tecnología Aplicada. Todos los derechos reservados.
+    &copy; ${new Date().getFullYear()} FASL.work · Ingeniería y Tecnología Aplicada. Todos los derechos reservados.
   `,
 };

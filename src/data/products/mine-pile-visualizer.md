@@ -1,6 +1,6 @@
 ---
-title: 'Mine Pile Visualizer — Stockpile & Circuit Topology Explorer'
-titleEs: 'Mine Pile Visualizer — Explorador de Acopios y Topología de Circuitos'
+title: 'Mine Pile Visualizer, Stockpile & Circuit Topology Explorer'
+titleEs: 'Mine Pile Visualizer, Explorador de Acopios y Topología de Circuitos'
 slug: mine-pile-visualizer
 date: 2026-04-01
 category: 3d-visualization
@@ -14,16 +14,16 @@ assetPatterns: [minepile, material_tracking]
 github: 'https://github.com/fsantibanezleal/MINE_PILE_VIZ_TS'
 demo: 'https://minepile.fasl-work.com'
 
-challenge: 'Mineral tracking systems generate vast amounts of operational data — belt block compositions, stockpile voxel states, quality distributions. The raw data exists, but operators and process engineers need structured, route-specific views to answer operational questions about current stockpile state, feed quality evolution, and circuit understanding.'
-challengeEs: 'Los sistemas de seguimiento de mineral generan enormes cantidades de datos operacionales — composiciones de bloques en correas, estados voxel de acopios, distribuciones de calidad. Los datos existen, pero operadores e ingenieros de proceso necesitan vistas estructuradas y específicas por ruta para responder preguntas operacionales.'
+challenge: 'Mineral tracking systems generate vast amounts of operational data: belt block compositions, stockpile voxel states, quality distributions. The raw data exists, but operators and process engineers need structured, route-specific views to answer operational questions about current stockpile state, feed quality evolution, and circuit understanding.'
+challengeEs: 'Los sistemas de seguimiento de mineral generan enormes cantidades de datos operacionales: composiciones de bloques en correas, estados voxel de acopios, distribuciones de calidad. Los datos existen, pero operadores e ingenieros de proceso necesitan vistas estructuradas y específicas por ruta para responder preguntas operacionales.'
 
 approach: 'Four dedicated operator workspaces consuming Apache Arrow IPC cached outputs: Circuit (interactive 2D/3D topology diagrams), Live (dense current-state inspection with voxel rendering), Profiler (historical snapshot navigation and quality time-series), and Simulator (pile-centered discharge reading with route visualization).'
 approachEs: 'Cuatro espacios de trabajo dedicados para operadores consumiendo datos cacheados en Apache Arrow IPC: Circuito (diagramas de topología 2D/3D interactivos), En Vivo (inspección densa del estado actual con renderizado voxel), Perfilador (navegación de snapshots históricos y series de calidad), y Simulador (lectura de descarga centrada en acopio con visualización de rutas).'
 
-businessContext: 'Mining operations generate terabytes of tracking data across conveyors, stockpiles, and processing circuits. Operators and process engineers need answers to specific operational questions in real time — current stockpile state, feed quality trends, circuit flow status — but existing tools present this data as delayed tabular reports or static diagrams that fail to capture the spatial and temporal complexity of the operation.'
-businessContextEs: 'Las operaciones mineras generan terabytes de datos de seguimiento a través de correas, acopios y circuitos de procesamiento. Operadores e ingenieros de proceso necesitan respuestas a preguntas operacionales específicas en tiempo real — estado actual de acopios, tendencias de calidad de alimentación, estado del flujo del circuito — pero las herramientas existentes presentan estos datos como reportes tabulares diferidos o diagramas estáticos que no capturan la complejidad espacial y temporal de la operación.'
-strategicValue: 'By providing four purpose-built operator workspaces — each designed around a specific class of operational question — the platform transforms raw simulation data into actionable spatial intelligence. The local-first architecture eliminates infrastructure dependencies, enabling deployment at any site without network requirements. The use of Apache Arrow IPC for data transport ensures sub-second loading of voxel datasets with thousands of cells, making real-time 3D inspection practical for daily operations.'
-strategicValueEs: 'Al proveer cuatro espacios de trabajo diseñados para operadores — cada uno orientado a una clase específica de pregunta operacional — la plataforma transforma datos brutos de simulación en inteligencia espacial accionable. La arquitectura local-first elimina dependencias de infraestructura, permitiendo despliegue en cualquier sitio sin requisitos de red. El uso de Apache Arrow IPC para transporte de datos asegura carga sub-segundo de datasets voxel con miles de celdas, haciendo la inspección 3D en tiempo real práctica para operaciones diarias.'
+businessContext: 'Mining operations generate terabytes of tracking data across conveyors, stockpiles, and processing circuits. Operators and process engineers need answers to specific operational questions in real time (current stockpile state, feed quality trends, circuit flow status) but existing tools present this data as delayed tabular reports or static diagrams that fail to capture the spatial and temporal complexity of the operation.'
+businessContextEs: 'Las operaciones mineras generan terabytes de datos de seguimiento a través de correas, acopios y circuitos de procesamiento. Operadores e ingenieros de proceso necesitan respuestas a preguntas operacionales específicas en tiempo real (estado actual de acopios, tendencias de calidad de alimentación, estado del flujo del circuito) pero las herramientas existentes presentan estos datos como reportes tabulares diferidos o diagramas estáticos que no capturan la complejidad espacial y temporal de la operación.'
+strategicValue: 'By providing four purpose-built operator workspaces, each designed around a specific class of operational question, the platform transforms raw simulation data into actionable spatial intelligence. The local-first architecture eliminates infrastructure dependencies, enabling deployment at any site without network requirements. The use of Apache Arrow IPC for data transport ensures sub-second loading of voxel datasets with thousands of cells, making real-time 3D inspection practical for daily operations.'
+strategicValueEs: 'Al proveer cuatro espacios de trabajo diseñados para operadores, cada uno orientado a una clase específica de pregunta operacional, la plataforma transforma datos brutos de simulación en inteligencia espacial accionable. La arquitectura local-first elimina dependencias de infraestructura, permitiendo despliegue en cualquier sitio sin requisitos de red. El uso de Apache Arrow IPC para transporte de datos asegura carga sub-segundo de datasets voxel con miles de celdas, haciendo la inspección 3D en tiempo real práctica para operaciones diarias.'
 
 kpis:
   - label: 'State Visibility'
@@ -87,29 +87,29 @@ stack:
 
 ## Why This Exists
 
-Mineral tracking simulation engines generate massive operational datasets — belt block compositions, stockpile voxel states, quality distributions over time. The data is there, but it's trapped in raw format. Operators need to answer questions in real time: _What's the current state of each stockpile? How has feed quality evolved over the last shift? Where are quality deviations occurring in the circuit?_
+Mineral tracking simulation engines generate massive operational datasets: belt block compositions, stockpile voxel states, quality distributions over time. The data is there, but it's trapped in raw format. Operators need to answer questions in real time: _What's the current state of each stockpile? How has feed quality evolved over the last shift? Where are quality deviations occurring in the circuit?_
 
-Mine Pile Visualizer was built to bridge that gap. Rather than building a generic dashboard, the approach was to design four dedicated workspaces — each answering a specific class of operational question through purpose-built visualizations.
+Mine Pile Visualizer was built to bridge that gap. Rather than building a generic dashboard, the approach was to design four dedicated workspaces, each answering a specific class of operational question through purpose-built visualizations.
 
 ## Operator Workspaces
 
-The **Circuit** workspace provides a structural map of the processing circuit. An interactive 2D/3D topology diagram — built with `@xyflow/react` and automatic `dagre` layout — shows stages, nodes, edges, flow roles, and anchor inventory. Operators can see how the circuit is connected and where each processing stage sits.
+The **Circuit** workspace provides a structural map of the processing circuit. An interactive 2D/3D topology diagram, built with `@xyflow/react` and automatic `dagre` layout, shows stages, nodes, edges, flow roles, and anchor inventory. Operators can see how the circuit is connected and where each processing stage sits.
 
 The **Live** workspace is the real-time pulse of the operation. Belt block compositions appear as color-coded strips; stockpile voxel states render in 3D using React Three Fiber with `instancedMesh` for performance. Mass histograms, quality distributions, and per-voxel inspection give operators a dense, spatial picture of what is happening _right now_.
 
 The **Profiler** workspace handles the historical dimension. Snapshot navigation allows stepping through past states, quality time-series reveal shift-to-shift trends, and delta comparisons between snapshots help identify gradual drift in stockpile composition that operators might not notice day-to-day.
 
-The **Simulator** workspace focuses on discharge. It visualizes the central pile structure, active discharge routes, and grouped reclaim sequences — answering the question operators care about during extraction: _where does the material actually go?_
+The **Simulator** workspace focuses on discharge. It visualizes the central pile structure, active discharge routes, and grouped reclaim sequences, answering the question operators care about during extraction: _where does the material actually go?_
 
 ## Data Architecture
 
 The system consumes **Apache Arrow IPC** cached outputs from an upstream mineral tracking engine. Two primary structures carry the data:
 
-**Pile cells** — `(ix, iy, iz, massTon, timestamps, quality columns)` — represent the voxelized stockpile state. Each cell has spatial coordinates, mass, temporal metadata, and multiple quality attributes.
+**Pile cells**, `(ix, iy, iz, massTon, timestamps, quality columns)`, represent the voxelized stockpile state. Each cell has spatial coordinates, mass, temporal metadata, and multiple quality attributes.
 
-**Belt blocks** — `(position, massTon, timestampOldest, timestampNewest, qualities)` — carry conveyor material composition with temporal bounds showing when the material entered and when it was last updated.
+**Belt blocks**, `(position, massTon, timestampOldest, timestampNewest, qualities)`, carry conveyor material composition with temporal bounds showing when the material entered and when it was last updated.
 
-The dense binary Arrow format enables sub-second loading of voxel datasets with thousands of cells. The entire architecture is local-first — no external services, no database, no network dependencies. The visualizer reads pre-computed cache from the local filesystem.
+The dense binary Arrow format enables sub-second loading of voxel datasets with thousands of cells. The entire architecture is local-first: no external services, no database, no network dependencies. The visualizer reads pre-computed cache from the local filesystem.
 
 ## Technical Foundation
 

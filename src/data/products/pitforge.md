@@ -1,6 +1,6 @@
 ---
-title: 'PitForge — Exact Ultimate Pit Limit & Nested Whittle Pit-Shell Workbench'
-titleEs: 'PitForge — Banco de Trabajo de Pit Final Exacto y Cascaras de Pit Whittle Anidadas'
+title: 'PitForge, Exact Ultimate Pit Limit & Nested Whittle Pit-Shell Workbench'
+titleEs: 'PitForge, Banco de Trabajo de Pit Final Exacto y Cascaras de Pit Whittle Anidadas'
 slug: pitforge
 date: 2026-07-05
 category: mining-optimization
