@@ -38,9 +38,9 @@
   <rect x="258" y="228" width="268" height="106" rx="9" class="box acc"/>
   <text x="274" y="252" class="a" font-size="13">Grade + learned <tspan class="m">(ONNX)</tspan></text>
   <text x="274" y="274" class="m">IDW + ordinary kriging estimation</text>
-  <text x="274" y="294" class="m">grade-nn R2 0.9613 (ties kriging)</text>
-  <text x="274" y="314" class="m">pit-surrogate AUC 0.9811</text>
-  <text x="274" y="330" class="m">CPIT LP bound offline (10.46% gap)</text>
+  <text x="274" y="294" class="m">grade-nn R2 0.8757 (loses to kriging)</text>
+  <text x="274" y="314" class="m">pit-surrogate AUC 0.9123</text>
+  <text x="274" y="330" class="m">CPIT LP bound offline (3.81% published)</text>
 
   <path d="M526 160 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
   <path d="M526 281 H560" class="acc" fill="none" stroke-width="2" marker-end="url(#ar)"/>
