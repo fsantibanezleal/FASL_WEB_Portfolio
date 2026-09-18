@@ -4,8 +4,8 @@ titleEs: 'Faena, Hub de Analítica Minera'
 slug: faena
 date: 2026-06-28
 category: mining-analytics
-excerpt: 'A single open launcher that catalogues a growing set of independent, in-browser mining-analytics tools across the value chain, exploration → drill & blast → load/haul → comminution → processing → tailings → asset health → economics. Each tool is its own documented product on a named real dataset or a validated synthetic. Four live today, ten in active development, and more mapped on a visible roadmap.'
-excerptEs: 'Un lanzador abierto que cataloga un conjunto creciente de herramientas de analítica minera en el navegador, a lo largo de la cadena de valor, exploración → perforación y tronadura → carguío/transporte → conminución → procesamiento → relaves → salud de activos → economía. Cada herramienta es su propio producto documentado sobre un dataset real citado o un sintético validado. Cuatro en vivo hoy, diez en desarrollo activo y 28 más en un roadmap visible.'
+excerpt: 'A single open launcher that catalogues a growing set of independent, in-browser mining-analytics tools across the value chain: exploration, drill & blast, load/haul, comminution, processing, tailings, asset health and economics. Each tool is its own documented product on a named real dataset or a validated synthetic. Six live today, eight in active development, and 28 more mapped on a visible roadmap.'
+excerptEs: 'Un lanzador abierto que cataloga un conjunto creciente de herramientas de analítica minera en el navegador, a lo largo de la cadena de valor: exploración, perforación y tronadura, carguío/transporte, conminución, procesamiento, relaves, salud de activos y economía. Cada herramienta es su propio producto documentado sobre un dataset real citado o un sintético validado. Seis en vivo hoy, ocho en desarrollo activo y 28 más en un roadmap visible.'
 icon: tabler:layout-grid
 tags: [mining, analytics, hub, launcher, astro, catalogue]
 proprietary: false
@@ -47,12 +47,12 @@ kpis:
 metrics:
   - label: 'Status'
     labelEs: 'Estado'
-    value: '4 live · 10 in active development · 28 planned on the roadmap'
-    valueEs: '3 en vivo · 7 en desarrollo activo · ~29 planeadas en el roadmap'
+    value: '6 live · 8 in active development · 28 planned on the roadmap'
+    valueEs: '6 en vivo · 8 en desarrollo activo · 28 planeadas en el roadmap'
   - label: 'Live today'
     labelEs: 'En vivo hoy'
-    value: 'ChargeCascade · RotorVitals · CutoffGrade Studio'
-    valueEs: 'ChargeCascade · RotorVitals · CutoffGrade Studio'
+    value: 'DispatchLab · ChancaDEM · ChargeCascade · FrothSeg · StockTwin · RotorVitals'
+    valueEs: 'DispatchLab · ChancaDEM · ChargeCascade · FrothSeg · StockTwin · RotorVitals'
   - label: 'Organization'
     labelEs: 'Organización'
     value: 'Value-chain swimlanes × solution-type facet (CV · 3D physics · optimization · condition-monitoring · geospatial · forecasting)'
@@ -75,7 +75,7 @@ Faena is the open **hub** for a growing family of independent, in-browser mining
 
 ## Every tile carries its status
 
-Every tile carries a lifecycle status, so the catalogue tells the truth about maturity: **4 live today** (DispatchLab, ChancaDEM, ChargeCascade, RotorVitals), **10 in active development**, and **28 more mapped on the roadmap**, tiles advance *planned → building → live* as each one actually ships. "Live" here means brought to the quality bar, not merely deployed. There is no "39 mining apps" claim; there is a small set that works today and a visible plan for the rest.
+Every tile carries a lifecycle status, so the catalogue tells the truth about maturity: **6 live today** (DispatchLab, ChancaDEM, ChargeCascade, FrothSeg, StockTwin, RotorVitals), **8 in active development**, and **28 more mapped on the roadmap**, tiles advance from *planned* to *building* to *live* as each one actually ships. "Live" here means brought to the quality bar, not merely deployed. There is no "39 mining apps" claim; there is a small set that works today and a visible plan for the rest.
 
 ## How it is organized
 
