@@ -7,7 +7,7 @@ category: mining-analytics
 excerpt: 'A single open launcher that catalogues a growing set of independent, in-browser mining-analytics tools across the value chain: exploration, drill & blast, load/haul, comminution, processing, tailings, asset health and economics. Each tool is its own documented product on a named real dataset or a validated synthetic. Six live today, eight in active development, and 28 more mapped on a visible roadmap.'
 excerptEs: 'Un lanzador abierto que cataloga un conjunto creciente de herramientas de analítica minera en el navegador, a lo largo de la cadena de valor: exploración, perforación y tronadura, carguío/transporte, conminución, procesamiento, relaves, salud de activos y economía. Cada herramienta es su propio producto documentado sobre un dataset real citado o un sintético validado. Seis en vivo hoy, ocho en desarrollo activo y 28 más en un roadmap visible.'
 icon: tabler:layout-grid
-tags: [mining, analytics, hub, launcher, astro, catalogue]
+tags: [mining, analytics, hub, launcher, react, catalogue]
 proprietary: false
 featured: false
 assetPatterns: [faena]
@@ -18,8 +18,8 @@ website: 'https://faena.fasl-work.com'
 challenge: 'Mining analytics spans the whole value chain (geology, drill & blast, haulage, comminution, flotation, tailings, asset health, economics) and useful tools for it tend to be one-off notebooks or heavyweight platforms. There was no single place to see the pieces as one catalogue: what exists and works today, what is being built, and what is still just a plan.'
 challengeEs: 'La analítica minera abarca toda la cadena de valor (geología, perforación y tronadura, transporte, conminución, flotación, relaves, salud de activos, economía) y las herramientas útiles para ella suelen ser notebooks aislados o plataformas pesadas. No había un solo lugar para ver las piezas como un catálogo: qué existe y funciona hoy, qué se está construyendo y qué es todavía solo un plan.'
 
-approach: 'Faena is a static launcher, not an app: a fast, crawlable index that lists each tool and links out to its own repo and subdomain, it never bundles or proxies the apps. It is fully data-driven from a registry: two organizing axes (value-chain stage as swimlanes, solution-type as a colour facet) and a three-state lifecycle (planned, building, live), so the status of every tool is visible and comes from the registry. Adding a tool is a data edit. Built with Astro (ships almost no JavaScript), bilingual EN/ES, light/dark, deployed to GitHub Pages.'
-approachEs: 'Faena es un lanzador estático, no una app: un índice rápido y rastreable que lista cada herramienta y enlaza a su propio repo y subdominio, nunca las empaqueta ni las proxea. Está totalmente dirigido por datos desde un registro: dos ejes de organización (etapa de la cadena de valor como swimlanes, tipo de solución como faceta de color) y un ciclo de vida de tres estados (planeado, en construcción, en vivo), para que el estado de cada herramienta sea visible y provenga del registro. Agregar una herramienta es una edición de datos. Construido con Astro (envía casi nada de JavaScript), bilingüe EN/ES, claro/oscuro, desplegado en GitHub Pages.'
+approach: 'Faena is a static launcher, not an app: a fast, crawlable index that lists each tool and links out to its own repo and subdomain, it never bundles or proxies the apps. It is fully data-driven from a registry: two organizing axes (value-chain stage as swimlanes, solution-type as a colour facet) and a three-state lifecycle (planned, building, live), so the status of every tool is visible and comes from the registry. Adding a tool is a data edit. Built as a React 19 and Vite single-page app on the shared CAOS app shell, served as static files with a build-time catalog that keeps it crawlable without JavaScript, bilingual EN/ES, light/dark, deployed to GitHub Pages.'
+approachEs: 'Faena es un lanzador estático, no una app: un índice rápido y rastreable que lista cada herramienta y enlaza a su propio repo y subdominio, nunca las empaqueta ni las proxea. Está totalmente dirigido por datos desde un registro: dos ejes de organización (etapa de la cadena de valor como swimlanes, tipo de solución como faceta de color) y un ciclo de vida de tres estados (planeado, en construcción, en vivo), para que el estado de cada herramienta sea visible y provenga del registro. Agregar una herramienta es una edición de datos. Construido como una app de una página con React 19 y Vite sobre el shell de apps común de CAOS, servida como archivos estáticos con un catálogo generado en el build que la mantiene rastreable sin JavaScript, bilingüe EN/ES, claro/oscuro, desplegado en GitHub Pages.'
 
 businessContext: 'A portfolio of analytics tools is only useful if you can find the right one and trust its status. Faena is the map: it groups the tools by where they sit in the productive cycle and by what kind of method they are, and it is explicit about maturity, so a visitor sees at a glance the few that are production-quality today versus the many that are in progress or planned, without any tool overselling itself.'
 businessContextEs: 'Un portafolio de herramientas de analítica solo sirve si puedes encontrar la correcta y confiar en su estado. Faena es el mapa: agrupa las herramientas por dónde están en el ciclo productivo y por qué tipo de método son, y es explícito sobre la madurez, así un visitante ve de un vistazo las pocas que son de calidad productiva hoy versus las muchas en progreso o planeadas, sin que ninguna herramienta se sobre-venda.'
@@ -63,10 +63,10 @@ metrics:
     valueEs: 'Lanzador estático, lista y enlaza, nunca empaqueta las apps'
   - label: 'Stack'
     labelEs: 'Stack'
-    value: 'Astro (static, minimal JS) · i18n EN/ES · light/dark · data-driven registry · GitHub Pages'
-    valueEs: 'Astro (estático, mínimo JS) · i18n EN/ES · claro/oscuro · registro dirigido por datos · GitHub Pages'
+    value: 'React 19 + Vite single-page app on the shared CAOS app shell (static files) · i18n EN/ES · light/dark · data-driven registry · GitHub Pages'
+    valueEs: 'App de una página React 19 + Vite sobre el shell de apps común de CAOS (archivos estáticos) · i18n EN/ES · claro/oscuro · registro dirigido por datos · GitHub Pages'
 
-stack: [Astro, TypeScript, i18n, GitHub Pages]
+stack: [React, Vite, TypeScript, i18n, GitHub Pages]
 ---
 
 ## One launcher, many tools
@@ -79,6 +79,6 @@ Every tile carries a lifecycle status, so the catalogue tells the truth about ma
 
 ## How it is organized
 
-Two axes: **value-chain stage** as swimlanes and **solution-type** (computer vision, 3D physics, optimization/OR, condition monitoring, geospatial, forecasting) as a colour facet you can filter. The whole site is **data-driven** from a registry, adding a tool is a data edit, and built with **Astro** for a static, crawlable, near-zero-JS surface, bilingual EN/ES with a light/dark theme.
+Two axes: **value-chain stage** as swimlanes and **solution-type** (computer vision, 3D physics, optimization/OR, condition monitoring, geospatial, forecasting) as a colour facet you can filter. The whole site is **data-driven** from a registry, adding a tool is a data edit, and built as a **React 19 and Vite** single-page app on the shared CAOS app shell, served as static files with a build-time catalog that keeps it crawlable without JavaScript, bilingual EN/ES with a light/dark theme.
 
 [Live hub](https://faena.fasl-work.com) · [Source on GitHub](https://github.com/fsantibanezleal/CAOS_FAENA)
