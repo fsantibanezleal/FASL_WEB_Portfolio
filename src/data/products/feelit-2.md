@@ -100,7 +100,7 @@ In April 2026, version 2.18.000 achieved the first bounded native haptic pilot, 
 
 This validated the architecture: the separation between interaction logic and hardware I/O was clean enough that the entire system worked identically with or without physical hardware.
 
-## Honest About Limitations
+## Limitations
 
 The project explicitly documents what is shipped versus what is planned. The Implementation Gap Audit on GitHub records exactly what works today (Braille reading, 3D staging, workspace management) and what requires future work: native haptic hardware bridge beyond the bounded pilot, PDF/DOCX support, and full force-feedback material realization.
 

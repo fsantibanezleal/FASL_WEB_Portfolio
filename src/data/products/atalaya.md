@@ -4,8 +4,8 @@ titleEs: 'Atalaya, Una Atalaya sobre los Datos Abiertos de Chile'
 slug: atalaya
 date: 2026-07-01
 category: data-engineering
-excerpt: 'Atalaya harvests Chile''s Data Observatory open catalog, profiles every downloadable table, and mines five kinds of cross-dataset relation (same-source, semantic similarity, spatial overlap, joinability and statistical correlation) into an explorable knowledge graph, with client-side semantic search running in the browser. Honest about evidence strength, never causal.'
-excerptEs: 'Atalaya cosecha el catálogo abierto del Data Observatory de Chile, perfila cada tabla descargable y mina cinco tipos de relación cruzada (misma fuente, similitud semántica, solapamiento espacial, joinabilidad y correlación estadística) en un grafo de conocimiento explorable, con búsqueda semántica corriendo en el navegador. Honesto sobre la fuerza de la evidencia, nunca causal.'
+excerpt: 'Atalaya harvests Chile''s Data Observatory open catalog, profiles every downloadable table, and mines five kinds of cross-dataset relation (same-source, semantic similarity, spatial overlap, joinability and statistical correlation) into an explorable knowledge graph, with client-side semantic search running in the browser. Each edge carries its evidence strength, and none is presented as causal.'
+excerptEs: 'Atalaya cosecha el catálogo abierto del Data Observatory de Chile, perfila cada tabla descargable y mina cinco tipos de relación cruzada (misma fuente, similitud semántica, solapamiento espacial, joinabilidad y correlación estadística) en un grafo de conocimiento explorable, con búsqueda semántica corriendo en el navegador. Cada arista lleva la fuerza de su evidencia, y ninguna se presenta como causal.'
 icon: tabler:affiliate
 tags: [data-engineering, knowledge-graph, information-retrieval, embeddings, onnx, open-data]
 proprietary: false
@@ -21,10 +21,10 @@ challengeEs: 'Un catálogo de datos abiertos es una lista de tablas, no un mapa 
 approach: 'Atalaya is a data-engineering + information-retrieval pipeline, harvest → profile → relate → evaluate → export, run over 1,017 real datasets from the catalog (with a measured multi-GB partial mirror). It profiles every table, then mines five relation types into a knowledge graph: same-source, semantic similarity (a MiniLM sentence model exported to ONNX), spatial overlap, joinability (MinHash containment) and statistical correlation (Spearman with a permutation null, Benjamini-Hochberg FDR control and a partial-correlation guard). A novel calibrated multi-evidence "affinity" score fuses the signals against null-distribution percentiles and reliability weights, and can be re-weighted live. It ships as a static React SPA with the graph baked in and semantic search running client-side (transformers.js / onnxruntime-web), no backend.'
 approachEs: 'Atalaya es un pipeline de ingeniería de datos + recuperación de información, cosechar → perfilar → relacionar → evaluar → exportar, corrido sobre 1.017 datasets reales del catálogo (con un espejo parcial medido de varios GB). Perfila cada tabla, luego mina cinco tipos de relación en un grafo de conocimiento: misma fuente, similitud semántica (un modelo de oraciones MiniLM exportado a ONNX), solapamiento espacial, joinabilidad (containment por MinHash) y correlación estadística (Spearman con un nulo por permutación, control de FDR Benjamini-Hochberg y un guardia de correlación parcial). Un score novel de "afinidad" multi-evidencia calibrado fusiona las señales contra percentiles de distribución nula y pesos de fiabilidad, y puede re-ponderarse en vivo. Se entrega como un SPA React estático con el grafo horneado y búsqueda semántica corriendo en el cliente (transformers.js / onnxruntime-web), sin backend.'
 
-businessContext: 'Public data is only as useful as your ability to connect it, and the connective tissue (which datasets join, overlap or correlate) is exactly what catalogs never provide. Atalaya turns a flat catalog into a navigable graph of relationships, which is the difference between "here are a thousand tables" and "here are the two that, joined, answer your question." Doing it with statistical discipline (nulls, FDR, partial-correlation guards) is what keeps the connections honest.'
-businessContextEs: 'Los datos públicos sirven solo tanto como tu capacidad de conectarlos, y el tejido conectivo (qué datasets se unen, solapan o correlacionan) es justo lo que los catálogos nunca proveen. Atalaya convierte un catálogo plano en un grafo navegable de relaciones, que es la diferencia entre "aquí hay mil tablas" y "aquí están las dos que, unidas, responden tu pregunta". Hacerlo con disciplina estadística (nulos, FDR, guardias de correlación parcial) es lo que mantiene honestas las conexiones.'
-strategicValue: 'Atalaya demonstrates an end-to-end data-engineering + IR stack (catalog harvesting, profiling, entity-resolution/joinability, statistically-vetted relations and a calibrated fusion score) delivered as a static, backendless, client-inference web app. Its discipline is the point: it reports evidence strength honestly (of ~14,000 edges, the vast majority are cheap priors; the hard evidence is a few hundred joins and a handful of FDR-controlled correlations), it never implies causation, and the modern embedding model beats the classical baseline only modestly. That honest, reproducible framing is what makes it a credible relation explorer rather than a graph that overstates itself.'
-strategicValueEs: 'Atalaya demuestra un stack completo de ingeniería de datos + IR (cosecha de catálogo, perfilado, resolución de entidades/joinabilidad, relaciones validadas estadísticamente y un score de fusión calibrado) entregado como una app web estática, sin backend, con inferencia en el cliente. Su disciplina es el punto: reporta la fuerza de la evidencia con honestidad (de ~14.000 aristas, la gran mayoría son priors baratos; la evidencia dura son unos cientos de joins y un puñado de correlaciones con FDR controlado), nunca implica causalidad, y el modelo de embeddings moderno supera a la línea base clásica solo modestamente. Ese encuadre honesto y reproducible es lo que lo hace un explorador de relaciones creíble en vez de un grafo que se exagera.'
+businessContext: 'Public data is only as useful as your ability to connect it, and the connective tissue (which datasets join, overlap or correlate) is exactly what catalogs never provide. Atalaya turns a flat catalog into a navigable graph of relationships, which is the difference between "here are a thousand tables" and "here are the two that, joined, answer your question." Doing it with statistical discipline (nulls, FDR, partial-correlation guards) is what keeps spurious connections out of the graph.'
+businessContextEs: 'Los datos públicos sirven solo tanto como tu capacidad de conectarlos, y el tejido conectivo (qué datasets se unen, solapan o correlacionan) es justo lo que los catálogos nunca proveen. Atalaya convierte un catálogo plano en un grafo navegable de relaciones, que es la diferencia entre "aquí hay mil tablas" y "aquí están las dos que, unidas, responden tu pregunta". Hacerlo con disciplina estadística (nulos, FDR, guardias de correlación parcial) es lo que deja fuera del grafo las conexiones espurias.'
+strategicValue: 'Atalaya demonstrates an end-to-end data-engineering + IR stack (catalog harvesting, profiling, entity-resolution/joinability, statistically-vetted relations and a calibrated fusion score) delivered as a static, backendless, client-inference web app. Its discipline is the point: it reports evidence strength edge by edge (of ~14,000 edges, the vast majority are cheap priors; the hard evidence is a few hundred joins and a handful of FDR-controlled correlations), it never implies causation, and the modern embedding model beats the classical baseline only modestly. That reproducible framing is what makes it a credible relation explorer rather than a graph that overstates itself.'
+strategicValueEs: 'Atalaya demuestra un stack completo de ingeniería de datos + IR (cosecha de catálogo, perfilado, resolución de entidades/joinabilidad, relaciones validadas estadísticamente y un score de fusión calibrado) entregado como una app web estática, sin backend, con inferencia en el cliente. Su disciplina es el punto: reporta la fuerza de la evidencia arista por arista (de ~14.000 aristas, la gran mayoría son priors baratos; la evidencia dura son unos cientos de joins y un puñado de correlaciones con FDR controlado), nunca implica causalidad, y el modelo de embeddings moderno supera a la línea base clásica solo modestamente. Ese encuadre reproducible es lo que lo hace un explorador de relaciones creíble en vez de un grafo que se exagera.'
 
 kpis:
   - label: 'From catalog to map'
@@ -35,8 +35,8 @@ kpis:
     resultEs: 'Un grafo de conocimiento de 5 tipos de relación sobre 1.017 datasets'
     impact: 'Find the datasets that actually connect'
     impactEs: 'Encontrar los datasets que realmente conectan'
-  - label: 'Honest evidence'
-    labelEs: 'Evidencia honesta'
+  - label: 'Evidence strength'
+    labelEs: 'Fuerza de la evidencia'
     baseline: '"14,000 relationships"'
     baselineEs: '"14.000 relaciones"'
     result: 'Strength labelled: cheap priors vs 117 joins + 24 FDR-controlled correlations'
@@ -65,8 +65,8 @@ metrics:
     labelEs: 'Escalera de modelos'
     value: 'classical (PCA/KMeans + TF-IDF foil) + SOTA (MiniLM embeddings) + a novel calibrated multi-evidence affinity score'
     valueEs: 'clásico (PCA/KMeans + TF-IDF) + SOTA (embeddings MiniLM) + un score novel de afinidad multi-evidencia calibrado'
-  - label: 'Honesty'
-    labelEs: 'Honestidad'
+  - label: 'Limits'
+    labelEs: 'Límites'
     value: 'Not causal; SOTA beats classical only ~+1.4 pts; small-n correlations flagged fragile'
     valueEs: 'No causal; SOTA supera al clásico solo ~+1,4 pts; correlaciones de n pequeño marcadas frágiles'
   - label: 'Stack'
@@ -85,7 +85,7 @@ Atalaya is a **watchtower over Chile's open data**. It harvests the [Data Observ
 
 Over 1,017 real datasets: **same-source**, **semantic similarity** (a MiniLM model exported to ONNX), **spatial overlap**, **joinability** (MinHash containment) and **statistical correlation** (Spearman with a permutation null, Benjamini-Hochberg FDR control and a partial-correlation guard). A novel calibrated **affinity** score fuses the signals against null-distribution percentiles and can be re-weighted live. The whole thing ships as a static SPA with the graph baked in and **semantic search running client-side**, no backend.
 
-## Honest about the graph
+## Evidence strength in the graph
 
 The number that matters is not "~14,000 relationships", most of those are cheap priors. The **hard evidence** is a few hundred joinable pairs and a handful of FDR-controlled correlations, and Atalaya labels that strength rather than hiding it. It never implies causation (some small-n correlations are flagged fragile), and the modern embedding model beats the classical TF-IDF baseline only **modestly** (~+1.4 points). It is a relation *explorer*, reported at the confidence the data supports.
 

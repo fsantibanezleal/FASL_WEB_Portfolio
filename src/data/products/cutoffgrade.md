@@ -23,8 +23,8 @@ approachEs: 'CutoffGrade Studio implementa el método de Lane exacta y transpare
 
 businessContext: 'Cut-off strategy directly moves the NPV of an operation, and the counter-intuitive part (that you should mine at a higher cut-off early and let it decline, and that the binding stage decides the whole schedule) is exactly where value is left on the table. A studio that makes the trajectory and its binding constraint visible, and lets you sweep prices, costs and capacities and watch the NPV respond, turns Lane''s theory from a formula into an intuition you can build and check.'
 businessContextEs: 'La estrategia de ley de corte mueve directamente el VAN de una operación, y la parte contra-intuitiva (que conviene extraer a una ley de corte más alta al inicio y dejarla decrecer, y que la etapa que limita decide todo el programa) es justo donde se deja valor sobre la mesa. Un estudio que hace visible la trayectoria y su restricción activa, y que deja barrer precios, costos y capacidades viendo responder el VAN, convierte la teoría de Lane de una fórmula en una intuición que puedes construir y verificar.'
-strategicValue: 'CutoffGrade Studio is a faithful, auditable implementation of a classic optimization method, not a black box and not a "novel AI" claim. It shows the exact Lane optimizer against a best-constant baseline and closed-form oracles, so the ~2.6% NPV uplift it finds (when a processing stage binds; zero when the mine is the limit, exactly as theory predicts) is a provable result rather than an assertion. The learned layer is honest about being speed-only, the base case is openly synthetic, and the repo even discloses two small divergences from textbook Lane, the kind of transparency that makes an economics tool trustworthy.'
-strategicValueEs: 'CutoffGrade Studio es una implementación fiel y auditable de un método clásico de optimización, no una caja negra ni un reclamo de "IA novedosa". Muestra el optimizador exacto de Lane contra una línea base de mejor-constante y oráculos de forma cerrada, así que el ~2.6% de uplift de VAN que encuentra (cuando una etapa de proceso limita; cero cuando la mina es el límite, exactamente como predice la teoría) es un resultado demostrable en vez de una afirmación. La capa aprendida es honesta sobre ser solo-velocidad, el caso base es abiertamente sintético, y el repo incluso revela dos pequeñas divergencias del Lane de texto, el tipo de transparencia que hace confiable a una herramienta de economía.'
+strategicValue: 'CutoffGrade Studio is a faithful, auditable implementation of a classic optimization method, not a black box and not a "novel AI" claim. It shows the exact Lane optimizer against a best-constant baseline and closed-form oracles, so the ~2.6% NPV uplift it finds (when a processing stage binds; zero when the mine is the limit, exactly as theory predicts) is a provable result rather than an assertion. The learned layer is labelled speed-only, the base case is openly synthetic, and the repo even discloses two small divergences from textbook Lane, the kind of transparency that makes an economics tool trustworthy.'
+strategicValueEs: 'CutoffGrade Studio es una implementación fiel y auditable de un método clásico de optimización, no una caja negra ni un reclamo de "IA novedosa". Muestra el optimizador exacto de Lane contra una línea base de mejor-constante y oráculos de forma cerrada, así que el ~2.6% de uplift de VAN que encuentra (cuando una etapa de proceso limita; cero cuando la mina es el límite, exactamente como predice la teoría) es un resultado demostrable en vez de una afirmación. La capa aprendida se declara solo-velocidad, el caso base es abiertamente sintético, y el repo incluso revela dos pequeñas divergencias del Lane de texto, el tipo de transparencia que hace confiable a una herramienta de economía.'
 
 kpis:
   - label: 'Cut-off as a trajectory'
@@ -49,8 +49,8 @@ kpis:
     baselineEs: '"La IA mejora el plan"'
     result: 'Learned surrogate = instant sweeps; exact optimizer is the authority'
     resultEs: 'Surrogate aprendido = barridos instantáneos; el optimizador exacto es la autoridad'
-    impact: 'Honest: the model is for speed, not accuracy'
-    impactEs: 'Honesto: el modelo es para velocidad, no para exactitud'
+    impact: 'The model is for speed, not accuracy'
+    impactEs: 'El modelo es para velocidad, no para exactitud'
 
 metrics:
   - label: 'Method'
@@ -85,7 +85,7 @@ CutoffGrade Studio computes **Lane's optimal cut-off grade**, the NPV-maximising
 
 The engine implements Lane's method exactly, the six characteristic cut-offs, the balancing (Dagdelen) medians, and a year-by-year NPV simulator run to a fixed point, and shows it against a best-constant baseline and closed-form oracles, so the **~2.6% NPV uplift** it finds when a processing stage binds (and **0%** when the mine is the limit, exactly as theory predicts) is provable, not asserted. The governing equations are on screen; the App is a real ten-tab workbench that reacts to a case selector and live sliders.
 
-## Honest about the AI, and the data
+## The AI layer and the data
 
 Two small models run live via **onnxruntime-web**, a surrogate that reproduces the trajectory instantly for slider sweeps and an out-of-distribution guard, but they are **for speed and sanity, not to improve the answer** (the exact optimizer is always the authority). The base case is **100% synthetic** (a porphyry-copper example, openly labelled), and the repo discloses its two small divergences from textbook Lane. No real mine data, no "novel-beyond-SOTA" claim, a faithful classic method, made legible.
 
