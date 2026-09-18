@@ -56,5 +56,5 @@
   <text x="580" y="292" class="t" font-size="12">match: true on all 3</text>
   <text x="580" y="312" class="m">a self-checking optimiser</text>
 
-  <text x="32" y="384" class="m">Honest: engine is Dinic min-cut (equivalent to Lerchs-Grossmann), not pseudoflow · CPIT is offline · not a JORC estimate · static Pages</text>
+  <text x="32" y="384" class="m">Scope: engine is Dinic min-cut (equivalent to Lerchs-Grossmann), not pseudoflow · CPIT is offline · not a JORC estimate · static Pages</text>
 </svg>

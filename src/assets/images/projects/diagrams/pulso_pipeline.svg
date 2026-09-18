@@ -56,5 +56,5 @@
   <text x="580" y="304" class="m">InceptionTime 0.911 test acc</text>
   <text x="580" y="324" class="m">(vs cluster labels, not truth)</text>
 
-  <text x="32" y="384" class="m">Honest: aquifer transfer is shape-diagnostic only (T/S unknown) · 4 ONNX models ship · field attribution skipped at n=8 · static Pages</text>
+  <text x="32" y="384" class="m">Scope: aquifer transfer is shape-diagnostic only (T/S unknown) · 4 ONNX models ship · field attribution skipped at n=8 · static Pages</text>
 </svg>

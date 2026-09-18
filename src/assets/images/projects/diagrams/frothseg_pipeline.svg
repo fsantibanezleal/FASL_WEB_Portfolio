@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
-     aria-label="FrothSeg: a froth image runs a ladder of seven classical methods and a learned LamellaStar ensemble (SAM2 and Cellpose-SAM teachers, distilled browser head) to per-bubble instances, with an honest data note that no real froth data exists and BBBC038 is only an adjacent-domain transfer probe">
+     aria-label="FrothSeg: a froth image runs a ladder of seven classical methods and a learned LamellaStar ensemble (SAM2 and Cellpose-SAM teachers, distilled browser head) to per-bubble instances, with a data note stating that no real froth data exists and BBBC038 is only an adjacent-domain transfer probe">
   <defs>
     <linearGradient id="fsbg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
@@ -14,7 +14,7 @@
   </defs>
   <rect width="800" height="400" fill="url(#fsbg)"/>
   <text x="32" y="44" class="t" font-size="22">FrothSeg</text>
-  <text x="32" y="66" class="m">Flotation-froth instance segmentation · client-side ONNX · a real model and an honest data null</text>
+  <text x="32" y="66" class="m">Flotation-froth instance segmentation · client-side ONNX · a real model and a recorded data null</text>
 
   <rect x="32" y="92" width="150" height="150" rx="10" class="box acc"/>
   <text x="46" y="116" class="a" font-size="13">INPUT</text>

@@ -15,7 +15,7 @@
   </defs>
   <rect width="800" height="400" fill="url(#pmbg)"/>
   <text x="32" y="46" class="t" font-size="22">ProspectMap</text>
-  <text x="32" y="68" class="m">Mineral-prospectivity workbench · Weights of Evidence posterior live in the browser · adversarial honesty by design</text>
+  <text x="32" y="68" class="m">Mineral-prospectivity workbench · Weights of Evidence posterior live in the browser · spatial CV and negative controls by design</text>
 
   <rect x="32" y="96" width="184" height="252" rx="10" class="box acc"/>
   <text x="48" y="122" class="a" font-size="13">EVIDENCE LAYERS</text>
@@ -55,5 +55,5 @@
   <text x="580" y="278" class="m">loses to 1989 WofE 0.732</text>
   <text x="580" y="302" class="m">ranking_win: false (committed)</text>
 
-  <text x="32" y="384" class="m">Honest: no AlphaEarth / foundation embeddings · conformal band flags 88% of the belt · target generation, not a resource estimate · static Pages</text>
+  <text x="32" y="384" class="m">Scope: no AlphaEarth / foundation embeddings · conformal band flags 88% of the belt · target generation, not a resource estimate · static Pages</text>
 </svg>

@@ -55,5 +55,5 @@
   <text x="580" y="308" class="m">5.7% median t_f error</text>
   <text x="580" y="326" class="m">coverage 0.892 vs 0.900 nominal</text>
 
-  <text x="32" y="384" class="m">Honest held-out: classical |v| AUC 0.968 beats the learned AE anomaly 0.898 · 5 cases invented, 1 real caldera clip · static GitHub Pages</text>
+  <text x="32" y="384" class="m">Held-out: classical |v| AUC 0.968 beats the learned AE anomaly 0.898 · 5 cases invented, 1 real caldera clip · static GitHub Pages</text>
 </svg>

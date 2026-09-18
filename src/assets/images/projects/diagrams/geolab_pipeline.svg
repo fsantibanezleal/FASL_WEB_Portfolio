@@ -59,5 +59,5 @@
   <text x="672" y="210" class="m">value read-out</text>
 
   <text x="32" y="356" class="m">A CAOS research lab (SimLab / PINN-Lab / QLab family). Aggregates a fragmented WASM ecosystem behind one</text>
-  <text x="32" y="374" class="m">tool interface with reproducible pipelines and honest provenance. Actively built out; not yet a finished app.</text>
+  <text x="32" y="374" class="m">tool interface with reproducible pipelines and per-tool provenance. Actively built out; not yet a finished app.</text>
 </svg>

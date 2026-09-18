@@ -56,5 +56,5 @@
   <text x="580" y="288" class="m">bring-your-own series</text>
   <text x="580" y="308" class="m">6 ADR pages · 163 tests</text>
 
-  <text x="32" y="384" class="m">Honest: foundation models are offline-only, not in the browser · SeasonalNaive still beats TimesFM-2.5 · one series per case · static Pages</text>
+  <text x="32" y="384" class="m">Scope: foundation models are offline-only, not in the browser · SeasonalNaive still beats TimesFM-2.5 · one series per case · static Pages</text>
 </svg>
