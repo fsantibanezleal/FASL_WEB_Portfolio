@@ -55,5 +55,5 @@
   <!-- Key insight box -->
   <rect x="80" y="225" width="600" height="55" rx="8" style="fill:#0d1b2a;fill-opacity:0.9;stroke:#e07830;stroke-width:1.5"/>
   <text x="380" y="248" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#e07830">Key Insight</text>
-  <text x="380" y="268" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">Sampling reduces H(X|Y) &#x2014; posterior uncertainty decreases with each measurement.</text>
+  <text x="380" y="268" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:11px;fill:#e6edf3">Sampling reduces H(X|Y) &#xB7; posterior uncertainty decreases with each measurement.</text>
 </svg>

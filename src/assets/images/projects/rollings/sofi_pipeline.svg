@@ -83,5 +83,5 @@
 
   <!-- Bottom note -->
   <text x="380" y="260" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">Higher-order cumulants yield sharper PSFs but require longer sequences and have lower SNR</text>
-  <text x="380" y="278" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">&#x03BA;&#x2099;(&#x03C4;) captures n-th order temporal statistics &#x2014; only blinking emitters contribute</text>
+  <text x="380" y="278" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:10px;fill:#8b949e">&#x03BA;&#x2099;(&#x03C4;) captures n-th order temporal statistics &#xB7; only blinking emitters contribute</text>
 </svg>

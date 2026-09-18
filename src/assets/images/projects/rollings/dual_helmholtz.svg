@@ -17,7 +17,7 @@
   <rect width="760" height="300" fill="url(#bgGrad)"/>
 
   <!-- Title -->
-  <text x="380" y="25" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;fill:#3a7ab8">Helmholtz Reciprocity &#x2014; Forward vs Dual Light Transport</text>
+  <text x="380" y="25" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;fill:#3a7ab8">Helmholtz Reciprocity &#xB7; Forward vs Dual Light Transport</text>
 
   <!-- ===== LEFT: Forward path ===== -->
   <text x="175" y="52" text-anchor="middle" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#3a7ab8">Forward</text>

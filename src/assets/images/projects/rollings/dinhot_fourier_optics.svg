@@ -87,6 +87,6 @@
   <!-- Mathematical connection -->
   <text x="380" y="55" style="font-family:Arial,sans-serif;font-size:12px;fill:#7ab8d4;text-anchor:middle;font-style:italic">F{exp(i&#x3C6;)} &#x2192; I(x,y)</text>
   <!-- Bottom description -->
-  <text x="380" y="272" style="font-family:Arial,sans-serif;font-size:10px;fill:#7ab8d4;text-anchor:middle;font-style:italic">The lens performs an optical Fourier transform &#x2014; the phase pattern on the SLM</text>
+  <text x="380" y="272" style="font-family:Arial,sans-serif;font-size:10px;fill:#7ab8d4;text-anchor:middle;font-style:italic">The lens performs an optical Fourier transform &#xB7; the phase pattern on the SLM</text>
   <text x="380" y="286" style="font-family:Arial,sans-serif;font-size:10px;fill:#7ab8d4;text-anchor:middle;font-style:italic">determines the intensity distribution at the focal plane.</text>
 </svg>

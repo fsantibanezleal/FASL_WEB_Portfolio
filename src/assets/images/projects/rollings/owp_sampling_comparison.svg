@@ -133,16 +133,16 @@
   <rect x="440" y="55" width="300" height="200" rx="6" style="fill:#0d1b2a;fill-opacity:0.85;stroke:#3a7ab8;stroke-width:0.8"/>
   <text x="590" y="78" style="font-family:Arial,sans-serif;font-size:12px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">Strategy Summary</text>
   <circle cx="458" cy="100" r="3" style="fill:#e07830"/>
-  <text x="470" y="104" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Random &#x2014; no structure, high variance</text>
+  <text x="470" y="104" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Random &#xB7; no structure, high variance</text>
   <circle cx="458" cy="120" r="3" style="fill:#0d7377"/>
-  <text x="470" y="124" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Stratified &#x2014; one per stratum</text>
+  <text x="470" y="124" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Stratified &#xB7; one per stratum</text>
   <circle cx="458" cy="140" r="3" style="fill:#3a7ab8"/>
-  <text x="470" y="144" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Multiscale &#x2014; hierarchical refinement</text>
+  <text x="470" y="144" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Multiscale &#xB7; hierarchical refinement</text>
   <circle cx="458" cy="160" r="3" style="fill:#8899aa"/>
-  <text x="470" y="164" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Regular &#x2014; uniform spacing</text>
+  <text x="470" y="164" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Regular &#xB7; uniform spacing</text>
   <circle cx="458" cy="180" r="3" style="fill:#e07830"/>
-  <text x="470" y="184" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Oracle &#x2014; optimal (ground truth)</text>
+  <text x="470" y="184" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Oracle &#xB7; optimal (ground truth)</text>
   <circle cx="458" cy="200" r="3" style="fill:#0d7377"/>
-  <text x="470" y="204" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Adaptive &#x2014; boundary-focused</text>
+  <text x="470" y="204" style="font-family:Arial,sans-serif;font-size:10px;fill:#c8d6e5">Adaptive &#xB7; boundary-focused</text>
   <text x="590" y="236" style="font-family:Arial,sans-serif;font-size:10px;fill:#e07830;text-anchor:middle;font-style:italic">Adaptive approaches Oracle quality</text>
 </svg>

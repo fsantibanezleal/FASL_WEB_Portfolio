@@ -63,11 +63,11 @@
   <rect x="400" y="160" width="340" height="110" rx="6" style="fill:#0d1b2a;fill-opacity:0.8;stroke:#3a7ab8;stroke-width:0.5"/>
   <text x="420" y="182" style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;fill:#3a7ab8">Parameters</text>
   <circle cx="430" cy="200" r="5" style="fill:#0d7377"/>
-  <text x="442" y="204" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">R&#x2080; &#x2014; equilibrium cell radius</text>
+  <text x="442" y="204" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">R&#x2080; &#xB7; equilibrium cell radius</text>
   <ellipse cx="430" cy="220" rx="5" ry="3" style="fill:#e07830"/>
-  <text x="442" y="224" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">A &#x2014; filopodium amplitude</text>
-  <text x="420" y="244" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">W &#x2014; filopodium angular width</text>
-  <text x="420" y="260" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">&#x03B8;&#x2080; &#x2014; filopodium angular position</text>
+  <text x="442" y="224" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">A &#xB7; filopodium amplitude</text>
+  <text x="420" y="244" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">W &#xB7; filopodium angular width</text>
+  <text x="420" y="260" style="font-family:Arial,sans-serif;font-size:10px;fill:#e6edf3">&#x03B8;&#x2080; &#xB7; filopodium angular position</text>
 
   <!-- Theta arc -->
   <path d="M 245,155 A 25,25 0 0,0 240,140" style="fill:none;stroke:#8b949e;stroke-width:0.8"/>

@@ -10,7 +10,7 @@
     </marker>
   </defs>
   <rect width="760" height="300" style="fill:url(#bg10)"/>
-  <text x="380" y="22" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">Robot Workspace &#x2014; Top View</text>
+  <text x="380" y="22" style="font-family:Arial,sans-serif;font-size:15px;fill:#e0e6ed;text-anchor:middle;font-weight:bold">Robot Workspace &#xB7; Top View</text>
   <!-- Robot base (center) -->
   <circle cx="380" cy="200" r="14" style="fill:#2d3748;stroke:#3a7ab8;stroke-width:1.5"/>
   <text x="380" y="204" style="font-family:Arial,sans-serif;font-size:8px;fill:#e0e6ed;text-anchor:middle">ARM</text>
