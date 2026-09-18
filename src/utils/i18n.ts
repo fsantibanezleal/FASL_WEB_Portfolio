@@ -61,8 +61,8 @@ const translations: Record<string, Record<Locale, string>> = {
   'family.all': { en: 'All', es: 'Todo' },
   'family.faena': { en: 'Faena · Mining Analytics', es: 'Faena · Analítica Minera' },
   'family.faena.blurb': {
-    en: 'A hub of browser-native mining apps: comminution, dispatch, geology, geotechnics and prognostics, each with an offline precompute lane and an honest results ledger.',
-    es: 'Un hub de apps mineras nativas del navegador: conminución, despacho, geología, geotecnia y pronóstico, cada una con un lane de precómputo offline y un registro honesto de resultados.',
+    en: 'A hub of browser-native mining apps: comminution, dispatch, geology, geotechnics and prognostics, each with an offline precompute lane and a results ledger.',
+    es: 'Un hub de apps mineras nativas del navegador: conminución, despacho, geología, geotecnia y pronóstico, cada una con un lane de precómputo offline y un registro de resultados.',
   },
   'family.labs': { en: 'Research Labs', es: 'Laboratorios de Investigación' },
   'family.labs.blurb': {
