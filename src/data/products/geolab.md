@@ -25,8 +25,8 @@ approachEs: 'GeoLab agrega motores geoespaciales WebAssembly y JS tras una inter
 businessContext: 'Geospatial work touches mining, environment, infrastructure and agriculture, and the friction is real: installs, server uploads, and non-reproducible toolchains. A browser-native platform where the data never leaves the machine removes the privacy and setup barriers at once, and a shareable JSON recipe makes an analysis reproducible by anyone with a browser. The multi-engine aggregation is the differentiator: instead of betting on one library, it puts many behind one interface and lets you compare them, which is exactly what someone evaluating a method needs.'
 businessContextEs: 'El trabajo geoespacial toca minería, medio ambiente, infraestructura y agricultura, y la fricción es real: instalaciones, subidas a servidor, y cadenas de herramientas no reproducibles. Una plataforma nativa del navegador donde los datos nunca salen de la máquina elimina las barreras de privacidad y configuración a la vez, y una receta JSON compartible hace un análisis reproducible por cualquiera con un navegador. La agregación multi-motor es el diferenciador: en vez de apostar a una biblioteca, pone muchas tras una interfaz y te deja compararlas, que es justo lo que alguien evaluando un método necesita.'
 
-strategicValue: 'GeoLab is a browser-native, multi-engine geospatial platform that turns a fragmented WASM ecosystem into one tool interface with reproducible pipelines and per-tool provenance, all client-side with no data leaving the machine. It ships 747 real tools live via the geolibre engine and is built (ADR-0059) to aggregate many more as adapters, with its own cross-engine comparison and composite tools on top. It holds the same honesty line as the rest of the labs: the tool count is only what genuinely runs, sample data is labelled synthetic, and it is openly an actively-built-out lab rather than a finished product.'
-strategicValueEs: 'GeoLab es una plataforma geoespacial multi-motor nativa del navegador que convierte un ecosistema WASM fragmentado en una interfaz de herramientas única con pipelines reproducibles y procedencia por herramienta, todo del lado del cliente sin que los datos salgan de la máquina. Entrega 747 herramientas reales en vivo vía el motor geolibre y está construida (ADR-0059) para agregar muchas más como adaptadores, con su propia comparación cross-motor y herramientas compuestas encima. Mantiene la misma línea de honestidad que el resto de los labs: el conteo de herramientas es solo lo que genuinamente corre, los datos de muestra se etiquetan como sintéticos, y es abiertamente un lab en construcción activa más que un producto terminado.'
+strategicValue: 'GeoLab is a browser-native, multi-engine geospatial platform that turns a fragmented WASM ecosystem into one tool interface with reproducible pipelines and per-tool provenance, all client-side with no data leaving the machine. It ships 747 real tools live via the geolibre engine and is built (ADR-0059) to aggregate many more as adapters, with its own cross-engine comparison and composite tools on top. It follows the same reporting rules as the rest of the labs: the tool count is only what genuinely runs, sample data is labelled synthetic, and it is openly an actively-built-out lab rather than a finished product.'
+strategicValueEs: 'GeoLab es una plataforma geoespacial multi-motor nativa del navegador que convierte un ecosistema WASM fragmentado en una interfaz de herramientas única con pipelines reproducibles y procedencia por herramienta, todo del lado del cliente sin que los datos salgan de la máquina. Entrega 747 herramientas reales en vivo vía el motor geolibre y está construida (ADR-0059) para agregar muchas más como adaptadores, con su propia comparación cross-motor y herramientas compuestas encima. Sigue las mismas reglas de reporte que el resto de los labs: el conteo de herramientas es solo lo que genuinamente corre, los datos de muestra se etiquetan como sintéticos, y es abiertamente un lab en construcción activa más que un producto terminado.'
 
 kpis:
   - label: 'No install, no server'
@@ -43,8 +43,8 @@ kpis:
     baselineEs: 'Un motor WASM, o un script a medida'
     result: '747 real WhiteboxTools / GeoLibre tools today via the geolibre engine; multi-engine architecture (GDAL, GEOS, Turf, H3, ITK, OpenCV, ONNX) landing incrementally'
     resultEs: '747 herramientas reales WhiteboxTools / GeoLibre hoy vía el motor geolibre; arquitectura multi-motor (GDAL, GEOS, Turf, H3, ITK, OpenCV, ONNX) llegando de a poco'
-    impact: 'Many engines behind one interface, counted honestly'
-    impactEs: 'Muchos motores tras una interfaz, contados honestamente'
+    impact: 'Many engines behind one interface, counting only tools that run'
+    impactEs: 'Muchos motores tras una interfaz, contando solo herramientas que corren'
   - label: 'Reproducibility'
     labelEs: 'Reproducibilidad'
     baseline: 'Loose scripts nobody can re-run'
@@ -67,8 +67,8 @@ metrics:
     labelEs: 'Entradas'
     value: 'DEM / GeoTIFF / vector / point cloud (bundled synthetic sample, labelled, or your own file)'
     valueEs: 'DEM / GeoTIFF / vector / nube de puntos (muestra sintética incluida, etiquetada, o tu propio archivo)'
-  - label: 'Honesty'
-    labelEs: 'Honestidad'
+  - label: 'Reporting rules'
+    labelEs: 'Reglas de reporte'
     value: 'Tool count is only what genuinely runs (never padded); provenance per tool; sample data labelled synthetic; an actively-built-out lab, not a finished app'
     valueEs: 'El conteo de herramientas es solo lo que genuinamente corre (nunca inflado); procedencia por herramienta; datos de muestra etiquetados sintéticos; un lab en construcción activa, no una app terminada'
   - label: 'Deploy'
