@@ -1,16 +1,16 @@
 name: GitHub Actions
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
-
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   content-standards:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,8 +19,11 @@ jobs:
       - name: No em-dash or emoji in content (ADR-0067)
         run: python scripts/check_content_standards.py
 
+      - name: CI budget, trunk-only triggers, no training (ADR-0074)
+        run: python scripts/check_ci_budget.py
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         node-version:
@@ -40,6 +43,7 @@ jobs:
 
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 22
