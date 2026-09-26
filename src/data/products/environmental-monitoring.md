@@ -4,6 +4,7 @@ titleEs: 'Sistema de Monitoreo y Mitigación Ambiental'
 slug: environmental-monitoring
 date: 2023-01-01
 category: computer-vision
+family: industry
 excerpt: 'An environmental monitoring system combining computer vision, predictive modeling, and Generative AI to detect, forecast, and mitigate pollution events at mining operation sites. Achieved 15% reduction in severe alert events.'
 excerptEs: 'Sistema de monitoreo ambiental que combina visión por computador, modelado predictivo e IA Generativa para detectar, pronosticar y mitigar eventos de contaminación en sitios mineros. Logró reducción de 15% en eventos de alerta severos.'
 icon: tabler:cloud-computing

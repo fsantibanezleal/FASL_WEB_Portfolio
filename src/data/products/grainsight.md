@@ -4,6 +4,7 @@ titleEs: 'GrainSight, Distribución de Tamaño de Partícula desde Datos RGB-D'
 slug: grainsight
 date: 2018-06-01
 category: 3d-visualization
+family: optics
 excerpt: 'A 3D particle size and granulometry analyzer using marker-based watershed segmentation on RGB-D data. Extracts 18 geometric properties per grain and fits Rosin-Rammler PSD distributions with ISO 565 sieve simulation.'
 excerptEs: 'Analizador 3D de tamaño de partícula y granulometría usando segmentación watershed basada en marcadores sobre datos RGB-D. Extrae 18 propiedades geométricas por grano y ajusta distribuciones PSD Rosin-Rammler con simulación de tamices ISO 565.'
 icon: tabler:grain

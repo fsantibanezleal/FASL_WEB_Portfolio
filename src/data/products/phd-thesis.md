@@ -4,6 +4,7 @@ titleEs: 'Muestreo Basado en Teoría de la Información para Recuperación de Im
 slug: phd-thesis
 date: 2019-12-17
 category: research
+family: geo
 excerpt: 'Doctoral thesis addressing optimal sensor placement, where to place N measurements to minimize posterior uncertainty in binary random fields. Introduced AdSEMES algorithm with submodularity guarantees. Published in Mathematical Geosciences and Natural Resources Research.'
 excerptEs: 'Tesis doctoral que aborda el posicionamiento óptimo de sensores, dónde ubicar N mediciones para minimizar incertidumbre posterior en campos aleatorios binarios. Introdujo el algoritmo AdSEMES con garantías de submodularidad. Publicado en Mathematical Geosciences y Natural Resources Research.'
 icon: tabler:school

@@ -4,7 +4,7 @@ titleEs: 'ImageLab, Una Imagen a lo Largo de Todo el Espectro de Representacione
 slug: imglab
 date: 2026-07-18
 category: image-representation
-family: labs
+family: optics
 excerpt: 'One image written across eleven mathematical representations: orthonormal transforms (Fourier, DCT, wavelet, KLT), overcomplete sparse dictionaries, geometric primitives, an implicit neural field (SIREN), symbolic CPPN formula art, Fourier-descriptor epicycles, and learned generative latents (VAE, diffusion), each with editable parameters. The measured thesis is that editability is U-shaped: it peaks at the designed-structure pole (local, exact edits) and the learned-manifold pole (semantic, entangled edits) and collapses to noise between. Everything is computed live in the browser (TypeScript, WebGL2) or baked offline by an open, seed-deterministic Python pipeline.'
 excerptEs: 'Una imagen escrita a lo largo de once representaciones matemáticas: transformadas ortonormales (Fourier, DCT, wavelet, KLT), diccionarios dispersos sobrecompletos, primitivas geométricas, un campo neuronal implícito (SIREN), arte simbólico con fórmulas CPPN, epiciclos de descriptores de Fourier y latentes generativos aprendidos (VAE, difusión), cada uno con parámetros editables. La tesis medida es que la editabilidad tiene forma de U: alcanza su máximo en el polo de estructura diseñada (ediciones locales y exactas) y en el polo de variedad aprendida (ediciones semánticas y enredadas), y colapsa en ruido entre ambos. Todo se calcula en vivo en el navegador (TypeScript, WebGL2) o se precalcula offline mediante un pipeline abierto de Python determinista por semilla.'
 icon: tabler:photo-cog

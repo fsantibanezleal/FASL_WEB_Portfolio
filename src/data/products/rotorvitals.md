@@ -4,6 +4,7 @@ titleEs: 'RotorVitals, Monitoreo de Condición y Pronóstico de Maquinaria Rotat
 slug: rotorvitals
 date: 2026-06-28
 category: predictive-maintenance
+family: faena
 excerpt: 'An in-browser condition-monitoring and prognostics workbench for rotating machinery (bearings-first), running on real measured vibration. A source selector switches between a synthetic signal generator, real diagnosis segments (CWRU / Ottawa order-tracked / MaFaulDa), and real run-to-failure trajectories (FEMTO / XJTU / IMS). A classical DSP chain, a learned WDCNN + deep-autoencoder, and a four-model RUL ladder run live via onnxruntime-web. Synthetic data is labelled as such, cross-domain transfer is flagged, and frequency relations are exact.'
 excerptEs: 'Un banco de trabajo de monitoreo de condición y pronóstico para maquinaria rotativa (con foco en rodamientos), corriendo sobre vibración real medida. Un selector de fuente alterna entre un generador de señal sintética, segmentos de diagnóstico reales (CWRU / Ottawa con order-tracking / MaFaulDa) y trayectorias reales run-to-failure (FEMTO / XJTU / IMS). Una cadena DSP clásica, un WDCNN aprendido + autoencoder profundo, y una escalera de 4 modelos de RUL corren en vivo vía onnxruntime-web. Lo sintético se etiqueta como tal, la transferencia cross-dominio se marca y las relaciones de frecuencia son exactas.'
 icon: tabler:engine

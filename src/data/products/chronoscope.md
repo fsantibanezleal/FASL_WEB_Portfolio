@@ -4,7 +4,7 @@ titleEs: 'ChronoScope, Atlas de Pronóstico Univariado con una Capa de Modelos F
 slug: chronoscope
 date: 2026-07-10
 category: scientific-ml
-family: labs
+family: data
 excerpt: 'A univariate time-series forecasting atlas: 15 diagnostic cases (4 real, licensed + 11 seeded synthetic), each forecast by the same 19-method ladder with backtested MASE/sMAPE/coverage, from classical baselines through ML and deep nets to four zero-shot foundation models (Chronos-Bolt, Chronos-2, TimesFM-2.5, TiRex-2). A 10-module statistical analysis suite runs alongside. Everything is baked offline and replayed in a static SPA; a Pyodide live lane forecasts a bring-your-own-series with a numpy core. The foundation models are offline-only, and on real M4-hourly a plain SeasonalNaive beats TimesFM-2.5.'
 excerptEs: 'Un atlas de pronóstico univariado de series de tiempo: 15 casos de diagnóstico (4 reales, licenciados + 11 sintéticos con semilla), cada uno pronosticado por la misma escalera de 19 métodos con MASE/sMAPE/cobertura por backtesting, desde baselines clásicos hasta ML, redes profundas y cuatro modelos fundacionales zero-shot (Chronos-Bolt, Chronos-2, TimesFM-2.5, TiRex-2). Corre en paralelo una suite de análisis estadístico de 10 módulos. Todo se precalcula offline y se reproduce en una SPA estática; una vía en vivo con Pyodide pronostica una serie propia con un núcleo numpy. Los modelos fundacionales son solo offline, y en M4-hourly real un SeasonalNaive simple le gana a TimesFM-2.5.'
 icon: tabler:chart-histogram

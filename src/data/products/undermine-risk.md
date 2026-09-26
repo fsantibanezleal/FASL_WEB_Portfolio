@@ -4,6 +4,7 @@ titleEs: 'UnderMine Risk, Panel de Operador de Riesgo Geotécnico'
 slug: undermine-risk
 date: 2026-04-01
 category: geotechnical
+family: mining
 excerpt: 'An interactive operator dashboard that turns weekly geotechnical risk model output into an actionable mine map. Per-extraction-point risk on a deck.gl view, aggregation layers, per-lever actionables, and printable monthly reports. A portfolio demo running on fully synthetic data.'
 excerptEs: 'Panel de operador interactivo que convierte la salida semanal de un modelo de riesgo geotécnico en un mapa de mina accionable. Riesgo por punto de extracción sobre una vista deck.gl, capas de agregación, acciones por palanca, e informes mensuales imprimibles. Demo de portafolio sobre datos completamente sintéticos.'
 icon: tabler:map-2

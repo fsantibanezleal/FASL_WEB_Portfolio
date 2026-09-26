@@ -4,6 +4,7 @@ titleEs: 'Sistema de Gestión de Desgaste de Revestimientos de Chancador'
 slug: crusher-wear-management
 date: 2025-09-01
 category: 3d-visualization
+family: industry
 excerpt: 'A full-stack platform for tracking and forecasting crusher liner wear from raw 3D laser scan data through to production deployment. Replaced manual caliper measurements with automated 3D point cloud analysis.'
 excerptEs: 'Plataforma full-stack para seguimiento y pronóstico de desgaste de revestimientos de chancador desde datos brutos de escaneo láser 3D hasta despliegue en producción. Reemplazó mediciones manuales con calibrador por análisis automatizado de nubes de puntos 3D.'
 icon: tabler:3d-cube-sphere

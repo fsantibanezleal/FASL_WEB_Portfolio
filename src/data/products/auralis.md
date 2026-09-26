@@ -4,6 +4,7 @@ titleEs: 'Auralis, Visualizador de Embeddings de Audio 6D'
 slug: auralis
 date: 2026-04-24
 category: audio-signal
+family: data
 excerpt: 'Turns any sound into a navigable 6-dimensional universe. Audio is mapped onto seven embedding tracks (interpretable spectral features, PCA/t-SNE/UMAP projections, the Tonnetz harmonic space, YAMNet event semantics, and CLAP audio-text meaning) and rendered as a luminous 3D trajectory you can fly through, across a curated library of 102 sounds.'
 excerptEs: 'Convierte cualquier sonido en un universo navegable de 6 dimensiones. El audio se mapea en siete tracks de embeddings (características espectrales interpretables, proyecciones PCA/t-SNE/UMAP, el espacio armónico Tonnetz, semántica de eventos YAMNet y significado audio-texto de CLAP) y se renderiza como una trayectoria 3D luminosa que puedes recorrer, sobre una biblioteca curada de 102 sonidos.'
 icon: tabler:wave-sine

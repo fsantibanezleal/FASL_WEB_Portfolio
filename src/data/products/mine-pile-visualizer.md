@@ -4,6 +4,7 @@ titleEs: 'Mine Pile Visualizer, Explorador de Acopios y Topología de Circuitos'
 slug: mine-pile-visualizer
 date: 2026-04-01
 category: 3d-visualization
+family: mining
 excerpt: 'A local-first web app for exploring mining circuit topology, live material state, stockpile 3D structure, and historical profiler data. Built on Next.js 16 with React Three Fiber.'
 excerptEs: 'Aplicación web local-first para explorar topología de circuitos mineros, estado de material en tiempo real, estructura 3D de acopios y datos históricos. Construida sobre Next.js 16 con React Three Fiber.'
 icon: tabler:cube-3d-sphere

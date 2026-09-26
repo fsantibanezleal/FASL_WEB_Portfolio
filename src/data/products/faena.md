@@ -4,6 +4,7 @@ titleEs: 'Faena, Hub de Analítica Minera'
 slug: faena
 date: 2026-06-28
 category: mining-analytics
+family: faena
 excerpt: 'A single open launcher that catalogues a growing set of independent, in-browser mining-analytics tools across the value chain: exploration, drill & blast, load/haul, comminution, processing, tailings, asset health and economics. Each tool is its own documented product on a named real dataset or a validated synthetic. Six live today, eight in active development, and 28 more mapped on a visible roadmap.'
 excerptEs: 'Un lanzador abierto que cataloga un conjunto creciente de herramientas de analítica minera en el navegador, a lo largo de la cadena de valor: exploración, perforación y tronadura, carguío/transporte, conminución, procesamiento, relaves, salud de activos y economía. Cada herramienta es su propio producto documentado sobre un dataset real citado o un sintético validado. Seis en vivo hoy, ocho en desarrollo activo y 28 más en un roadmap visible.'
 icon: tabler:layout-grid

@@ -4,6 +4,7 @@ titleEs: 'LDA-HSI, Plataforma del Espacio de Diseño de Wordification'
 slug: lda-hsi
 date: 2026-05-15
 category: spectral-analysis
+family: optics
 excerpt: 'A research platform that asks which representation a hyperspectral topic model should see: 19 wordification recipes × 4 topic-model backbones × Q∈{8,16,32}, scored on a 12-axis battery across six public scenes, with a live web app and API.'
 excerptEs: 'Plataforma de investigación que pregunta qué representación debería ver un modelo de tópicos hiperespectral: 19 recetas de wordification × 4 backbones de modelos de tópicos × Q∈{8,16,32}, evaluadas en una batería de 12 ejes sobre seis escenas públicas, con una app web y API en vivo.'
 icon: tabler:chart-histogram
