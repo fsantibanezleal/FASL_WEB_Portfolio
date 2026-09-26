@@ -2,7 +2,7 @@
 title: 'CareerTwin, a Single-Seeker Career Evidence and Job-Search Workbench'
 titleEs: 'CareerTwin, un Banco de Trabajo de Evidencia Profesional y Búsqueda de Empleo para un Solo Candidato'
 slug: careertwin
-date: 2026-09-26
+date: 2026-09-18
 category: agentic-ai
 family: agentic
 excerpt: 'A self-hosted workbench where one seeker owns one evidence-centred profile and any number of opportunities, applications, tasks and generated career artifacts. Its match score is a versioned alignment measure with coverage and uncertainty, never a hiring probability: it separates required, preferred and eligibility requirements, states how much of each is covered by confirmed evidence, and explains every component reproducibly. The agent side is bounded and evidence-cited, every proposed canonical write needs explicit approval, and the whole product works without any AI provider. It does not rank candidates for employers, infer protected traits, scrape unrestricted job sites, auto-apply or send outreach. Live at v0.14.5 on a single VPS; no external job-search outcome is claimed.'
