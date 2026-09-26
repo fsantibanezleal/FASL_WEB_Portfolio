@@ -4,6 +4,7 @@ titleEs: 'FeelIT, Prototipo de Accesibilidad Háptica (2008-2012)'
 slug: feelit-original
 date: 2012-07-07
 category: accessibility
+family: interaction
 excerpt: 'The original FeelIT project, a digital environment with tactile feedback for blind users to explore virtual objects through relief information. Pioneered a 10×10 electromagnetically controlled pin-array display and servo-motor haptic devices.'
 excerptEs: 'El proyecto FeelIT original, un entorno digital con retroalimentación táctil para usuarios ciegos que exploran objetos virtuales mediante información en relieve. Pionero con una pantalla de 10×10 pines electromagnéticos y dispositivos hápticos servo-motor.'
 icon: tabler:hand-finger

@@ -1,39 +1,38 @@
 import { getCollection } from 'astro:content';
 
-export type Family = 'faena' | 'labs' | 'platforms' | 'agentic' | 'optics' | 'industry';
+export type Family = 'faena' | 'mining' | 'geo' | 'science' | 'life' | 'optics' | 'agentic' | 'data' | 'interaction' | 'outreach' | 'mobile' | 'industry';
 
 // The order the families render down the portfolio page (strongest lines first).
-export const FAMILY_ORDER: Family[] = ['faena', 'labs', 'platforms', 'agentic', 'optics', 'industry'];
+export const FAMILY_ORDER: Family[] = ['faena', 'mining', 'geo', 'science', 'life', 'optics', 'agentic', 'data', 'interaction', 'outreach', 'mobile', 'industry'];
 
 // A product's family is derived from its category (so the 40+ existing entries need no edit),
 // unless the frontmatter sets `family:` explicitly. Proprietary work always routes to `industry`.
 const CATEGORY_TO_FAMILY: Record<string, Family> = {
+  // Every product sets `family:` explicitly since 2026-09-26; this map is only the fallback for a new entry.
   'mining-analytics': 'faena',
-  'mining-optimization': 'faena',
-  geotechnical: 'faena',
+  'mining-optimization': 'mining',
+  'mining-simulation': 'mining',
+  geotechnical: 'mining',
   'predictive-maintenance': 'faena',
-
-  'quantum-computing': 'labs',
-  'scientific-ml': 'labs',
-  simulation: 'labs',
-  research: 'labs',
-
-  'data-engineering': 'platforms',
-  'quant-finance': 'platforms',
-  'audio-signal': 'platforms',
-  education: 'platforms',
-  '3d-visualization': 'platforms',
-  'computer-vision': 'platforms',
-  'mobile-apps': 'platforms',
-
-  'agentic-ai': 'agentic',
-
+  geophysics: 'geo',
+  '3d-visualization': 'geo',
+  'quantum-computing': 'science',
+  simulation: 'science',
+  research: 'science',
+  'scientific-ml': 'science',
+  biophysics: 'life',
   'computational-optics': 'optics',
   'spectral-analysis': 'optics',
-  biophysics: 'optics',
-  accessibility: 'optics',
-  robotics: 'optics',
-  geophysics: 'optics',
+  'computer-vision': 'optics',
+  'image-representation': 'optics',
+  'agentic-ai': 'agentic',
+  'data-engineering': 'data',
+  'quant-finance': 'data',
+  'audio-signal': 'data',
+  accessibility: 'interaction',
+  robotics: 'interaction',
+  education: 'outreach',
+  'mobile-apps': 'mobile',
 };
 
 export function familyOf(data: { family?: string; category: string; proprietary?: boolean }): Family {
@@ -55,7 +54,7 @@ export async function getFeaturedProducts() {
   return products.filter((p) => p.data.featured);
 }
 
-// Products grouped into the 6 families, in FAMILY_ORDER, each already date-sorted.
+// Products grouped into the twelve families, in FAMILY_ORDER, each already date-sorted.
 export async function getProductsByFamily() {
   const products = await getProducts();
   return FAMILY_ORDER.map((family) => ({

@@ -4,6 +4,7 @@ titleEs: 'Simulador de Modelo de Potts Celular'
 slug: cellular-potts-model
 date: 2013-06-01
 category: biophysics
+family: life
 excerpt: 'A CPM simulator for modeling collective migration of Dorsal Forerunner Cells during zebrafish development. Cells as deformable bodies on a lattice with Gaussian filopodia, durotaxis, and contact interactions at 10-50 FPS.'
 excerptEs: 'Simulador CPM para modelar migración colectiva de Células Precursoras Dorsales durante el desarrollo del pez cebra. Células como cuerpos deformables en una red con filopodios Gaussianos, durotaxis e interacciones de contacto a 10-50 FPS.'
 icon: tabler:cell

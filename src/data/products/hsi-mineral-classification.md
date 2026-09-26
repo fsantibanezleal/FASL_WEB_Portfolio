@@ -4,6 +4,7 @@ titleEs: 'Plataforma de Clasificación Mineral Hiperespectral'
 slug: hsi-mineral-classification
 date: 2025-11-01
 category: spectral-analysis
+family: industry
 excerpt: 'A machine learning platform for classifying minerals and estimating abundances from hyperspectral imagery (VNIR/SWIR). Compresses turnaround from days to minutes for routine mineralogical characterization.'
 excerptEs: 'Plataforma de machine learning para clasificar minerales y estimar abundancias desde imágenes hiperespectrales (VNIR/SWIR). Comprime tiempos de respuesta de días a minutos para caracterización mineralógica rutinaria.'
 icon: tabler:prism

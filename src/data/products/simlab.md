@@ -4,6 +4,7 @@ titleEs: 'CAOS SimLab, Un Laboratorio Didáctico de Simulación (DES y ABM)'
 slug: simlab
 date: 2026-06-19
 category: simulation
+family: science
 excerpt: 'Land straight in a running simulation, move the sliders, and watch the dynamics change. An open lab for Discrete-Event Simulation and Agent-Based Modeling: ten worked scenarios across six visualization families, each a pure function of (params, seed) so replay is exact, validated against theory where it exists.'
 excerptEs: 'Aterriza directamente en una simulación corriendo, mueve los sliders y observa cómo cambia la dinámica. Un laboratorio abierto de Simulación de Eventos Discretos y Modelado Basado en Agentes: diez escenarios sobre seis familias de visualización, cada uno función pura de (parámetros, semilla) para que el replay sea exacto, validado contra la teoría donde existe.'
 icon: tabler:chart-grid-dots

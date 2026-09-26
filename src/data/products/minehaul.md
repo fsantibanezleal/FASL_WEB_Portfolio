@@ -4,6 +4,7 @@ titleEs: 'MineHaul, Simulación de Eventos Discretos de Acarreo Minero'
 slug: minehaul
 date: 2026-07-02
 category: simulation
+family: faena
 excerpt: 'An open-source Python package (minehaulsim) for deterministic discrete-event simulation of open-pit and underground mine haulage on constrained road networks, with seeded parametric mine generators. Byte-deterministic, numpy-only, well-tested, the companion generator that feeds structure-real scenarios to DispatchLab.'
 excerptEs: 'Un paquete Python de código abierto (minehaulsim) para simulación de eventos discretos, determinista, del acarreo minero de rajo y subterráneo sobre redes viales restringidas, con generadores paramétricos de minas por semilla. Determinista byte a byte, solo-numpy, bien testeado, el generador companion que alimenta escenarios structure-real a DispatchLab.'
 icon: tabler:truck

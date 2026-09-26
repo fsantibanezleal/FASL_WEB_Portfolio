@@ -4,6 +4,7 @@ titleEs: 'PINN-Lab, Un Catálogo Ejecutable de Redes Neuronales Informadas por l
 slug: pinnlab
 date: 2026-06-25
 category: scientific-ml
+family: science
 excerpt: 'A live catalogue of 19 Physics-Informed Neural Network cases: each trained offline (DeepXDE → ONNX), validated against an analytic, benchmark, or real-data anchor, and re-inferred live in the browser: move a physical parameter and watch the trained network re-solve the PDE.'
 excerptEs: 'Un catálogo en vivo de 19 casos de Redes Neuronales Informadas por la Física: cada uno entrenado offline (DeepXDE → ONNX), validado contra un anclaje analítico, de benchmark o de datos reales, y re-inferido en vivo en el navegador: mueve un parámetro físico y mira a la red re-resolver la EDP.'
 icon: tabler:math-function

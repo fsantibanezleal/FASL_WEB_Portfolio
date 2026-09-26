@@ -4,6 +4,7 @@ titleEs: 'Atalaya, Una Atalaya sobre los Datos Abiertos de Chile'
 slug: atalaya
 date: 2026-07-01
 category: data-engineering
+family: data
 excerpt: 'Atalaya harvests Chile''s Data Observatory open catalog, profiles every downloadable table, and mines five kinds of cross-dataset relation (same-source, semantic similarity, spatial overlap, joinability and statistical correlation) into an explorable knowledge graph, with client-side semantic search running in the browser. Each edge carries its evidence strength, and none is presented as causal.'
 excerptEs: 'Atalaya cosecha el catálogo abierto del Data Observatory de Chile, perfila cada tabla descargable y mina cinco tipos de relación cruzada (misma fuente, similitud semántica, solapamiento espacial, joinabilidad y correlación estadística) en un grafo de conocimiento explorable, con búsqueda semántica corriendo en el navegador. Cada arista lleva la fuerza de su evidencia, y ninguna se presenta como causal.'
 icon: tabler:affiliate

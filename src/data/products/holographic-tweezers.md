@@ -4,6 +4,7 @@ titleEs: 'Pinzas Ópticas Holográficas Dinámicas'
 slug: holographic-tweezers
 date: 2010-04-01
 category: computational-optics
+family: optics
 excerpt: 'Real-time computation and visualization of holographic phase masks for optical tweezers systems. Implements the weighted Gerchberg-Saxton algorithm for shaping laser beams into multiple focused traps to manipulate microscopic particles.'
 excerptEs: 'Cálculo y visualización en tiempo real de máscaras de fase holográficas para sistemas de pinzas ópticas. Implementa el algoritmo de Gerchberg-Saxton ponderado para conformar haces láser en múltiples trampas focalizadas para manipular partículas microscópicas.'
 icon: tabler:focus-2

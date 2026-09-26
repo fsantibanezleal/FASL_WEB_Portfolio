@@ -4,6 +4,7 @@ titleEs: 'CAOS Seismic, Pronóstico Sísmico Probabilístico'
 slug: seismic-forecasting
 date: 2026-06-18
 category: geophysics
+family: geo
 excerpt: 'Earthquakes cannot be predicted, but their probability can be forecast. A daily, calibrated, conditional probability of seismic events over 1/2/7-day horizons, always shown next to its long-term baseline and scored prospectively against reality with the field-standard CSEP framework. A forecaster, never an alarm.'
 excerptEs: 'Los terremotos no pueden predecirse, pero su probabilidad sí puede pronosticarse. Una probabilidad diaria, calibrada y condicional de eventos sísmicos en horizontes de 1/2/7 días, siempre mostrada junto a su línea base de largo plazo y evaluada prospectivamente contra la realidad con el marco estándar CSEP. Un pronosticador, nunca una alarma.'
 icon: tabler:activity-heartbeat

@@ -4,6 +4,7 @@ titleEs: 'CutoffGrade Studio, Ley de Corte Óptima de Lane'
 slug: cutoffgrade
 date: 2026-06-30
 category: mining-optimization
+family: faena
 excerpt: 'An open, explainable studio for Lane''s optimal cut-off grade: feed a grade-tonnage curve plus prices, costs and three stage capacities, and it computes the NPV-maximising declining cut-off trajectory, NPV, mine life and cashflow, live in the browser, with the exact algorithm as the authority and a learned surrogate only for speed.'
 excerptEs: 'Un estudio abierto y explicable de la ley de corte óptima de Lane: con una curva ley-tonelaje más precios, costos y tres capacidades de etapa, calcula la trayectoria de corte decreciente que maximiza el VAN, la vida de mina y el flujo de caja, en vivo en el navegador, con el algoritmo exacto como autoridad y un surrogate aprendido solo para velocidad.'
 icon: tabler:chart-area-line

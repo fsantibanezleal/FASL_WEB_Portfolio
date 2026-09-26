@@ -4,6 +4,7 @@ titleEs: 'Muestreo Espacial Óptimo vía Teoría de la Información'
 slug: optimal-sampling
 date: 2016-03-01
 category: research
+family: geo
 excerpt: 'Implements the AdSEMES algorithm for optimal spatial sampling in binary random fields, specifically channelized geological reservoirs. Companion code to published papers in Mathematical Geosciences and Natural Resources Research.'
 excerptEs: 'Implementa el algoritmo AdSEMES para muestreo espacial óptimo en campos aleatorios binarios, específicamente reservorios geológicos canalizados. Código acompañante de artículos publicados en Mathematical Geosciences y Natural Resources Research.'
 icon: tabler:map-pin

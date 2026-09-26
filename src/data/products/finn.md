@@ -4,6 +4,7 @@ titleEs: 'Finn, Finanzas Personales y Pronóstico de Mercados'
 slug: finn
 date: 2026-04-30
 category: quant-finance
+family: data
 excerpt: 'A full-stack personal-finance and market-analytics app: track instruments, build watchlists and portfolios, run statistical and ML forecasts with walk-forward validation, review risk, and read FinBERT news sentiment, with LATAM coverage (IPSA + Chile macro) behind a fast, server-rendered UI.'
 excerptEs: 'Aplicación full-stack de finanzas personales y analítica de mercados: sigue instrumentos, arma watchlists y portafolios, corre pronósticos estadísticos y de ML con validación walk-forward, revisa riesgo y lee sentimiento de noticias con FinBERT, con cobertura LATAM (IPSA + macro Chile) tras una UI rápida renderizada en servidor.'
 icon: tabler:chart-candle

@@ -4,6 +4,7 @@ titleEs: 'Escritor Robótico, Simulación Scorbot III de 5 GDL'
 slug: robotic-writer
 date: 2009-01-01
 category: robotics
+family: interaction
 excerpt: 'A full simulation and control environment for a 5-DOF Scorbot III robotic arm that picks letter blocks and spells words. Uses Denavit-Hartenberg convention with analytical closed-form inverse kinematics for real-time performance.'
 excerptEs: 'Entorno completo de simulación y control para un brazo robótico Scorbot III de 5 GDL que recoge bloques de letras y escribe palabras. Usa convención Denavit-Hartenberg con cinemática inversa analítica de forma cerrada para rendimiento en tiempo real.'
 icon: tabler:robot

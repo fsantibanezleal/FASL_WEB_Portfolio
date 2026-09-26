@@ -4,6 +4,7 @@ titleEs: 'Sistema de Predicción de Riesgo Geotécnico'
 slug: geotechnical-risk
 date: 2023-06-01
 category: geotechnical
+family: industry
 excerpt: 'A machine learning system for predicting geotechnical hazards, rockburst and slope instability, in underground and open-pit mining. Provides weekly systematic risk assessment with SHAP-based explainability.'
 excerptEs: 'Sistema de machine learning para predecir peligros geotécnicos, estallido de roca e inestabilidad de talud, en minería subterránea y a cielo abierto. Provee evaluación de riesgo sistemática semanal con explicabilidad basada en SHAP.'
 icon: tabler:chart-dots-3

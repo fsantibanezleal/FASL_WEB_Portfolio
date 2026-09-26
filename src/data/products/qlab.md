@@ -4,6 +4,7 @@ titleEs: 'QLab, Laboratorio Cuántico'
 slug: qlab
 date: 2026-06-25
 category: quantum-computing
+family: science
 excerpt: 'A public, didactic quantum-computing lab that runs real frameworks (Qiskit, PennyLane, Cirq, Stim) on 20 worked cases and puts every quantum method next to its classical baseline, and shows that at lab scale, classical still wins.'
 excerptEs: 'Un laboratorio cuántico público y didáctico que corre frameworks reales (Qiskit, PennyLane, Cirq, Stim) en 20 casos y compara cada método cuántico con su línea base clásica: y muestra que, a escala de laboratorio, lo clásico aún gana.'
 icon: tabler:atom

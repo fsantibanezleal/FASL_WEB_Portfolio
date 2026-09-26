@@ -4,6 +4,7 @@ titleEs: 'Simulador 3D de Migración Celular Embrionaria'
 slug: embryo-migration
 date: 2011-09-01
 category: biophysics
+family: life
 excerpt: 'A 3D simulation of Deep Forming Cell collective migration on the surface of a spherical zebrafish embryo during epiboly. Uses AER coordinate system with WebSocket streaming and Three.js visualization.'
 excerptEs: 'Simulación 3D de migración colectiva de Células de Formación Profunda sobre la superficie de un embrión esférico de pez cebra durante la epibolía. Usa sistema de coordenadas AER con streaming WebSocket y visualización Three.js.'
 icon: tabler:dna-2

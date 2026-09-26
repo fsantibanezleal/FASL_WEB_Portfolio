@@ -4,6 +4,7 @@ titleEs: 'ChargeCascade, Estudio de Movimiento de Carga y Potencia en Molinos de
 slug: chargecascade
 date: 2026-06-26
 category: mining-optimization
+family: faena
 excerpt: 'A live in-browser 3D studio for tumbling-mill (SAG / ball / rod) charge motion and power: critical speed, the Davis cascading → cataracting → centrifuging transition, toe/shoulder angles, and Hogg-Fuerstenau / Morrell-form / Bond power, published closed-form physics recomputed on every slider, with a trained ONNX power surrogate and an out-of-envelope anomaly guard running client-side.'
 excerptEs: 'Un estudio 3D en el navegador del movimiento de carga y la potencia de molinos de tambor (SAG / bolas / barras): velocidad crítica, la transición cascada → catarata → centrifugado de Davis, ángulos toe/shoulder, y potencia Hogg-Fuerstenau / forma-Morrell / Bond: física de forma cerrada publicada, recomputada en cada control, con un surrogate ONNX de potencia y un guardia de anomalía fuera de envolvente corriendo del lado del cliente.'
 icon: tabler:barrel
