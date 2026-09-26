@@ -1,3 +1,15 @@
 *.sh text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
+# Source files are LF in the index; keep them LF in a Windows checkout too, or prettier --check (endOfLine lf) fails
+# on every file core.autocrlf rewrote (found 2026-09-26: the three taxonomy sources).
+*.ts text eol=lf
+*.tsx text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.astro text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
