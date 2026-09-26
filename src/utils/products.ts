@@ -1,9 +1,34 @@
 import { getCollection } from 'astro:content';
 
-export type Family = 'faena' | 'mining' | 'geo' | 'science' | 'life' | 'optics' | 'agentic' | 'data' | 'interaction' | 'outreach' | 'mobile' | 'industry';
+export type Family =
+  | 'faena'
+  | 'mining'
+  | 'geo'
+  | 'science'
+  | 'life'
+  | 'optics'
+  | 'agentic'
+  | 'data'
+  | 'interaction'
+  | 'outreach'
+  | 'mobile'
+  | 'industry';
 
 // The order the families render down the portfolio page (strongest lines first).
-export const FAMILY_ORDER: Family[] = ['faena', 'mining', 'geo', 'science', 'life', 'optics', 'agentic', 'data', 'interaction', 'outreach', 'mobile', 'industry'];
+export const FAMILY_ORDER: Family[] = [
+  'faena',
+  'mining',
+  'geo',
+  'science',
+  'life',
+  'optics',
+  'agentic',
+  'data',
+  'interaction',
+  'outreach',
+  'mobile',
+  'industry',
+];
 
 // A product's family is derived from its category (so the 40+ existing entries need no edit),
 // unless the frontmatter sets `family:` explicitly. Proprietary work always routes to `industry`.
