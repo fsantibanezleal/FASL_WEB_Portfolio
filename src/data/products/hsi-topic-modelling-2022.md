@@ -4,6 +4,7 @@ titleEs: 'Análisis Mineral Hiperespectral por Modelado de Tópicos (2022)'
 slug: hsi-topic-modelling-2022
 date: 2022-09-01
 category: spectral-analysis
+family: optics
 excerpt: 'The original 2022 conference work that reframed hyperspectral mineral characterisation as a topic-modelling problem: spectra as documents, LDA topics as a routing layer for per-topic regression. Cut copper-recovery error an order of magnitude on private drill-core data.'
 excerptEs: 'El trabajo original de conferencia 2022 que replanteó la caracterización mineral hiperespectral como un problema de modelado de tópicos: espectros como documentos, tópicos LDA como capa de enrutamiento para regresión por tópico. Redujo el error de recuperación de cobre un orden de magnitud sobre datos privados de sondaje.'
 icon: tabler:file-text

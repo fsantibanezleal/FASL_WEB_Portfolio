@@ -4,6 +4,7 @@ titleEs: 'SurfaceScope, Perfilado de Profundidad RGB-D para Análisis de Superfi
 slug: depth-profiler
 date: 2017-08-01
 category: 3d-visualization
+family: optics
 excerpt: 'An RGB-D depth profiling system for analyzing mineral sample surfaces. Creates 3D reconstructions via pinhole camera model with bilateral filtering, normal estimation, curvature computation, and ISO 4287 roughness metrics.'
 excerptEs: 'Sistema de perfilado de profundidad RGB-D para analizar superficies de muestras minerales. Crea reconstrucciones 3D mediante modelo de cámara pinhole con filtrado bilateral, estimación de normales, cálculo de curvatura y métricas de rugosidad ISO 4287.'
 icon: tabler:ruler-3

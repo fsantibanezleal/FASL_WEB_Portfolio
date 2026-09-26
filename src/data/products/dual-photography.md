@@ -4,6 +4,7 @@ titleEs: 'Laboratorio de Fotografía Dual'
 slug: dual-photography
 date: 2020-06-01
 category: computational-optics
+family: optics
 excerpt: "An interactive application implementing the dual photography technique: reconstructing how a scene looks from a projector's point of view using light transport matrices, SVD decomposition, and Helmholtz reciprocity."
 excerptEs: 'Aplicación interactiva que implementa la técnica de fotografía dual, reconstruyendo cómo se ve una escena desde el punto de vista de un proyector usando matrices de transporte de luz, descomposición SVD y reciprocidad de Helmholtz.'
 icon: tabler:camera

@@ -4,6 +4,7 @@ titleEs: 'Plataforma de Optimización de Procesos Mineros'
 slug: mining-optimization
 date: 2022-01-01
 category: mining-optimization
+family: industry
 excerpt: 'An end-to-end ML platform for optimizing mineral processing (SAG milling, flotation, thickening) deployed across multiple mining divisions. Delivered +100 TPH throughput uplift and measurable copper recovery improvements.'
 excerptEs: 'Plataforma ML end-to-end para optimizar procesamiento mineral (molienda SAG, flotación, espesamiento) desplegada en múltiples divisiones mineras. Entregó +100 TPH de aumento de throughput y mejoras medibles en recuperación de cobre.'
 icon: tabler:chart-bar

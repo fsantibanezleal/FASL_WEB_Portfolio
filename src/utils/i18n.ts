@@ -57,32 +57,62 @@ const translations: Record<string, Record<Locale, string>> = {
   'category.data-engineering': { en: 'Data Engineering', es: 'Ingeniería de Datos' },
   'category.all': { en: 'All', es: 'Todos' },
 
-  // Families (the 6 top-level groupings on the portfolio)
+  // Families (the twelve domain groupings on the portfolio, 2026-09-26)
   'family.all': { en: 'All', es: 'Todo' },
   'family.faena': { en: 'Faena · Mining Analytics', es: 'Faena · Analítica Minera' },
   'family.faena.blurb': {
-    en: 'A hub of browser-native mining apps: comminution, dispatch, geology, geotechnics and prognostics, each with an offline precompute lane and a results ledger.',
-    es: 'Un hub de apps mineras nativas del navegador: conminución, despacho, geología, geotecnia y pronóstico, cada una con un lane de precómputo offline y un registro de resultados.',
+    en: 'The hub of browser-native mining apps: comminution, blasting, dispatch, scheduling, stockpiles, processing, geology and asset health, each with an offline precompute lane, a results ledger and a stated evidence boundary.',
+    es: 'El hub de apps mineras nativas del navegador: conminución, tronadura, despacho, programación, acopios, procesamiento, geología y salud de activos, cada una con una vía de precómputo fuera de línea, un registro de resultados y un límite de evidencia declarado.',
   },
-  'family.labs': { en: 'Research Labs', es: 'Laboratorios de Investigación' },
-  'family.labs.blurb': {
-    en: 'Runnable catalogues that explore a method family end to end: what it is, where it applies, and where it fails, with real datasets and published negative results.',
-    es: 'Catálogos ejecutables que exploran una familia de métodos de punta a punta: qué es, dónde aplica y dónde falla, con datos reales y resultados negativos publicados.',
+  'family.mining': { en: 'Mining Operations & Processing', es: 'Operaciones y Procesamiento Minero' },
+  'family.mining.blurb': {
+    en: 'Mining products outside the hub: ventilation, drillholes, stockpile visualization, geotechnical risk, quantum optimization measured on mining problems, and phenomenological and learned models of mineral processing.',
+    es: 'Productos mineros fuera del hub: ventilación, sondajes, visualización de acopios, riesgo geotécnico, optimización cuántica medida sobre problemas mineros, y modelos fenomenológicos y aprendidos del procesamiento de minerales.',
   },
-  'family.platforms': { en: 'Platforms & Products', es: 'Plataformas y Productos' },
-  'family.platforms.blurb': {
-    en: 'Standalone products and platforms: data observatories, forecasting, audio and 3D tooling, and mobile apps.',
-    es: 'Productos y plataformas independientes: observatorios de datos, pronóstico, herramientas de audio y 3D, y apps móviles.',
+  'family.geo': { en: 'Earth Science & Geospatial 3D', es: 'Ciencias de la Tierra y 3D Geoespacial' },
+  'family.geo.blurb': {
+    en: 'Seismic forecasting, geophysical inversion, fractured-reservoir well tests, geospatial tooling, real places rebuilt in 3D, streaming reconstruction, and information-theoretic sampling of geological images.',
+    es: 'Pronóstico sísmico, inversión geofísica, pruebas de pozo en reservorios fracturados, herramientas geoespaciales, lugares reales reconstruidos en 3D, reconstrucción en streaming y muestreo informacional de imágenes geológicas.',
   },
-  'family.agentic': { en: 'Agentic AI', es: 'IA Agéntica' },
-  'family.agentic.blurb': {
-    en: 'Agent-based decision-support systems for industrial operations, on a mock service boundary until wired to real backends.',
-    es: 'Sistemas de apoyo a la decisión basados en agentes para operaciones industriales, sobre un borde de servicio mock hasta conectarse a backends reales.',
+  'family.science': { en: 'Physics, Mathematics & Scientific Computing', es: 'Física, Matemáticas y Computación Científica' },
+  'family.science.blurb': {
+    en: 'Research labs on a method family or a theorem, end to end: optimal control of magnetization, the three-gap theorem, symbolic regression, simulation, physics-informed networks and quantum problems on simulators, with published negative results.',
+    es: 'Laboratorios de investigación sobre una familia de métodos o un teorema, de punta a punta: control óptimo de magnetización, el teorema de las tres distancias, regresión simbólica, simulación, redes informadas por física y problemas cuánticos en simuladores, con resultados negativos publicados.',
   },
-  'family.optics': { en: 'Optical & Imaging Science', es: 'Óptica e Imagenología' },
+  'family.life': { en: 'Life Sciences & Neuroscience', es: 'Ciencias de la Vida y Neurociencia' },
+  'family.life.blurb': {
+    en: 'Cardiac inverse problems, cell migration and Potts models, and the fly connectome used as a frozen network and driven as a whole nervous system, every claim measured against null controls.',
+    es: 'Problemas inversos cardíacos, migración celular y modelos de Potts, y el conectoma de la mosca usado como red congelada y manejado como sistema nervioso completo, cada afirmación medida contra controles nulos.',
+  },
+  'family.optics': { en: 'Optics, Vision & Imaging', es: 'Óptica, Visión e Imagenología' },
   'family.optics.blurb': {
-    en: 'Research from the optics, microscopy and spectral-imaging work: super-resolution, holographic tweezers, hyperspectral geometallurgy, haptics and accessibility.',
-    es: 'Investigación desde el trabajo en óptica, microscopía e imagen espectral: superresolución, pinzas holográficas, geometalurgia hiperespectral, háptica y accesibilidad.',
+    en: 'Super-resolution microscopy, holographic tweezers, dual photography, hyperspectral geometallurgy, damage vision in engineering units, RGB-D measurement and the mathematical representations of an image.',
+    es: 'Microscopía de superresolución, pinzas holográficas, fotografía dual, geometalurgia hiperespectral, visión de daño en unidades de ingeniería, medición RGB-D y las representaciones matemáticas de una imagen.',
+  },
+  'family.agentic': { en: 'AI, Agents & Software Systems', es: 'IA, Agentes y Sistemas de Software' },
+  'family.agentic.blurb': {
+    en: 'Agent-based systems that must stay accountable: adversarial review, a single-seeker career workbench, a management console, industrial agent hubs, learned metacontrol, and the measurement of language models turning statements into formal models.',
+    es: 'Sistemas basados en agentes que deben rendir cuentas: revisión adversarial, un banco de trabajo de carrera para un solo candidato, una consola de gestión, hubs de agentes industriales, metacontrol aprendido, y la medición de modelos de lenguaje convirtiendo enunciados en modelos formales.',
+  },
+  'family.data': { en: 'Data, Signals & Forecasting', es: 'Datos, Señales y Pronóstico' },
+  'family.data.blurb': {
+    en: 'A forecasting atlas with a foundation-model tier, quantitative finance, an open-data watchtower over Chile, and audio embeddings made visible.',
+    es: 'Un atlas de pronóstico con un nivel de modelos fundacionales, finanzas cuantitativas, una atalaya de datos abiertos sobre Chile y embeddings de audio hechos visibles.',
+  },
+  'family.interaction': { en: 'Haptics, Robotics & Accessibility', es: 'Háptica, Robótica y Accesibilidad' },
+  'family.interaction.blurb': {
+    en: 'Haptic simulation and accessible interaction, and a robotic writer: research on how people and machines touch and move.',
+    es: 'Simulación háptica e interacción accesible, y un escritor robótico: investigación sobre cómo personas y máquinas tocan y se mueven.',
+  },
+  'family.outreach': { en: 'Education & Creative Instruments', es: 'Educación e Instrumentos Creativos' },
+  'family.outreach.blurb': {
+    en: 'Instruments built to teach and to make: a continuous botanical scene, a rigid-paper mechanism workshop, and virtual microscopy for science education.',
+    es: 'Instrumentos construidos para enseñar y para hacer: una escena botánica continua, un taller de mecanismos de papel rígido y microscopía virtual para la educación científica.',
+  },
+  'family.mobile': { en: 'Mobile Apps', es: 'Aplicaciones Móviles' },
+  'family.mobile.blurb': {
+    en: 'On-device applications: 3D reconstruction from a phone, and private mobile products.',
+    es: 'Aplicaciones en el dispositivo: reconstrucción 3D desde un teléfono y productos móviles privados.',
   },
   'family.industry': { en: 'Industry (proprietary)', es: 'Industria (propietario)' },
   'family.industry.blurb': {

@@ -4,6 +4,7 @@ titleEs: 'FeelIT 2.0, Banco de Trabajo Háptico de Accesibilidad'
 slug: feelit-2
 date: 2026-03-01
 category: accessibility
+family: interaction
 excerpt: 'A web-based haptic accessibility workbench enabling visually impaired users to explore 3D objects through touch, read Braille text in immersive 3D environments, and navigate a haptic desktop. The modern realization of a vision begun in 2008.'
 excerptEs: 'Banco de trabajo háptico web de accesibilidad que permite a usuarios con discapacidad visual explorar objetos 3D mediante tacto, leer texto Braille en entornos 3D inmersivos y navegar un escritorio háptico. La realización moderna de una visión iniciada en 2008.'
 icon: tabler:accessible

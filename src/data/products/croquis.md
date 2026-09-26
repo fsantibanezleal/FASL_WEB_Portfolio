@@ -4,7 +4,7 @@ titleEs: 'Croquis, Reconstrucción 3D de Espacios Reales en el Dispositivo (Andr
 slug: croquis
 date: 2026-07-19
 category: mobile-apps
-family: platforms
+family: mobile
 excerpt: 'An Android app that turns a walk-through (camera, IMU and GPS, no lidar) into a metric, consistency-gated point-cloud reconstruction computed fully on the phone and stored on the phone as a scene library you can view, measure and export, with a stated uncertainty budget. Imagery never leaves the device. Sensors own the trajectory and scale (ARCore VIO); the neural depth model contributes dense geometry, never the trajectory. In development (v0), Apache-2.0. The on-phone companion to the Lidar3D reconstruction line, with a local-GPU reprocessor (Croquis Station) above it.'
 excerptEs: 'Una app Android que convierte un recorrido (cámara, IMU y GPS, sin lidar) en una reconstrucción de nube de puntos métrica y gateada por consistencia, calculada por completo en el teléfono y guardada en el teléfono como una biblioteca de escenas que puedes ver, medir y exportar, con un presupuesto de incertidumbre declarado. Las imágenes nunca salen del dispositivo. Los sensores son dueños de la trayectoria y la escala (ARCore VIO); el modelo neuronal de profundidad aporta geometría densa, nunca la trayectoria. En desarrollo (v0), Apache-2.0. El companion en el teléfono de la línea Lidar3D, con un reprocesador en GPU local (Croquis Station) por encima.'
 icon: tabler:device-mobile

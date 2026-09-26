@@ -4,6 +4,7 @@ titleEs: 'Sistema de Seguimiento de Material y Mezcla en Tiempo Real'
 slug: material-tracking
 date: 2022-06-01
 category: mining-optimization
+family: industry
 excerpt: 'A real-time material tracking and blending optimization system maintaining a digital twin of ore flow from mine pits through conveyors and stockpiles to processing plant inputs. Significantly improved blending compliance.'
 excerptEs: 'Sistema de seguimiento de material y optimización de mezcla en tiempo real que mantiene un gemelo digital del flujo de mineral desde los pits hasta la planta de procesamiento. Mejoró significativamente el cumplimiento de mezcla.'
 icon: tabler:route

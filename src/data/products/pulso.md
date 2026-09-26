@@ -4,7 +4,7 @@ titleEs: 'Pulso, Agrupamiento y Atribución de Forma de Curvas Diagnósticas de 
 slug: pulso
 date: 2026-07-11
 category: scientific-ml
-family: labs
+family: geo
 excerpt: 'An unsupervised catalogue of flow-behaviour classes ("GeoTypes") for fractured reservoirs: it clusters the SHAPE of pressure-transient Bourdet-derivative curves with DTW k-medoids, attributes each class to the fracture-network descriptors that control it (Random Forest + SHAP), and ships a browser workbench that classifies a user curve against the baked medoids with conformal prediction. It reproduces and extends Kamel Targhi et al. 2026 (Comp. Geosciences 30, 57) on a real 4TU corpus (~4768 curves), then transfers the same shape diagnostic to two real aquifer pumping-test sites, with an explicit caveat that the shape transfers but the physics does not.'
 excerptEs: 'Un catálogo no supervisado de clases de comportamiento de flujo ("GeoTypes") para reservorios fracturados: agrupa la FORMA de curvas de derivada de Bourdet de transitorios de presión con DTW k-medoids, atribuye cada clase a los descriptores de la red de fracturas que la controlan (Random Forest + SHAP), y entrega un banco de trabajo en el navegador que clasifica una curva del usuario contra los medoides precalculados con predicción conforme. Reproduce y extiende Kamel Targhi et al. 2026 (Comp. Geosciences 30, 57) sobre un corpus real de 4TU (~4768 curvas), y luego transfiere el mismo diagnóstico de forma a dos sitios reales de pruebas de bombeo en acuíferos, con la advertencia explícita de que la forma transfiere pero la física no.'
 icon: tabler:wave-sine

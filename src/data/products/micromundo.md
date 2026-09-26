@@ -4,6 +4,7 @@ titleEs: 'Micromundo, Plataforma de Microscopía Virtual y Educación Científic
 slug: micromundo
 date: 2015-01-01
 category: education
+family: outreach
 excerpt: 'A digital platform integrating education with virtual microscopy, making optical science accessible through low-cost 3D-printed microscopes ($50-100 vs $2,000+ professional) and web-based visualization tools. Backed by Start-Up Chile and Microsoft Imagine Lab.'
 excerptEs: 'Plataforma digital que integra educación con microscopía virtual, haciendo la ciencia óptica accesible mediante microscopios 3D impresos de bajo costo ($50-100 vs $2,000+ profesional) y herramientas de visualización web. Respaldada por Start-Up Chile y Microsoft Imagine Lab.'
 icon: tabler:microscope

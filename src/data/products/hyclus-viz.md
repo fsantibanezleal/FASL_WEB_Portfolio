@@ -4,6 +4,7 @@ titleEs: 'HyClus Viz, Visualización de Clustering Hiperespectral'
 slug: hyclus-viz
 date: 2019-08-08
 category: spectral-analysis
+family: industry
 excerpt: 'Deep autoencoders combined with t-SNE for transforming raw hyperspectral data into interpretable visualizations. Achieved 95-97% accuracy for grain size classification from mining comminution feeders.'
 excerptEs: 'Autoencoders profundos combinados con t-SNE para transformar datos hiperespectrales brutos en visualizaciones interpretables. Logró 95-97% de precisión en clasificación de tamaño de grano desde alimentadores de conminución minera.'
 icon: tabler:chart-scatter

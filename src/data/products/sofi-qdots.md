@@ -4,6 +4,7 @@ titleEs: 'Microscopía de Super-Resolución vía Imágenes de Fluctuación Ópti
 slug: sofi-qdots
 date: 2012-07-01
 category: computational-optics
+family: optics
 excerpt: 'Implements SOFI, a computational super-resolution technique extracting sub-diffraction spatial information from temporal fluorescence fluctuations of quantum dots. First successful SOFI implementation in Chile. Resolves ~120 nm features below the 232 nm diffraction limit.'
 excerptEs: 'Implementa SOFI, técnica computacional de super-resolución que extrae información espacial sub-difracción de fluctuaciones temporales de fluorescencia de quantum dots. Primera implementación SOFI exitosa en Chile. Resuelve características de ~120 nm bajo el límite de difracción de 232 nm.'
 icon: tabler:atom-2

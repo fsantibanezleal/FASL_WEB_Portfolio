@@ -4,6 +4,7 @@ titleEs: 'Lidar3D, Laboratorio de Reconstrucción 3D Streaming'
 slug: lidar3d
 date: 2026-07-02
 category: 3d-visualization
+family: geo
 excerpt: 'An early research lab for feed-forward streaming 3D reconstruction: an ordered RGB or LiDAR stream becomes a camera trajectory, dense metric depth and a fused colored point cloud. The heavy engine runs offline on a GPU; the site replays the baked cloud across four point-cloud renderers under one unified transform, with strict renderer parity as the point: every renderer draws the same data, and approximations are disclosed.'
 excerptEs: 'Un laboratorio de investigación temprano de reconstrucción 3D streaming feed-forward: un stream ordenado RGB o LiDAR se convierte en trayectoria de cámara, profundidad métrica densa y una nube de puntos coloreada fusionada. El motor pesado corre offline en GPU; el sitio reproduce la nube horneada en cuatro renderers de nubes de puntos bajo una transformación unificada, con paridad estricta entre renderers como el punto: todos dibujan el mismo dato y las aproximaciones se declaran.'
 icon: tabler:cube-3d-sphere

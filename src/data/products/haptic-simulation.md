@@ -4,6 +4,7 @@ titleEs: 'Simulación Háptica 3D con Detección de Colisiones Octree'
 slug: haptic-simulation
 date: 2009-06-01
 category: accessibility
+family: interaction
 excerpt: 'A 3D simulation system recreating haptic interaction with virtual objects. Uses octree spatial partitioning (O(N log N)) and Separating Axis Theorem for collision detection with spring-damper Kelvin-Voigt force model.'
 excerptEs: 'Sistema de simulación 3D que recrea interacción háptica con objetos virtuales. Usa particionamiento espacial octree (O(N log N)) y Teorema del Eje Separador para detección de colisiones con modelo de fuerza Kelvin-Voigt resorte-amortiguador.'
 icon: tabler:hand-click
