@@ -74,7 +74,10 @@ const translations: Record<string, Record<Locale, string>> = {
     en: 'Seismic forecasting, geophysical inversion, fractured-reservoir well tests, geospatial tooling, real places rebuilt in 3D, streaming reconstruction, and information-theoretic sampling of geological images.',
     es: 'Pronóstico sísmico, inversión geofísica, pruebas de pozo en reservorios fracturados, herramientas geoespaciales, lugares reales reconstruidos en 3D, reconstrucción en streaming y muestreo informacional de imágenes geológicas.',
   },
-  'family.science': { en: 'Physics, Mathematics & Scientific Computing', es: 'Física, Matemáticas y Computación Científica' },
+  'family.science': {
+    en: 'Physics, Mathematics & Scientific Computing',
+    es: 'Física, Matemáticas y Computación Científica',
+  },
   'family.science.blurb': {
     en: 'Research labs on a method family or a theorem, end to end: optimal control of magnetization, the three-gap theorem, symbolic regression, simulation, physics-informed networks and quantum problems on simulators, with published negative results.',
     es: 'Laboratorios de investigación sobre una familia de métodos o un teorema, de punta a punta: control óptimo de magnetización, el teorema de las tres distancias, regresión simbólica, simulación, redes informadas por física y problemas cuánticos en simuladores, con resultados negativos publicados.',
