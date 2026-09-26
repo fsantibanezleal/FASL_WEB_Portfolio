@@ -2,7 +2,7 @@
 title: 'Enunciado, How Faithfully Language Models Turn a Problem Statement into a Solvable Model'
 titleEs: 'Enunciado, Qué Tan Fielmente los Modelos de Lenguaje Convierten un Enunciado en un Modelo Resoluble'
 slug: enunciado
-date: 2026-09-26
+date: 2026-09-23
 category: scientific-ml
 family: labs
 excerpt: 'The field reports whether a generated model ran and calls that correct. Enunciado measures faithfulness instead: a corpus of 20 authored optimization statements across five complexity tiers, every trap covered and four controls without one, is handed to language models, and the formal model each returns is judged by an oracle that is not a language model: executable, structural and property layers over a solver, with a duality certificate. Sixteen models from four providers, 320 calls, every row complete. The best local model, phi4, is faithful on 5 of 20. The output cap decides the reasoning models: DeepSeek-V4-Pro is faithful on 2 of 20 at 8192 tokens and 11 of 20 at 32768. The first version of this measurement read +0.000 and was wrong.'
