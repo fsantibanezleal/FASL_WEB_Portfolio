@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img"
+     aria-label="Sondara: three public drillhole families run through an eight-stage offline pipeline; twelve estimation and simulation methods and a geochemical review are compared on the same held-out holes; on Rocklea ordinary kriging holds its place, the learned methods learn the structure without beating it, and on Alberta's hole-group split no method beats the training mean">
+  <defs>
+    <linearGradient id="sdbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="sdar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 z" fill="#29B6F6"/></marker>
+    <style>
+      text{font-family:'Segoe UI',system-ui,sans-serif;fill:#c9d1d9}
+      .t{fill:#e6edf3;font-weight:600}.a{fill:#29B6F6}.m{fill:#8b949e;font-size:11px}
+      .box{fill:#161b22;stroke:#30363d;stroke-width:1}.acc{stroke:#29B6F6}.warn{fill:#e0a030}
+    </style>
+  </defs>
+  <rect width="800" height="400" fill="url(#sdbg)"/>
+  <text x="32" y="44" class="t" font-size="22">Sondara</text>
+  <text x="32" y="66" class="m">Drillhole estimation and simulation compared on real held-out holes · every method, the same targets, one scoring</text>
+
+  <rect x="32" y="84" width="150" height="196" rx="10" class="box acc"/>
+  <text x="46" y="108" class="a" font-size="13">SOURCES</text>
+  <text x="46" y="130" class="t" font-size="12">Rocklea Dome</text>
+  <text x="46" y="146" class="m">CSIRO, 5,035 one-metre</text>
+  <text x="46" y="160" class="m">intervals, 158 holes</text>
+  <text x="46" y="182" class="t" font-size="12">Alberta MAR_19860002</text>
+  <text x="46" y="198" class="m">22 inclined holes, logs</text>
+  <text x="46" y="220" class="t" font-size="12">NTGS 12LE002</text>
+  <text x="46" y="236" class="m">11 measured stations</text>
+  <text x="46" y="262" class="warn" font-size="11">pinned by SHA-256</text>
+
+  <path d="M182 182 H200" class="acc" fill="none" stroke-width="2" marker-end="url(#sdar)"/>
+
+  <rect x="200" y="84" width="138" height="196" rx="10" class="box"/>
+  <text x="214" y="108" class="a" font-size="13">PIPELINE</text>
+  <text x="214" y="130" class="m">acquire · ingest</text>
+  <text x="214" y="146" class="m">preprocess · dataset</text>
+  <text x="214" y="162" class="m">features · train</text>
+  <text x="214" y="178" class="m">infer · evaluate</text>
+  <text x="214" y="202" class="t" font-size="12">Whole-hole splits</text>
+  <text x="214" y="218" class="m">hole-group and</text>
+  <text x="214" y="232" class="m">spatial margin</text>
+  <text x="214" y="262" class="warn" font-size="11">export, validate next</text>
+
+  <path d="M338 182 H356" class="acc" fill="none" stroke-width="2" marker-end="url(#sdar)"/>
+
+  <rect x="356" y="84" width="200" height="196" rx="10" class="box"/>
+  <text x="370" y="108" class="a" font-size="13">METHODS</text>
+  <text x="370" y="130" class="t" font-size="12">Classical, geocond 0.8.0</text>
+  <text x="370" y="146" class="m">NN, IDW, SK, OK, UK, LMC,</text>
+  <text x="370" y="160" class="m">MIK, SGS</text>
+  <text x="370" y="182" class="t" font-size="12">Categorical</text>
+  <text x="370" y="198" class="m">SNESIM, Direct Sampling</text>
+  <text x="370" y="220" class="t" font-size="12">Learned, PyTorch to ONNX</text>
+  <text x="370" y="236" class="m">DeepKriging, KCN</text>
+  <text x="370" y="258" class="t" font-size="12">Review</text>
+  <text x="370" y="272" class="m">autoencoder, spectral index</text>
+
+  <path d="M556 182 H574" class="acc" fill="none" stroke-width="2" marker-end="url(#sdar)"/>
+
+  <rect x="574" y="84" width="194" height="196" rx="10" class="box acc"/>
+  <text x="588" y="108" class="a" font-size="13">HELD-OUT RESULT</text>
+  <text x="588" y="130" class="t" font-size="12">Rocklea Fe, 23 test holes</text>
+  <text x="588" y="146" class="m">OK RMSE 13.53 wt%; SK, IDW,</text>
+  <text x="588" y="160" class="m">LMC within 0.4 of its MAE</text>
+  <text x="588" y="180" class="m">DeepKriging 14.11, KCN 14.56:</text>
+  <text x="588" y="194" class="m">structure learned, no gain</text>
+  <text x="588" y="214" class="m">SGS keeps the variance</text>
+  <text x="588" y="228" class="m">kriging halves</text>
+  <text x="588" y="250" class="t" font-size="12">Alberta, hole-group split</text>
+  <text x="588" y="266" class="m">no method beats the mean</text>
+
+  <text x="32" y="312" class="m">Paired hole-block intervals decide whether a difference is real; shuffled-label controls and a training-mean reference say whether a</text>
+  <text x="32" y="328" class="m">model learned anything. The supplied spectral index is read from its own files: its hem/goe column is a wavelength, not a ratio.</text>
+  <text x="32" y="352" class="m">The live page still shows the 0.2 local-first viewer; the web rebuild on these results follows export and validate.</text>
+  <text x="32" y="378" class="warn" font-size="12">Version 0.12.000; geocond 0.8.0 on PyPI; scenario matrix 61 computed, 20 verified, 4 pending; lifecycle building.</text>
+</svg>
