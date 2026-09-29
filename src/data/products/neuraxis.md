@@ -55,8 +55,8 @@ kpis:
 metrics:
   - label: 'The core, reflexmesh'
     labelEs: 'El núcleo, reflexmesh'
-    value: 'Rust/PyO3 admission, typed event-driven control, learned metacontrol and Python integration; public, MIT, PyPI 0.1.1 with nine wheels and a source distribution'
-    valueEs: 'Admisión Rust/PyO3, control tipado dirigido por eventos, metacontrol aprendido e integración Python; público, MIT, PyPI 0.1.1 con nueve wheels y una distribución de fuente'
+    value: 'Rust/PyO3 admission, typed event-driven control, learned metacontrol and Python integration; public, Apache-2.0, PyPI 0.1.1 with nine wheels and a source distribution'
+    valueEs: 'Admisión Rust/PyO3, control tipado dirigido por eventos, metacontrol aprendido e integración Python; público, Apache-2.0, PyPI 0.1.1 con nueve wheels y una distribución de fuente'
   - label: 'The app, Neuraxis'
     labelEs: 'La app, Neuraxis'
     value: 'Private repository; three native file tasks (verify a software release, reconcile CSV records, audit sources), matched controller executions, five scientific routes with shared tabs, per-paragraph citations and a bibliography; rebuilt as 0.02 on 2026-09-24 after the first version was rejected; version 0.02.006'
