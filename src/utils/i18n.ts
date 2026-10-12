@@ -134,8 +134,8 @@ const translations: Record<string, Record<Locale, string>> = {
   // About
   'about.title': { en: 'About FASL.work', es: 'Acerca de FASL.work' },
   'about.description': {
-    en: 'FASL.work is an engineering and applied technology practice founded by Felipe Santibañez-Leal, an industrial manager with a strong foundation as an applied scientist and technical leader. His focus connects business priorities, multidisciplinary teams, and operational outcomes with analytics and digital transformation. The portfolio presents industrial software and open research products.',
-    es: 'FASL.work es una práctica de ingeniería y tecnología aplicada fundada por Felipe Santibañez-Leal, gestor industrial con sólida formación como científico aplicado y líder técnico. Su enfoque vincula prioridades de negocio, equipos multidisciplinarios y resultados operacionales con analítica y transformación digital. El portafolio presenta software industrial y productos de investigación abierta.',
+    en: 'FASL.work is an engineering and applied technology practice founded by Felipe Santibañez-Leal, a business and technology manager focused on industrial transformation. His work connects business priorities, multidisciplinary teams, project delivery, and operational outcomes through analytics and digital solutions. The portfolio presents industrial software and open research products.',
+    es: 'FASL.work es una práctica de ingeniería y tecnología aplicada fundada por Felipe Santibañez-Leal, gestor de negocios y tecnología enfocado en transformación industrial. Su trabajo conecta prioridades de negocio, equipos multidisciplinarios, dirección de proyectos y resultados operacionales mediante analítica y soluciones digitales. El portafolio presenta software industrial y productos de investigación abierta.',
   },
 
   // Services
@@ -148,8 +148,8 @@ const translations: Record<string, Record<Locale, string>> = {
   // Footer
   'footer.rights': { en: 'All rights reserved.', es: 'Todos los derechos reservados.' },
   'footer.tagline': {
-    en: 'Research · Hardware · Digital Solutions',
-    es: 'Investigación · Hardware · Soluciones Digitales',
+    en: 'Business · Technology · Industrial Transformation',
+    es: 'Negocios · Tecnología · Transformación Industrial',
   },
 
   // Product detail
