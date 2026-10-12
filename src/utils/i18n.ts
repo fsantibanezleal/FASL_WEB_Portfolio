@@ -134,8 +134,8 @@ const translations: Record<string, Record<Locale, string>> = {
   // About
   'about.title': { en: 'About FASL.work', es: 'Acerca de FASL.work' },
   'about.description': {
-    en: 'FASL.work is an engineering and applied technology practice founded by Felipe Santibañez-Leal, PhD in Electrical Engineering. We specialize in machine learning, 3D visualization, industrial optimization, and custom software for mining and research.',
-    es: 'FASL.work es una práctica de ingeniería y tecnología aplicada fundada por Felipe Santibañez-Leal, PhD en Ingeniería Eléctrica. Nos especializamos en machine learning, visualización 3D, optimización industrial y software a medida para minería e investigación.',
+    en: 'FASL.work is an engineering and applied technology practice founded by Felipe Santibañez-Leal, an industrial manager with a strong foundation as an applied scientist and technical leader. His focus connects business priorities, multidisciplinary teams, and operational outcomes with analytics and digital transformation. The portfolio presents industrial software and open research products.',
+    es: 'FASL.work es una práctica de ingeniería y tecnología aplicada fundada por Felipe Santibañez-Leal, gestor industrial con sólida formación como científico aplicado y líder técnico. Su enfoque vincula prioridades de negocio, equipos multidisciplinarios y resultados operacionales con analítica y transformación digital. El portafolio presenta software industrial y productos de investigación abierta.',
   },
 
   // Services
