@@ -5,8 +5,8 @@ slug: contraste
 date: 2026-10-26
 category: quant-finance
 family: data
-excerpt: 'Defending internal risk models before the supervisor: 22 reproducible validation cases on public data, run through the open engine riskvalidation.'
-excerptEs: 'Defender ante el supervisor los modelos internos de riesgo: 22 casos reproducibles de validación con datos públicos, sobre el motor abierto riskvalidation.'
+excerpt: 'Defending internal risk models before the supervisor: 21 reproducible validation cases on public data, a synthetic bank and known-truth generators, run through the open engine riskvalidation.'
+excerptEs: 'Defender ante el supervisor los modelos internos de riesgo: 21 casos reproducibles de validación con datos públicos, un banco sintético y generadores de verdad conocida, sobre el motor abierto riskvalidation.'
 icon: tabler:shield-check
 tags:
   [
@@ -45,8 +45,8 @@ kpis:
     labelEs: 'Evidencia que un supervisor puede repetir'
     baseline: 'Euro area review of internal models: 5,800 findings from 200 on-site investigations at 65 banks, about 30 percent of high severity, validation thresholds missing for back-testing, discriminatory power and stability'
     baselineEs: 'Revisión de modelos internos de la zona euro: 5.800 hallazgos de 200 investigaciones in situ en 65 bancos, cerca de 30 por ciento de severidad alta, con umbrales de validación faltantes para pruebas retrospectivas, poder discriminatorio y estabilidad'
-    result: '22 cases on public data, each test with its null hypothesis, its primary source and the policy that turned its p-value into a light, run through the open engine riskvalidation 1.0.1'
-    resultEs: '22 casos con datos públicos, cada prueba con su hipótesis nula, su fuente primaria y la política que convirtió su valor p en una luz, corridos con el motor abierto riskvalidation 1.0.1'
+    result: '21 cases on public data, a synthetic bank and known-truth generators, each test with its null hypothesis, its primary source and the policy that turned its p-value into a light, run through the open engine riskvalidation 1.0.1'
+    resultEs: '21 casos con datos públicos, un banco sintético y generadores de verdad conocida, cada prueba con su hipótesis nula, su fuente primaria y la política que convirtió su valor p en una luz, corridos con el motor abierto riskvalidation 1.0.1'
     impact: 'An independent third party can obtain the same numbers from open data and code'
     impactEs: 'Un tercero independiente puede obtener los mismos números con datos y código abiertos'
   - label: 'Validating the validator'
