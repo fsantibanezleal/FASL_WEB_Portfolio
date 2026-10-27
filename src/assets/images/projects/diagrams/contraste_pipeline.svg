@@ -19,7 +19,7 @@
   <text x="44" y="158" class="t" font-size="12">Synthetic bank</text>
   <text x="44" y="178" class="t" font-size="12">Known-truth</text>
   <text x="44" y="194" class="t" font-size="12">generators</text>
-  <text x="44" y="216" class="m">49 sources, each</text>
+  <text x="44" y="216" class="m">58 sources, each</text>
   <text x="44" y="230" class="m">with its licence</text>
   <text x="44" y="244" class="m">class</text>
   <path d="M138 177 H158" class="acc" fill="none" stroke-width="2" marker-end="url(#ctar)"/>
@@ -65,7 +65,7 @@
   <text x="548" y="138" class="t" font-size="12">Inventory</text>
   <text x="548" y="154" class="m">34 entries, tiers</text>
   <text x="548" y="176" class="t" font-size="12">Register</text>
-  <text x="548" y="192" class="m">577 findings</text>
+  <text x="548" y="192" class="m">581 findings</text>
   <text x="548" y="214" class="t" font-size="12">Report</text>
   <text x="548" y="230" class="m">per model</text>
   <path d="M642 177 H662" class="acc" fill="none" stroke-width="2" marker-end="url(#ctar)"/>
@@ -82,7 +82,7 @@
 
   <path d="M310 262 V292" class="acc" fill="none" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ctar)"/>
   <path d="M364 292 V264" class="acc" fill="none" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ctar)"/>
-  <rect x="284" y="292" width="232" height="52" rx="8" class="box acc" stroke-dasharray="4 3"/>
+  <rect x="284" y="292" width="232" height="58" rx="8" class="box acc" stroke-dasharray="4 3"/>
   <text x="298" y="312" class="a" font-size="13">C22 validates the validator</text>
   <text x="298" y="328" class="m">size and power of every registered</text>
   <text x="298" y="341" class="m">p-value test: 4,000 repetitions a study</text>
