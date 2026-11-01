@@ -1,76 +1,69 @@
 ---
-title: 'Dynamic Holographic Optical Tweezers'
-titleEs: 'Pinzas Ópticas Holográficas Dinámicas'
+title: 'DinHot, Holography Studio for Programmable Light Fields'
+titleEs: 'DinHot, Estudio Holográfico de Campos de Luz Programables'
 slug: holographic-tweezers
 date: 2010-04-01
 category: computational-optics
 family: optics
-excerpt: 'Real-time computation and visualization of holographic phase masks for optical tweezers systems. Implements the weighted Gerchberg-Saxton algorithm for shaping laser beams into multiple focused traps to manipulate microscopic particles.'
-excerptEs: 'Cálculo y visualización en tiempo real de máscaras de fase holográficas para sistemas de pinzas ópticas. Implementa el algoritmo de Gerchberg-Saxton ponderado para conformar haces láser en múltiples trampas focalizadas para manipular partículas microscópicas.'
+excerpt: 'A browser-based workbench for comparing optical-trap designs under stated assumptions. DinHot makes the case, method, modeled device and modeled output reviewable together.'
+excerptEs: 'Un espacio de trabajo en el navegador para comparar diseños de trampas ópticas bajo supuestos explícitos. DinHot permite revisar en conjunto el caso, el método, el dispositivo modelado y el resultado modelado.'
 icon: tabler:focus-2
-tags: [optics, holography, computational-physics, fastapi, python]
+tags: [optics, holography, product-engineering, simulation, browser-workbench]
 proprietary: false
 featured: false
-assetPatterns: [dinhot, gs_phase]
+assetPatterns: [dinhot_00_cover, dinhot_pain, dinhot_situation, dinhot_architecture, dinhot_method]
 github: 'https://github.com/fsantibanezleal/CEFOP_DinHot'
 demo: 'https://dinhot.fasl-work.com'
+website: 'https://dinhot.fasl-work.com'
 
-challenge: 'Optical tweezers require precise phase masks computed in real-time to create multiple independently positioned laser traps. The Gerchberg-Saxton algorithm involves iterative Fourier transforms that must converge quickly for interactive manipulation of microscopic particles.'
-challengeEs: 'Las pinzas ópticas requieren máscaras de fase precisas calculadas en tiempo real para crear múltiples trampas láser posicionadas independientemente. El algoritmo de Gerchberg-Saxton involucra transformadas de Fourier iterativas que deben converger rápidamente para manipulación interactiva de partículas microscópicas.'
+challenge: 'Comparing optical-trap designs is difficult when cases, device assumptions and measurement criteria vary between runs. The decision is how a design performs under a stated setup, what trade-offs appear, and which results are modeled rather than measured on physical equipment.'
+challengeEs: 'Comparar diseños de trampas ópticas es difícil cuando los casos, los supuestos del dispositivo y los criterios de medición varían entre ejecuciones. La decisión es cómo se comporta un diseño bajo una configuración explícita, qué compensaciones aparecen y qué resultados son modelados en lugar de medidos en equipos físicos.'
 
-approach: 'Weighted Gerchberg-Saxton iterative Fourier-transform method for multi-trap phase mask computation. Python/FastAPI backend with HTML5 Canvas visualization, REST API + WebSocket communication for real-time interaction. Originally developed at CEFOP, Universidad de Concepción.'
-approachEs: 'Método de transformada de Fourier iterativa Gerchberg-Saxton ponderado para cálculo de máscaras de fase multi-trampa. Backend Python/FastAPI con visualización HTML5 Canvas, comunicación REST API + WebSocket para interacción en tiempo real. Desarrollado originalmente en CEFOP, Universidad de Concepción.'
+approach: 'DinHot organizes a case, setup, method, seed and metric into a repeatable review workflow. The released product contains 24 methods and 14 defined synthetic cases. Python builds and checks the versioned evidence; the static browser workbench replays those artifacts and re-runs only the methods and cases admitted by its live-lane gate. It models the device and camera feedback; it does not control an SLM or camera.'
+approachEs: 'DinHot organiza cada caso, configuración, método, semilla y métrica en un flujo de revisión reproducible. La versión publicada contiene 24 métodos y 14 casos sintéticos definidos. Python construye y valida la evidencia versionada; el espacio de trabajo estático en el navegador reproduce esos artefactos y vuelve a ejecutar solo los métodos y casos admitidos por la compuerta del carril en vivo. Modela el dispositivo y la retroalimentación de cámara; no controla un SLM ni una cámara.'
 
-businessContext: 'Optical tweezers use tightly focused laser beams to trap and manipulate microscopic particles: cells, beads, molecules. A single focused beam creates one trap. Creating multiple independently positioned traps from a single laser requires computing holographic phase masks that split and redirect the beam through a spatial light modulator. The computational challenge: finding the optimal phase distribution that produces uniform trapping force across all desired positions.'
-businessContextEs: 'Las pinzas ópticas usan haces láser enfocados para atrapar y manipular partículas microscópicas: células, esferas, moléculas. Un solo haz enfocado crea una trampa. Crear múltiples trampas posicionadas independientemente desde un solo láser requiere calcular máscaras de fase holográficas que dividen y redirigen el haz a través de un modulador espacial de luz. El desafío computacional: encontrar la distribución de fase óptima que produce fuerza de trampa uniforme en todas las posiciones deseadas.'
-strategicValue: 'The weighted Gerchberg-Saxton algorithm computes phase masks through iterative Fourier transform cycling, with intensity weighting ensuring uniform trapping force. Real-time computation enables interactive trap positioning via WebSocket communication. The application supports 6 Zernike aberration modes for simulating optical system imperfections. Originally developed at CEFOP (Center for Optics and Photonics), Universidad de Concepción. Modernized as Python/FastAPI with HTML5 Canvas visualization.'
-strategicValueEs: 'El algoritmo de Gerchberg-Saxton ponderado calcula máscaras de fase mediante ciclado iterativo de transformada de Fourier, con ponderación de intensidad asegurando fuerza de trampa uniforme. El cálculo en tiempo real permite posicionamiento interactivo de trampas vía comunicación WebSocket. La aplicación soporta 6 modos de aberración de Zernike para simular imperfecciones del sistema óptico. Originalmente desarrollado en CEFOP (Centro de Óptica y Fotónica), Universidad de Concepción. Modernizado como Python/FastAPI con visualización HTML5 Canvas.'
+businessContext: 'For teams assessing programmable-light designs, choosing an algorithm is only part of the work. They also need to see how setup assumptions, device limits and measurement criteria shape the result. DinHot gives that review a common case and comparison basis while keeping synthetic output distinct from evidence collected on a physical instrument.'
+businessContextEs: 'Para los equipos que evalúan diseños de luz programable, elegir un algoritmo es solo una parte del trabajo. También necesitan ver cómo los supuestos de configuración, los límites del dispositivo y los criterios de medición afectan el resultado. DinHot ofrece una base común de casos y comparación, y mantiene separados los resultados sintéticos de la evidencia obtenida en un instrumento físico.'
+strategicValue: 'This is applied product engineering around a technical decision: state the scope, keep the execution lanes distinct, make the comparison criteria visible and surface unsupported cases instead of smoothing them over. The 0.02.001 release defines 14 synthetic cases; 13 are baked and C11 is refused by contract 1. Those counts describe product coverage, not an operational or laboratory outcome.'
+strategicValueEs: 'Es ingeniería de producto aplicada a una decisión técnica: declarar el alcance, mantener separados los carriles de ejecución, hacer visibles los criterios de comparación y mostrar los casos no admitidos en vez de ocultarlos. La versión 0.02.001 define 14 casos sintéticos; 13 se procesan y C11 se rechaza mediante el contrato 1. Estas cifras describen la cobertura del producto, no un resultado operacional ni de laboratorio.'
 
-kpis:
-  - label: 'Phase Computation'
-    labelEs: 'Cálculo de Fase'
-    baseline: 'Offline computation'
-    baselineEs: 'Cálculo offline'
-    result: 'Real-time iterative GS algorithm'
-    resultEs: 'Algoritmo GS iterativo en tiempo real'
-    impact: 'Interactive trap positioning'
-    impactEs: 'Posicionamiento interactivo de trampas'
-  - label: 'Trap Configuration'
-    labelEs: 'Configuración de Trampas'
-    baseline: 'Single fixed trap'
-    baselineEs: 'Trampa fija única'
-    result: 'Multiple independently positioned traps'
-    resultEs: 'Múltiples trampas posicionadas independientemente'
-    impact: 'Flexible particle manipulation'
-    impactEs: 'Manipulación flexible de partículas'
+kpis: []
 
 metrics:
-  - label: 'Algorithm'
-    labelEs: 'Algoritmo'
-    value: 'Weighted Gerchberg-Saxton'
-    valueEs: 'Gerchberg-Saxton ponderado'
-  - label: 'Traps'
-    labelEs: 'Trampas'
-    value: 'Multiple independent'
-    valueEs: 'Múltiples independientes'
-  - label: 'Origin'
-    labelEs: 'Origen'
-    value: 'CEFOP, U. de Concepción'
-    valueEs: 'CEFOP, U. de Concepción'
+  - label: 'Released version'
+    labelEs: 'Versión publicada'
+    value: '0.02.001'
+    valueEs: '0.02.001'
+  - label: 'Methods in comparison'
+    labelEs: 'Métodos en comparación'
+    value: '24, under common tasks, seeds and metrics'
+    valueEs: '24, bajo tareas, semillas y métricas comunes'
+  - label: 'Defined case coverage'
+    labelEs: 'Cobertura de casos definidos'
+    value: '14 synthetic cases; 13 baked, C11 refused by contract 1'
+    valueEs: '14 casos sintéticos; 13 procesados, C11 rechazado por el contrato 1'
+  - label: 'Execution model'
+    labelEs: 'Modelo de ejecución'
+    value: 'Offline bake, static replay and gated browser execution'
+    valueEs: 'Procesamiento fuera de línea, reproducción estática y ejecución acotada en el navegador'
 
-stack: [Python, FastAPI, NumPy, FFT, HTML5 Canvas, WebSocket, Gerchberg-Saxton]
+stack: [Python, NumPy, TypeScript, React, 'Web Workers', Vite]
 ---
 
-## Trapping Light
+## A workbench for review
 
-Optical tweezers use a tightly focused laser beam to trap microscopic particles: cells, beads, molecules. The radiation pressure gradient near the focus creates a stable 3D potential well that holds the particle in place. Moving the focus moves the trapped object. One beam, one trap.
+DinHot is a browser-based simulator and evaluator for optical trap arrays and shaped light fields. The current product grew from DinHotSys, a C++ desktop tool developed at CEFOP. The 0.02.001 release turns that work into a versioned product workflow with a static browser interface, a Python pipeline and a TypeScript engine for the cases and methods that pass the live-lane gate.
 
-The challenge: creating **multiple independently positioned traps** from a single laser. The solution is a spatial light modulator (SLM), a device that reshapes the wavefront without changing amplitude. The SLM displays a computed phase mask that splits the beam into multiple focal points, each capable of trapping a particle independently.
+The product is designed to make the review conditions visible: a named case, an optical setup, a method, a seed and the metrics used to compare the result. The diagram gallery shows the operating context, the proposed modeled bench, the application flow, the execution lanes and the method scope.
 
-## Computing the Phase Mask
+## What the release can support
 
-The weighted **Gerchberg-Saxton algorithm** computes phase masks through iterative Fourier transform cycling: start with desired trap positions, inverse FFT to the SLM plane (extract phase, replace amplitude with uniform beam), forward FFT to focal plane (extract phase, replace amplitude with desired pattern), repeat. The weighting adjusts trap intensities at each iteration to ensure uniform trapping force, without it, outer traps tend to be weaker.
+The released case set has 14 synthetic definitions. Thirteen cases are baked in 0.02.001; C11 is refused by contract 1. Absolute values are outputs of the stated model, not measurements from a calibrated instrument. The browser re-runs only the eligible cases and methods. Other versioned results are replayed from committed artifacts.
 
-Convergence typically requires 10–50 iterations. The result: a phase pattern that, when displayed on the SLM, creates multiple laser foci at precisely specified positions in 3D space.
+This boundary matters in a management review: a comparison is useful only when its scope and evidence source are clear. DinHot exposes those conditions rather than presenting a simulated result as a laboratory result or a customer outcome.
 
-The application provides real-time phase mask computation with WebSocket communication for low-latency browser interaction, HTML5 Canvas visualization of phase patterns and simulated focal planes, and 6 Zernike aberration modes for simulating optical system imperfections. Originally developed at **CEFOP** (Center for Optics and Photonics), Universidad de Concepción.
+## Product boundary
+
+DinHot is not a hardware driver. It does not communicate with a spatial light modulator or a physical camera. The device response and camera feedback are modeled. Its value today is an inspectable, repeatable software workflow for evaluating design choices before any claim about physical operation.
+
+[Open the live workbench](https://dinhot.fasl-work.com) · [View the source repository](https://github.com/fsantibanezleal/CEFOP_DinHot)
